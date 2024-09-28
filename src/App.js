@@ -1,19 +1,29 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import MainComponent from './MainComponent/MainComponent';
-import LoginComponent from './LoginComponent/LoginComponent';
-import RegisterComponent from './RegisterComponent/RegisterComponent';
+import MainComponent from './view/MainComponent/MainComponent';
+import LoginComponent from './view/LoginComponent/LoginComponent';
+import ForgotPassword from './view/ForgotPassword/ForgotPassword';
+import RegisterComponent from './view/RegisterComponent/RegisterComponent';
 import './assets/css/style.css';
+import './assets/css/responsive.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 
 function App() {
     return (
+      <>
       <Router>
         <Routes>
             <Route path="/" element={<MainComponent />} />
             <Route path="/login" element={<LoginComponent />} />
             <Route path="/register" element={<RegisterComponent />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
       </Router>
+      <ToastContainer />
+      </>
     );
 }
 

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Main() {
     const navigate = useNavigate();
-
+    const ref = useRef()
     const goToLogin = () => {
         navigate('/login');
     };
@@ -11,6 +11,12 @@ function Main() {
     const goToRegister = () => {
         navigate('/register');
     };
+    const handelScroll=()=>{
+        ref.current.scrollIntoView({
+            behavior: 'smooth', // Enables smooth scrolling
+                block: 'start'
+        })
+    }
 
     return (
         <main className="main-wrapper main-wrapper2">
@@ -33,11 +39,11 @@ function Main() {
                         <div className="banner-item-inner2">
                             <ul>
                                 <li><a href="#" onClick={goToLogin}>הקש כדי לשחק</a></li>
-                                <li><a href="#" onClick={goToRegister} ><img src="images/banner-03.png" alt=""/>פתח חשבון </a></li>
+                                <li><a href="#" onClick={goToRegister} >פתח חשבון     <img src="images/banner-03.png" alt=""/></a></li>
                             </ul>
                         </div>
                         <div className="banner-item-inner3">
-                            <div className="banner-item-inner4">
+                            <div className="banner-item-inner4" onClick={handelScroll}>
                                 <img src="images/banner-04.png" alt=""/>
                                 <span>Scroll Down</span>
                             </div>
@@ -48,7 +54,7 @@ function Main() {
             {/* <!-- banner-area end --> */}
 
             {/* <!-- quick-area start --> */}
-            <section className="quick-area">
+            <section className="quick-area"  ref={ref}>
                 <div className="container">
                     <div className="quick-item">
                         <div className="quick-item-inner">

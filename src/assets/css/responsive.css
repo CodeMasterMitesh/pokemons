@@ -77,6 +77,7 @@ Medium Screen - Others
 	.quick-item-inner ul li a {
 	    font-size: 30px;
 	    padding-left: 40px;
+		list-style: none;
 	}
 
 	/*=== notice area start ===*/
@@ -330,6 +331,9 @@ Small Screen - Mobile
 */
 @media screen and (max-width: 767px) {
 
+	.quick-item-inner6 img{
+		height: 79% !important;
+	}
 	.header-area {
 		background-size: cover;
 	}
@@ -471,17 +475,20 @@ Small Screen - Mobile
 	.banner-item-inner img {
 	    max-width: 250px;
 	}
-
+	.banner-item-inner2 ul{
+		padding: 0px !important;
+	}
 	.banner-item-inner2 ul li a {
 	    font-size: 25px;
-	    width: 280px;
-	    height: 60px;
+	    width: 240px;
+	    height: 50px;
+		text-decoration: none !important;
 	}
 
 	.banner-item-inner2 ul li:nth-of-type(2) a {
 	    height: 55px;
-	    padding-left: 50px;
-	    padding-right: 12px;
+	    /* padding-left: 50px;
+	    padding-right: 12px; */
 	    font-size: 20px;
 	    border-radius: 30px;
 	}
@@ -503,6 +510,9 @@ Small Screen - Mobile
 
 	.quick-item-inner ul li {
 	    width: 100%;
+        display: flex;
+        justify-content: center;
+
 	}
 
 	.quick-item-inner ul li a {
@@ -510,6 +520,8 @@ Small Screen - Mobile
 	    height: 90px;
 	    padding-left: 50px;
 	    margin-bottom: 35px;
+		width: 367px;
+
 	}
 
 	.quick-item-inner ul li a img {
@@ -715,4 +727,10 @@ Small Screen - Mobile
 	}
 
 
+}
+@media screen and (max-width:1199px) {
+	.quick-item-inner6 img{
+		height: 79% !important;
+	}
+	
 }
