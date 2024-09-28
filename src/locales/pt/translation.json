@@ -1,5 +1,13 @@
 {
-    "play_now": "Jogue agora",
-    "open_account": "Abra uma conta",
-    "scroll_down": "Rolar para baixo"
-  }  
+  "english": "Inglês",
+  "hebrew": "hebraico",
+  "purtuguese": "português",
+  "forgot_password":"Esqueceu-se da sua senha",
+  "email":"e-mail",
+  "this_field_is_required":"Este campo é de preenchimento obrigatório",
+  "back_to_login":"Voltar ao login",
+  "submit":"Submeter",
+  "login":"Conecte-se",
+  "password":"palavra-passe",
+  "name":"nome"
+}  

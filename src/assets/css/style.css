@@ -1766,3 +1766,13 @@ body {
 .error-text{
     color: red;
 }
+
+.language > div{
+    position: absolute;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+.language span{
+    color: gray;
+}

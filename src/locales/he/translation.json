@@ -1,5 +1,14 @@
 {
-    "play_now": "הקש כדי לשחק",
-    "open_account": "פתח חשבון",
-    "scroll_down": "גלול מטה"
-  }  
+  "english": "אַנגְלִית",
+  "hebrew": "עִברִית",
+  "purtuguese": "פורטוגזית",
+  "forgot_password":"שכחת סיסמה",
+  "email":"אֶלֶקטרוֹנִי",
+  "this_field_is_required":"שדה זה חובה",
+  "back_to_login":"חזרה לכניסה",
+  "submit":"לְהַגִישׁ",
+  "login":"כְּנִיסָה לַמַעֲרֶכֶת",
+  "password":"סִיסמָה",
+  "name":"שֵׁם"
+
+}

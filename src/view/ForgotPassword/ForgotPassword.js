@@ -3,8 +3,11 @@ import { useForm } from "react-hook-form";
 import { forgotPassword } from '../../store/auth'
 import {useSelector,useDispatch} from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const ForgotPassword = () => {
+    const {t} =useTranslation();
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -23,25 +26,25 @@ const ForgotPassword = () => {
                     <div className="register-item register-item2">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="register-item-inner">
-                                <h2>שכחת סיסמה<img src="images/register-01.png" alt="" /></h2>
+                                <h2>{t('forgot_password')}<img src="images/register-01.png" alt="" /></h2>
                             </div>
                             <div className="register-item-inner7">
                                 <div className='validation-box'>
                                     <div className="register-item-inner4 m-0">
                                         <input type="text"
                                             id="name"
-                                            placeholder="Email"
+                                            placeholder={t('email')}
                                             {...register("email", { required: true })} />
                                         <img src="images/register-02.png" alt="" />
                                     </div>
-                                    {errors.email && <span className='error-text m-3'>This field is required</span>}
+                                    {errors.email && <span className='error-text m-3'>{t('this_field_is_required')}</span>}
                                 </div>
                             </div>
                             <div className="register-item-inner8">
-                                <Link to='/login'>Back to login?</Link>
+                                <Link to='/login'>{t('back_to_login')}</Link>
                             </div>
                             <div className="register-item-inner6">
-                                <button type="submit">הלחתה</button>
+                                <button type="submit">{t('submit')}</button>
                             </div>
                         </form>
                     </div>

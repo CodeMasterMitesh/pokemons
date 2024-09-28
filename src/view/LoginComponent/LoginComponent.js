@@ -4,7 +4,9 @@ import { loginUser } from '../../store/auth'
 import {useSelector,useDispatch} from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 const Login = () => {
+    const {t}=useTranslation()
     const { register, handleSubmit, formState: { errors } } = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -23,18 +25,20 @@ const Login = () => {
                     <div className="register-item register-item2">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="register-item-inner">
-                                <h2>קחשמל סנכיהל  <img src="images/register-01.png" alt="" /></h2>
+                                <h2>{t('login')} <img src="images/register-01.png" alt="" /></h2>
                             </div>
                             <div className="register-item-inner7">
                                 <div className='validation-box'>
                                     <div className="register-item-inner4 m-0">
                                         <input type="text"
+                                            className="form-control"
+
                                             id="name"
-                                            placeholder="Login"
+                                            placeholder={t('name')}
                                             {...register("name", { required: true })} />
                                         <img src="images/register-02.png" alt="" />
                                     </div>
-                                    {errors.name && <span className='error-text m-3'>This field is required</span>}
+                                    {errors.name && <span className='error-text m-3'>{t('this_field_is_required')}</span>}
                                 </div>
 
                                 <div className='validation-box'>
@@ -42,18 +46,18 @@ const Login = () => {
                                         <input type="password"
                                             className="form-control"
                                             id="password"
-                                            placeholder="Password"
+                                            placeholder={t('password')}
                                             {...register("password", { required: true })} />
                                         <img src="images/register-02.png" alt="" />
                                     </div>
-                                    {errors.password && <span className='error-text m-3'>This field is required</span>}
+                                    {errors.password && <span className='error-text m-3'>{t('this_field_is_required')}</span>}
                                 </div>
                             </div>
                             <div className="register-item-inner8">
-                                <Link to='/forgot-password'>Forgot your password?</Link>
+                                <Link to='/forgot-password'>{t('forgot_password')}?</Link>
                             </div>
                             <div className="register-item-inner6">
-                                <button type="submit">הלחתה</button>
+                                <button type="submit">{t('submit')}</button>
                             </div>
                         </form>
                     </div>

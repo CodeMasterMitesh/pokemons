@@ -1,5 +1,13 @@
 {
-    "play_now": "Play Now",
-    "open_account": "Open Account",
-    "scroll_down": "Scroll Down"
-  }  
+  "english": "English",
+  "hebrew": "Hebrew",
+  "purtuguese": "Purtuguese",
+  "forgot_password":"Forgot Password",
+  "email":"Email",
+  "this_field_is_required":"This field is required",
+  "back_to_login":"Back to login",
+  "submit":"Submit",
+  "login":"Login",
+  "name":"Name",
+  "password":"Password"
+}
