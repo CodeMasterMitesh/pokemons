@@ -30,12 +30,7 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (userCredentia
             }
         }
     )
-    .then(response => {
-        if(response?.data?.token){
-            localStorage.setItem('token',response.data.token)
-        }
-        return response.data
-    })
+    .then(response => response.data)
     .catch(error => {
         return rejectWithValue(error.response.data);
     });
@@ -108,6 +103,9 @@ export const authSlice = createSlice({
         .addCase(loginUser.fulfilled, (state, action) => {
             state.login_loading = false;
             state.user_data = action.payload;
+            if(action.payload?.token){
+                localStorage.setItem('userData',JSON.stringify(action.payload.user))
+            }
         })
         .addCase(loginUser.rejected, (state, action) => {
             state.login_loading = false;
@@ -119,7 +117,8 @@ export const authSlice = createSlice({
         })
         .addCase(registerUser.fulfilled, (state, action) => {
             state.register_loading = false;
-            state.user_data = action.payload;
+            state.user_data = action.payload.data.user;
+            
         })
         .addCase(registerUser.rejected, (state, action) => {
             state.register_loading = false;

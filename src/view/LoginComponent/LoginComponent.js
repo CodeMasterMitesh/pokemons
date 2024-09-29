@@ -5,15 +5,22 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../../contexts/AuthContext';
 const Login = () => {
     const { t } = useTranslation()
     const { register, handleSubmit, formState: { errors } } = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const {login} = useAuth()
     const onSubmit = async (data) => {
         try {
-            await dispatch(loginUser(data)).unwrap(); // Unwrap to handle resolved value
-            navigate('/home'); // Redirect to the home page after successful login
+            const response = await dispatch(loginUser(data)).unwrap();            
+            if (response.token) {
+                localStorage.setItem('token', response.token);
+                login(response.token); 
+                navigate('/home');
+              }
         } catch (error) {
             console.error('Login failed:', error);
         }
