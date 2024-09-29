@@ -14,9 +14,7 @@ const Register = () => {
     const navigate = useNavigate();
     const onSubmit = async (data) => {
         try {
-            delete data.others
-            console.log(data);
-            
+            delete data.others            
             await dispatch(registerUser(data)).unwrap(); 
             navigate('/login'); 
         } catch (error) {

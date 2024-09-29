@@ -12,7 +12,6 @@ const Home = () => {
         } else {
             setVisible(false);
         }
-        console.log(visible);
         
     };
 
