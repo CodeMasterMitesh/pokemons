@@ -103,7 +103,6 @@ body {
     position: fixed;
     right: 30px;
     bottom: 25px;
-    display: none;
     animation: lab_top_up 5s linear infinite;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -853,7 +852,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 348px;
+    width: 378px;
     height: 73px;
     background-image: url(../../../public/images/banner-01.png);
     background-repeat: no-repeat;
@@ -861,6 +860,7 @@ body {
     background-position: center;
     margin: 0 auto 20px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .banner-item-inner2 ul li:nth-of-type(2) a {
@@ -871,7 +871,12 @@ body {
     padding-right: 12px;
     font-size: 30px;
     font-weight: 400;
+    cursor: pointer;
+
     color: #D7D7D7;
+}
+.banner-item-inner2 ul li:nth-of-type(2) a span {
+    max-width: 90%;
 }
 
 .banner-item-inner4 {
@@ -933,14 +938,14 @@ body {
 }
 
 .quick-item-inner ul li a {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 700;
     color: #E4E3E3;
     width: 100%;
     height: 100px;
     display: flex;
     align-items: center;
-    padding-left: 60px;
+    padding-left: 25px;
     background-image: url(../../../public/images/quick-02.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -1069,7 +1074,7 @@ body {
     padding-top: 50px;
     position: relative;
     z-index: 9;
-    margin-bottom: 110px;
+    margin-bottom: 30px;
 }
 
 .notice-item-inner h2 {
@@ -1101,13 +1106,24 @@ body {
     width: 100%;
 }
 
+.notice-item-inner3 h2 {
+    font-size: 60px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: -4px;
+    margin-bottom: 65px;
+}
+
 .notice-item-inner3 {
     padding-top: 36px;
     padding-left: 95px;
 }
 
 .notice-item-inner3 p {
-    margin-right: -50px;
+    font-size: 30px;
+    font-weight: 400;
+    color: #8D8D8D;
+    margin-left: 65px;
 }
 
 .notice-item-inner4 {
@@ -1119,8 +1135,15 @@ body {
     user-select: none;
 }
 
-.notice-item-inner4 h3 {
-    font-size: 204px;
+.second-h3{
+    left: -47px !important;
+    left: 23px !important;
+    top: -91px;
+
+}
+
+.notice-item-inner4 h3  {
+    font-size: 127px;
     font-weight: 700;
     color: #111111;
 }
@@ -1202,7 +1225,7 @@ body {
     background-size: cover;
 }
 .validation-box{
-    height: 90px;
+    min-height: 90px;
 }
 .register-area {
     min-height: 100vh;
@@ -1330,7 +1353,7 @@ body {
     font-size: 36px;
     font-weight: 700;
     color: #FCF9F9;
-    width: 350px;
+    width: 429px;
     height: 80px;
     display: flex;
     align-items: center;
@@ -1342,6 +1365,35 @@ body {
     background-position: center;
     background-color: transparent;
     margin: 0 auto;    
+}
+
+
+.register-item-inner6 .register-button {
+    font-size: 36px;
+    font-weight: 700;
+    color: #FCF9F9;
+    width: 429px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    background-image: url(../../../public/images/banner-02.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    background-color: transparent;
+    margin: 0 auto;    
+    padding: 10px 10px;
+    position: relative;
+}
+
+.register-button img{
+    position: absolute;
+    right: 20px;
+}
+.register-button span{
+    width: 84%;
 }
 
 /*=== login page start ===*/
@@ -1768,11 +1820,20 @@ body {
 }
 
 .language > div{
-    position: absolute;
+    position: fixed;
     display: flex;
     gap: 20px;
     width: 100%;
+    z-index: 1000000;
 }
 .language span{
-    color: gray;
+    cursor: pointer;
+    color: rgb(193, 193, 193);
+}
+.pk-description{
+    width: 50%;
+    position: relative;
+}
+.main-wrapper p{
+    margin: 0;
 }

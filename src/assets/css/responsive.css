@@ -75,8 +75,8 @@ Medium Screen - Others
 	/*=== quick area start ===*/
 
 	.quick-item-inner ul li a {
-	    font-size: 30px;
-	    padding-left: 40px;
+	    font-size: 27px;
+	    padding-left: 20px;
 		list-style: none;
 	}
 
@@ -287,7 +287,7 @@ Small Screen - Tablate
 	}
 
 	.notice-item-inner4 h3 {
-	    font-size: 120px;
+	    font-size: 95px;
 	}
 
 	.notice-item-inner3 .notice-item-inner4 {
@@ -480,7 +480,7 @@ Small Screen - Mobile
 	}
 	.banner-item-inner2 ul li a {
 	    font-size: 25px;
-	    width: 240px;
+	    width: 269px;
 	    height: 50px;
 		text-decoration: none !important;
 	}
@@ -650,8 +650,16 @@ Small Screen - Mobile
 
 	.register-item-inner6 button {
 	    font-size: 26px;
-	    width: 250px;
+	    width: 299px;
 	    height: 60px;  
+	}
+	.register-item-inner6 .register-button {
+	    font-size: 26px;
+	    width: 299px;
+	    height: 60px;  
+	}
+	.register-button img{
+		height: 40px;
 	}
 
 	/*=== character page start ===*/

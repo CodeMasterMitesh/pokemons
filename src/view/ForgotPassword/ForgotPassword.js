@@ -26,25 +26,29 @@ const ForgotPassword = () => {
                     <div className="register-item register-item2">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="register-item-inner">
-                                <h2>{t('forgot_password')}<img src="images/register-01.png" alt="" /></h2>
+                                <h2>{t('Forgot Password')}<img src="images/register-01.png" alt="" /></h2>
                             </div>
                             <div className="register-item-inner7">
                                 <div className='validation-box'>
                                     <div className="register-item-inner4 m-0">
                                         <input type="text"
                                             id="name"
-                                            placeholder={t('email')}
+                                            placeholder={t('Email')}
                                             {...register("email", { required: true })} />
                                         <img src="images/register-02.png" alt="" />
                                     </div>
-                                    {errors.email && <span className='error-text m-3'>{t('this_field_is_required')}</span>}
+                                    {errors.email && <span className='error-text m-3'>{t('This field is required')}</span>}
                                 </div>
                             </div>
-                            <div className="register-item-inner8">
-                                <Link to='/login'>{t('back_to_login')}</Link>
-                            </div>
                             <div className="register-item-inner6">
-                                <button type="submit">{t('submit')}</button>
+                                <button type="submit">{t('Submit')}</button>
+                            </div>
+                            
+                            <div className="register-item-inner6 mt-3">
+                                <button onClick={()=>{navigate('/login')}} className='register-button'>
+                                    <span>{t('Back to login')}</span>
+                                <img src="images/banner-03.png" alt=""/>
+                                </button>
                             </div>
                         </form>
                     </div>

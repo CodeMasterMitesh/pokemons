@@ -10,9 +10,9 @@ function Language() {
   return (
     <div className='language'>
        <div>
-          <span className='cursor-pointer'  onClick={() => changeLanguage('en')}>{t('english')}</span>
-          <span className='cursor-pointer' onClick={() => changeLanguage('he')}>{t('hebrew')}</span>
-          <span className='cursor-pointer' onClick={() => changeLanguage('pt')}>{t('purtuguese')}</span>
+          <span className='cursor-pointer'  onClick={() => changeLanguage('en')}>{t('English')}</span>
+          <span className='cursor-pointer' onClick={() => changeLanguage('he')}>{t('Hebrew')}</span>
+          <span className='cursor-pointer' onClick={() => changeLanguage('pt')}>{t('Purtuguese')}</span>
         </div>
     </div>
   )

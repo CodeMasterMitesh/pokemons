@@ -1,19 +1,19 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { loginUser } from '../../store/auth'
-import {useSelector,useDispatch} from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 const Login = () => {
-    const {t}=useTranslation()
+    const { t } = useTranslation()
     const { register, handleSubmit, formState: { errors } } = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const onSubmit = async (data) => {
         try {
             await dispatch(loginUser(data)).unwrap(); // Unwrap to handle resolved value
-            navigate('/'); // Redirect to the home page after successful login
+            navigate('/home'); // Redirect to the home page after successful login
         } catch (error) {
             console.error('Login failed:', error);
         }
@@ -25,7 +25,7 @@ const Login = () => {
                     <div className="register-item register-item2">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="register-item-inner">
-                                <h2>{t('login')} <img src="images/register-01.png" alt="" /></h2>
+                                <h2>{t('Login')} <img src="images/register-01.png" alt="" /></h2>
                             </div>
                             <div className="register-item-inner7">
                                 <div className='validation-box'>
@@ -34,11 +34,11 @@ const Login = () => {
                                             className="form-control"
 
                                             id="name"
-                                            placeholder={t('name')}
-                                            {...register("name", { required: true })} />
+                                            placeholder={t('Name')}
+                                            {...register("username", { required: true })} />
                                         <img src="images/register-02.png" alt="" />
                                     </div>
-                                    {errors.name && <span className='error-text m-3'>{t('this_field_is_required')}</span>}
+                                    {errors.username && <div className='error-text m-2'>{t('This field is required')}</div>}
                                 </div>
 
                                 <div className='validation-box'>
@@ -46,18 +46,24 @@ const Login = () => {
                                         <input type="password"
                                             className="form-control"
                                             id="password"
-                                            placeholder={t('password')}
-                                            {...register("password", { required: true })} />
+                                            placeholder={t('Password')}
+                                            {...register("wachtwoord", { required: true })} />
                                         <img src="images/register-02.png" alt="" />
                                     </div>
-                                    {errors.password && <span className='error-text m-3'>{t('this_field_is_required')}</span>}
+                                    {errors.wachtwoord && <div className='error-text m-2'>{t('This field is required')}</div>}
                                 </div>
                             </div>
                             <div className="register-item-inner8">
-                                <Link to='/forgot-password'>{t('forgot_password')}?</Link>
+                                <Link to='/forgot-password'>{t('Forgot Password')}?</Link>
                             </div>
                             <div className="register-item-inner6">
-                                <button type="submit">{t('submit')}</button>
+                                <button type="submit">{t('Submit')}</button>
+                            </div>
+                            <div className="register-item-inner6 mt-3">
+                                <button onClick={()=>{navigate('/register')}} className='register-button'>
+                                    <span>{t('Open an account')}</span>
+                                <img src="images/banner-03.png" alt=""/>
+                                </button>
                             </div>
                         </form>
                     </div>
