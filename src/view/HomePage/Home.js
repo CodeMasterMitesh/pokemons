@@ -1,7 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { BsArrowUp } from "react-icons/bs";
+import { BsPersonCircle,BsBellFill ,BsFilePersonFill,BsGearFill,BsXLg} from "react-icons/bs";
+import { useAuth } from '../../contexts/AuthContext';
+
+
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import { useNavigate } from 'react-router-dom';
+import Header from '../../Header';
 const Home = () => {
+    const [show, setShow] = useState(false);
+    const {logout }=useAuth();
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+const navigate = useNavigate()
     const { t } = useTranslation();
 
     const [visible, setVisible] = useState(false);
@@ -12,12 +24,18 @@ const Home = () => {
         } else {
             setVisible(false);
         }
-        
+
     };
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+    const handleLogout = ()=>{
+        logout();
+        localStorage.clear();
+        navigate('/login')
+
+    }
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -27,25 +45,24 @@ const Home = () => {
     }, []);
     return (
         <div dir='rtl'>
+            <Header/>
             <div className="main-wrapper">
-                <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                    <div className="offcanvas-body">
+                <Offcanvas show={show} onHide={handleClose} placement="end" className="bg-dark text-white custom-offcanvas-dark">
+                    <Offcanvas.Header closeButton closeVariant="white">
+                    </Offcanvas.Header>
+                    <Offcanvas.Body>
                         <div className="side-menu">
-                            <div className="side-menu-inner">
-                                <div className="close" data-bs-dismiss="offcanvas" aria-label="Close">
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <ul>
-                                    <li><a href="#">{t('Home')} <img src="images/header-02.png" alt="" /></a></li>
-                                    <li><a href="#">{t('Pokemon Game')} <img src="images/header-02.png" alt="" /></a></li>
-                                    <li><a href="#">{t('City')} <img src="images/header-02.png" alt="" /></a></li>
-                                    <li><a href="#">{t('Library')} <img src="images/header-02.png" alt="" /></a></li>
-                                </ul>
-                            </div>
+                            <ul className='p-0'>
+                                <li ><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsPersonCircle />{t('User')}</a></li>
+                                <li ><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsFilePersonFill/>{t('My Character')}</a></li>
+                                <li ><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsBellFill/>{t('Notification')} (0)</a></li>
+                                <li ><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"><BsGearFill/>   {t('Settings')}</a></li>
+                                <li ><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#" onClick={handleLogout}><BsXLg/>{t('Logout')} </a></li>
+                            </ul>
                         </div>
-                    </div>
-                </div>
+                    </Offcanvas.Body>
+                </Offcanvas>
+
                 <section className="character-area">
                     <div className="container">
                         <div className="character-item">
@@ -58,7 +75,7 @@ const Home = () => {
                                 </div>
                                 <div className="character-item-inner2">
                                     <ul>
-                                        <li data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                        <li data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" onClick={handleShow}>
                                             <img src="images/character-01.png" alt="" />
                                         </li>
                                         <li><img src="images/character-02.png" alt="" /><span>{t('Champion Title')}</span></li>
@@ -232,10 +249,10 @@ const Home = () => {
                     </div>
                 </footer>
                 {visible && <button className="scrolltotop" onClick={scrollToTop}>
-                <BsArrowUp />
+                    <BsArrowUp />
                 </button>}
             </div>
-        </div>
+        </div >
     );
 };
 
