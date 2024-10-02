@@ -1,0 +1,1657 @@
+@media all and (max-width: 1400px) {
+    .modal_area { 
+        padding: 50px 0 150px 0; 
+    }
+    .modal_close { 
+        right: 386px; 
+    }
+}
+
+@media all and (max-width: 1335px) {
+    .modal_close { 
+        right: 34%; 
+    }
+}
+
+@media all and (max-width: 1199px) {
+    .menu_ul ul li a p { 
+        top: 14px;
+    }
+    .modal_close {
+        right: 31%;
+    }
+}
+
+@media all and (max-width: 991px) {
+    .menu_ul ul li a p {
+        top: 13px;
+        font-size: 16px;
+    }
+    .modal_close {
+        right: 24%;
+    }
+}
+
+@media all and (max-width: 767px) {
+    .social_home {
+        right: 33px;
+    }
+    .home_main_area {
+        background: url(../images/home/bg.png) no-repeat scroll center center / cover;
+    }
+    .menu_ul ul li a p {
+        top: 5px;
+        font-size: 16px;
+    }
+    .modal_close {
+        right: 15%;
+    }
+}
+
+@media all and (max-width: 575px) {
+    .menu_ul ul li {
+        flex: 0 0 100%;
+    }
+    .menu_ul ul li a p {
+        top: 34px;
+        font-size: 22px;
+    }
+    .main_box {
+        height: 100vh;
+    }
+    .modal_close {
+        right: 12%;
+    }
+    .modal_btn img {
+        width: 100%; 
+    }
+    .modal_button a p { 
+        font-size: 26px; 
+    }
+}
+
+@media all and (max-width: 450px) {
+    .modal_close {
+        right: 10%;
+        top: 50px;
+    }
+    .modal_button a p { 
+        top: 89px; 
+    }
+}
+
+
+
+
+
+/* Ar Responsive  */
+@media all and (max-width:1700px){
+    .ar_create_carousel_wrapper .owl-next {
+        top: 100px;
+    }
+    .ar_create_carousel_wrapper .owl-prev {
+        top: 100px;
+    }
+}
+@media all and (max-width:1399px){
+    .ar_hospital_recovery img {
+        width: 85px;
+    }
+    .ar_hospital_recovery {
+        top: 101px;
+        left: 37%;
+    }
+    .ar_hospital_item_single img {
+        width: 106px;
+    }
+    .ar_hospital_item_single {
+        bottom: 78px;
+        left: 90px;
+    }
+    .ar_raceInvite_banner_cont {
+        top: 75px;
+    }
+    .ar_raceinvoice_single_item img {
+        width: 200px;
+        height: 68px;
+    }
+    .ar_steal_btn_single_item a img {
+        width: 155px;
+        height: 60px;
+    }
+    .ar_steal_btn_single_item.last p {
+        top: 17px;
+    }
+    .ar_pokebag_left_area img {
+        width: 115px;
+    }
+    .ar_pokebag_right_area img {
+        width: 115px;
+    }
+    .ar_mainPage_bottom_persion a img {
+        width: 160px;
+    }
+    .arPokeprofile_right_top_btn img {
+        width: 90%;
+    }
+    .arPokeprofile_right_top_btn.single p {
+        top: 15px;
+        left: -25px;
+    }
+
+    .ar_create_carousel_wrapper .owl-next {
+        top: 65px;
+    }
+    .ar_create_carousel_wrapper .owl-prev {
+        top: 65px;
+    }
+    .ar_shop_item_wrapper{
+        justify-content: flex-start;
+    }
+    .ar_single_item_cont {
+        top: 16px;
+    }
+    .arPlayerProfle_chacter_item a img {
+        width: 100px;
+    }
+}
+
+
+
+
+
+
+@media all and (max-width:1199px){
+    .ar_single_item_cont_img img{
+        width: 65px;
+    }
+    .ar_single_item_cont {
+        top: 22px;
+        left: 20px;
+    }
+    .ar_single_item_cont_title h5 {
+        font-size: 16px;
+    }
+    .ar_item_overly_cont h2 {
+        font-size: 35px;
+    }
+    .ar_item_overly_cont p {
+        font-size: 16px;
+    }
+    .ar_ooter_logo a img {
+        width: 150px;
+    }
+    .ar_footer_social_icon h2 {
+        font-size: 22px;
+    }
+    .ar_footer_icon a {
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+    }
+    .ar_footer_icon a i {
+        font-size: 22px;
+    }
+    .ar_footer_area_cont h2 {
+        font-size: 22px;
+    }
+    .ar_footer_area_cont:after {
+        left: -50px;
+    }
+    .ar_message_scroll_cont h3 {
+        font-size: 16px;
+        top: 5px;
+        right: 70px;
+    }
+    .ar_message_scroll_cont p {
+        font-size: 14px;
+        bottom: 17px;
+        right: 70px;
+    }
+    .ar_message_notification_cont p {
+        font-size: 14px;
+        top: -30px;
+    }
+    .ar_message_notification_cont p a.tagWhite {
+        font-size: 14px;
+    }
+    .ar_message_tag a {
+        font-size: 14px;
+    }
+    .ar_message_tag {
+        top: -32px;
+    }
+    .ar_singleChatList_name p {
+        font-size: 14px;
+    }
+    .ar_chatlist_btn a img{
+        width: 100%;
+    }
+    .ar_chatList_title_name h4 {
+        font-size: 16px;
+    }
+    .ar_chatList_title_name h4.h4First:after {
+        display: none;
+    }
+    .ar_message_chatList {
+        padding: 30px 10px 30px 10px;
+    }
+    .ar_chat_friendList_wrapper {
+        padding-right: 20px;
+    }
+    .ar_single_select_item {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 18%;
+                flex: 0 0 18%;
+    }
+    .ar_hospital_recovery {
+        top: 80px;
+        left: 36%;
+    }
+    .ar_hospital_item_single img {
+        width: 85px;
+    }
+    .ar_hospital_item_single {
+        bottom: 65px;
+        left: 80px;
+    }
+    .ar_raceinvoice_single_item img {
+        width: 160px;
+        height: 55px;
+    }
+    .ar_raceInvoice_btn_single {
+        top: 14px;
+    }
+    .ar_raceinvoice_single_item p {
+        top: 15px;
+    }
+    .ar_raceinvoice_single_item.last:after {
+        height: 35px;
+    }
+    .ar_raceInvite_banner_cont.ar_stealCont {
+        top: 45px;
+    }
+    .ar_steal_btn_single_item p b{
+        display: block;
+    }
+    .ar_steal_btn_single_item.after:after {
+        top: 1px;
+    }
+    .ar_steaBtn_single {
+        top: 10px;
+    }
+    .ar_steal_btn_single_item p {
+        font-size: 16px;
+    }
+    .ar_steal_btn_single_item h5 {
+        font-size: 16px;
+    }
+    .ar_pokebag_left_area img {
+        width: 110px;
+    }
+    .ar_pokebag_left_area {
+        padding: 20px;
+    }
+    .ar_battle_left_text img {
+        width: 290px;
+    }
+    .ar_battle_left_hp_area {
+        margin-left: 15px;
+    }
+    .ar_battle_left_hp_area img {
+        width: 65%;
+    }
+    .ar_battle_left_hp_text {
+        width: 200px;
+    }
+    .arBattle_left_cont p {
+        font-size: 12px;
+    }
+    .ar_battle_single_bottom p {
+        font-size: 16px;
+        top: 8px;
+    }
+    .ar_battle_single_bottom a img {
+        width: 150px;
+    }
+    .ar_battle_btom_single a img {
+        width: 125px;
+    }
+    .ar_battle_btom_single p {
+        font-size: 16px;
+        top: 13px;
+        cursor: pointer;
+    }
+    .ar_battleTop_middle p span {
+        font-size: 20px;
+    }
+    .ar_battleTop_middle p {
+        font-size: 14px;
+    }
+    .ar_battle_left_hp_text {
+        margin-bottom: 10px;
+    }
+    .ar_mainPage_bottom_persion a img {
+        width: 130px;
+    }
+    .ar_pokeProfile_right_top.top {
+        margin-top: 0px;
+    }
+    .arPokeprofile_right_top_btn img {
+        height: 50px;
+    }
+    .arPokeprofile_arrow_area img {
+        width: 30px;
+    }
+    .ar_work_area {
+        padding-right: 10px;
+    }
+    .ar_single_item_table_work.heading {
+        padding-right: 70px;
+    }
+    .ar_myProfile_single_item {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 31%;
+                flex: 0 0 31%;
+    }
+    .ar_myProfile_btnCont_text p {
+        font-size: 14px;
+        top: 10px;
+    }
+    .ar_raceinvoice_single_item.last a img{
+        width: 115px;
+        height: 40px;
+    }
+    .arStealSingle input {
+        width: 220px;
+    }
+    .ar_playerProfile_area {
+        flex-wrap: wrap;
+    }
+    .arPlayer_left {
+        flex: 0 0 50%;
+    }
+    .arPlayer_middle {
+        flex: 0 0 50%;
+    }
+    .ar_player_right {
+        flex: 0 0 100%;
+    }
+    .ar_playerMiddle_bottom_single_item a img {
+        width: 250px;
+    }
+    .ar_playerMiddle_bottom_single_itemTexy {
+        top: 12px;
+    }
+}
+
+
+
+
+@media all and (max-width:991px){
+    .ar_header_area_section{
+        position: relative;
+    }
+    .ar_header_navbar{
+        display: none;
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end;
+        background-color: #08133E;
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        top: 65px;
+    }
+ 
+    .ar_header_navbar ul {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                    -ms-grid-row-align: flex-start;
+                align-items: flex-start;
+        
+        -webkit-box-pack: start;
+        
+            -ms-flex-pack: start;
+        
+                justify-content: flex-start;
+        align-items: flex-start;
+        padding: 20px 20px;
+    }
+    .arMobileBars2{
+        display: block;
+    }
+    .arMobileBars1{
+        display: none;
+    }
+    .ar_header_area {
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end;
+    }
+    .ar_header_bars:after {
+        display: none;
+    }
+    .ar_heading_title_back h3 {
+        font-size: 35px;
+    }
+    .ar_heading_title_back a.ar_back img {
+        width: 55px;
+    }
+    .ar_heading_title_back a img {
+        width: 20px;
+    }
+    .arTitle_plus_img img {
+        width: 110px;
+    }
+    .arTitle_plus_img p {
+        font-size: 12px;
+        top: 16px;
+        left: 30px;
+    }
+    .arTitle_plus_img p.one152 {
+        top: 11px;
+    }
+
+    .ar_singnle_iteam_area {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 47%;
+                flex: 0 0 47%;
+    }
+
+    .ar_footer_area_cont {
+        text-align: center;
+        margin-top: 25px;
+    }
+    .ar_footer_area_logo {
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .ar_footer_area_cont:after {
+       display: none;
+    }
+    .chatingMeassFLex {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .ar_message_chatList {
+        margin-top: 35px;
+    }
+    .ar_messenger_scroll_box img, 
+    .ar_messenger_scroll_boxNotification img {
+        height: 80px;
+    }
+    .ar_message_notification_cont p {
+        top: -50px;
+    }
+    .ar_message_tag {
+        top: -55px;
+    }
+    .ar_message_messenger_box_wrapper {
+        padding: 30px 10px 30px 10px;
+        padding-bottom: 100px;
+    }
+    .ar_single_select_item {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 22%;
+                flex: 0 0 22%;
+    }
+    .ar_hospital_item_single img {
+        width: 60px;
+    }
+    .ar_hospital_item_single {
+        bottom: 50px;
+        left: 65px;
+    }
+    .ar_hospital_recovery img {
+        width: 55px;
+    }
+    .ar_hospital_recovery {
+        top: 58px;
+        left: 36%;
+    }
+    .ar_hotpita_btnCoin a img {
+        width: 135px;
+    }
+    .ar_raceInvite_banner_cont {
+        top: 40px;
+        left: 100px;
+    }
+    .ar_raceinvoice_single_item img {
+        width: 115px;
+        height: 40px;
+    }
+    .ar_raceinvoice_single_item p {
+        font-size: 14px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        top: 10px;
+    }
+    .ar_raceinvoice_single_item h3 {
+        font-size: 14px;
+    }
+    .ar_raceinvoice_radio .form-check label {
+        font-size: 14px;
+    }
+    .ar_raceinvoice_radio .form-check {
+       margin-top: 0px;
+    }
+    .ar_raceInvoice_btn_single {
+        top: 9px;
+    }
+    .ar_raceinvoice_single_item.last:after {
+       display: none;
+    }
+    .ar_stealCont p {
+        padding-bottom: 5px;
+        font-size: 14px;
+    }
+    .ar_stealCont h5 {
+        font-size: 14px;
+    }
+    .ar_steal_btn_single_item.after:after {
+       display: none;
+    }
+    .ar_stealBtn_area > img {
+        height: 110px;
+    }
+    .ar_steaBtn_single {
+        top: 20px;
+    }
+    .ar_steal_btn_single_item h5 {
+        margin-right: 5px;
+        width: auto;
+    }
+    .ar_stealBtn_area {
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    }
+    .ar_pvp_title h3 {
+        font-size: 22px;
+    }
+    .ar_pvp_character_area img {
+        width: 60px;
+    }
+    .ar_pvp_character_area.last{
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end;
+    }
+    .arPokebag_twoColum {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .ar_pokebag_left_area {
+        margin-bottom: 25px;
+    }
+    .ar_pokebag_rightWrapper {
+        padding: 30px 20px;
+    }
+    .ar_pokebag_left_area {
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+    }
+    .ar_pokebag_left_area img {
+        margin-right: 20px;
+    }
+    .ar_pokebag_left_area {
+        margin-right: 0px;
+    }
+    .ar_pokebag_right_area img {
+        width: 105px;
+    }
+    .ar_pokedex_area_left {
+        padding: 30px 20px 34px 20px;
+    }
+    .arPokedex_wrapper_itam a img {
+        width: 85px;
+    }
+    .ar_pokedex_area_right {
+        padding: 30px 20px 50px 20px;
+    }
+    .ar_battle_left_text img {
+        width: 215px;
+        height: 60px;
+    }
+    .arBattle_left_cont {
+        left: 30px;
+        top: 10px;
+    }
+    .ar_battle_single_bottom a img {
+        width: 110px;
+    }
+    .ar_battle_single_bottom p {
+        font-size: 12px;
+        top: 6px;
+    }
+    .ar_battle_btom_single a img {
+        width: 100px;
+    }
+    .ar_battle_btom_single p {
+        font-size: 14px;
+        top: 10px;
+    }
+    .ar_battle_bottom_bottm {
+        margin-right: 0px;
+    }
+    .ar_mainPage_bottom_persion a img {
+        margin-right: 15px;
+        margin-bottom: 15px;
+        width: 100px;
+    }
+    .ar_mainPageLeft_parchent_top_img img {
+        width: 120px;
+    }
+    .ar_mainPageLeft_parchent_top_text h4 {
+        font-size: 12px;
+    }
+    .ar_mainPageLeft_parchent_top_text span {
+        font-size: 12px;
+        display: inherit;
+    }
+    .ar_right_mainpage_social_icon_area a img {
+        width: 45px;
+        height: 46px;
+    }
+    .ar_mainPage_textBtn_img img {
+        width: 200px;
+    }
+    .ar_mainPage_textBtn_img_cont p {
+        font-size: 12px;
+    }
+    .ar_mainPage_textBtn_img_cont {
+        top: 6px;
+        left: 50px;
+    }
+    .ar_mainPage_textBtn_img_text p {
+        font-size: 12px;
+        top:9;
+    }
+    .ar_mainPage_textBtn_img_text img {
+        width: 260px;
+    }
+    .ar_mainpage_right_lavel_btnBig p {
+        left: 25px;
+    }
+    .ar_mainpage_right_lavel p {
+        font-size: 12px;
+    }
+    .ar_pokeProfile_right_single_cont {
+        padding-right: 10px;
+        padding-bottom: 0px;
+    }
+    .ar_pokeprofile_area {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .ar_pokeProfile_right_area {
+        background: #DEE1E8;
+        padding: 15px 25px;
+    }
+    .ar_pokeprofile_level {
+        display: none;
+    }
+    .ar_pokeProfile_right_top.top.second {
+        margin-top: 20px;
+    }
+    .ar_work_single_text.text {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 20%;
+                flex: 0 0 20%;
+    }
+    .ar_work_single_text p {
+        font-size: 14px;
+    }
+    .ar_work_single_text.gold {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 20%;
+                flex: 0 0 20%;
+    }
+    .ar_myProfile_itam_wrapper {
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+    }
+    .ar_myProfile_single_item {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 48%;
+                flex: 0 0 48%;
+        margin-bottom: 30px;
+    }
+    .ar_myProfile_sinlge_text p {
+        font-size: 14px;
+    }
+    .ar_myProfile_btn a img {
+        width: 115px;
+    }
+    .toggle-label.big_toggle_label.big_toggle_label {
+        width: 225px;
+        height: 40px;
+    }
+    .ar_hotpita_btnCoin {
+        position: absolute;
+        top: 34%;
+        right: 23%;
+    }
+    .ar_message_chatList {
+        margin-top: 35px;
+        margin-bottom: 300px;
+    }
+    .ar_chat_friendList_wrapper {
+        margin-top: 37px;
+    }
+    .ar_singleChatList_name p:first-child {
+        top: 30px;
+        left: 105px;
+    }
+    .ar_singleChatList_name p:last-child {
+        top: 33px;
+        right: 47px;
+    }
+    .ar_playerMiddle_bottom_area {
+        bottom: 60px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width:767px){
+    .ar_heading_area_top {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .ar_heading_title_back {
+        margin-bottom: 20px;
+    }
+    .ar_item_area {
+        -webkit-column-gap: 25px;
+           -moz-column-gap: 25px;
+                column-gap: 25px;
+    }
+    .ar_single_item_cont {
+        top: 17px;
+        left: 20px;
+    }
+    .ar_single_item_cont_img img{
+        width: 50px;
+    }
+    .ar_single_item_cont_img > img {
+        margin-right: 10px;
+    }
+    .ar_single_item_cont_title h5 {
+        font-size: 14px;
+    }
+    .ar_item_overly_cont h2 {
+        font-size: 25px;
+    }
+    .ar_item_overly_cont p {
+        font-size: 14px;
+    }
+    .ar_footer_area_logo {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                    -ms-grid-row-align: center;
+                align-items: center;
+    }
+    .ar_ooter_logo {
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+    .ar_footer_social_icon {
+        text-align: center;
+    }
+    .ar_footer_icon a {
+        width: 40px;
+        height: 40px;
+    }
+    .ar_footer_icon a i {
+        font-size: 18px;
+    }
+    .ar_messenger_scroll_box img, 
+    .ar_messenger_scroll_boxNotification img {
+        height: 70px;
+    }
+    .ar_footer_icon a {
+        margin: 0px 5px;
+    }
+
+    .ar_single_select_item {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 30%;
+                flex: 0 0 30%;
+    }
+    .ar_hospital_item_single img {
+        width: 40px;
+    }
+    .ar_hospital_item_single {
+        bottom: 40px;
+        left: 47px;
+    }
+    .ar_hotpita_btnCoin a img {
+        width: 125px;
+    }
+    .ar_hotpita_btnCoin {
+        right: 14%;
+    }
+    .ar_hospital_recovery {
+        top: 38px;
+    }
+    .ar_raceInvite_banner_cont h5,
+    .ar_raceInvite_banner_cont p {
+        font-size: 14px;
+    }
+    .ar_raceInvite_banner_cont {
+        top: 25px;
+        left: 65px;
+        text-align: left;
+    }
+    .ar_raceInvite_btn_area > img.bgArea {
+        height: 115px;
+    }
+    .ar_raceinvoice_single_item {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+        margin-bottom: 15px;
+    }
+    .ar_raceInvoice_btn_single {
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    }
+    .ar_raceinvoice_radio {
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .ar_raceInvite_area > img {
+        height: 400px;
+    }
+    .ar_raceInvite_banner_cont.ar_stealCont {
+        top: 25px;
+        padding-right: 25px;
+    }
+    .ar_stealCont h5, 
+    .ar_stealCont p {
+        font-size: 14px;
+        line-height: 15px;
+    }
+    .ar_stealBanner_area img {
+        height: 90px;
+    }
+    .arStealSingle {
+        margin-bottom: 10px;
+    }
+    .ar_stealBtn_area > img {
+        height: 175px;
+    }
+    .ar_create_single_btn img{
+        width: 100%;
+    }
+    .ar_creat_btn_cont {
+        top: 11px;
+    }
+    .ar_create_carousel_wrapper button img {
+       display: none;
+    }
+    .ar_pokebag_left_area img {
+        width: 90px;
+    }
+    .ar_pokebag_left_area {
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .ar_pokebag_right_area img {
+        width: 90px;
+    }
+    .ar_pokebag_right_area {
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .arPokedex_wrapper_itam a img {
+        width: 68px;
+    }
+    .ar_pokedex_prcent_btn a img {
+        width: 100px;
+    }
+    .ar_pokedexLeft_parcent img {
+        width: 85px;
+    }
+    .ar_pokedex_area_left h4 {
+        font-size: 16px;
+    }
+    .ar_pokedex_item_wrapper_area a {
+        font-size: 20px;
+    }
+    .ar_battle_area_top {
+        -ms-flex-wrap:wrap;
+            flex-wrap:wrap;
+    }
+    .ar_battle_left_hp_area {
+        margin-left: 0px;
+    }
+    .ar_mainPage_bottom_persion a img {
+        width: 75px;
+    }
+    .ar_mainPage_wrapper {
+        background-size: 100%;
+    }
+    .arPokeProfile_hpArea {
+        text-align: center;
+    }
+    .ar_pokeprofile_area {
+        background: url('../images/pokeProfile/pokeProfileBG.png') no-repeat scroll 0 0 / cover;
+    }
+    .ar_shop_area {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .ar_shop_area_right {
+        margin-top: 30px;
+    }
+    .ar_shop_nav_single {
+        text-align: center;
+    }
+    .ar_shop_nav_single a img {
+        width: 150px;
+    }
+    .ar_shop_nav_single p {
+        top: 16px;
+    }
+    .ar_shop_single_item > img {
+        width: 140px;
+    }
+    .ar_shop_in_cont img {
+        width: 55px;
+    }
+    .ar_shop_bottom_cont span {
+        bottom: 63px;
+    }
+    .ar_shop_in_cont p {
+        font-size: 14px;
+        top: 80px;
+    }
+    .ar_shop_bottom_cont p {
+        font-size: 10px;
+        bottom: 15px;
+        left: 34px;
+    }
+    .ar_single_item_table_work {
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+    }
+    .ar_work_single_text.gold {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 30%;
+                flex: 0 0 30%;
+    }
+    .ar_work_single_text.check {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 30%;
+                flex: 0 0 30%;
+        text-align: right;
+    }
+    .ar_work_single_text {
+        padding: 10px 35px;
+    }
+    .ar_single_item_table_work {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .ar_myProfile_single_item {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+    }
+    .ar_myProfile_btnCont_single a img {
+        width: 100%;
+        height: 60px;
+    }
+    .toggle-label.big_toggle_label.big_toggle_label {
+        width: 85%;
+        height: 46px;
+    }
+    .toggle-label .label.on.ar_on {
+        top: -18px;
+    }
+    .toggle-label .label.off.ar_off {
+        top: -18px;
+    }
+    .ar_myProfile_btnCont_text p {
+        top: 18px;
+    }
+    .ar_myProfile_sinle_title a {
+        font-size: 20px;
+    }
+    .ar_myProfile_sinle_title a img {
+        width: 20px;
+    }
+
+    .ar_raceInvoice_btn_single {
+        flex-direction: column;
+    }
+    .ar_stealBtn_area > img {
+        height: 250px;
+    }
+    .arStealSingle {
+        flex-direction: column;
+    }
+    .ar_steal_btn_single_item h5 {
+        margin-right: 0px;
+        width: auto;
+        margin-bottom: 10px;
+    }
+    .ar_steal_btn_single_item p b {
+        display: inline;
+    }
+    .ar_singleChatList_name p:first-child {
+        top: 22px;
+        left: 80px;
+    }
+    .ar_singleChatList_name p:last-child {
+        top: 24px;
+    }
+
+    .ar_playerProfile_area {
+        flex-direction: column;
+    }
+    .ar_playerMiddle_bottom_area {
+       position: inherit;
+       margin: 100px 0px;
+    }
+    .ar_playerProfile_middle_top {
+        justify-content: center;
+    }
+    .arPlayer_left {
+        padding: 15px;
+        margin-top: 50px;
+    }
+    .arPlayer_middle {
+        padding: 15px;
+    }
+    .ar_playProfile_middle_area {
+        padding-right: 0px;
+    }
+    .ar_playerProfile_middle_top {
+        margin-top: 50px;
+    }
+    .arPlayer_middle {
+        flex: 0 0 100%;
+    }
+    .ar_playerMiddle_bottom_area {
+        bottom: 0px;
+    }
+  
+}
+
+
+
+
+
+
+
+@media all and (max-width:575px){
+    .ar_singnle_iteam_area {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+        margin-bottom: 20px;
+    }
+    .ar_item_overly_cont p {
+        padding: 0px 10px;
+    }
+    .ar_single_item_cont {
+        top: 24px;
+        left: -15px;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .ar_single_item_img img {
+        width: 100%;
+        max-width: 300px;
+        width: 100%;
+        margin: auto;
+    }
+    .ar_single_item_img{
+        text-align: center;
+    }
+    .ar_item_overly {
+        max-width: 300px;
+        width: 100%;
+        text-align: center;
+        margin: auto;
+        left: 0;
+        right: 0;
+    }
+    .ar_single_item_cont_img img {
+        width: 75px !important;
+    }
+    .ar_single_item_cont_img {
+        padding-right: 15px;
+    }
+    .ar_message_notification_cont {
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .ar_message_tag {
+        top: -65px;
+    }
+    .ar_message_notification_cont p {
+        top: -40px;
+    }
+    .ar_message_notification_cont p {
+        right: 37px !important;
+        text-align: right;
+    }
+    .ar_message_messenger_box {
+        padding-right: 15px;
+    }
+    .ar_footer_social_icon h2 {
+        font-size: 20px;
+    }
+    .ar_footer_area_cont h2 {
+        font-size: 20px;
+    }
+    .ar_footer_area_cont {
+        margin-top: 35px;
+    }
+    .ar_single_select_item {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 47%;
+                flex: 0 0 47%;
+    }
+    .ar_hospital_recovery img {
+        width: 35px;
+    }
+    .ar_hospital_recovery {
+        top: 50px;
+        left: 37%;
+    }
+    .ar_hospital_area > img {
+        width: 100%;
+    }
+    .ar_hospital_item_single {
+        bottom: 47px;
+        left: 32px;
+    }
+    .ar_hospital_item_single img {
+        width: 35px;
+    }
+    .ar_hospital_recovery {
+        top: 50px;
+        left: 37%;
+    }
+    .ar_hotpita_btnCoin {
+        right: 20%;
+    }
+    .ar_hospital_area {
+        text-align: center;
+    }
+    .ar_steal_btn_single_item p {
+        font-size: 14px;
+    }
+    .ar_town_carousel_wrapper .owl-next {
+        position: absolute;
+        right: -10px;
+        top: auto;
+    }
+    .ar_town_carousel_wrapper .owl-prev {
+        position: absolute;
+        left: -10px;
+        top: auto;
+    }
+    .ar_create_btn_area {
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    }
+    .ar_create_single_btn {
+        margin-bottom: 15px;
+    }
+    .ar_creat_btn_cont {
+        top: 20px;
+    }
+    .ar_pokedex_area_left {
+        padding: 20px 10px;
+    }
+    .ar_pokedex_area_right {
+        padding: 20px 10px;
+    }
+    .arPokedex_areaScrool {
+        margin-right: 0px;
+        padding-right: 0px;
+    }
+    .arPokedex_wrapper_itam a img {
+        width: 70px;
+        margin-right: 5px;
+    }
+    .ar_battle_btom_single a img {
+        width: 70px;
+    }
+    .ar_battle_btom_single p {
+        font-size: 12px;
+        top: 7px;
+    }
+    .ar_battle_single_bottom a img {
+        width: 95px;
+    }
+    .ar_battle_single_bottom p {
+        font-size: 11px;
+    }
+    .ar_battle_bottom_bottm {
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    }
+    .ar_battle_single_bottom {
+        margin-bottom: 10px;
+    }
+    .ar_battle_bottom_run a img {
+        width: 40px;
+    }
+    .ar_mainPage_bottom_persion {
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+    }
+    .ar_mainpage_area {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .ar_mainpage_right_lavel {
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+    }
+    .ar_mainpage_right_lavel_btnBig {
+        text-align: left;
+        display: inline;
+    }
+    .ar_mainpage_right_lavel_btnBig p {
+        left: -8px;
+        top: 5px;
+    }
+    .ar_mianpage_right_lavel_btn_area {
+        margin-top: 35px;
+        margin-bottom: 20px;
+    }
+    .ar_right_mainpage_social_icon_area {
+        margin-top: 20px;
+    }
+    .ar_right_mainpage_social_icon_area a img {
+        margin-right: 22px;
+    }
+    .arPokeprofile_left_top {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .arPokeprofile_right_top_btn.span {
+        margin-top: 20px;
+    }
+    .ar_pokeProfile_left_area {
+        padding: 20px 30px;
+    }
+    .ar_pokeProfile_single_wrapper {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .ar_pokeProfile_right_area {
+        padding: 15px 5px;
+    }
+    .ar_pokeProfile_right_top a {
+        font-size: 20px;
+    }
+    /* .arPokeProfile_skils_status {
+        padding-top: 10px;
+    } */
+    .ar_shop_single_item > img {
+        width: 120px;
+    }
+    .ar_shop_bottom_cont span {
+        bottom: 54px;
+    }
+    .ar_shop_in_cont p {
+        font-size: 12px;
+        top: 78px;
+    }
+    .ar_shop_bottom_cont p {
+        font-size: 10px;
+        bottom: 12px;
+        left: 30px;
+    }
+    .ar_work_single_btn img {
+        width: 150px;
+        height: 55px;
+    }
+    .ar_work_btn_xont p {
+        top: 14px;
+        left: -2px;
+    }
+    .ar_work_single_btn {
+        margin: 0px 10px;
+    }
+    .ar_hospital_item_single img {
+        width: 36px;
+    }
+    .ar_hospital_item_single {
+        bottom: 40px;
+        left: 32px;
+    }
+    .ar_hotpita_btnCoin {
+        top: 45%;
+    }
+    .ar_hospital_recovery {
+        top: 37px;
+        left: 37%;
+    }
+    .ar_hospital_item_single {
+        bottom: 33px;
+    }
+    .ar_hospital_item_single img {
+        margin-right: 10px;
+    }
+    .ar_hospital_recovery img {
+        width: 38px;
+    }
+    .ar_hospital_recovery {
+        top: 47px;
+        left: 37%;
+    }
+    .ar_playerProfile_area {
+        background: url('../images/playerProfile/bg2.png') no-repeat scroll 0 0 / cover;
+        background-position: center;
+        padding: 0px;
+    }
+    .ar_playerMiddle_bottom_single_item a img {
+        width: 190px;
+    }
+    .ar_playerMiddle_bottom_single_itemTexy p {
+        font-size: 14px;
+    }
+    .ar_playerMiddle_bottom_single_itemTexy {
+        top: 8px;
+    }
+    .ar_playerMiddle_bottom_single_itemTexy.last p {
+        top: -4px;
+    }
+    .ar_playerTab_title a {
+        font-size: 22px;
+    }
+    .ar_playerTab_title a img {
+        width: 25px;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width:450px){
+    .ar_heading_title_back h3 {
+        font-size: 30px;
+    }
+    .ar_heading_title_back a.ar_back img {
+        width: 45px;
+    }
+    .ar_heading_title_back a img {
+        width: 15px;
+    }
+    .ar_single_item_cont_img img {
+        width: 55px !important;
+    }
+    .ar_single_item_cont {
+        top: 32px;
+        left: -15px;
+    }
+    .ar_message_scroll_cont p {
+        width: 220px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .ar_message_notification_cont p {
+        width: 250px;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+    .ar_message_scroll_cont p {
+        bottom: 4px;
+    }
+    .ar_hospital_item_single {
+        bottom: 25px;
+        left: 32px;
+    }
+    .ar_hotpita_btnCoin {
+        right: 5%;
+    }
+    .ar_hospital_recovery {
+        top: 28px;
+    }
+    .ar_hospital_item_single > img {
+        width: 25px;
+    }
+    .ar_raceInvite_banner_cont {
+        top: 18px;
+        left: 50px;
+        padding-right: 15px;
+    }
+    .ar_raceInvite_banner_area img {
+        height: 80px;
+    }
+    .ar_stealBanner_area img {
+        height: 100px;
+    }
+    .arStealSingle100 {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+        text-align: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .arStealSingle {
+        margin-bottom: 10px;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .ar_steal_btn_single_item.last.arStealSingle {
+        margin-top: 20px;
+    }
+    .ar_steal_btn_single_item > img {
+        width: 130px;
+        height: 50px;
+    }
+    .ar_steal_btn_single_item.last p {
+        top: 13px;
+    }
+    .ar_create_single_btn {
+        width: 175px;
+    }
+    .ar_creat_btn_cont {
+        top: 10px;
+        left: 30px;
+    }
+    .ar_work_single_btn img {
+        width: 110px;
+        height: 40px;
+    }
+    .ar_work_btn_xont p {
+        top: 10px;
+        font-size: 14px;
+    }
+    .ar_hospital_item_single {
+        bottom: 34px;
+        left: 32px;
+    }
+    .ar_hospital_item_single > img {
+        width: 30px;
+    }
+    .ar_pokeProfile_carousel .owl-next {
+        right: 35px;
+    }
+    .ar_pokeProfile_carousel .owl-prev {
+        left: 35px;
+    }
+    .ar_pokeProfile_carousel.owl-carousel .owl-item img {
+        width: 100px;
+        margin-top: 50px;
+    }
+    .ar_singleChatList_name p:first-child {
+        top: 15px;
+        left: 65px;
+    }
+    .ar_singleChatList_name p:last-child {
+        top: 15px;
+        right: 35px;
+    }
+    .ar_singleChatList_name p {
+        font-size: 12px;
+    }
+    .ar_playerPorfile_right_top {
+        width: 300px;
+    }
+    .ar_playerProfile_tabArea_wrapper {
+        width: 300px;
+    }
+    .ar_playerProfile_top_btn a img{
+        width: 100%;
+    }
+    .ar_Playyer_tab_item_wrapper a img {
+        width: 65px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    .ar_playerTab_title a {
+        font-size: 18px;
+    }
+    
+}
+
+
+
+
+
+
+@media all and (max-width:384px){
+    .ar_single_item_cont {
+        top: 25px;
+    }
+    .arPlayerProfle_chacter_item a img {
+        width: 80px;
+    }
+    .ar_playerProfile_cha_text p {
+        font-size: 10px;
+        bottom: 5px;
+    }
+    .ar_playerPorfile_right_top {
+        width: auto;
+    }
+    .ar_playerProfile_tabArea_wrapper {
+        width: auto;
+    }
+    .arPlyaderProfile_tab_text p {
+        top: 12px;
+    }
+    .ar_player_right {
+        padding: 10px;
+    }
+}
+
+
+
+@media all and (max-width:340px){
+    .ar_single_item_cont {
+        top: 17px;
+    }
+    .ar_single_select_item {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+    }
+    .ar_hospital_item_single img {
+        width: 26px;
+    }
+    .ar_hospital_recovery img {
+        width: 25px;
+    }
+    .ar_hospital_item_single {
+        bottom: 20px;
+        left: 18px;
+    }
+    .ar_hotpita_btnCoin {
+        top: 48%;
+    }
+    .ar_singleChatList_name p:first-child {
+        top: 10px;
+        left: 50px;
+    }
+    .ar_singleChatList_name p:last-child {
+        top: 10px;
+    }
+    .ar_Playyer_tab_item_wrapper a img {
+        width: 57px;
+    }
+    .arPlayerProfle_chacter_item a img {
+        width: 75px;
+    }
+}

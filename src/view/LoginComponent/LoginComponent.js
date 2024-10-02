@@ -16,7 +16,7 @@ const Login = () => {
     const onSubmit = async (data) => {
         try {
             const response = await dispatch(loginUser(data)).unwrap();            
-            if (response.token) {
+            if (response.token) {                
                 localStorage.setItem('token', response.token);
                 login(response.token); 
                 navigate('/home');

@@ -1,51 +1,58 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { BsArrowUp } from "react-icons/bs";
-import { BsPersonCircle,BsBellFill ,BsFilePersonFill,BsGearFill,BsXLg} from "react-icons/bs";
+import { BsPersonCircle, BsBellFill, BsFilePersonFill, BsGearFill, BsXLg } from "react-icons/bs";
 import { useAuth } from '../../contexts/AuthContext';
-
-
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../Header';
+import { getProfile } from '../../store/auth';
+import { useDispatch,useSelector } from 'react-redux';
+
 const Home = () => {
     const [show, setShow] = useState(false);
-    const {logout }=useAuth();
+    const { logout } = useAuth();
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-const navigate = useNavigate()
+    const navigate = useNavigate()
     const { t } = useTranslation();
-
+    const dispatch = useDispatch();
     const [visible, setVisible] = useState(false);
-
+    const userData = useSelector(state=>state.auth.user_data);
+        
     const handleScroll = () => {
         if (window.scrollY > 500) {
             setVisible(true);
         } else {
             setVisible(false);
         }
-
     };
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
-    const handleLogout = ()=>{
+    const handleLogout = () => {
         logout();
         localStorage.clear();
         navigate('/login')
-
     }
+    const getProfileData = async () => {
+        try {
+            await dispatch(getProfile()).unwrap();
+        } catch (error) {
 
+        }
+    }
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
+        getProfileData()
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+    
     return (
         <div dir='rtl'>
-            <Header/>
             <div className="main-wrapper">
                 <Offcanvas show={show} onHide={handleClose} placement="end" className="bg-dark text-white custom-offcanvas-dark">
                     <Offcanvas.Header closeButton closeVariant="white">
@@ -54,10 +61,10 @@ const navigate = useNavigate()
                         <div className="side-menu">
                             <ul className='p-0'>
                                 <li ><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsPersonCircle />{t('User')}</a></li>
-                                <li ><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsFilePersonFill/>{t('My Character')}</a></li>
-                                <li ><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsBellFill/>{t('Notification')} (0)</a></li>
-                                <li ><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"><BsGearFill/>   {t('Settings')}</a></li>
-                                <li ><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#" onClick={handleLogout}><BsXLg/>{t('Logout')} </a></li>
+                                <li ><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsFilePersonFill />{t('My Character')}</a></li>
+                                <li ><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsBellFill />{t('Notification')} (0)</a></li>
+                                <li ><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"><BsGearFill />   {t('Settings')}</a></li>
+                                <li ><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#" onClick={handleLogout}><BsXLg />{t('Logout')} </a></li>
                             </ul>
                         </div>
                     </Offcanvas.Body>
@@ -69,8 +76,8 @@ const navigate = useNavigate()
                             <div className="character-item-inner">
                                 <div className="mock-item-inner">
                                     <ul>
-                                        <li><img src="images/mock-03.png" alt="" /><span>152</span><img src="images/mock-05.png" alt="" /></li>
-                                        <li><img src="images/mock-03.png" alt="" /><span>198923</span><img src="images/mock-04.png" alt="" /></li>
+                                        <li><img src="images/mock-03.png" alt="" /><span>{userData?.silver}</span><img src="images/mock-05.png" alt="" /></li>
+                                        <li><img src="images/mock-03.png" alt="" /><span>{userData?.gold}</span><img src="images/mock-04.png" alt="" /></li>
                                     </ul>
                                 </div>
                                 <div className="character-item-inner2">
@@ -109,7 +116,7 @@ const navigate = useNavigate()
                                     </div>
                                 </div>
                                 <div className="character-item-inner10">
-                                    <div className="character-item-inner11">
+                                    <div className="character-item-inner11" onClick={()=>{navigate('/battle')}}>
                                         <div>
                                             <h2>{t('Match Wins')} <span>[VIP]</span></h2>
                                         </div>
