@@ -2,13 +2,16 @@ import React, { useEffect } from 'react';
 import { Navigate, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from './contexts/AuthContext';
 import Header from './Header';
+import GoldSiverHeader from './view/HomePage/GoldSiverHeader';
 const ProtectedRoute = ({ children }) => {
   useProtectedRoute();
 
   return <>
     <div>
         <Header />
-        <Outlet />
+        <div className='child'>
+          <Outlet />
+        </div>
     </div>
   </>;
 };

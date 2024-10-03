@@ -39,7 +39,10 @@ const Home = () => {
     const getProfileData = async () => {
         try {
             await dispatch(getProfile()).unwrap();
+            
         } catch (error) {
+            console.log(error);
+            
 
         }
     }
@@ -116,7 +119,7 @@ const Home = () => {
                                     </div>
                                 </div>
                                 <div className="character-item-inner10">
-                                    <div className="character-item-inner11" onClick={()=>{navigate('/battle')}}>
+                                    <div className="character-item-inner11 cursor-pointer" onClick={()=>{navigate('/battle')}}>
                                         <div>
                                             <h2>{t('Match Wins')} <span>[VIP]</span></h2>
                                         </div>

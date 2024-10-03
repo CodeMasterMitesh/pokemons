@@ -12,7 +12,8 @@ axiosInstance.interceptors.response.use(
     },
     error=>{
         if (error.response && error.response.status === 401) {
-            localStorage.clear();
+            // localStorage.clear();
+            // window.location='/'
         }
         // Return a rejected promise for other errors
         return Promise.reject(error);

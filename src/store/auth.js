@@ -87,7 +87,6 @@ export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (use
 
 export const getProfile = createAsyncThunk('auth/getProfile', async (_,{ rejectWithValue,getState }) => {
  let user_data = JSON.parse(localStorage.getItem('userData'))
- 
     return  axios({
         url: `${API_ENDPOINTS.PLAYER_PROFILE}?player=${user_data?.playerName}`,
         method: 'GET',
