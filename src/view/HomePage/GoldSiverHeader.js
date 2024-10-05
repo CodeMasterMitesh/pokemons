@@ -17,12 +17,12 @@ const GoldSiverHeader = ({previous}) => {
                                     </div>
                                     <div className="ar_heading_title_plus">
                                         <div className="arTitle_plus_area">
-                                            <div className="arTitle_plus_img">
-                                                <img src="/images/game-ui/p1.png" alt="" />
+                                            <div className="arTitle_plus_img " >
+                                                <img src="/images/game-ui/p1.png" alt="" className='cursor-pointer' onClick={()=>navigate('/packages?buy=gold')} />
                                                 <p>198923</p>
                                             </div>
-                                            <div className="arTitle_plus_img">
-                                                <img src="/images/game-ui/p2.png" alt="" />
+                                            <div className="arTitle_plus_img " onClick={()=>navigate('/packages?buy=silver')}>
+                                                <img src="/images/game-ui/p2.png" alt="" className='cursor-pointer' onClick={()=>navigate('/packages?buy=silver')}/>
                                                 <p className="one152">152</p>
                                             </div>
                                         </div>

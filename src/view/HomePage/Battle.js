@@ -1,9 +1,8 @@
 import React from 'react'
-import '../../assets/css/battle.css'
 import GoldSiverHeader from './GoldSiverHeader'
 function Battle() {
     return (
-        <div className='ar_mainBody'>
+        <>
             <GoldSiverHeader previous='/home'/>
             <section className="ar_battle_area_section">
                 <div className="container">
@@ -85,7 +84,8 @@ function Battle() {
                         </div>
                     </div>
             </section>
-        </div>
+        </>
+
     )
 }
 

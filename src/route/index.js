@@ -7,6 +7,8 @@ import ProtectedRoute from '../ProtectedRoute.js';
 import Battle from '../view/HomePage/Battle';
 import { useRoutes } from 'react-router-dom';
 import MainLayout from '../layout/MainLayout';
+import Packages from '../view/HomePage/Packages';
+import SubLayout from '../layout/SubLayout';
 
 const MainRoutes = {
     path: '/',
@@ -37,8 +39,21 @@ const MainRoutes = {
                     element: <Home />
                 },
                 {
-                    path: '/battle',   // /test route
-                    element: <Battle />
+                    path: '/',   // /test route
+                    element: <SubLayout />,
+                    children:[
+                        {
+                            path: '/battle',   // /test route
+                            element: <Battle />
+                        },
+                        {
+                            path: '/packages',   // /test route
+                            element: <Packages />,
+                            children:[
+                                
+                            ]
+                        },
+                    ]
                 },
             ]
         },

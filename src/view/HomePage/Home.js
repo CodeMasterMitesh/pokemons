@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
-import { BsArrowUp } from "react-icons/bs";
 import { BsPersonCircle, BsBellFill, BsFilePersonFill, BsGearFill, BsXLg } from "react-icons/bs";
 import { useAuth } from '../../contexts/AuthContext';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../Header';
 import { getProfile } from '../../store/auth';
 import { useDispatch,useSelector } from 'react-redux';
 
@@ -19,18 +17,6 @@ const Home = () => {
     const dispatch = useDispatch();
     const [visible, setVisible] = useState(false);
     const userData = useSelector(state=>state.auth.user_data);
-        
-    const handleScroll = () => {
-        if (window.scrollY > 500) {
-            setVisible(true);
-        } else {
-            setVisible(false);
-        }
-    };
-
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
     const handleLogout = () => {
         logout();
         localStorage.clear();
@@ -41,17 +27,10 @@ const Home = () => {
             await dispatch(getProfile()).unwrap();
             
         } catch (error) {
-            console.log(error);
-            
-
         }
     }
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
         getProfileData()
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
     }, []);
     
     return (
@@ -79,8 +58,8 @@ const Home = () => {
                             <div className="character-item-inner">
                                 <div className="mock-item-inner">
                                     <ul>
-                                        <li><img src="images/mock-03.png" alt="" /><span>{userData?.silver}</span><img src="images/mock-05.png" alt="" /></li>
-                                        <li><img src="images/mock-03.png" alt="" /><span>{userData?.gold}</span><img src="images/mock-04.png" alt="" /></li>
+                                        <li><img src="images/mock-03.png" alt="" onClick={()=>navigate('/packages?buy=silver')}/><span>{userData?.silver}</span><img src="images/mock-05.png" alt="" /></li>
+                                        <li><img src="images/mock-03.png" alt="" onClick={()=>navigate('/packages?buy=gold')}/><span>{userData?.gold}</span><img src="images/mock-04.png" alt="" /></li>
                                     </ul>
                                 </div>
                                 <div className="character-item-inner2">
@@ -89,7 +68,7 @@ const Home = () => {
                                             <img src="images/character-01.png" alt="" />
                                         </li>
                                         <li><img src="images/character-02.png" alt="" /><span>{t('Champion Title')}</span></li>
-                                        <li><img src="images/character-03.png" alt="" /><span>{t('Match Wins')}</span></li>
+                                        <li onClick={()=>{navigate('/battle')}}><img src="images/character-03.png" alt="" /><span>{t('Match Wins')}</span></li>
                                         <li><img src="images/character-04.png" alt="" /><span>{t('VIP')}</span></li>
                                     </ul>
                                 </div>
@@ -119,7 +98,7 @@ const Home = () => {
                                     </div>
                                 </div>
                                 <div className="character-item-inner10">
-                                    <div className="character-item-inner11 cursor-pointer" onClick={()=>{navigate('/battle')}}>
+                                    <div className="character-item-inner11 cursor-pointer" >
                                         <div>
                                             <h2>{t('Match Wins')} <span>[VIP]</span></h2>
                                         </div>
@@ -237,30 +216,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                </section><footer className="footer-area">
-                    <div className="container">
-                        <div className="footer-item">
-                            <div className="footer-item-inner">
-                                <h2>{t('disclaimer')}</h2>
-                                <p>{t('disclaimerText')}</p>
-                            </div>
-                            <div className="footer-item-inner2">
-                                <h2>{t('stayConnected')}</h2>
-                                <ul>
-                                    <li><a href="#"><img src="images/footer-02.png" alt="" /></a></li>
-                                    <li><a href="#"><img src="images/footer-03.png" alt="" /></a></li>
-                                    <li><a href="#"><img src="images/footer-04.png" alt="" /></a></li>
-                                </ul>
-                            </div>
-                            <div className="footer-item-inner3">
-                                <img src="images/footer-01.png" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                {visible && <button className="scrolltotop" onClick={scrollToTop}>
-                    <BsArrowUp />
-                </button>}
+                </section>
             </div>
         </div >
     );
