@@ -164,7 +164,7 @@ function Packages() {
     }
     return (
         <div>
-            <GoldSiverHeader previous='/home' />
+            <GoldSiverHeader previous='/home' title='Packages'>
             <section className="ar_shop_area_section">
                 <div className="container">
                     <div className="row">
@@ -225,6 +225,7 @@ function Packages() {
                     </div>
                 </div>
             </section>
+            </GoldSiverHeader>
         </div>
     )
 }

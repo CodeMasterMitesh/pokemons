@@ -7,7 +7,9 @@ function SubLayout() {
     return (
         <div className='ar_mainBody'>
             <Header />
-            <Outlet />
+            <div className='sub-layout-child'>
+                <Outlet />
+            </div>
             <Footer />
         </div>
     )

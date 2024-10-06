@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 // import ForgotPassword from './view/ForgotPassword/ForgotPassword';
 // import RegisterComponent from './view/RegisterComponent/RegisterComponent';
 import './assets/css/style.css';
+import './assets/css/responsive.css';
 import './assets/css/battle.css';
 import './assets/css/battleResponsive.css';
 import 'bootstrap/dist/css/bootstrap.min.css';

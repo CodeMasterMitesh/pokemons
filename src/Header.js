@@ -4,16 +4,16 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 
 const Header = () => {
     const { t } = useTranslation();
-
+    const navigate = useNavigate()
     return (
         <header className='header-main'>
-            <Navbar expand="lg" className="text-light" variant='dark'>
+            <Navbar expand="lg" className="text-light bg-body-header" variant='dark'>
                 <Container>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -47,9 +47,20 @@ const Header = () => {
                                 </NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.3">{t('General Statistics')}</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">
-                                    Separated link
-                                </NavDropdown.Item>
+                            </NavDropdown>
+                            <NavDropdown title="Pages" id="basic-nav-dropdown">
+                                <NavDropdown.Item onClick={()=>{navigate('/create')}}>Create</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/fortune')}}>Fortune</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/hospital')}}>Hospital</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/modal')}}>Modal</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/pokebag')}}>Pokebag</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/pokedex')}}>Pokedex</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/pvp')}}>Pvp</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/raceInvite')}}>RaceInvite</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/select')}}>Select</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/steal')}}>Steal</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/town')}}>Town</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/works')}}>Works</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>

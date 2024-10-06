@@ -1162,6 +1162,15 @@ body {
     background-image: url(../../../public/images/footer-bg2.png);
     padding: 90px 0;
 }
+.sub-layout-child{
+    min-height: 80vh;
+}
+.pb-50{
+    padding-bottom:50px ;
+}
+.bg-body-header{
+    background: #0a1544;
+}
 
 .footer-item2 {
     max-width: 1158px;
@@ -1876,4 +1885,14 @@ body {
 
 .dropdown-toggle::after{
     background-image: url(../../../public/images/header-02.png);
+}
+.home-header{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+.home-footer{
+    position: absolute;
+    bottom: -28%;
+    width: 100%;
 }

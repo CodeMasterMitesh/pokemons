@@ -1,9 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-const GoldSiverHeader = ({previous}) => {
+const GoldSiverHeader = ({previous,title,children}) => {
     const navigate = useNavigate()
     return (
-        <div>
+        <div className='pb-50'>
             <section className="ar_main_content_area_wrapper">
                 <div className="container">
                     <div className="row">
@@ -12,7 +12,7 @@ const GoldSiverHeader = ({previous}) => {
                                 <div className="ar_heading_area_top">
                                     <div className="ar_heading_title_back">
                                         <a className="ar_back cursor-pointer" onClick={() => navigate(previous)}><img src="/images/game-ui/reButton.png" alt="images" /></a>
-                                        <h3> ברק </h3>
+                                        <h3> {title} </h3>
                                         <a href="#"><img src="/images/game-ui/question.png" alt="images" /></a>
                                     </div>
                                     <div className="ar_heading_title_plus">
@@ -33,6 +33,7 @@ const GoldSiverHeader = ({previous}) => {
                     </div>
                 </div>
             </section>
+            {children}
         </div>
     )
 }
