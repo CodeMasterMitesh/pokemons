@@ -6,4 +6,15 @@ export const API_ENDPOINTS = {
     FEATURED_PACKAGES:'/api/getFeaturedPackages.php',
     PACKAGES:'/api/getPackages.php',
     USER_INVOICE:'api/getUserInvoice.php',  
+    GET_CHAT:'api/chat-api.php/messages',  
+    GET_USERS:'api/getOnlineUsers.php',
+    GET_FRIENDS:'api/getFriends.php',
+    GET_FRIEND_REQUEST:'api/getFriendRequest.php',
+    GET_PLAYERS:'api/getPlayers.php',
+    SEND_CHAT:'api/chat-api.php/messages',
+    GET_CHARACTERS:'api/getCharacters.php',
+    SEND_FRIEND_REQUEST:'api/sendFriendRequest.php',
+    ACCEPT_FRIEND_REQUEST:'api/acceptFriendRequest.php',
+    DECLINE_FRIEND_REQUEST:'api/declineFriendRequest.php',
+    BLOCK_FRIEND:'api/blockFriend.php'
 };

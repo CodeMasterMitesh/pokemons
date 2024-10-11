@@ -4,9 +4,6 @@ import { API_ENDPOINTS } from "../api/endpoint";
 import { toast } from 'react-toastify';
 import i18n from "i18next";  // Importing i18n for translations
 
-const initialState = {
-    user_data: {},
-};
 
 export const loginUser = createAsyncThunk('auth/loginUser', async (userCredentials, { rejectWithValue }) => {
     return toast.promise(
@@ -59,6 +56,53 @@ export const registerUser = createAsyncThunk('auth/registerUser', async (userCre
         });
 });
 
+export const getUsers = createAsyncThunk('auth/getUsers', async (userCredentials, { rejectWithValue }) => {
+    
+        return await axios({
+            url: API_ENDPOINTS.GET_USERS,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.data)
+        .catch(error => {
+            return rejectWithValue(error.response.data);
+        });
+});
+
+export const getCharacters = createAsyncThunk('auth/getCharacters', async (userCredentials, { rejectWithValue }) => {
+    
+        return await axios({
+            url: API_ENDPOINTS.GET_CHARACTERS,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.data)
+        .catch(error => {
+            return rejectWithValue(error.response.data);
+        });
+});
+
+export const getPlayers = createAsyncThunk('auth/getPlayers', async (data, { rejectWithValue }) => {
+    
+        return await axios({
+            url: API_ENDPOINTS.GET_PLAYERS,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            params:{
+                player:data
+            }
+        })
+        .then(response => response.data)
+        .catch(error => {
+            return rejectWithValue(error.response.data);
+        });
+});
 export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (userCredentials, { rejectWithValue }) => {
     
     return toast.promise(
@@ -100,6 +144,14 @@ export const getProfile = createAsyncThunk('auth/getProfile', async (_,{ rejectW
         });
 });
 
+const initialState = {
+    user_data: {},
+    online_users:[],
+    characters:[],
+    players:[],
+    friends:[],
+    friend_requests:[]
+};
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
@@ -162,7 +214,47 @@ export const authSlice = createSlice({
             .addCase(getProfile.rejected, (state, action) => {
                 state.profile_loading = false;
                 state.profile_error = action.payload;
+            })
+            .addCase(getUsers.pending, (state) => {
+                state.online_users_loading = true;
+                state.error = null;
+            })
+            .addCase(getUsers.fulfilled, (state, action) => {
+                state.online_users_loading = false;
+                state.users = action.payload;
+                
+            })
+            .addCase(getUsers.rejected, (state, action) => {
+                state.online_users_loading = false;
+                state.online_users_error = action.payload;
+            })
+            .addCase(getPlayers.pending, (state) => {
+                state.players_loading = true;
+                state.error = null;
+            })
+            .addCase(getPlayers.fulfilled, (state, action) => {
+                state.players_loading = false;
+                state.players = action.payload;
+                
+            })
+            .addCase(getPlayers.rejected, (state, action) => {
+                state.players_loading = false;
+                state.players_error = action.payload;
+            })
+            .addCase(getCharacters.pending, (state) => {
+                state.characters_loading = true;
+                state.error = null;
+            })
+            .addCase(getCharacters.fulfilled, (state, action) => {
+                state.characters_loading = false;
+                state.characters = action.payload;
+                
+            })
+            .addCase(getCharacters.rejected, (state, action) => {
+                state.characters_loading = false;
+                state.characters_error = action.payload;
             });
+            
     }
 });
 

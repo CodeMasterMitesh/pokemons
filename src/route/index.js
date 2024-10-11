@@ -25,6 +25,7 @@ import Select from '../view/Pages/Select';
 import Steal from '../view/Pages/Steal';
 import Town from '../view/Pages/Town';
 import Works from '../view/Pages/Works';
+import FriendRequest from '../view/Pages/FriendRequest';
 
 
 const MainRoutes = {
@@ -62,6 +63,10 @@ const MainRoutes = {
                         {
                             path: '/battle', 
                             element: <Battle />
+                        },
+                        {
+                            path: '/friend-requests', 
+                            element: <FriendRequest />
                         },
                         {
                             path: '/packages', 

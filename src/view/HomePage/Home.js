@@ -4,10 +4,11 @@ import { BsPersonCircle, BsBellFill, BsFilePersonFill, BsGearFill, BsXLg } from 
 import { useAuth } from '../../contexts/AuthContext';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useNavigate } from 'react-router-dom';
-import { getProfile } from '../../store/auth';
+import {  getProfile } from '../../store/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../Header';
 import Footer from '../../Footer';
+import Chat from '../Pages/Chat';
 
 const Home = () => {
     const [show, setShow] = useState(false);
@@ -17,7 +18,6 @@ const Home = () => {
     const navigate = useNavigate()
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const [visible, setVisible] = useState(false);
     const userData = useSelector(state => state.auth.user_data);
     const handleLogout = () => {
         logout();
@@ -27,7 +27,6 @@ const Home = () => {
     const getProfileData = async () => {
         try {
             await dispatch(getProfile()).unwrap();
-
         } catch (error) {
         }
     }
@@ -154,75 +153,7 @@ const Home = () => {
                             </div>
                         </div>
                     </section>
-                    <section className="mock-area pt-0">
-                        <div className="container">
-                            <div className="mock-item3">
-                                <div className="mock-item3-inner">
-
-                                    <div className="mock-item3-inner2">
-                                        <ul>
-                                            <li>{t('friends')} <span>1</span><strong>/2</strong></li>
-                                            <li>{t('online')} <span>9892</span></li>
-                                        </ul>
-                                    </div>
-                                    <div className="mock-item3-inner3">
-                                        <ul>
-                                            <li><a href="#">{t('friendList')}</a></li>
-                                            <li><a href="#">{t('all')}</a></li>
-                                        </ul>
-                                    </div>
-                                    <div className="mock-item3-inner4">
-                                        {[...Array(46)].map((_, i) => (
-                                            <div key={i} className={`mock-item3-inner5 ${i % 2 === 1 ? 'mock-item3-inner8' : ''}`}>
-                                                <div className="mock-item3-inner6">
-                                                    <p><img src={i % 2 === 0 ? "images/mock-14.png" : "images/mock-15.png"} alt="" /> {i % 2 === 0 ? t('user1') : t('user2')}</p>
-                                                </div>
-                                                <div className="mock-item3-inner7">
-                                                    <h2>{i % 2 === 0 ? <strong>{t('hebrewText')}</strong> : t('timeAgo')}</h2>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className="mock-item3-inner9">
-                                    <div className="mock-item3-inner10">
-                                        <div className="mock-item3-inner4">
-                                            {/* Repeating Sections */}
-                                            {[...Array(25)].map((_, index) => (
-                                                <div key={index} className="mock-item3-inner11">
-                                                    <h2>{t('user1')}</h2>
-                                                    <p>{t('afkText')}</p>
-                                                    <img src="images/mock-19.png" alt="" />
-                                                </div>
-                                            ))}
-
-                                            {/* Challenge Section */}
-                                            <div className="mock-item3-inner12">
-                                                <div>
-                                                    <h2>
-                                                        <strong>{t('challengeText', { user: t('user2') })}</strong>
-                                                    </h2>
-                                                </div>
-                                                <div>
-                                                    <p>{t('ignore')}<span>{t('accept')}</span></p>
-                                                </div>
-                                            </div>
-
-                                            {/* Go Back Section */}
-                                            <div className="mock-item3-inner13">
-                                                <div>
-                                                    <p>{t('goBack')}</p>
-                                                </div>
-                                                <div>
-                                                    <img src="images/mock-18.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    <Chat/>
                 </div>
             </div >
             <div className='home-footer'>

@@ -522,9 +522,18 @@ body {
 .mock-item3-inner3 ul li {
     width: 50%;
 }
+.usertab-active{
+    background-image: url(../../../public/images/mock-13.png);
+    color: #070707;
+}
+.usertab{
+        background-image: url(../../../public/images/mock-12.png);
+    color: #FFFFFF;
+
+}
 
 .mock-item3-inner3 ul li a {
-    background-image: url(../../../public/images/mock-12.png);
+    /* background-image: url(../../../public/images/mock-12.png); */
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;
@@ -535,13 +544,9 @@ body {
     justify-content: center;
     font-size: 16px;
     font-weight: 700;
-    color: #FFFFFF;
+    /* color: #FFFFFF; */
 }
 
-.mock-item3-inner3 ul li:nth-of-type(2) a {
-    background-image: url(../../../public/images/mock-13.png);
-    color: #070707;
-}
 
 .mock-item3-inner3 ul li a:hover {
     opacity: .8;
@@ -710,8 +715,18 @@ body {
     align-items: center;
     justify-content: space-between;
     padding-top: 60px;
+    position: sticky;
+    bottom: 0px;
 }
 
+.notfound{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
 .mock-item3-inner13 img {
     max-width: 100%;
 }

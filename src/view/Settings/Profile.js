@@ -1,8 +1,15 @@
-import React from 'react'
+import { getProfile } from '../../store/auth'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 function Profile() {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const profile_data = useSelector(state=>state.auth.user_data)
+    useEffect(()=>{
+        dispatch(getProfile())
+    },[])
     return (
         <div>
             <section className="ar_playerProfile_area_section">
@@ -39,7 +46,7 @@ function Profile() {
                                     <div className="ar_playProfile_middle_area">
                                         <div className="ar_playerProfile_middle_top">
                                             <div className="ar_play_middle_top_tag">
-                                                <a href="#"><img src="images/playerProfile/user.png" alt=""/></a>
+                                                <a onClick={()=>{navigate('/friend-requests')}}><img src="images/playerProfile/user.png" alt=""/></a>
                                             </div>
                                             <div className="ar_play_middle_top_tag">
                                                 <a href="#"><img src="images/playerProfile/nished.png" alt=""/></a>
