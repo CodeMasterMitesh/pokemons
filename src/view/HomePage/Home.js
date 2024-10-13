@@ -190,7 +190,7 @@ const Home = () => {
                                         <div className="character-item-inner6">
                                             <div className="character-item-inner7">
                                                 <div>
-                                                    <h3>{t('Kanto')} <img src="images/character-07.png" alt="" /></h3>
+                                                    <h3>{userData?.wereld} <img src="images/character-07.png" alt="" /></h3>
                                                 </div>
                                                 <div>
                                                     <p><span>(Vip)</span>{userData?.username}</p>
