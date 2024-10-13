@@ -51,6 +51,7 @@ export const getSearchPlayers = createAsyncThunk('auth/getSearchPlayers', async 
         });
 });
 export const sendFriendRequest = createAsyncThunk('auth/sendFriendRequest', async (id, { rejectWithValue }) => {
+    
     return toast.promise(
         axios({
             url: API_ENDPOINTS.SEND_FRIEND_REQUEST,
@@ -232,7 +233,7 @@ export const friendSlicer = createSlice({
             })
             .addCase(sendFriendRequest.fulfilled, (state, action) => {
                 state.send_friend_requests_loading = false;
-                state.friend_requests = action.payload;
+                // state.friend_requests = action.payload;
             })
             .addCase(sendFriendRequest.rejected, (state, action) => {
                 state.send_friend_requests_loading = false;

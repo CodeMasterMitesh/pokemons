@@ -1,13 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import GoldSiverHeader from '../HomePage/GoldSiverHeader'
 import { useDispatch, useSelector } from 'react-redux'
-import { acceptFriendRequest, declineFriendRequest, getFriendRequest,getSearchPlayers } from '../../store/friends'
+import { acceptFriendRequest, declineFriendRequest, getFriendRequest,getSearchPlayers, sendFriendRequest } from '../../store/friends'
 import { Form } from 'react-bootstrap'
 import debounce from 'lodash.debounce'  
 
 function FriendRequest() {
     const dispatch = useDispatch()
     const friend_requests = useSelector(state => state.friend.friend_requests)
+    
     const search_players = useSelector(state => state.friend.search_players)
     // const [search,setSearch] = useState('');
     // const friend_requests=[
@@ -105,7 +106,7 @@ function FriendRequest() {
                                                             <h2>{item.username}</h2>
                                                         </div>
                                                         <div>
-                                                            <a className='cursor-pointer' onClick={() => { dispatch(sendFriendRequest(item.id)) }}><img src="images/mock-03.png" alt="" /></a>
+                                                            <a className='cursor-pointer' onClick={() => { dispatch(sendFriendRequest(item.user_id)) }}><img src="images/mock-03.png" alt="" /></a>
                                                             {/* <a className='cursor-pointer' onClick={() => { handleDecline(item.id) }}><img src="images/register-01.png" alt="" /></a> */}
                                                         </div>
 
