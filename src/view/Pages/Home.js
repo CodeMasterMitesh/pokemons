@@ -4,14 +4,12 @@ import { BsPersonCircle, BsBellFill, BsFilePersonFill, BsGearFill, BsXLg } from 
 import { useAuth } from '../../contexts/AuthContext';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useNavigate } from 'react-router-dom';
-import { getProfile, updatePlayer } from '../../store/auth';
+import {  getProfile } from '../../store/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../Header';
 import Footer from '../../Footer';
 import Chat from '../Pages/Chat';
-import { Modal, Button } from 'react-bootstrap';
-import { getCharacters, getPokemons } from '../../store/pokemon';
-import { Row, Col } from 'react-bootstrap';
+
 const Home = () => {
     const [show, setShow] = useState(false);
     const { logout } = useAuth();
@@ -20,16 +18,7 @@ const Home = () => {
     const navigate = useNavigate()
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const [modal, setModal] = useState(false)
     const userData = useSelector(state => state.auth.user_data);
-    const pokemons = useSelector(state => state.pokemon.pokemons);
-    const characters = useSelector(state => state.pokemon.characters);
-
-
-
-    const [data, setData] = useState({});
-    const handleCloseModal = () => setModal(false);
-    
     const handleLogout = () => {
         logout();
         localStorage.clear();
@@ -37,22 +26,9 @@ const Home = () => {
     }
     const getProfileData = async () => {
         try {
-            let user = await dispatch(getProfile()).unwrap();
-            if (!userData.username || !userData.wereld || !userData.pokemon || !userData.character) {
-                setData({ ...data, username: user?.data?.username, wereld: user?.data?.wereld, pokemon: user?.data?.pokemon ,character :user?.data?.character })
-                setModal(true)
-                dispatch(getCharacters())
-                dispatch(getPokemons())
-            }
+            await dispatch(getProfile()).unwrap();
         } catch (error) {
         }
-    }
-
-    const hanldedata = (e) => {
-        setData({ ...data, [e.target.name]: e.target.value })
-    }
-    const handlesubmit=()=>{
-        dispatch(updatePlayer(data))
     }
     useEffect(() => {
         getProfileData()
@@ -60,88 +36,9 @@ const Home = () => {
 
     return (
         <>
-
-            <Modal show={modal} onHide={handleCloseModal} size='xl' contentClassName='pokemon-modal'>
-                <Modal.Header closeButton>
-                    <Modal.Title style={{color:'white'}}>User Details</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Row>
-                        <Col md={6}>
-                            <div className="register-item-inner4 m-0 modal-form-username mt-3">
-                                <input type="text"
-                                    className="form-control"
-                                    value={data.username}
-                                    id="name"
-                                    name="username"
-                                    onChange={(e) => { hanldedata(e) }}
-                                    placeholder={t('Usernmae')} />
-                                <img src="images/register-02.png" alt="" />
-                            </div>
-                        </Col>
-                        <Col md={6}>
-
-                            <div className="ar_myProfile_select_area mt-3">
-                                <select className="form-select" aria-label="Default select example"
-                                    name="wereld"
-                                    value={data.wereld}
-                                    onChange={(e) => { hanldedata(e) }}
-                                >
-                                    <option selected>Region</option>
-                                    <option value="Kanto">Kanto</option>
-                                    <option value="Johto">Johto</option>
-                                    <option value="Hoenn">Hoenn</option>
-                                    <option value="Sinnoh">Sinnoh</option>
-                                    <option value="Unova">Unova</option>
-                                    <option value="Kalos">Kalos</option>
-                                    <option value="Alola">Alola</option>
-                                </select>
-                            </div>
-                        </Col>
-                        <Col md={12} className='p-5'>
-                            <h2 style={{color:'white'}}>Choose your character</h2>
-                            <div className='characters'>
-                                <Row>
-                                    {
-                                        characters.map((item, index) => {
-                                            return <Col md={3} sm={6} lg={2} className={`cursor-pointer ${data.character == item.naam ? 'character-active' : ''}`} onClick={() => { setData({ ...data, character: item.naam }) }}>
-                                                <img src={`/images/characters/${item.naam}/${item.images}.png`} alt="" />
-                                                <h3 className='font-weight-bold text-center'>{item.naam}</h3>
-                                            </Col>
-                                        })
-                                    }
-                                </Row>
-                            </div>
-                        </Col>
-                        <Col md={12} className='p-5'>
-                            <h2 style={{color:'white'}}>Choose your pokemon</h2>
-                            <div className='characters'>
-                                <Row>
-                                    {
-                                        characters.map((item, index) => {
-                                            return <Col md={3} sm={6} lg={2} className={`cursor-pointer ${data.pokemon == item.naam ? 'character-active' : ''}`} onClick={() => { setData({ ...data, pokemon: item.naam }) }}>
-                                                <img src={`/images/characters/${item.naam}/${item.images}.png`} alt="" />
-                                                <h3 className='font-weight-bold text-center'>{item.naam}</h3>
-                                            </Col>
-                                        })
-                                    }
-                                </Row>
-                            </div>
-                        </Col>
-                    </Row>
-
-
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="primary" onClick={handlesubmit} size='lg'>
-                        Save Changes
-                    </Button>
-                </Modal.Footer>
-            </Modal>
             <div className='home-header'>
                 <Header />
             </div>
-
             <div dir='rtl'>
                 <div className="main-wrapper">
                     <Offcanvas show={show} onHide={handleClose} placement="end" className="bg-dark text-white custom-offcanvas-dark">
@@ -177,7 +74,7 @@ const Home = () => {
                                             </li>
                                             <li><img src="images/character-02.png" alt="" /><span>{t('Champion Title')}</span></li>
                                             <li onClick={() => { navigate('/battle') }}><img src="images/character-03.png" alt="" /><span>{t('Match Wins')}</span></li>
-                                            <li><img src="images/character-04.png" onClick={() => navigate('/inbox')} alt="" /><span>{t('VIP')}</span></li>
+                                            <li><img src="images/character-04.png" alt="" /><span>{t('VIP')}</span></li>
                                         </ul>
                                     </div>
                                     <div className="character-item-inner3">
@@ -256,7 +153,7 @@ const Home = () => {
                             </div>
                         </div>
                     </section>
-                    <Chat />
+                    <Chat/>
                 </div>
             </div >
             <div className='home-footer'>

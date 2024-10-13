@@ -2,82 +2,118 @@ import { timestempToRelative } from '../../Helper'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getFriendRequest, getFriends } from '../../store/friends';
-import { getChat } from '../../store/chat';
-import {  getUsers } from '../../store/auth';
+import { getChat, sendChat } from '../../store/chat';
+import { getUsers } from '../../store/auth';
 import { useTranslation } from 'react-i18next';
-
+import Form from 'react-bootstrap/Form';
+import { Button } from 'react-bootstrap';
 
 function Chat() {
     const [usersTab, setUsersTab] = useState('friendList');
     const dispatch = useDispatch();
     const { t } = useTranslation();
     const all_chat = useSelector(state => state.chat.all_chat);
+    const [message,setMessage] = useState('')
     const online_users = useSelector(state => state.auth.online_users);
-    const friends = useSelector(state => state.auth.friends);
-
-    const handleUsersTab=(name)=>{
+    const friends = useSelector(state => state.friend.friends);
+    const online_friend_count = useSelector(state => state.friend.online_friend_count);
+    const online_user_count = useSelector(state => state.auth.online_user_count);
+        const user_data = useSelector(state=>state.auth.user_data) 
+    const handleUsersTab = (name) => {
         setUsersTab(name)
     }
-    const getData=async ()=>{
+    const getData = async () => {
         try {
+            await dispatch(getChat()).unwrap();
             await dispatch(getUsers()).unwrap();
             await dispatch(getFriends()).unwrap();
             await dispatch(getFriendRequest()).unwrap();
-            // await dispatch(getChat()).unwrap();
         } catch (error) {
         }
     }
-    useEffect(()=>{
+    const handleSubmit=()=>{
+        const data ={
+            name :user_data.usename,
+            message,
+            admin:false
+        }
+        dispatch(sendChat(data))
+        setMessage('')
+    }
+    const handleEnter=(e)=>{
+        if (e.charCode == 13) {
+            handleSubmit();
+          }
+    }
+    useEffect(() => {
         getData()
-    },[])
-  return (
-    
-    <section className="mock-area pt-0">
-    <div className="container">
-        <div className="mock-item3">
-            <div className="mock-item3-inner">
+    }, [])
+    return (
+        // attack/attack_map
+        <section className="mock-area pt-0">
+            <div className="container">
+                <div className="mock-item3">
+                    <div className="mock-item3-inner">
 
-                <div className="mock-item3-inner2">
-                    <ul>
-                        <li>{t('friends')} <span>1</span><strong>/{friends.length}</strong></li>
-                        <li>{t('online')} <span>{online_users.length}</span></li>
-                    </ul>
-                </div>
-                <div className="mock-item3-inner3">
-                    <ul>
-                        <li><a className={(usersTab =='friendList'? 'usertab-active':'usertab')+ ' cursor-pointer'} onClick={()=>{handleUsersTab('friendList')}}>{t('friendList')}</a></li>
-                        <li><a  className={(usersTab =='all'? 'usertab-active':'usertab') + ' cursor-pointer'} onClick={()=>{handleUsersTab('all')}}>{t('all')}</a></li>
-                    </ul>
-                </div>
-                <div className="mock-item3-inner4">
-                    {(usersTab =='friendList'?friends:online_users).map((item, i) => (
-                        <div key={i} className="mock-item3-inner5">
-                            <div className="mock-item3-inner6">
-                                {/* <p><img src={i % 2 === 0 ? "images/mock-14.png" : "images/mock-15.png"} alt="" /> {i % 2 === 0 ? t('user1') : t('user2')}</p> */}
-                                <p><img src="images/mock-14.png" alt="" /> {item.username}</p>
-                            </div>
-                            <div className="mock-item3-inner7">
-                                {/* <h2>{i % 2 === 0 ? <strong>{t('hebrewText')}</strong> : t('timeAgo')}</h2> */}
-                                <h2>{timestempToRelative(item.online)}</h2>
-                            </div>
+                        <div className="mock-item3-inner2">
+                            <ul>
+                                <li>{t('friends')} <span>{online_friend_count}</span><strong>/{friends.length}</strong></li>
+                                <li>{t('online')} <span>{online_user_count}</span></li>
+                            </ul>
                         </div>
-                    ))}
-                </div>
-            </div>
-            <div className="mock-item3-inner9">
-                <div className="mock-item3-inner10">
-                    <div className="mock-item3-inner4">
-                        {/* Repeating Sections */}
-                        {all_chat.map((item, index) => (
-                            <div key={index} className="mock-item3-inner11">
-                                <h2>{item.name}</h2>
-                                <p>{item.msg}</p>
-                                <img src="images/mock-19.png" alt="" />
-                            </div>
-                        ))}
+                        <div className="mock-item3-inner3">
+                            <ul>
+                                <li><a className={(usersTab == 'friendList' ? 'usertab-active' : 'usertab') + ' cursor-pointer'} onClick={() => { handleUsersTab('friendList') }}>{t('friendList')}</a></li>
+                                <li><a className={(usersTab == 'all' ? 'usertab-active' : 'usertab') + ' cursor-pointer'} onClick={() => { handleUsersTab('all') }}>{t('all')}</a></li>
+                            </ul>
+                        </div>
+                        <div className="mock-item3-inner4">
+                            {usersTab == 'friendList' && friends.map((item, i) => (
+                                <div key={i} className="mock-item3-inner5">
+                                    <div className="mock-item3-inner6">
+                                        {/* <p><img src={i % 2 === 0 ? "images/mock-14.png" : "images/mock-15.png"} alt="" /> {i % 2 === 0 ? t('user1') : t('user2')}</p> */}
+                                        <p><img src="images/mock-14.png" alt="" /> {item.friend_name}</p>
+                                    </div>
+                                    <div className="mock-item3-inner7">
+                                        {/* <h2>{i % 2 === 0 ? <strong>{t('hebrewText')}</strong> : t('timeAgo')}</h2> */}
+                                        <h2>{item.online_status}</h2>
+                                    </div>
+                                </div>
+                            ))}
+                            {usersTab == 'friendList' && friends.length == 0 && <div className='notfound'>
+                                No data found
+                            </div>}
+                            {usersTab == 'all' && online_users.length == 0 && <div className='notfound'>
+                                No data found
+                            </div>}
+                            {usersTab == 'all' && online_users.map((item, i) => (
+                                <div key={i} className="mock-item3-inner5">
+                                    <div className="mock-item3-inner6">
+                                        {/* <p><img src={i % 2 === 0 ? "images/mock-14.png" : "images/mock-15.png"} alt="" /> {i % 2 === 0 ? t('user1') : t('user2')}</p> */}
+                                        <p><img src="images/mock-14.png" alt="" /> {item.username}</p>
+                                    </div>
+                                    <div className="mock-item3-inner7">
+                                        {/* <h2>{i % 2 === 0 ? <strong>{t('hebrewText')}</strong> : t('timeAgo')}</h2> */}
+                                        {/* <h2>{item.online_status}</h2> */}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="mock-item3-inner9">
+                        <div className="mock-item3-inner10">
+                            <div className="mock-item3-inner4">
+                                {/* Repeating Sections */}
+                                {all_chat.map((item, index) => (
+                                    <div key={index} className="mock-item3-inner11">
+                                        <h2>{item.name}</h2>
+                                        <p>{item.msg}</p>
+                                        <img src="images/mock-19.png" alt="" />
+                                    </div>
+                                ))}
 
-                        {/* Challenge Section */}
-                        {/* <div className="mock-item3-inner12">
+                                {/* Challenge Section */}
+                                {/* <div className="mock-item3-inner12">
                             <div>
                                 <h2>
                                     <strong>{t('challengeText', { user: t('user2') })}</strong>
@@ -88,22 +124,33 @@ function Chat() {
                             </div>
                         </div> */}
 
-                        {/* Go Back Section */}
-                        <div className="mock-item3-inner13">
+                                {/* Go Back Section */}
+                                <div className='chat-input d-flex'>
+                                    <Form.Control
+                                        type="text"
+                                        id="inputPassword5"
+                                        value={message}
+                                        onChange={(e)=>{setMessage(e.target.value)}}
+                                        aria-describedby="passwordHelpBlock"
+                                        onKeyPress={handleEnter}
+                                    />
+                                    <Button variant="primary" onClick={handleSubmit}>Send</Button>
+                                </div>
+                                {/* <div className="mock-item3-inner13">
                             <div>
                                 <p>{t('goBack')}</p>
                             </div>
                             <div>
                                 <img src="images/mock-18.png" alt="" />
                             </div>
+                        </div> */}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-  )
+        </section>
+    )
 }
 
 export default Chat

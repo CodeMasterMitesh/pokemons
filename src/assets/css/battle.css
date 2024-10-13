@@ -2299,7 +2299,7 @@ a {
 }
 .ar_shop_in_cont p {
    color: #0f0f0f;
-   font-size: 16px;
+   font-size: 12px;
    font-weight: 700;
    top: 100px;
    left: 0;
@@ -2326,6 +2326,14 @@ a {
    bottom: 19px;
    left: 43px;
    right: 0;
+}
+
+.packages .silver img{
+   position: absolute;
+   height: 23px;
+   width: 23px;
+   bottom: 17px;
+   left: 14px; 
 }
 /*====================== End  Shop Page CSS ======================*/
 
@@ -2704,6 +2712,23 @@ a {
    cursor: pointer;
 }
 
+.modal-form-username input{
+   background-color: #0C1945 !important;
+
+}
+.characters{
+   height: 400px;
+   overflow-y: auto;
+   overflow-x: hidden;
+   padding: 10px;
+}
+.character-active{
+   border: 2px solid white;
+   border-radius: 10px;
+}
+/* .model-submit{
+   height: 30px !important;
+} */
 
 .ar_myProfile_select_area .form-select {
    background: url('../../../public/images/myAccount/dropdown.png') no-repeat;

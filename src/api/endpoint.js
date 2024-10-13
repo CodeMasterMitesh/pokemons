@@ -16,5 +16,10 @@ export const API_ENDPOINTS = {
     SEND_FRIEND_REQUEST:'api/sendFriendRequest.php',
     ACCEPT_FRIEND_REQUEST:'api/acceptFriendRequest.php',
     DECLINE_FRIEND_REQUEST:'api/declineFriendRequest.php',
-    BLOCK_FRIEND:'api/blockFriend.php'
+    BLOCK_FRIEND:'api/blockFriend.php',
+    UNBLOCK_FRIEND:'api/unblockFriend.php',
+    BLOCK_FRIEND_LIST:'api/getBlockFriendsList.php',
+    GET_MAIL_LIST:'api/getMail',
+    POKEMONS:'api/getPokemons.php',
+    UPDATE_PLAYERS:'api/updatePlayer.php'
 };

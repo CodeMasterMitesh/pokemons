@@ -57,54 +57,68 @@ export const registerUser = createAsyncThunk('auth/registerUser', async (userCre
 });
 
 export const getUsers = createAsyncThunk('auth/getUsers', async (userCredentials, { rejectWithValue }) => {
-    
-        return await axios({
-            url: API_ENDPOINTS.GET_USERS,
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
+
+    return await axios({
+        url: API_ENDPOINTS.GET_USERS,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
         .then(response => response.data)
         .catch(error => {
             return rejectWithValue(error.response.data);
         });
 });
 
-export const getCharacters = createAsyncThunk('auth/getCharacters', async (userCredentials, { rejectWithValue }) => {
-    
-        return await axios({
-            url: API_ENDPOINTS.GET_CHARACTERS,
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-        .then(response => response.data)
-        .catch(error => {
-            return rejectWithValue(error.response.data);
-        });
-});
 
 export const getPlayers = createAsyncThunk('auth/getPlayers', async (data, { rejectWithValue }) => {
-    
-        return await axios({
-            url: API_ENDPOINTS.GET_PLAYERS,
+
+    return await axios({
+        url: API_ENDPOINTS.GET_PLAYERS,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        params: {
+            player: data
+        }
+    })
+        .then(response => response.data)
+        .catch(error => {
+            return rejectWithValue(error.response.data);
+        });
+});
+
+export const updatePlayer = createAsyncThunk('auth/updatePlayer', async (data, { rejectWithValue }) => {
+
+    return toast.promise(
+        axios({
+            url: API_ENDPOINTS.UPDATE_PLAYERS,
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            params:{
-                player:data
+            params: {
+                player: data
             }
-        })
+        }),{
+            pending: i18n.t('Player updating...'),
+            success: i18n.t('Player update!'),
+            error: {
+                render({ data }) {
+                    return data?.response?.data?.message || i18n.t('failed!');
+                }
+            }
+        }
+    )
         .then(response => response.data)
         .catch(error => {
             return rejectWithValue(error.response.data);
         });
 });
 export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (userCredentials, { rejectWithValue }) => {
-    
+
     return toast.promise(
         axios({
             url: API_ENDPOINTS.FORGOT_PASSWORD,
@@ -129,9 +143,9 @@ export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (use
         });
 });
 
-export const getProfile = createAsyncThunk('auth/getProfile', async (_,{ rejectWithValue,getState }) => {
- let user_data = JSON.parse(localStorage.getItem('userData'))
-    return  axios({
+export const getProfile = createAsyncThunk('auth/getProfile', async (_, { rejectWithValue, getState }) => {
+    let user_data = JSON.parse(localStorage.getItem('userData'))
+    return axios({
         url: `${API_ENDPOINTS.PLAYER_PROFILE}?player=${user_data?.playerName}`,
         method: 'GET',
         headers: {
@@ -146,11 +160,10 @@ export const getProfile = createAsyncThunk('auth/getProfile', async (_,{ rejectW
 
 const initialState = {
     user_data: {},
-    online_users:[],
-    characters:[],
-    players:[],
-    friends:[],
-    friend_requests:[]
+    online_users: [],
+    characters: [],
+    players: [],
+    online_user_count: 0
 };
 export const authSlice = createSlice({
     name: 'auth',
@@ -209,7 +222,7 @@ export const authSlice = createSlice({
             .addCase(getProfile.fulfilled, (state, action) => {
                 state.profile_loading = false;
                 state.user_data = action.payload?.data;
-                
+
             })
             .addCase(getProfile.rejected, (state, action) => {
                 state.profile_loading = false;
@@ -221,8 +234,8 @@ export const authSlice = createSlice({
             })
             .addCase(getUsers.fulfilled, (state, action) => {
                 state.online_users_loading = false;
-                state.users = action.payload;
-                
+                state.online_users = action.payload?.online_users;
+                state.online_user_count = action.payload?.online_count;
             })
             .addCase(getUsers.rejected, (state, action) => {
                 state.online_users_loading = false;
@@ -235,26 +248,25 @@ export const authSlice = createSlice({
             .addCase(getPlayers.fulfilled, (state, action) => {
                 state.players_loading = false;
                 state.players = action.payload;
-                
+
             })
             .addCase(getPlayers.rejected, (state, action) => {
                 state.players_loading = false;
                 state.players_error = action.payload;
             })
-            .addCase(getCharacters.pending, (state) => {
-                state.characters_loading = true;
+            .addCase(updatePlayer.pending, (state) => {
+                state.players_loading = true;
                 state.error = null;
             })
-            .addCase(getCharacters.fulfilled, (state, action) => {
-                state.characters_loading = false;
-                state.characters = action.payload;
-                
+            .addCase(updatePlayer.fulfilled, (state, action) => {
+                state.players_loading = false;
             })
-            .addCase(getCharacters.rejected, (state, action) => {
-                state.characters_loading = false;
-                state.characters_error = action.payload;
-            });
-            
+            .addCase(updatePlayer.rejected, (state, action) => {
+                state.players_loading = false;
+                state.players_error = action.payload;
+            })
+
+
     }
 });
 

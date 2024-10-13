@@ -5,5 +5,5 @@
             "@/*": ["*"]          
         }
     },
-    "include": ["src/**/*"]       
+    "include": ["src/**/*", "src/store/.js"]       
 }

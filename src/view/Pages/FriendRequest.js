@@ -1,12 +1,33 @@
 import React, { useEffect } from 'react'
 import GoldSiverHeader from '../HomePage/GoldSiverHeader'
 import { useDispatch, useSelector } from 'react-redux'
-import { getFriendRequest } from '../../store/friends'
+import { acceptFriendRequest, declineFriendRequest, getFriendRequest } from '../../store/friends'
 
 function FriendRequest() {
-const dispatch = useDispatch()
-const friend_requests = useSelector(state=>state.friend.friend_requests)
-    useEffect(()=>{
+    const dispatch = useDispatch()
+    const friend_requests = useSelector(state => state.friend.friend_requests)
+    // const friend_requests=[
+    //     {
+    //         id:1,
+    //         name:'Kunj'
+    //     }
+    // ]
+    const handleDecline=async (id)=>{
+        const data ={
+            id:id
+        }
+        await dispatch(declineFriendRequest(data)).unwrap()
+        dispatch(getFriendRequest())
+    }
+    const handleAccept=async(id)=>{
+        const data ={
+            user_id:id
+        }
+        await dispatch(acceptFriendRequest(data)).unwrap()
+        dispatch(getFriendRequest())
+    }
+    useEffect(() => {
+      
         dispatch(getFriendRequest())
     })
     return (
@@ -25,9 +46,17 @@ const friend_requests = useSelector(state=>state.friend.friend_requests)
                                         </div>
                                         <div class="ar_workFlex_wrapper">
                                             {friend_requests.map((item)=>{
-                                            <div class="ar_single_item_table_work hard">
-                                                <div class="ar_work_single_text text">
-                                                    <p><span>(Hard)</span>Help to clean your town</p>
+                                            return <div class="ar_single_item_table_work hard w-100">
+                                                <div class="p-5 d-flex justify-content-between w-100 chat-box">
+                                                    <div className='d-flex gap-3 align-items-center'>
+                                                        <img src="images/mock-19.png" alt="" />
+                                                        <h2>{item.name}</h2>
+                                                    </div>
+                                                    <div>
+                                                        <a className='cursor-pointer' onClick={()=>{handleAccept(item.id)}}><img src="images/mock-03.png" alt="" /></a>
+                                                        <a className='cursor-pointer' onClick={()=>{handleDecline(item.id)}}><img src="images/register-01.png" alt="" /></a>
+                                                    </div>
+
                                                 </div>
 
                                             </div>

@@ -39,7 +39,6 @@ const Login = () => {
                                     <div className="register-item-inner4 m-0">
                                         <input type="text"
                                             className="form-control"
-
                                             id="name"
                                             placeholder={t('Name')}
                                             {...register("username", { required: true })} />

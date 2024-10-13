@@ -518,6 +518,9 @@ body {
     display: flex;
     margin-bottom: 25px;
 }
+.pokemon-modal{
+    background-image: url('../../../public/images/bg.png');
+}
 
 .mock-item3-inner3 ul li {
     width: 50%;
@@ -718,6 +721,15 @@ body {
     position: sticky;
     bottom: 0px;
 }
+.chat-box img{
+    height: 50px;
+    width: 50px !important;
+}
+.block-box{
+    align-items: center;
+    height: 100px;
+}
+
 
 .notfound{
     height: 100%;

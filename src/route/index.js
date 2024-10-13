@@ -26,6 +26,8 @@ import Steal from '../view/Pages/Steal';
 import Town from '../view/Pages/Town';
 import Works from '../view/Pages/Works';
 import FriendRequest from '../view/Pages/FriendRequest';
+import BlockList from '../view/Pages/BlockList';
+import InBox from '../view/Pages/InBox';
 
 
 const MainRoutes = {
@@ -67,6 +69,14 @@ const MainRoutes = {
                         {
                             path: '/friend-requests', 
                             element: <FriendRequest />
+                        },
+                        {
+                            path: '/block-list', 
+                            element: <BlockList />
+                        },
+                        {
+                            path: '/inbox', 
+                            element: <InBox />
                         },
                         {
                             path: '/packages', 
