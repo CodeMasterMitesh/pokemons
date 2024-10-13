@@ -24,7 +24,7 @@ function Chat() {
     }
     const getData = async () => {
         try {
-            await dispatch(getChat()).unwrap();
+            // await dispatch(getChat()).unwrap();
             await dispatch(getUsers()).unwrap();
             await dispatch(getFriends()).unwrap();
             await dispatch(getFriendRequest()).unwrap();

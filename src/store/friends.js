@@ -33,15 +33,44 @@ export const getFriends = createAsyncThunk('auth/getFriends', async (userCredent
             return rejectWithValue(error.response.data);
         });
 });
-export const sendFriendRequest = createAsyncThunk('auth/sendFriendRequest', async (userCredentials, { rejectWithValue }) => {
+export const getSearchPlayers = createAsyncThunk('auth/getSearchPlayers', async (data, { rejectWithValue }) => {
 
     return await axios({
-        url: API_ENDPOINTS.SEND_FRIEND_REQUEST,
+        url: API_ENDPOINTS.GET_PLAYERS,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
+        params: {
+            player: data
+        }
     })
+        .then(response => response.data)
+        .catch(error => {
+            return rejectWithValue(error.response.data);
+        });
+});
+export const sendFriendRequest = createAsyncThunk('auth/sendFriendRequest', async (id, { rejectWithValue }) => {
+    return toast.promise(
+        axios({
+            url: API_ENDPOINTS.SEND_FRIEND_REQUEST,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: {
+                user_id: id
+            }
+        }), {
+        pending: i18n.t('Sending...'),
+        success: i18n.t('Successfully sent !'),
+        error: {
+            render({ data }) {
+                return data?.response?.data?.message || i18n.t('failed!');
+            }
+        }
+    }
+    )
         .then(response => response.data)
         .catch(error => {
             return rejectWithValue(error.response.data);
@@ -150,7 +179,8 @@ const initialState = {
     friends: [],
     friend_requests: [],
     block_friends: [],
-    online_friend_count: 0
+    online_friend_count: 0,
+    search_players: []
 };
 export const friendSlicer = createSlice({
     name: 'friend',
@@ -171,6 +201,18 @@ export const friendSlicer = createSlice({
             .addCase(getFriends.rejected, (state, action) => {
                 state.friends_loading = false;
                 state.friends_error = action.payload;
+            })
+            .addCase(getSearchPlayers.pending, (state) => {
+                state.search_players_loading = true;
+                state.search_error = null;
+            })
+            .addCase(getSearchPlayers.fulfilled, (state, action) => {
+                state.search_players_loading = false;
+                state.search_players = action.payload.data;
+            })
+            .addCase(getSearchPlayers.rejected, (state, action) => {
+                state.search_players_loading = false;
+                state.search_players_error = action.payload;
             })
             .addCase(getFriendRequest.pending, (state) => {
                 state.friend_requests_loading = true;

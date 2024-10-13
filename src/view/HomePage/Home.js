@@ -42,8 +42,9 @@ const Home = () => {
                 setData({ ...data, username: user?.data?.username, wereld: user?.data?.wereld, pokemon: user?.data?.pokemon ,character :user?.data?.character })
                 setModal(true)
                 dispatch(getCharacters())
-                dispatch(getPokemons())
+                // dispatch(getPokemons())
             }
+            
         } catch (error) {
         }
     }
