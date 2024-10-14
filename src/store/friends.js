@@ -6,18 +6,22 @@ import { toast } from 'react-toastify';
 import i18n from "i18next";
 
 export const getFriendRequest = createAsyncThunk('auth/getFriendRequest', async (_, { rejectWithValue }) => {
+    try {
 
-    return await axios({
-        url: API_ENDPOINTS.GET_FRIEND_REQUEST,
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-        .then(response => response.data)
-        .catch(error => {
-            return rejectWithValue(error.response.data);
-        });
+        return await axios({
+            url: API_ENDPOINTS.GET_FRIEND_REQUEST,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(response => response.data)
+            .catch(error => {
+                return rejectWithValue(error.response.data);
+            });
+    } catch (error) {
+
+    }
 });
 export const getFriends = createAsyncThunk('auth/getFriends', async (userCredentials, { rejectWithValue }) => {
 
@@ -51,7 +55,7 @@ export const getSearchPlayers = createAsyncThunk('auth/getSearchPlayers', async 
         });
 });
 export const sendFriendRequest = createAsyncThunk('auth/sendFriendRequest', async (id, { rejectWithValue }) => {
-    
+
     return toast.promise(
         axios({
             url: API_ENDPOINTS.SEND_FRIEND_REQUEST,

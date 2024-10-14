@@ -519,7 +519,17 @@ body {
     margin-bottom: 25px;
 }
 .pokemon-modal{
-    background-image: url('../../../public/images/bg.png');
+    /* background-image: url('../../../public/images/bg.png'); */
+    background-image: url(../../../public/images/main-bg3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.pokemon-modal h2,.pokemon-modal h3 {
+    color: white;
+
+
 }
 
 .mock-item3-inner3 ul li {
@@ -1317,6 +1327,25 @@ body {
 .register-item-inner4 {
     position: relative;
     margin-bottom: 20px;
+}
+.region .form-select{
+    background-color: #290704 !important;
+}
+.b--35{
+    bottom: -35px !important;
+}
+.chat-input{
+    position: sticky;
+    top: 0px;
+    gap: 10px;
+    padding: 20px;
+    z-index: 1000;
+}
+.spinner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
 }
 
 .register-item-inner4 input {

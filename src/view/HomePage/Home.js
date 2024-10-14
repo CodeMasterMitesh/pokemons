@@ -10,8 +10,11 @@ import Header from '../../Header';
 import Footer from '../../Footer';
 import Chat from '../Pages/Chat';
 import { Modal, Button } from 'react-bootstrap';
-import { getCharacters, getPokemons } from '../../store/pokemon';
+import { getCharacters, getPlayerPokemons, getPokemons } from '../../store/pokemon';
 import { Row, Col } from 'react-bootstrap';
+import Loader from '../Pages/Spinner';
+import { toast } from 'react-toastify';
+
 const Home = () => {
     const [show, setShow] = useState(false);
     const { logout } = useAuth();
@@ -23,13 +26,15 @@ const Home = () => {
     const [modal, setModal] = useState(false)
     const userData = useSelector(state => state.auth.user_data);
     const pokemons = useSelector(state => state.pokemon.pokemons);
+    const player_pokemons = useSelector(state => state.pokemon.player_pokemons);
     const characters = useSelector(state => state.pokemon.characters);
-
+    const profile_loading = useSelector(state => state.auth.profile_loading);
+    const [current_step, setStep] = useState(1);
 
 
     const [data, setData] = useState({});
     const handleCloseModal = () => setModal(false);
-    
+
     const handleLogout = () => {
         logout();
         localStorage.clear();
@@ -37,14 +42,14 @@ const Home = () => {
     }
     const getProfileData = async () => {
         try {
-            let user = await dispatch(getProfile()).unwrap();
-            if (!userData.username || !userData.wereld || !userData.pokemon || !userData.character) {
-                setData({ ...data, username: user?.data?.username, wereld: user?.data?.wereld, pokemon: user?.data?.pokemon ,character :user?.data?.character })
-                setModal(true)
-                dispatch(getCharacters())
-                // dispatch(getPokemons())
-            }
-            
+            let user = dispatch(getProfile()).unwrap();
+            // if (!userData.username || !userData.wereld || !userData.pokemon || !userData.character) {
+            //     setData({ ...data, username: user?.data?.username, wereld: user?.data?.wereld, pokemon: user?.data?.pokemon, character: user?.data?.character })
+            //     setModal(true)
+            //     dispatch(getCharacters())
+            // }
+            dispatch(getPlayerPokemons()).unwrap();
+
         } catch (error) {
         }
     }
@@ -52,24 +57,47 @@ const Home = () => {
     const hanldedata = (e) => {
         setData({ ...data, [e.target.name]: e.target.value })
     }
-    const handlesubmit=()=>{
-        dispatch(updatePlayer(data))
+    const handlesubmit = async () => {
+        if (current_step == 1) {
+            if (!data.username) {
+                toast.warning("Please enter username")
+            }
+            if (!data.wereld) {
+                toast.warning("Please select region")
+            }
+            if (!data.character) {
+                toast.warning("Please select character")
+            }
+            if (data.username && data.wereld && data.character) {
+                // await dispatch(updatePlayer(data)).unwrap()
+                dispatch(getPokemons())
+                setStep(2)
+            }
+        } else {
+            if (!data.pokemon) {
+                toast.warning("Please select pokemon")
+            } else {
+                await dispatch(updatePlayer(data)).unwrap()
+                setModal(false)
+            }
+        }
     }
     useEffect(() => {
         getProfileData()
     }, []);
-
     return (
         <>
-
-            <Modal show={modal} onHide={handleCloseModal} size='xl' contentClassName='pokemon-modal'>
-                <Modal.Header closeButton>
-                    <Modal.Title style={{color:'white'}}>User Details</Modal.Title>
+            {/* {profile_loading && <Loader/>} */}
+            {/* <Loader/> */}
+            <Modal show={modal} onHide={handleCloseModal} size='xl' contentClassName='pokemon-modal' backdrop="static"
+                keyboard={false}>
+                <Modal.Header>
+                    <Modal.Title style={{ color: 'white' }}>User Details</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Row>
-                        <Col md={6}>
-                            <div className="register-item-inner4 m-0 modal-form-username mt-3">
+                        {current_step == 1 && <Col md={6}>
+                            <div className="register-item-inner4 m-0 mt-3">
                                 <input type="text"
                                     className="form-control"
                                     value={data.username}
@@ -79,10 +107,10 @@ const Home = () => {
                                     placeholder={t('Usernmae')} />
                                 <img src="images/register-02.png" alt="" />
                             </div>
-                        </Col>
-                        <Col md={6}>
+                        </Col>}
+                        {current_step == 1 && <Col md={6}>
 
-                            <div className="ar_myProfile_select_area mt-3">
+                            <div className="ar_myProfile_select_area mt-3 region">
                                 <select className="form-select" aria-label="Default select example"
                                     name="wereld"
                                     value={data.wereld}
@@ -98,14 +126,14 @@ const Home = () => {
                                     <option value="Alola">Alola</option>
                                 </select>
                             </div>
-                        </Col>
-                        <Col md={12} className='p-5'>
-                            <h2 style={{color:'white'}}>Choose your character</h2>
+                        </Col>}
+                        {current_step == 1 && <Col md={12} className='p-5'>
+                            <h2 >Choose your character</h2>
                             <div className='characters'>
                                 <Row>
                                     {
                                         characters.map((item, index) => {
-                                            return <Col md={3} sm={6} lg={2} className={`cursor-pointer ${data.character == item.naam ? 'character-active' : ''}`} onClick={() => { setData({ ...data, character: item.naam }) }}>
+                                            return <Col md={3} sm={6} lg={2} className={`cursor-pointer d-flex flex-column justify-content-center ${data.character == item.naam ? 'character-active' : ''}`} onClick={() => { setData({ ...data, character: item.naam }) }}>
                                                 <img src={`/images/characters/${item.naam}/${item.images}.png`} alt="" />
                                                 <h3 className='font-weight-bold text-center'>{item.naam}</h3>
                                             </Col>
@@ -113,29 +141,29 @@ const Home = () => {
                                     }
                                 </Row>
                             </div>
-                        </Col>
-                        <Col md={12} className='p-5'>
-                            <h2 style={{color:'white'}}>Choose your pokemon</h2>
-                            <div className='characters'>
+                        </Col>}
+                        {current_step == 2 && <Col md={12} className='p-5'>
+                            <h2 >Choose your pokemon</h2>
+                            <div className='characters pokemon'>
                                 <Row>
                                     {
-                                        characters.map((item, index) => {
-                                            return <Col md={3} sm={6} lg={2} className={`cursor-pointer ${data.pokemon == item.naam ? 'character-active' : ''}`} onClick={() => { setData({ ...data, pokemon: item.naam }) }}>
-                                                <img src={`/images/characters/${item.naam}/${item.images}.png`} alt="" />
+                                        pokemons.map((item, index) => {
+                                            return <Col md={3} sm={6} lg={2} className={`cursor-pointer d-flex flex-column justify-content-center ${data.pokemon == item.naam ? 'character-active' : ''}`} onClick={() => { setData({ ...data, pokemon: item.naam }) }}>
+                                                <img src={`/images/pokemon/${item.wild_id}.gif`} alt="" />
                                                 <h3 className='font-weight-bold text-center'>{item.naam}</h3>
                                             </Col>
                                         })
                                     }
                                 </Row>
                             </div>
-                        </Col>
+                        </Col>}
                     </Row>
 
 
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={handlesubmit} size='lg'>
-                        Save Changes
+                        {current_step == 1 ? 'Next' : 'Submit'}
                     </Button>
                 </Modal.Footer>
             </Modal>
@@ -182,7 +210,7 @@ const Home = () => {
                                         </ul>
                                     </div>
                                     <div className="character-item-inner3">
-                                        <p><span>125</span><small>L</small><span>760</span><small>V</small></p>
+                                        <p><span>{userData?.verloren}</span><small>L</small><span>{userData?.gewonnen}</span><small>V</small></p>
                                         <a href="#">{t('Champion Title')}</a>
                                     </div>
                                 </div>
@@ -230,28 +258,33 @@ const Home = () => {
                                 <h2>{t('Champion Title')}</h2>
                                 <form action="#">
                                     <div className="character-item2-inner">
-                                        <div className="character-item2-inner2">
+                                        {
+                                            player_pokemons && player_pokemons.map((item) => {
+                                                return <div className="character-item2-inner2">
+                                                    <div className="character-item2-inner3">
+                                                        <img src={`images/pokemon/${item.wild_id}.gif`} alt="" />
+
+                                                        <div className="character-item2-inner4">
+                                                            <img src="images/character-17.png" alt="" />
+                                                        </div>
+                                                        <div className="character-item2-inner5 b--35">
+                                                            <p>{item.naam} - Lv <span>{item.level}</span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            })
+                                        }
+                                        {/* <div className="character-item2-inner2">
                                             <div className="character-item2-inner3">
-                                                <img src="images/character-16.png" alt="" />
+                                                <img src={`images/pokemon/250.gif`} alt="" />
                                                 <div className="character-item2-inner4">
-                                                    <img src="images/character-17.png" alt="" />
                                                 </div>
-                                                <div className="character-item2-inner5">
-                                                    <p>{t('Mewtwo')} - Lv <span>2</span></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="character-item2-inner2">
-                                            <div className="character-item2-inner3">
-                                                <img src="images/character-18.png" alt="" />
-                                                <div className="character-item2-inner4">
-                                                    <img src="images/character-17.png" alt="" />
-                                                </div>
-                                                <div className="character-item2-inner5">
+                                                <div className="character-item2-inner5 b--35">
                                                     <p>{t('Pikachu')} - Lv <span>2</span></p>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
+
                                     </div>
                                 </form>
                             </div>

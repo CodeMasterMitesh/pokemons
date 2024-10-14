@@ -2725,10 +2725,16 @@ a {
 .character-active{
    border: 2px solid white;
    border-radius: 10px;
+   /* border-radius: 10px;
+    box-shadow: 1px 1px 24px -2px #bdb9b9; */
 }
 /* .model-submit{
    height: 30px !important;
 } */
+
+.pokemon img{
+   height: 150px;
+}
 
 .ar_myProfile_select_area .form-select {
    background: url('../../../public/images/myAccount/dropdown.png') no-repeat;
