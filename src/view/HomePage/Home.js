@@ -257,21 +257,21 @@ const Home = () => {
                             <div className="character-item2">
                                 <h2>{t('Champion Title')}</h2>
                                 <form action="#">
-                                    <div className="character-item2-inner">
+                                    <Row className="character-item2-inner overflow-auto" style={{maxHeight:'500px'}}>
                                         {
                                             player_pokemons && player_pokemons.map((item) => {
-                                                return <div className="character-item2-inner2">
+                                                return <Col md={2} sm={4} className="character-item2-inner2 gap-2">
                                                     <div className="character-item2-inner3">
                                                         <img src={`images/pokemon/${item.wild_id}.gif`} alt="" />
 
                                                         <div className="character-item2-inner4">
                                                             <img src="images/character-17.png" alt="" />
                                                         </div>
-                                                        <div className="character-item2-inner5 b--35">
-                                                            <p>{item.naam} - Lv <span>{item.level}</span></p>
+                                                        <div className="character-item2-inner5 b--35" >
+                                                            <p style={{ color: 'black' }}>{item.naam} - Lv <span>{item.level}</span></p>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </Col>
                                             })
                                         }
                                         {/* <div className="character-item2-inner2">
@@ -285,12 +285,16 @@ const Home = () => {
                                             </div>
                                         </div> */}
 
-                                    </div>
+                                    </Row>
                                 </form>
                             </div>
                         </div>
+                        <div className='mt-5 mb-5'>
+
+                            <Chat />
+                        </div>
+
                     </section>
-                    <Chat />
                 </div>
             </div >
             <div className='home-footer'>

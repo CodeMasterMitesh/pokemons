@@ -21,6 +21,6 @@ export const API_ENDPOINTS = {
     BLOCK_FRIEND_LIST:'api/getBlockFriendsList.php',
     GET_MAIL_LIST:'api/getMail',
     POKEMONS:'api/getPokemons.php',
-    PLAYER_POKEMONS:'api/getPlayerPokemons.php',
+    PLAYER_POKEMONS:'api/getPlayerPokemon.php',
     UPDATE_PLAYERS:'api/updatePlayer.php'
 };
