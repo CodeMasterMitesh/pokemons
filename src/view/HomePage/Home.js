@@ -257,7 +257,7 @@ const Home = () => {
                             <div className="character-item2">
                                 <h2>{t('Champion Title')}</h2>
                                 <form action="#">
-                                    <Row className="character-item2-inner overflow-auto" style={{maxHeight:'500px'}}>
+                                    <Row className="character-item2-inner overflow-auto ar_work_area" style={{maxHeight:'500px'}}>
                                         {
                                             player_pokemons && player_pokemons.map((item) => {
                                                 return <Col md={2} sm={4} className="character-item2-inner2 gap-2">
