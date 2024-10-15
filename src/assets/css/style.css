@@ -659,7 +659,7 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;
-    padding: 4px 85px 9px 16px;
+    padding: 8px 85px 9px 16px;
     min-height: 70px;
     margin-bottom: 22px;
     text-align: right;
@@ -669,8 +669,8 @@ body {
 .mock-item3-inner11 > img {
     max-width: 100%;
     position: absolute;
-    top: 5px;
-    right: 2px;
+    top: 0px;
+    right: 9px;
 }
 
 .mock-item3-inner11 h2 {
