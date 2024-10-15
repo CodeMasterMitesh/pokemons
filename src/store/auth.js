@@ -91,31 +91,37 @@ export const getPlayers = createAsyncThunk('auth/getPlayers', async (data, { rej
 });
 
 export const updatePlayer = createAsyncThunk('auth/updatePlayer', async (data, { rejectWithValue }) => {
+    try {
 
-    return toast.promise(
-        axios({
-            url: API_ENDPOINTS.UPDATE_PLAYERS,
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            params: {
-                player: data
+        const response = await toast.promise(
+            axios({
+                url: API_ENDPOINTS.UPDATE_PLAYERS,
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                data,
+            }),
+            {
+                pending: i18n.t('Player updating...'),
+                success: i18n.t('Player updated successfully!'),
+                error: {
+                    render({ data }) {
+                        return (
+                            data?.response?.data?.message || i18n.t('Player update failed!')
+                        );
+                    },
+                },
             }
-        }),{
-            pending: i18n.t('Player updating...'),
-            success: i18n.t('Player update!'),
-            error: {
-                render({ data }) {
-                    return data?.response?.data?.message || i18n.t('failed!');
-                }
-            }
-        }
-    )
-        .then(response => response.data)
-        .catch(error => {
-            return rejectWithValue(error.response.data);
-        });
+        );
+        return response.data;
+    } catch (error) {
+        console.error('Error updating player:', error); // Log error for debugging
+        // Handle both axios and non-axios errors gracefully
+        return rejectWithValue(
+          error?.response?.data || 'An unknown error occurred.'
+        );
+    }
 });
 export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (userCredentials, { rejectWithValue }) => {
 

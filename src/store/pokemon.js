@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from '../api/axios';
 import { API_ENDPOINTS } from "../api/endpoint";
+import { toast } from 'react-toastify';
+import i18n from "i18next";  // Importing i18n for translations
 
 const initialState = {
     pokemons: [],
@@ -56,6 +58,37 @@ export const getCharacters = createAsyncThunk('auth/getCharacters', async (userC
             return rejectWithValue(error.response.data);
         });
 });
+export const addPlayerPokemon = createAsyncThunk('auth/addPlayerPokemon', async (data, { rejectWithValue }) => {
+    try {
+        const response = await toast.promise(
+            axios({
+                url: API_ENDPOINTS.ADD_PLAYER_POKEMON,
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                data: {
+                    pokemon_id: data
+                }
+            }), {
+            pending: i18n.t('Player updating...'),
+            success: i18n.t('Player update!'),
+            error: {
+                render({ data }) {
+                    return data?.response?.data?.message || i18n.t('failed!');
+                }
+            }
+        }
+        )
+        return response.data
+    } catch (error) {
+        console.error('Error updating player:', error); // Log error for debugging
+        // Handle both axios and non-axios errors gracefully
+        return rejectWithValue(
+          error?.response?.data || 'An unknown error occurred.'
+        );
+    }
+});
 
 export const pokemonSlice = createSlice({
     name: 'pokemon',
@@ -98,7 +131,18 @@ export const pokemonSlice = createSlice({
             .addCase(getPlayerPokemons.rejected, (state, action) => {
                 state.player_pokemons_loading = false;
                 state.player_pokemons_error = action.payload;
-            });
+            })
+            .addCase(addPlayerPokemon.pending, (state) => {
+                state.add_player_pokemons_loading = true;
+                state.add_player_pokemons_error = null;
+            })
+            .addCase(addPlayerPokemon.fulfilled, (state, action) => {
+                state.add_player_pokemons_loading = false;
+            })
+            .addCase(addPlayerPokemon.rejected, (state, action) => {
+                state.add_player_pokemons_loading = false;
+                state.add_player_pokemons_error = action.payload;
+            })
     }
 });
 

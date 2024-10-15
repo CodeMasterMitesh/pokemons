@@ -80,7 +80,7 @@ a:active {
 }
 
 img {
-    max-width: 100%;
+    max-width: 95%;
 }
 
 body {  
@@ -659,8 +659,8 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;
-    padding: 10px 85px 16px 16px;
-    min-height: 110px;
+    padding: 4px 85px 9px 16px;
+    min-height: 70px;
     margin-bottom: 22px;
     text-align: right;
     position: relative;
@@ -1485,15 +1485,23 @@ body {
 .register-item-inner8 a:hover {
     color: #fec222;
 }
+.pokemon-gifs{
+    /* background-image: url(../../../public/images/item2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%; */
+    text-align: center;
+}
 
 /*=== character page start ===*/
 
 .character-area {
     background-image: url(../../../public/images/character-bg.png);
     background-repeat: no-repeat;
-    background-size: 680px;
+    background-size: 273px;
     background-position: center 140px;
-    padding: 140px 0 20px;
+    padding: 101px 0 20px;
 }
 
 .character-item {
@@ -1509,7 +1517,7 @@ body {
 .character-item-inner2 ul {
     display: flex;
     align-items: center;
-    margin-bottom: 110px;
+    margin-bottom: 50px;
 }
 
 .character-item-inner2 ul li {
@@ -1519,7 +1527,7 @@ body {
 }
 
 .character-item-inner2 ul li img {
-    max-width: 100%;
+    max-width: 85%;
 }
 
 .character-item-inner2 ul li span {
@@ -1598,7 +1606,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 256px;
-    height: 65px;
+    height: 54px;
     background-image: url(../../../public/images/character-05.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -1706,7 +1714,7 @@ body {
     background-size: 100% 100%;
     background-position: center;
     width: 191px;
-    height: 86px;
+    height: 79px;
 }
 
 .character-item-inner11 div:nth-of-type(2) {
@@ -1749,7 +1757,7 @@ body {
     background-size: 100% 100%;
     background-position: center;
     width: 301px;
-    height: 73px;
+    height: 66px;
     margin: 22px 0;
     margin-right: auto;
 }
@@ -1832,10 +1840,13 @@ body {
 .character-item2-inner3 {
     position: relative;
     margin-bottom: 20px;
+    border-radius: 13px;
+    background: #7d7d7d8f;
 }
 
 .character-item2-inner3 > img {
-    width: 100%;
+    width: auto;
+    height: 104px
 }
 
 .character-item2-inner4 {
@@ -1849,18 +1860,21 @@ body {
 }
 
 .character-item2-inner5 {
-    position: absolute;
+    /* position: absolute; */
     left: 0;
     bottom: 0;
-    padding: 13px 0;
+    padding-top: 13px;
     width: 100%;
     text-align: center;
 }
 
 .character-item2-inner5 p {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 700;
     color: #F6F6F6;
+    padding: 8px;
+    background: black;
+    border-radius:0px 0px 13px 13px;
 }
 
 .character-item2-inner5 p span {

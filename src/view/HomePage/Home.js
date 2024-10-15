@@ -10,7 +10,7 @@ import Header from '../../Header';
 import Footer from '../../Footer';
 import Chat from '../Pages/Chat';
 import { Modal, Button } from 'react-bootstrap';
-import { getCharacters, getPlayerPokemons, getPokemons } from '../../store/pokemon';
+import { getCharacters, addPlayerPokemon, getPokemons, getPlayerPokemons } from '../../store/pokemon';
 import { Row, Col } from 'react-bootstrap';
 import Loader from '../Pages/Spinner';
 import { toast } from 'react-toastify';
@@ -42,13 +42,23 @@ const Home = () => {
     }
     const getProfileData = async () => {
         try {
-            let user = dispatch(getProfile()).unwrap();
-            // if (!userData.username || !userData.wereld || !userData.pokemon || !userData.character) {
-            //     setData({ ...data, username: user?.data?.username, wereld: user?.data?.wereld, pokemon: user?.data?.pokemon, character: user?.data?.character })
-            //     setModal(true)
-            //     dispatch(getCharacters())
-            // }
-            dispatch(getPlayerPokemons()).unwrap();
+            let user = await dispatch(getProfile()).unwrap();
+
+            if (!user.data?.username || !user.data?.wereld || !user.data?.character) {
+                setData({ ...data, username: user?.data?.username, region: user?.data?.wereld, pokemon: user?.data?.pokemon, character: user?.data?.character })
+                setModal(true)
+                dispatch(getCharacters())
+                setStep(1)
+            }
+            else if (user.data?.eigekregen != '1') {
+                setData({ ...data, username: user?.data?.username, region: user?.data?.wereld, pokemon: user?.data?.pokemon, character: user?.data?.character })
+                setModal(true)
+                dispatch(getPokemons())
+                setStep(2)
+            } else {
+                dispatch(getPlayerPokemons())
+            }
+            // dispatch(getPlayerPokemons()).unwrap();
 
         } catch (error) {
         }
@@ -59,26 +69,38 @@ const Home = () => {
     }
     const handlesubmit = async () => {
         if (current_step == 1) {
+
             if (!data.username) {
                 toast.warning("Please enter username")
             }
-            if (!data.wereld) {
+            if (!data.region) {
                 toast.warning("Please select region")
             }
             if (!data.character) {
                 toast.warning("Please select character")
             }
-            if (data.username && data.wereld && data.character) {
-                // await dispatch(updatePlayer(data)).unwrap()
-                dispatch(getPokemons())
-                setStep(2)
+            if (data.username && data.region && data.character) {
+                try {
+                    const response = await dispatch(updatePlayer(data)).unwrap();
+                    console.log('Player updated:', response);
+                    dispatch(getPokemons())
+                    setStep(2)
+                } catch (error) {
+                    console.error('Update failed:', error); // Log the error if needed
+                    // Optionally, show a toast message or alert for the user
+                }
             }
         } else {
             if (!data.pokemon) {
                 toast.warning("Please select pokemon")
             } else {
-                await dispatch(updatePlayer(data)).unwrap()
-                setModal(false)
+                try {
+                    await dispatch(addPlayerPokemon(data.pokemon)).unwrap()
+                    dispatch(getPlayerPokemons())
+                    setModal(false)
+                } catch (error) {
+
+                }
             }
         }
     }
@@ -112,8 +134,8 @@ const Home = () => {
 
                             <div className="ar_myProfile_select_area mt-3 region">
                                 <select className="form-select" aria-label="Default select example"
-                                    name="wereld"
-                                    value={data.wereld}
+                                    name="region"
+                                    value={data.region}
                                     onChange={(e) => { hanldedata(e) }}
                                 >
                                     <option selected>Region</option>
@@ -142,13 +164,13 @@ const Home = () => {
                                 </Row>
                             </div>
                         </Col>}
-                        {current_step == 2 && <Col md={12} className='p-5'>
+                        {current_step == 2 && <Col md={12} className='p-5 '>
                             <h2 >Choose your pokemon</h2>
-                            <div className='characters pokemon'>
+                            <div className='characters pokemon ar_work_area'>
                                 <Row>
                                     {
                                         pokemons.map((item, index) => {
-                                            return <Col md={3} sm={6} lg={2} className={`cursor-pointer d-flex flex-column justify-content-center ${data.pokemon == item.naam ? 'character-active' : ''}`} onClick={() => { setData({ ...data, pokemon: item.naam }) }}>
+                                            return <Col md={3} sm={6} lg={2} className={`cursor-pointer d-flex flex-column justify-content-center ${data.pokemon == item.wild_id ? 'character-active' : ''}`} onClick={() => { setData({ ...data, pokemon: item.wild_id }) }}>
                                                 <img src={`/images/pokemon/${item.wild_id}.gif`} alt="" />
                                                 <h3 className='font-weight-bold text-center'>{item.naam}</h3>
                                             </Col>
@@ -189,7 +211,7 @@ const Home = () => {
                         </Offcanvas.Body>
                     </Offcanvas>
 
-                    <section className="character-area">
+                    <section className="character-area  container">
                         <div className="container">
                             <div className="character-item">
                                 <div className="character-item-inner">
@@ -257,18 +279,17 @@ const Home = () => {
                             <div className="character-item2">
                                 <h2>{t('Champion Title')}</h2>
                                 <form action="#">
-                                    <Row className="character-item2-inner overflow-auto ar_work_area" style={{maxHeight:'500px'}}>
+                                    <Row className="character-item2-inner" style={{ maxHeight: '500px' }}>
                                         {
                                             player_pokemons && player_pokemons.map((item) => {
                                                 return <Col md={2} sm={4} className="character-item2-inner2 gap-2">
-                                                    <div className="character-item2-inner3">
+                                                    <div className="character-item2-inner3 pokemon-gifs">
                                                         <img src={`images/pokemon/${item.wild_id}.gif`} alt="" />
-
                                                         <div className="character-item2-inner4">
                                                             <img src="images/character-17.png" alt="" />
                                                         </div>
                                                         <div className="character-item2-inner5 b--35" >
-                                                            <p style={{ color: 'black' }}>{item.naam} - Lv <span>{item.level}</span></p>
+                                                            <p>{item.naam} - Lv <span>{item.level}</span></p>
                                                         </div>
                                                     </div>
                                                 </Col>

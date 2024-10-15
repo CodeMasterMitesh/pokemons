@@ -22,5 +22,6 @@ export const API_ENDPOINTS = {
     GET_MAIL_LIST:'api/getMail',
     POKEMONS:'api/getPokemons.php',
     PLAYER_POKEMONS:'api/getPlayerPokemon.php',
-    UPDATE_PLAYERS:'api/updatePlayer.php'
+    UPDATE_PLAYERS:'api/addNewPlayer.php',
+    ADD_PLAYER_POKEMON:'api/addPlayerPokemon.php',
 };

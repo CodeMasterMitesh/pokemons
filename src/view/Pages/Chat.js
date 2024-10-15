@@ -25,19 +25,23 @@ function Chat() {
     }
     const getData = async () => {
         try {
-            // setInterval(() => {
-            //     dispatch(getChat()).unwrap();
-            // }, 5000);
+            setInterval(() => {
+                try {
+                    dispatch(getChat()).unwrap();
+                } catch (error) {
+
+                }
+            }, 5000);
             await dispatch(getUsers()).unwrap();
             await dispatch(getFriends()).unwrap();
             await dispatch(getFriendRequest()).unwrap();
         } catch (error) {
         }
     }
-    const handleSubmit = async() => {
+    const handleSubmit = async () => {
         const data = {
             name: user_data.username,
-            msg:message,
+            msg: message,
             admin: false
         }
         await dispatch(sendChat(data)).unwrap()
@@ -121,7 +125,7 @@ function Chat() {
                                 {/* Repeating Sections */}
                                 {all_chat.map((item, index) => (
                                     <div key={index} className="mock-item3-inner11">
-                                        <h2 className='d-flex justify-content-between ml-2'> <span>{item.posted }</span>
+                                        <h2 className='d-flex justify-content-between ml-2'> <span>{item.posted}</span>
                                             <span>{item.name}</span>
                                         </h2>
                                         <p>{item.msg}</p>
