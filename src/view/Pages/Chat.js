@@ -27,14 +27,15 @@ function Chat() {
         try {
             setInterval(() => {
                 try {
-                    dispatch(getChat()).unwrap();
+                    // dispatch(getChat()).unwrap();
                 } catch (error) {
 
                 }
             }, 5000);
             await dispatch(getUsers()).unwrap();
             await dispatch(getFriends()).unwrap();
-            await dispatch(getFriendRequest()).unwrap();
+
+            // await dispatch(getFriendRequest()).unwrap();
         } catch (error) {
         }
     }

@@ -16,7 +16,7 @@ function Profile() {
     const handleCloseModal = () => setModal(false);
 
     const handlesubmit=()=>{
-        dispatch(updatePlayer())
+        dispatch(updatePlayer(region))
     }
 
     useEffect(() => {

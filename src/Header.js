@@ -19,12 +19,12 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="d-flex justify-content-evenly w-100">
                             <NavDropdown title={t('Social')} id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">{t('Find Coaches')}</NavDropdown.Item>
+                                <NavDropdown.Item href="/find-coach">{t('Find Coaches')}</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">
                                 {t('Challenge Trainer')}
                                 </NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.3">{t('My Friends')}</NavDropdown.Item>
+                                <NavDropdown.Item href="/friends">{t('My Friends')}</NavDropdown.Item>
                             </NavDropdown>
                             <NavDropdown title={t('Extras')} id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">{t('Badges')}</NavDropdown.Item>

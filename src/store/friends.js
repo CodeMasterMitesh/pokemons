@@ -119,7 +119,9 @@ export const blockFriend = createAsyncThunk('auth/blockFriend', async (data, { r
         headers: {
             'Content-Type': 'application/json',
         },
-        data: data
+        params: {
+            player:data
+        }
     }), {
         pending: i18n.t('Blocking...'),
         success: i18n.t('Success!'),
@@ -200,7 +202,7 @@ export const friendSlicer = createSlice({
             })
             .addCase(getFriends.fulfilled, (state, action) => {
                 state.friends_loading = false;
-                state.friends = action.payload?.friends;
+                state.friends = action.payload?.friends ?action.payload?.friends:[];
                 state.online_friend_count = action.payload?.online_friends;
             })
             .addCase(getFriends.rejected, (state, action) => {

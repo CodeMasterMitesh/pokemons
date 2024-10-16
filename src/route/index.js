@@ -28,6 +28,8 @@ import Works from '../view/Pages/Works';
 import FriendRequest from '../view/Pages/FriendRequest';
 import BlockList from '../view/Pages/BlockList';
 import InBox from '../view/Pages/InBox';
+import Friends from '../view/Pages/Friends';
+import FindCoach from '../view/Pages/FindCoach';
 
 
 const MainRoutes = {
@@ -145,6 +147,14 @@ const MainRoutes = {
                         {
                             path: '/works', 
                             element: <Works />,
+                        },
+                        {
+                            path: '/friends', 
+                            element: <Friends />,
+                        },
+                        {
+                            path: '/find-coach', 
+                            element: <FindCoach />,
                         },
                     ]
                 },

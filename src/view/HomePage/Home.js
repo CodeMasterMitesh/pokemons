@@ -24,13 +24,14 @@ const Home = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const [modal, setModal] = useState(false)
+    const [region, setRegion] = useState('')
+    const [regionModal, setRegionModal] = useState(false)
     const userData = useSelector(state => state.auth.user_data);
     const pokemons = useSelector(state => state.pokemon.pokemons);
     const player_pokemons = useSelector(state => state.pokemon.player_pokemons);
     const characters = useSelector(state => state.pokemon.characters);
     const profile_loading = useSelector(state => state.auth.profile_loading);
     const [current_step, setStep] = useState(1);
-
 
     const [data, setData] = useState({});
     const handleCloseModal = () => setModal(false);
@@ -42,24 +43,26 @@ const Home = () => {
     }
     const getProfileData = async () => {
         try {
-            let user = await dispatch(getProfile()).unwrap();
-
-            if (!user.data?.username || !user.data?.wereld || !user.data?.character) {
-                setData({ ...data, username: user?.data?.username, region: user?.data?.wereld, pokemon: user?.data?.pokemon, character: user?.data?.character })
+            let user = JSON.parse(localStorage.getItem('userData'))                        
+            if (!(user && user.playerId)) {
+                setData({ ...data, username: '', region: '', pokemon: '', character: '' })
                 setModal(true)
                 dispatch(getCharacters())
                 setStep(1)
-            }
-            else if (user.data?.eigekregen != '1') {
-                setData({ ...data, username: user?.data?.username, region: user?.data?.wereld, pokemon: user?.data?.pokemon, character: user?.data?.character })
-                setModal(true)
-                dispatch(getPokemons())
-                setStep(2)
             } else {
-                dispatch(getPlayerPokemons())
-            }
-            // dispatch(getPlayerPokemons()).unwrap();
+                let user =await dispatch(getProfile()).unwrap();
+                setRegion(user?.data?.wereld)
+                if (user.data?.eigekregen != '1') {
+                    setData({ ...data, username: user?.data?.username, region: user?.data?.wereld, pokemon: user?.data?.pokemon, character: user?.data?.character })
+                    setModal(true)
+                    dispatch(getPokemons())
+                    setStep(2)
+                }else{
+                    dispatch(getPlayerPokemons())
+                }
+                // dispatch(getPlayerPokemons()).unwrap();
 
+            }
         } catch (error) {
         }
     }
@@ -82,7 +85,10 @@ const Home = () => {
             if (data.username && data.region && data.character) {
                 try {
                     const response = await dispatch(updatePlayer(data)).unwrap();
-                    console.log('Player updated:', response);
+                    let users = JSON.parse(localStorage.getItem('userData'));
+                    users.playerId=response.playerId
+                    users.playerName=response.playerName
+                    localStorage.setItem('userData',JSON.stringify(users))
                     dispatch(getPokemons())
                     setStep(2)
                 } catch (error) {
@@ -104,6 +110,9 @@ const Home = () => {
             }
         }
     }
+    const handlesubmitRegion=()=>{
+        dispatch(updatePlayer(region))
+    }
     useEffect(() => {
         getProfileData()
     }, []);
@@ -111,6 +120,43 @@ const Home = () => {
         <>
             {/* {profile_loading && <Loader/>} */}
             {/* <Loader/> */}
+            <Modal show={regionModal} onHide={()=>{setRegionModal(false)}} size='xl' contentClassName='pokemon-modal'>
+                <Modal.Header closeButton>
+                    <Modal.Title style={{ color: 'white' }}>Changes Region</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Row>
+                        <Col md={6}>
+
+                            <div className="ar_myProfile_select_area mt-3">
+                                <select className="form-select" aria-label="Default select example"
+                                    name="wereld"
+                                    value={region}
+                                    onChange={(e) => { setRegion(e.target.value) }}
+                                >
+                                    <option selected>Region</option>
+                                    <option value="Kanto">Kanto</option>
+                                    <option value="Johto">Johto</option>
+                                    <option value="Hoenn">Hoenn</option>
+                                    <option value="Sinnoh">Sinnoh</option>
+                                    <option value="Unova">Unova</option>
+                                    <option value="Kalos">Kalos</option>
+                                    <option value="Alola">Alola</option>
+                                </select>
+                            </div>
+                        </Col>
+                    </Row>
+
+
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="primary" onClick={handlesubmitRegion} size='lg'>
+                        Save Changes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+
             <Modal show={modal} onHide={handleCloseModal} size='xl' contentClassName='pokemon-modal' backdrop="static"
                 keyboard={false}>
                 <Modal.Header>
@@ -166,7 +212,7 @@ const Home = () => {
                         </Col>}
                         {current_step == 2 && <Col md={12} className='p-5 '>
                             <h2 >Choose your pokemon</h2>
-                            <div className='characters pokemon ar_work_area'>
+                            <div className='characters pokemon'>
                                 <Row>
                                     {
                                         pokemons.map((item, index) => {
@@ -240,7 +286,7 @@ const Home = () => {
                                     <div className="character-item-inner5">
                                         <div className="character-item-inner6">
                                             <div className="character-item-inner7">
-                                                <div>
+                                                <div onClick={()=>{setRegionModal(true)}} className='cursor-pointer'>
                                                     <h3>{userData?.wereld} <img src="images/character-07.png" alt="" /></h3>
                                                 </div>
                                                 <div>
@@ -248,7 +294,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className="character-item-inner8">
-                                                <span><small>Lv 1</small></span>
+                                                <span><small>Lv {userData?.rank}</small></span>
                                                 <p>76%</p>
                                             </div>
                                         </div>
