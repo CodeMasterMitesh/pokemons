@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import GoldSiverHeader from '../HomePage/GoldSiverHeader'
+import GoldSiverHeader from '../../HomePage/GoldSiverHeader'
 import { useDispatch, useSelector } from 'react-redux'
-import { acceptFriendRequest, blockFriend, declineFriendRequest, getFriendRequest,getFriends,getSearchPlayers, sendFriendRequest } from '../../store/friends'
+import { acceptFriendRequest, blockFriend, declineFriendRequest, getFriendRequest,getFriends,getSearchPlayers, sendFriendRequest } from '../../../store/friends'
 import { Form } from 'react-bootstrap'
 import debounce from 'lodash.debounce'  
 

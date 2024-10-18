@@ -227,7 +227,7 @@ export const friendSlicer = createSlice({
             })
             .addCase(getFriendRequest.fulfilled, (state, action) => {
                 state.friend_requests_loading = false;
-                state.friend_requests = action.payload.friends;
+                state.friend_requests = action.payload.friends?action.payload.friends:[];
             })
             .addCase(getFriendRequest.rejected, (state, action) => {
                 state.friend_requests_loading = false;

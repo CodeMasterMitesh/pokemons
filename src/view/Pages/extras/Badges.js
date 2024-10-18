@@ -1,0 +1,147 @@
+import React, { useEffect } from 'react'
+import Card from 'react-bootstrap/Card';
+import { Row, Col } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsers } from '../../../store/auth';
+import { getSearchPlayers } from '../../../store/friends';
+import Accordion from 'react-bootstrap/Accordion';
+function Badges() {
+    const dispatch = useDispatch();
+    // const online_users = useSelector(state => state.auth.online_users)
+    // const search_players = useSelector(state => state.friend.search_players)
+    const arr = [
+        {
+            name: 'Kanto',
+            badges: [
+                'Boulder',
+                'Cascade',
+                'Thunder',
+                'Rainbow',
+                'Marsh',
+                'Soul',
+                'Volcano',
+                'Earth',
+            ]
+        },
+        {
+            name: 'Johto',
+            badges: [
+                'Zephyr',
+                'Hive',
+                'Plain',
+                'Fog',
+                'Storm',
+                'Mineral',
+                'Glacier',
+                'Rising',
+            ]
+        },
+        {
+            name: 'Hoenn',
+            badges: [
+                'Stone',
+                'Knuckle',
+                'Dynamo',
+                'Heat',
+                'Balance',
+                'Feather',
+                'Mind',
+                'Rain',
+            ]
+        },
+        {
+            name: 'Sinnoh',
+            badges: [
+                'Coal',
+                'Forest',
+                'Cobble',
+                'Fen',
+                'Relic',
+                'Mine',
+                'Icicle',
+                'Beacon',
+            ]
+        },
+        {
+            name: 'Unova',
+            badges: [
+                'Trio',
+                'Basic',
+                'Insect',
+                'Bolt',
+                'Quake',
+                'Jet',
+                'Freeze',
+                'Legend',
+            ]
+        },
+        {
+            name: 'Kalos',
+            badges: [
+                'Bug',
+                'Cliff',
+                'Rumble',
+                'Plant',
+                'Voltage',
+                'Fairy',
+                'Psychic',
+                'Iceberg',
+            ]
+        },
+        {
+            name: 'Alola',
+            badges: [
+                'Melemele Normal',
+                'Akala Water',
+                'Akala Fire',
+                'Akala Grass',
+                'Ulaula Electric',
+                'Ulaula Ghost',
+                'Poni Fairy',
+                'Poni Ground',
+            ]
+        },
+    ]
+    const init = () => {
+        // dispatch(getUsers()).unwrap()
+        // dispatch(getSearchPlayers(''))
+
+    }
+    useEffect(() => {
+        // init()
+    }, [])
+    return (
+        <div className='container p-5 challenge'>
+            <Card border='dark' text='white' className='bg-theme'>
+                <Card.Header><h3 className='text-center'> Badges</h3></Card.Header>
+
+                <Card.Body className='text-center'>
+                    <h5>These are your badges. They are the fruits of your hard work as a Pokémon Trainer.</h5>
+                    <h5>You can earn them by battling Pokémon.Gym Leadersin each region.</h5>
+                </Card.Body>
+            </Card>
+            <Card border='dark' text='white' className='bg-theme mt-2 accordion-badge'>
+                <Card.Header><h1 className='text-center '> Badges</h1></Card.Header>
+                <Accordion defaultActiveKey="0">
+                    {arr.map((item) => {
+                        return <Accordion.Item eventKey="0" >
+                            <Accordion.Header className='bg-theme'><h5 className='text-center w-100'>{item.name}</h5></Accordion.Header>
+                            <Accordion.Body className='bg-theme'>
+                                <Row className='justify-content-center'>
+                                    {item.badges.map((inner) => {
+                                        return <Col md={1} sm={1} xs={1}>
+                                            <img src={`/images/badges/pixel/${inner}.png`} alt="" />
+                                        </Col>
+                                    })
+                                    }
+                                </Row>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    })}
+                </Accordion>
+            </Card>
+        </div>
+    )
+}
+
+export default Badges

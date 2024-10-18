@@ -18,7 +18,7 @@ import Fortune from '../view/Pages/Fortune';
 import Hospital from '../view/Pages/Hospital';
 import Modal from '../view/Pages/Modal';
 import Pokebag from '../view/Pages/Pokebag';
-import Pokedex from '../view/Pages/Pokedex';
+import Pokedex from '../view/Pages/extras/Pokedex';
 import Pvp from '../view/Pages/Pvp';
 import RaceInvite from '../view/Pages/RaceInvite';
 import Select from '../view/Pages/Select';
@@ -28,8 +28,11 @@ import Works from '../view/Pages/Works';
 import FriendRequest from '../view/Pages/FriendRequest';
 import BlockList from '../view/Pages/BlockList';
 import InBox from '../view/Pages/InBox';
-import Friends from '../view/Pages/Friends';
-import FindCoach from '../view/Pages/FindCoach';
+import Friends from '../view/Pages/social/Friends';
+import FindCoach from '../view/Pages/social/FindCoach';
+import ChallengeTrainer from '../view/Pages/social/ChallengeTrainer';
+import Badges from '../view/Pages/extras/Badges';
+import Fishery from '../view/Pages/extras/Fishery';
 
 
 const MainRoutes = {
@@ -149,13 +152,40 @@ const MainRoutes = {
                             element: <Works />,
                         },
                         {
-                            path: '/friends', 
-                            element: <Friends />,
+                            path: '/social',
+                            children:[
+                                {
+                                    path: '/social/friends', 
+                                    element: <Friends />,
+                                },
+                                {
+                                    path: '/social/find-coach', 
+                                    element: <FindCoach />,
+                                },
+                                {
+                                    path: '/social/challenge-trainer', 
+                                    element: <ChallengeTrainer />,
+                                },
+                            ] 
                         },
                         {
-                            path: '/find-coach', 
-                            element: <FindCoach />,
+                            path: '/extras',
+                            children:[
+                                {
+                                    path: '/extras/badges', 
+                                    element: <Badges />,
+                                },
+                                {
+                                    path: '/extras/fishery', 
+                                    element: <Fishery />,
+                                },
+                                {
+                                    path: '/extras/pokedex', 
+                                    element: <Pokedex />,
+                                },
+                            ] 
                         },
+                     
                     ]
                 },
             ]

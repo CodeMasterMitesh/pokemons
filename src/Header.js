@@ -19,19 +19,19 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="d-flex justify-content-evenly w-100">
                             <NavDropdown title={t('Social')} id="basic-nav-dropdown">
-                                <NavDropdown.Item href="/find-coach">{t('Find Coaches')}</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">
+                                <NavDropdown.Item href="/social/find-coach">{t('Find Coaches')}</NavDropdown.Item>
+                                <NavDropdown.Item href="/social/challenge-trainer">
                                 {t('Challenge Trainer')}
                                 </NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="/friends">{t('My Friends')}</NavDropdown.Item>
+                                <NavDropdown.Item href="/social/friends">{t('My Friends')}</NavDropdown.Item>
                             </NavDropdown>
                             <NavDropdown title={t('Extras')} id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">{t('Badges')}</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">
+                                <NavDropdown.Item href="/extras/badges">{t('Badges')}</NavDropdown.Item>
+                                <NavDropdown.Item href="/extras/fishery">
                                 {t('Fishery')}
                                 </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">{t('Pokedex')}</NavDropdown.Item>
+                                <NavDropdown.Item href="/extras/pokedex">{t('Pokedex')}</NavDropdown.Item>
                             </NavDropdown>
                             <NavDropdown title={t('Assistance')} id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">{t('Calculator')}</NavDropdown.Item>

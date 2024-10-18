@@ -1,5 +1,5 @@
 import React from 'react'
-import GoldSiverHeader from '../HomePage/GoldSiverHeader'
+import GoldSiverHeader from '../../HomePage/GoldSiverHeader'
 
 function Pokedex() {
   return (

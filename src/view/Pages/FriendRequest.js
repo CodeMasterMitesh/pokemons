@@ -25,19 +25,31 @@ function FriendRequest() {
         const data = {
             id: id
         }
-        await dispatch(declineFriendRequest(data)).unwrap()
-        dispatch(getFriendRequest())
+        try {
+            await dispatch(declineFriendRequest(data)).unwrap()
+            dispatch(getFriendRequest())
+        } catch (error) {
+            
+        }
     }
     const handleAccept = async (id) => {
         const data = {
             user_id: id
         }
-        await dispatch(acceptFriendRequest(data)).unwrap()
-        dispatch(getFriendRequest())
+        try {
+            await dispatch(acceptFriendRequest(data)).unwrap()
+            dispatch(getFriendRequest())
+        } catch (error) {
+            
+        }
     }
     useEffect(() => {
-        dispatch(getFriendRequest())
-        dispatch(getSearchPlayers(''))
+        try {
+            dispatch(getFriendRequest())
+            dispatch(getSearchPlayers(''))
+        } catch (error) {
+            
+        }
     },[])
     return (
         <div>
@@ -59,11 +71,11 @@ function FriendRequest() {
                                                     <div class="p-5 d-flex justify-content-between w-100 chat-box">
                                                         <div className='d-flex gap-3 align-items-center'>
                                                             <img src="images/mock-19.png" alt="" />
-                                                            <h2>{item.name}</h2>
+                                                            <h2>{item.friend_name}</h2>
                                                         </div>
                                                         <div>
-                                                            <a className='cursor-pointer' onClick={() => { handleAccept(item.id) }}><img src="images/mock-03.png" alt="" /></a>
-                                                            <a className='cursor-pointer' onClick={() => { handleDecline(item.id) }}><img src="images/register-01.png" alt="" /></a>
+                                                            <a className='cursor-pointer' onClick={() => { handleAccept(item.friend_id) }}><img src="images/mock-03.png" alt="" /></a>
+                                                            <a className='cursor-pointer' onClick={() => { handleDecline(item.friend_id) }}><img src="images/register-01.png" alt="" /></a>
                                                         </div>
 
                                                     </div>

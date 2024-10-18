@@ -1,33 +1,39 @@
 import React, { useCallback, useEffect } from 'react'
-import GoldSiverHeader from '../HomePage/GoldSiverHeader'
+import GoldSiverHeader from '../../HomePage/GoldSiverHeader'
 import { useDispatch, useSelector } from 'react-redux'
-import { getSearchPlayers, sendFriendRequest } from '../../store/friends'
+import { getFriends, getSearchPlayers, sendFriendRequest } from '../../../store/friends'
 import { Form } from 'react-bootstrap'
 import debounce from 'lodash.debounce'
 import Table from 'react-bootstrap/Table';
 
-function FindCoach() {
+function Fishery() {
     const dispatch = useDispatch()
+    const friends = useSelector(state => state.friend.friends.map(item=>item.friend_id))
+    const userData = JSON.parse(localStorage.getItem('userData'))
     const search_players = useSelector(state => state.friend.search_players)
 
     const debouncedFetchResults = useCallback(
         debounce((value) => dispatch(getSearchPlayers(value)), 1000), // 500ms debounce
         []
     );
-    useEffect(() => {
+    const init = async()=>{
+        await dispatch(getFriends()).unwrap()
         dispatch(getSearchPlayers(''))
+    }
+    useEffect(() => {
+        init()
     }, [])
     return (
         <div>
             <GoldSiverHeader previous={'/home'} title='Search Coach'>
-                <section class="ar_work_area_section">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="ar_work_area_main">
+                <section className="ar_work_area_section">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="ar_work_area_main">
 
-                                    <div class="ar_work_area">
-                                        <div class="ar_workFlex_wrapper overflow-hidden">
+                                    <div className="ar_work_area">
+                                        <div>
                                             <div className='chat-input d-flex p-0'>
                                                 <Form.Control
                                                     type="text"
@@ -61,7 +67,12 @@ function FindCoach() {
                                                                     <td>{item.Adminstatus == '1' ?'Administrator':''}</td>
                                                                     <td></td>
                                                                     <td>
-                                                                        <a className='cursor-pointer' onClick={() => { dispatch(sendFriendRequest(item.user_id)) }}><img src="images/mock-03.png" alt="" /></a>
+                                                                        {!friends.includes(parseInt(item.user_id)) && userData?.UserId != item.user_id  && <a className='cursor-pointer' onClick={() => { dispatch(sendFriendRequest(item.user_id)) }}>
+                                                                            <img src="images/mock-03.png" alt="" />
+                                                                            </a>}
+                                                                            {/* {
+                                                                        friends.includes(parseInt(item.user_id))&&<span>Already Friend</span>
+                                                                            } */}
                                                                     </td>
                                                                 </tr>
                                                             })
@@ -71,8 +82,8 @@ function FindCoach() {
                                             </div>
 
                                         </div>
-                                        <div class="ar_work_btn">
-                                            <div class="ar_work_single_btn">
+                                        <div className="ar_work_btn">
+                                            <div className="ar_work_single_btn">
                                                 <img src="assets/images/work/input.png" alt="" />
                                             </div>
                                         </div>
@@ -88,4 +99,4 @@ function FindCoach() {
     )
 }
 
-export default FindCoach
+export default Fishery

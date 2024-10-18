@@ -1323,6 +1323,9 @@ body {
     width: 50%;
     padding: 0 7px;
 }
+.bg-theme{
+    background-color: #091647 !important;
+}
 
 .register-item-inner4 {
     position: relative;
@@ -1330,6 +1333,26 @@ body {
 }
 .region .form-select{
     background-color: #290704 !important;
+}
+.accordion-badge button{
+    background-color: #091647 !important;
+    border: none;
+    color: white !important;
+    justify-content: center;
+}
+.onlineTrainer-names{
+    padding: 10px;
+    background-color: #290704;
+    border-radius:16px ;
+    cursor: pointer;
+}
+.onlineTrainer-names img{
+    left: 5px !important;
+}
+.challenge-button{
+    height: 42px !important;
+    width: 139px !important;
+    font-size: 16px !important;
 }
 .b--35{
     bottom: -35px !important;
