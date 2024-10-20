@@ -1,101 +1,134 @@
-import React, { useCallback, useEffect } from 'react'
-import GoldSiverHeader from '../../HomePage/GoldSiverHeader'
-import { useDispatch, useSelector } from 'react-redux'
-import { getFriends, getSearchPlayers, sendFriendRequest } from '../../../store/friends'
-import { Form } from 'react-bootstrap'
-import debounce from 'lodash.debounce'
-import Table from 'react-bootstrap/Table';
+import React, { useEffect } from 'react'
+import Card from 'react-bootstrap/Card';
+import { Row, Col, Form, Table } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsers } from '../../../store/auth';
+import { getSearchPlayers } from '../../../store/friends';
+import Accordion from 'react-bootstrap/Accordion';
+import Toast from 'react-bootstrap/Toast';
+import OnlineTrainers from '../../../view/Component/OnlineTrainers';
+import GoldSiverHeader from '../../../view/HomePage/GoldSiverHeader';
+
 
 function Fishery() {
-    const dispatch = useDispatch()
-    const friends = useSelector(state => state.friend.friends.map(item=>item.friend_id))
-    const userData = JSON.parse(localStorage.getItem('userData'))
-    const search_players = useSelector(state => state.friend.search_players)
+    const dispatch = useDispatch();
 
-    const debouncedFetchResults = useCallback(
-        debounce((value) => dispatch(getSearchPlayers(value)), 1000), // 500ms debounce
-        []
-    );
-    const init = async()=>{
-        await dispatch(getFriends()).unwrap()
-        dispatch(getSearchPlayers(''))
-    }
-    useEffect(() => {
-        init()
-    }, [])
     return (
-        <div>
-            <GoldSiverHeader previous={'/home'} title='Search Coach'>
-                <section className="ar_work_area_section">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="ar_work_area_main">
+        <GoldSiverHeader previous='/home' title='Fishery'>
+            <div className='container p-5 challenge'>
+                <Card border='dark' text='white' className='bg-theme'>
+                    <Card.Header><h3 className='text-center'> Fishery</h3></Card.Header>
 
-                                    <div className="ar_work_area">
-                                        <div>
-                                            <div className='chat-input d-flex p-0'>
-                                                <Form.Control
-                                                    type="text"
-                                                    id="inputPassword5"
-                                                    // value={search}
-                                                    onChange={(e) => { debouncedFetchResults(e.target.value) }}
-                                                    aria-describedby="passwordHelpBlock"
-                                                />
-                                            </div>
-                                            <div className='overflow-auto mt-5' style={{maxHeight:"500px"}}>
-                                                <Table striped bordered hover variant='dark'>
-                                                    <thead>
-                                                        <tr className='table-sticky-header'>
-                                                            <th>#</th>
-                                                            <th>Trainer</th>
-                                                            <th>Antique</th>
-                                                            <th>Last Visit</th>
-                                                            <th>Classification</th>
-                                                            <th>Status</th>
-                                                            <th>Add Friend</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        {
-                                                            search_players.map((item, index) => {
-                                                                return <tr>
-                                                                    <td>{index + 1}</td>
-                                                                    <td>{item.username}</td>
-                                                                    <td>{item.antiguidade}</td>
-                                                                    <td>{item.ultimo_login} {item.ultimo_login_hour}</td>
-                                                                    <td>{item.Adminstatus == '1' ?'Administrator':''}</td>
-                                                                    <td></td>
-                                                                    <td>
-                                                                        {!friends.includes(parseInt(item.user_id)) && userData?.UserId != item.user_id  && <a className='cursor-pointer' onClick={() => { dispatch(sendFriendRequest(item.user_id)) }}>
-                                                                            <img src="images/mock-03.png" alt="" />
-                                                                            </a>}
-                                                                            {/* {
-                                                                        friends.includes(parseInt(item.user_id))&&<span>Already Friend</span>
-                                                                            } */}
-                                                                    </td>
-                                                                </tr>
-                                                            })
-                                                        }
-                                                    </tbody>
-                                                </Table>
-                                            </div>
+                    <Card.Body className='text-center'>
+                        <h5>Welcome to the fishing tournament.</h5>
+                        <h5>Those trainers who accumulate the most points will win the prize at the end of the day.</h5>
+                        <h5 className='mt-5'>1st Place: 20,000 </h5>
+                        <h5>2nd Place: 10,000 </h5>
+                        <h5>3rd Place: 5,000</h5>
 
-                                        </div>
-                                        <div className="ar_work_btn">
-                                            <div className="ar_work_single_btn">
-                                                <img src="assets/images/work/input.png" alt="" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    </Card.Body>
+                </Card>
+                <Card border='dark' text='white' className='bg-theme mt-1'>
+                    <Card.Header>
+                        <Toast
+                            className="d-inline-block m-1 bg-theme w-100"
+                        >
+                            <Toast.Body className='text-white'>
+                                <h5 className='text-center'>YOUR POINTS WILL BE RESET AT THE END OF THE DAY!</h5>
+                            </Toast.Body>
+                        </Toast>
 
-                            </div>
+                    </Card.Header>
+                </Card>
+                <Card border='dark' text='white' className='bg-theme mt-1'>
+                    <Card.Header><h3 className='text-center'> Fishery</h3></Card.Header>
+                    <Card.Body className='d-flex justify-content-center flex-wrap'>
+                        <div className='fishing-road'>
+                            <img src="/images/items/Fishing rod.png" alt="" />
+                            <h5 className='text-center m-2'>Fishing Rod</h5>
+                            <Form.Check
+                                className='d-flex justify-content-center'
+                                name="road"
+                                id="validationFormik0"
+                                defaultChecked
+                            />
                         </div>
-                    </div>
-                </section>
-            </GoldSiverHeader>
-        </div>
+                        <div className="register-item-inner6 w-100 mt-4">
+                            <button type="submit" className='challenge-button'>Fish</button>
+                        </div>
+                    </Card.Body>
+                </Card>
+                <Card border='dark' text='white' className='bg-theme mt-1'>
+                    <Card.Body >
+                        <Row>
+                            <Col md={6}>
+                                <h4 className='text-center'>Best fishermen of the day</h4>
+                                <Table striped bordered hover variant='dark' className='table-theme'>
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Trainer</th>
+                                            <th>Points</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>NightSlash</td>
+                                            <td>71,312 Points</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Lost</td>
+                                            <td>0 Points</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>jkhan</td>
+                                            <td>0 Point</td>
+                                        </tr>
+                                    </tbody>
+                                </Table>
+                            </Col>
+                            <Col>
+                                <h4 className='text-center'>Best fishermen of yesterday</h4>
+
+                                <Table striped bordered hover variant='dark' className='table-theme'>
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Trainer</th>
+                                            <th>Points</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>NightSlash</td>
+                                            <td>71,312 Points</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Lost</td>
+                                            <td>0 Points</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>jkhan</td>
+                                            <td>0 Point</td>
+                                        </tr>
+                                    </tbody>
+                                </Table>
+                            </Col>
+                        </Row>
+                    </Card.Body>
+                </Card>
+                <div className='mt-2'>
+                    <OnlineTrainers />
+                </div>
+            </div>
+        </GoldSiverHeader>
+
     )
 }
 

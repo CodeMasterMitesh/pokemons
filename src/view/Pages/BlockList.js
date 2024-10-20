@@ -5,48 +5,50 @@ import { acceptFriendRequest, declineFriendRequest, getBlockList, getFriendReque
 
 function BlockList() {
     const dispatch = useDispatch()
-    const block_friends = useSelector(state => state.friend.block_friends)
+    const block_friends = useSelector(state => state.friend.block_friend_list)
     // const block_friends = [
     //     {
     //         id: 1,
     //         name: 'Kunj'
     //     }
     // ]
-    const handleUnblock = async (id) => {
-        const data = {
-            id: id
+    const handleUnblock = async (name) => {
+        try {
+            console.log(name);
+            
+            await dispatch(unblockFriend(name)).unwrap()
+            dispatch(getBlockList())
+        } catch (error) {
+            
         }
-        await dispatch(unblockFriend(data)).unwrap()
-        dispatch(getFriendRequest())
     }
     useEffect(() => {
-
         dispatch(getBlockList())
-    })
+    },[])
     return (
         <div>
             <GoldSiverHeader previous={'/profile'} title='Block List'>
-                <section class="ar_work_area_section">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="ar_work_area_main">
-                                    <div class="ar_work_area">
-                                        <div class="ar_single_item_table_work heading">
-                                            <div class="ar_work_single_text text heading">
+                <section className="ar_work_area_section">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="ar_work_area_main">
+                                    <div className="ar_work_area">
+                                        <div className="ar_single_item_table_work heading">
+                                            <div className="ar_work_single_text text heading">
                                                 <p>Block List</p>
                                             </div>
                                         </div>
-                                        <div class="ar_workFlex_wrapper">
+                                        <div className="ar_workFlex_wrapper">
                                             {block_friends.map((item) => {
-                                                return <div class="ar_single_item_table_work hard w-100">
-                                                    <div class="p-5 d-flex justify-content-between w-100 block-box">
+                                                return <div className="ar_single_item_table_work hard w-100">
+                                                    <div className="p-5 d-flex justify-content-between w-100 block-box">
                                                         <div className='d-flex gap-3 align-items-center'>
                                                             <img src="images/mock-19.png" alt="" />
-                                                            <h2>{item.name}</h2>
+                                                            <h2>{item.username}</h2>
                                                         </div>
                                                         <div>
-                                                            <div className="ar_play_middle_top_tag cursor-pointer" onClick={() => { handleUnblock(item.id) }}>
+                                                            <div className="ar_play_middle_top_tag cursor-pointer" onClick={() => { handleUnblock(item.username) }}>
                                                                 <a ><img src="images/playerProfile/btnUser.png" alt="" /></a>
                                                                 <div className="ar_play_middle_top_tagText">
                                                                     <p>Unblock</p>
@@ -64,8 +66,8 @@ function BlockList() {
                                                 </div>
                                             }
                                         </div>
-                                        <div class="ar_work_btn">
-                                            <div class="ar_work_single_btn">
+                                        <div className="ar_work_btn">
+                                            <div className="ar_work_single_btn">
                                                 <img src="assets/images/work/input.png" alt="" />
                                             </div>
                                         </div>

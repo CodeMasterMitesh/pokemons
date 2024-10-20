@@ -2,6 +2,7 @@ import { getProfile } from '../../store/auth'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+
 const GoldSiverHeader = ({previous,title,children}) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -17,8 +18,8 @@ const GoldSiverHeader = ({previous,title,children}) => {
         getProfileData()
     },[])
     return (
-        <div className='pb-50'>
-            <section className="ar_main_content_area_wrapper">
+        <div className='pb-5'>
+            <section className="ar_main_content_area_wrapper p-5">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">

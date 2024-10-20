@@ -33,6 +33,9 @@ import FindCoach from '../view/Pages/social/FindCoach';
 import ChallengeTrainer from '../view/Pages/social/ChallengeTrainer';
 import Badges from '../view/Pages/extras/Badges';
 import Fishery from '../view/Pages/extras/Fishery';
+import Calculator from '../view/Pages/assistance/Calculator';
+import PokemonGuide from '../view/Pages/assistance/PokemonGuide';
+import PokemonJudge from '../view/Pages/assistance/PokemonJudge';
 
 
 const MainRoutes = {
@@ -182,6 +185,23 @@ const MainRoutes = {
                                 {
                                     path: '/extras/pokedex', 
                                     element: <Pokedex />,
+                                },
+                            ] 
+                        },
+                        {
+                            path: '/assistance',
+                            children:[
+                                {
+                                    path: '/assistance/calculator', 
+                                    element: <Calculator />
+                                },
+                                {
+                                    path: '/assistance/pokemon-guide', 
+                                    element: <PokemonGuide />,
+                                },
+                                {
+                                    path: '/assistance/pokemon-judge', 
+                                    element: <PokemonJudge />,
                                 },
                             ] 
                         },

@@ -140,15 +140,15 @@ export const blockFriend = createAsyncThunk('auth/blockFriend', async (data, { r
 export const unblockFriend = createAsyncThunk('auth/unblockFriend', async (data, { rejectWithValue }) => {
 
     // return await 
-
-
     return toast.promise(axios({
         url: API_ENDPOINTS.UNBLOCK_FRIEND,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        data: data
+        params:{
+            player:data
+        }
     }), {
         pending: i18n.t('Unblocking...'),
         success: i18n.t('Success!'),
@@ -187,7 +187,8 @@ const initialState = {
     friend_requests: [],
     block_friends: [],
     online_friend_count: 0,
-    search_players: []
+    search_players: [],
+    block_friend_list:[]
 };
 export const friendSlicer = createSlice({
     name: 'friend',
@@ -289,8 +290,20 @@ export const friendSlicer = createSlice({
                 state.unblock_friend_loading = false;
             })
             .addCase(unblockFriend.rejected, (state, action) => {
-                state.unblock_friend_loading = false;
-                state.unblock_friend_error = action.payload;
+                state.block_friend_loading = false;
+                state.block_friend_error = action.payload;
+            })
+            .addCase(getBlockList.pending, (state) => {
+                state.block_friend_list_loading = true;
+                state.block_friend_list_error = null;
+            })
+            .addCase(getBlockList.fulfilled, (state, action) => {
+                state.block_friend_list_loading = false;
+                state.block_friend_list=action.payload.data?action.payload.data:[];
+            })
+            .addCase(getBlockList.rejected, (state, action) => {
+                state.block_friend_list_loading = false;
+                state.block_friend_list_error = action.payload;
             })
     }
 })

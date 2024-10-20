@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from '../../../store/auth';
 import { getSearchPlayers } from '../../../store/friends';
 import Accordion from 'react-bootstrap/Accordion';
-import GoldSiverHeader from '../../../view/HomePage/GoldSiverHeader';
-function Badges() {
+function Calculator() {
     const dispatch = useDispatch();
     // const online_users = useSelector(state => state.auth.online_users)
     // const search_players = useSelector(state => state.friend.search_players)
@@ -112,8 +111,6 @@ function Badges() {
         // init()
     }, [])
     return (
-        <GoldSiverHeader previous='/home' title='Badges'>
-
         <div className='container p-5 challenge'>
             <Card border='dark' text='white' className='bg-theme'>
                 <Card.Header><h3 className='text-center'> Badges</h3></Card.Header>
@@ -144,9 +141,7 @@ function Badges() {
                 </Accordion>
             </Card>
         </div>
-        </GoldSiverHeader>
-
     )
 }
 
-export default Badges
+export default Calculator

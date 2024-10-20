@@ -9,11 +9,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../Header';
 import Footer from '../../Footer';
 import Chat from '../Pages/Chat';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Tooltip } from 'react-bootstrap';
 import { getCharacters, addPlayerPokemon, getPokemons, getPlayerPokemons } from '../../store/pokemon';
 import { Row, Col } from 'react-bootstrap';
 import Loader from '../Pages/Spinner';
 import { toast } from 'react-toastify';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import PokemonProfile from '../Component/PokemonProfile';
 
 const Home = () => {
     const [show, setShow] = useState(false);
@@ -36,6 +38,54 @@ const Home = () => {
     const [data, setData] = useState({});
     const handleCloseModal = () => setModal(false);
 
+    const [hoveredId, setHoveredId] = useState(null);
+
+
+    const handleMouseEnter = (id) => {
+        setHoveredId(id);
+        setTimeout(() => {
+            const element = document.getElementById(`pokemon-popup-${id}`);
+            if (element) {
+              const { right, left, width } = element.getBoundingClientRect();
+              const viewportWidth = window.innerWidth;
+        
+              console.log('Viewport Width:', viewportWidth);
+              console.log('Element Bounds:', { right, left, width });
+        
+              // Check if the popup overflows from the right side
+              if (right > viewportWidth) {
+                element.style.position = 'absolute';
+                element.style.right = '10px';
+                element.style.left = 'auto';
+                element.style.transform= 'translate(0%,0%) !important';
+                console.log('Adjusted Right:', element.style.right);
+              } 
+              // Check if the popup overflows from the left side
+              else if (left < 0) {
+                element.style.position = 'absolute';
+                element.style.left = '10px';
+                element.style.transform= 'translate(0%,0%) !important';
+
+                element.style.right = 'auto';
+                console.log('Adjusted Left:', element.style.left);
+              } 
+              // Handle near-left-edge cases
+              else if (left < 200) {
+                element.style.position = 'absolute';
+                element.style.left = `0px`;
+                element.style.right = 'auto';
+                element.style.transform= 'translate(0%,0%) !important';
+                console.log('Adjusted Near Left:', element.style.left);
+              }
+            } else {
+              console.warn(`Element with ID pokemon-popup-${id} not found.`);
+            }
+          }, 0); // Allow for DOM updates to settle
+    };
+
+    const handleMouseLeave = () => {
+        setHoveredId(null);
+    };
     const handleLogout = () => {
         logout();
         localStorage.clear();
@@ -43,21 +93,21 @@ const Home = () => {
     }
     const getProfileData = async () => {
         try {
-            let user = JSON.parse(localStorage.getItem('userData'))                        
+            let user = JSON.parse(localStorage.getItem('userData'))
             if (!(user && user.playerId)) {
                 setData({ ...data, username: '', region: '', pokemon: '', character: '' })
                 setModal(true)
                 dispatch(getCharacters())
                 setStep(1)
             } else {
-                let user =await dispatch(getProfile()).unwrap();
+                let user = await dispatch(getProfile()).unwrap();
                 setRegion(user?.data?.wereld)
                 if (user.data?.eigekregen != '1') {
                     setData({ ...data, username: user?.data?.username, region: user?.data?.wereld, pokemon: user?.data?.pokemon, character: user?.data?.character })
                     setModal(true)
                     dispatch(getPokemons())
                     setStep(2)
-                }else{
+                } else {
                     dispatch(getPlayerPokemons())
                 }
                 // dispatch(getPlayerPokemons()).unwrap();
@@ -86,9 +136,9 @@ const Home = () => {
                 try {
                     const response = await dispatch(updatePlayer(data)).unwrap();
                     let users = JSON.parse(localStorage.getItem('userData'));
-                    users.playerId=response.playerId
-                    users.playerName=response.playerName
-                    localStorage.setItem('userData',JSON.stringify(users))
+                    users.playerId = response.playerId
+                    users.playerName = response.playerName
+                    localStorage.setItem('userData', JSON.stringify(users))
                     dispatch(getPokemons())
                     setStep(2)
                 } catch (error) {
@@ -110,7 +160,7 @@ const Home = () => {
             }
         }
     }
-    const handlesubmitRegion=()=>{
+    const handlesubmitRegion = () => {
         dispatch(updatePlayer(region))
     }
     useEffect(() => {
@@ -120,7 +170,7 @@ const Home = () => {
         <>
             {/* {profile_loading && <Loader/>} */}
             {/* <Loader/> */}
-            <Modal show={regionModal} onHide={()=>{setRegionModal(false)}} size='xl' contentClassName='pokemon-modal'>
+            <Modal show={regionModal} onHide={() => { setRegionModal(false) }} size='xl' contentClassName='pokemon-modal'>
                 <Modal.Header closeButton>
                     <Modal.Title style={{ color: 'white' }}>Changes Region</Modal.Title>
                 </Modal.Header>
@@ -235,6 +285,8 @@ const Home = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
+
+
             <div className='home-header'>
                 <Header />
             </div>
@@ -286,7 +338,7 @@ const Home = () => {
                                     <div className="character-item-inner5">
                                         <div className="character-item-inner6">
                                             <div className="character-item-inner7">
-                                                <div onClick={()=>{setRegionModal(true)}} className='cursor-pointer'>
+                                                <div onClick={() => { setRegionModal(true) }} className='cursor-pointer'>
                                                     <h3>{userData?.wereld} <img src="images/character-07.png" alt="" /></h3>
                                                 </div>
                                                 <div>
@@ -328,14 +380,25 @@ const Home = () => {
                                     <Row className="character-item2-inner" style={{ maxHeight: '500px' }}>
                                         {
                                             player_pokemons && player_pokemons.map((item) => {
-                                                return <Col md={2} sm={4} className="character-item2-inner2 gap-2">
-                                                    <div className="character-item2-inner3 pokemon-gifs">
+
+                                                return <Col md={2} sm={4} className="character-item2-inner2 gap-2 cursor-pointer" >
+                                                    <div className="character-item2-inner3 pokemon-gifs"
+                                                        onMouseEnter={() => handleMouseEnter(item.wild_id)}
+                                                        onMouseLeave={handleMouseLeave}>
                                                         <img src={`images/pokemon/${item.wild_id}.gif`} alt="" />
                                                         <div className="character-item2-inner4">
                                                             <img src="images/character-17.png" alt="" />
                                                         </div>
                                                         <div className="character-item2-inner5 b--35" >
                                                             <p>{item.naam} - Lv <span>{item.level}</span></p>
+                                                        </div>
+                                                        <div className='position-absolute mt-2'
+                                                        id={`pokemon-popup-${item.wild_id}`}
+                                                            style={{ zIndex: 100}}
+                                                        >
+                                                            {hoveredId === item.wild_id &&
+                                                                <PokemonProfile data={item} />
+                                                            }
                                                         </div>
                                                     </div>
                                                 </Col>
@@ -356,7 +419,7 @@ const Home = () => {
                                 </form>
                             </div>
                         </div>
-                        <div className='mt-5 mb-5'>
+                        <div className='mt-5 mb-5' style={{ zIndex: 99 }}>
 
                             <Chat />
                         </div>
