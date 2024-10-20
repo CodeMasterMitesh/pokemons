@@ -35,7 +35,7 @@ const Header = () => {
                             </NavDropdown>
                             <NavDropdown title={t('Assistance')} id="basic-nav-dropdown">
                                 <NavDropdown.Item href="/assistance/calculator">{t('Calculator')}</NavDropdown.Item>
-                                <NavDropdown.Item href="/assistance/pockemon-guide">
+                                <NavDropdown.Item href="/assistance/pokemon-guide">
                                 {t('Pockemon Guide')}
                                 </NavDropdown.Item>
                                 <NavDropdown.Item href="/assistance/pokemon-judge">{t('Pokemon Judge')}</NavDropdown.Item>

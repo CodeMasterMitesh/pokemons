@@ -188,18 +188,11 @@ function PokemonJudge() {
                             <p>{item.naam} - Lv <span>{item.level}</span></p>
                           </div>
                         </div>
-                       
-                        {/* <div className='position-absolute mt-2'
-                        id={`pokemon-popup-${item.wild_id}`}
-                        style={{ zIndex: 100 }}
-                      > */}
                         <Overlay
                           show={hoveredId === item.wild_id}
                           target={target}
                           placement="bottom"
                           className='w-100 p-0'
-
-                        // containerPadding={20}
                         >
                           <Popover body id={`popover-${item.wild_id}`} className='custom-popover'>
                             <Popover.Body className='p-0'>
@@ -207,16 +200,13 @@ function PokemonJudge() {
                             </Popover.Body>
                           </Popover>
                         </Overlay>
-                        {/* {hoveredId === item.wild_id && */}
-                        {/* } */}
-                        {/* </div> */}
                       </div>
                     </div>
                     <div>
-                          <div className="register-item-inner6 w-100 mt-4">
-                            <button className='challenge-button' onClick={() => { setPokemon(item) }}>See Judge</button>
-                          </div>
-                        </div>
+                      <div className="register-item-inner6 w-100 mt-4">
+                        <button className='challenge-button' onClick={() => { setPokemon(item) }}>See Judge</button>
+                      </div>
+                    </div>
                   </>
 
                 })

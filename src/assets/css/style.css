@@ -1344,6 +1344,9 @@ body {
 .bg-theme {
     background-color: #091647 !important;
 }
+.bg-light-theme {
+    background-color: #1e2953 !important;
+}
 
 .register-item-inner4 {
     position: relative;
@@ -2068,6 +2071,12 @@ body {
 .table-theme td {
     background-color: #1e2953 !important;
     --bs-table-bg-type: #1e2953 !important;
+    border: 1px solid #000 !important;
+    color: white !important;
+    /* border-width: 0px !important; */
+}
+.normal-li li{
+    list-style: disc;
 }
 
 .custom-popover {
