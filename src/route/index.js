@@ -36,6 +36,9 @@ import Fishery from '../view/Pages/extras/Fishery';
 import Calculator from '../view/Pages/assistance/Calculator';
 import PokemonGuide from '../view/Pages/assistance/PokemonGuide';
 import PokemonJudge from '../view/Pages/assistance/PokemonJudge';
+import GeneralStatistics from '../view/Pages/others/GeneralStatistics';
+import PokemonSpecialist from '../view/Pages/others/PokemonSpecialist';
+import HouseSeller from '../view/Pages/others/HouseSeller';
 
 
 const MainRoutes = {
@@ -202,6 +205,23 @@ const MainRoutes = {
                                 {
                                     path: '/assistance/pokemon-judge', 
                                     element: <PokemonJudge />,
+                                },
+                            ] 
+                        },
+                        {
+                            path: '/others',
+                            children:[
+                                {
+                                    path: '/others/buy-house', 
+                                    element: <HouseSeller />
+                                },
+                                {
+                                    path: '/others/pokemon-specialist', 
+                                    element: <PokemonSpecialist />,
+                                },
+                                {
+                                    path: '/others/general-statistics', 
+                                    element: <GeneralStatistics />,
                                 },
                             ] 
                         },

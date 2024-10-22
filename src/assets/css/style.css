@@ -2079,6 +2079,12 @@ body {
     list-style: disc;
 }
 
+.general-box{
+    background-color: #023177;
+    padding: 20px;
+    border-radius: 10px;
+}
+
 .custom-popover {
     max-width: 500px !important;
     background-color: #212529 !important;

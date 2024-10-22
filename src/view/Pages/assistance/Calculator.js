@@ -19,7 +19,6 @@ function Calculator() {
 
     const handleMouseEnter = (e, id) => {
         setHoveredId(id);
-        // const element = document.getElementById(`pokemon-popup-${id}`);
         setTarget(e.currentTarget)
     };
 

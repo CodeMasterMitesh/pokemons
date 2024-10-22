@@ -41,11 +41,11 @@ const Header = () => {
                                 <NavDropdown.Item href="/assistance/pokemon-judge">{t('Pokemon Judge')}</NavDropdown.Item>
                             </NavDropdown>
                             <NavDropdown title={t('Others')} id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">{t('Buy House')}</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">
+                                <NavDropdown.Item href="/others/buy-house">{t('Buy House')}</NavDropdown.Item>
+                                <NavDropdown.Item href="/others/pokemon-specialist">
                                 {t('Pokemon Specialist')}
                                 </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">{t('General Statistics')}</NavDropdown.Item>
+                                <NavDropdown.Item href="/others/general-statistics">{t('General Statistics')}</NavDropdown.Item>
                                 <NavDropdown.Divider />
                             </NavDropdown>
                             <NavDropdown title="Pages" id="basic-nav-dropdown">
