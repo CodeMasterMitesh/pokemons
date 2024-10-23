@@ -390,7 +390,7 @@ const Home = () => {
                                                             <img src="images/character-17.png" alt="" />
                                                         </div>
                                                         <div className="character-item2-inner5 b--35" >
-                                                            <p>{item.naam} - Lv <span>{item.level}</span></p>
+                                                            <p  style={{minHeight:"60px"}}>{item.naam} - Lv <span>{item.level}</span></p>
                                                         </div>
                                                         <div className='position-absolute mt-2'
                                                         id={`pokemon-popup-${item.wild_id}`}

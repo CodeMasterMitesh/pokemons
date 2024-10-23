@@ -50,6 +50,9 @@ const Header = () => {
                             </NavDropdown>
                             <NavDropdown title="Pages" id="basic-nav-dropdown">
                                 <NavDropdown.Item onClick={()=>{navigate('/create')}}>Create</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/gold-market')}}>Gold Market</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/classification')}}>Classification</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/city')}}>City</NavDropdown.Item>
                                 <NavDropdown.Item onClick={()=>{navigate('/fortune')}}>Fortune</NavDropdown.Item>
                                 <NavDropdown.Item onClick={()=>{navigate('/hospital')}}>Hospital</NavDropdown.Item>
                                 <NavDropdown.Item onClick={()=>{navigate('/modal')}}>Modal</NavDropdown.Item>

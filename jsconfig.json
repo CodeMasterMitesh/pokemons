@@ -5,5 +5,5 @@
             "@/*": ["*"]          
         }
     },
-    "include": ["src/**/*", "src/view/Pages/assistance/.js"]       
+    "include": ["src/**/*", "src/view/Pages/assistance/.js", "src/view/Pages/.js"]       
 }

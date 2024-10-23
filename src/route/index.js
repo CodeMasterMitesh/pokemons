@@ -39,6 +39,9 @@ import PokemonJudge from '../view/Pages/assistance/PokemonJudge';
 import GeneralStatistics from '../view/Pages/others/GeneralStatistics';
 import PokemonSpecialist from '../view/Pages/others/PokemonSpecialist';
 import HouseSeller from '../view/Pages/others/HouseSeller';
+import GoldMarket from '../view/Pages/GoldMarket';
+import Classification from '../view/Pages/Classification';
+import City from '../view/Pages/City';
 
 
 const MainRoutes = {
@@ -73,6 +76,18 @@ const MainRoutes = {
                     path: '/', 
                     element: <SubLayout />,
                     children:[
+                        {
+                            path: '/gold-market', 
+                            element: <GoldMarket />
+                        },
+                        {
+                            path: '/classification', 
+                            element: <Classification />
+                        },
+                        {
+                            path: '/city', 
+                            element: <City />
+                        },
                         {
                             path: '/battle', 
                             element: <Battle />
