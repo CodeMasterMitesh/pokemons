@@ -53,6 +53,9 @@ const Header = () => {
                                 <NavDropdown.Item onClick={()=>{navigate('/gold-market')}}>Gold Market</NavDropdown.Item>
                                 <NavDropdown.Item onClick={()=>{navigate('/classification')}}>Classification</NavDropdown.Item>
                                 <NavDropdown.Item onClick={()=>{navigate('/city')}}>City</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/backpack')}}>Backpack</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/map')}}>Map</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/npcs')}}>NPCs</NavDropdown.Item>
                                 <NavDropdown.Item onClick={()=>{navigate('/fortune')}}>Fortune</NavDropdown.Item>
                                 <NavDropdown.Item onClick={()=>{navigate('/hospital')}}>Hospital</NavDropdown.Item>
                                 <NavDropdown.Item onClick={()=>{navigate('/modal')}}>Modal</NavDropdown.Item>

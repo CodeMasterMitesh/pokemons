@@ -44,7 +44,7 @@ function GoldMarket() {
     return (
         <div>
             <GoldSiverHeader previous={'/home'} title='Gold market'>
-                <div className='container p-5 challenge'>
+                <div className='container p-2 challenge'>
 
 
                     <Card border='dark' text='white' className='bg-theme'>

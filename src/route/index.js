@@ -42,6 +42,10 @@ import HouseSeller from '../view/Pages/others/HouseSeller';
 import GoldMarket from '../view/Pages/GoldMarket';
 import Classification from '../view/Pages/Classification';
 import City from '../view/Pages/City';
+import Backpack from '../view/Pages/Backpack';
+import Map from '../view/Pages/Map';
+import PokemonProfile from '../view/Pages/PokemonProfile';
+import NPCs from '../view/Pages/NPCs';
 
 
 const MainRoutes = {
@@ -83,6 +87,22 @@ const MainRoutes = {
                         {
                             path: '/classification', 
                             element: <Classification />
+                        },
+                        {
+                            path: '/pokemon-profile/:id', 
+                            element: <PokemonProfile />
+                        },
+                        {
+                            path: '/map', 
+                            element: <Map />
+                        },
+                        {
+                            path: '/npcs', 
+                            element: <NPCs />
+                        },
+                        {
+                            path: '/backpack', 
+                            element: <Backpack />
                         },
                         {
                             path: '/city', 

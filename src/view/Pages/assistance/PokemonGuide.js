@@ -17,7 +17,7 @@ function PokemonGuide() {
     const handleSelect = (eventKey) => setKey(eventKey);
     return (
         <GoldSiverHeader previous='/home' title='Pokemon Guid'>
-            <div className='container p-5 challenge'>
+            <div className='container p-2 challenge'>
                 <Card border='dark' text='white' className='bg-theme'>
                     <Card.Body className='text-center'>
                         <Nav variant="pills" activeKey={key} className='d-flex gap-3'

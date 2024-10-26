@@ -15,7 +15,7 @@ function Fishery() {
 
     return (
         <GoldSiverHeader previous='/home' title='Fishery'>
-            <div className='container p-5 challenge'>
+            <div className='container p-2 challenge'>
                 <Card border='dark' text='white' className='bg-theme'>
                     <Card.Header><h3 className='text-center'> Fishery</h3></Card.Header>
 

@@ -93,7 +93,7 @@ function PokemonJudge() {
     dispatch(getPlayerPokemons())
   }, []);
   return (
-    <div className='container p-5 '>
+    <div className='container p-2 '>
       <GoldSiverHeader previous={'/home'} title='Pokemon Judge'>
         <Card border='dark' text='white' className='bg-theme'>
           <Card.Header><h3 className='text-center'> Pokemon Judge</h3></Card.Header>

@@ -428,12 +428,12 @@ a {
            justify-content: space-between;
 }
 .ar_heading_title_back a.ar_back img{
-   width: 80px;
+   width: 60px;
    margin-right: 20px;
 }
 .ar_heading_title_back h3{
    color: #fbfbfb;
-   font-size: 45px;
+   font-size: 30px;
    font-weight: 600;
    margin-right: 15px;
 }

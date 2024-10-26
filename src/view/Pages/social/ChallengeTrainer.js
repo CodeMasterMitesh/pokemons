@@ -21,7 +21,7 @@ function ChallengeTrainer() {
     }, [])
     return (
         <GoldSiverHeader previous='/home' title='Challenge Trainer' >
-        <div className='container p-5 challenge'>
+        <div className='container p-2 challenge'>
             <Card border='dark' text='white' className='bg-theme'>
                 <Card.Body className='text-center'>
                     <h3>Challenge a Trainer to a Duel.</h3>

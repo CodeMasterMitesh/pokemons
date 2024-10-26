@@ -47,7 +47,7 @@ function HouseSeller() {
   }
   return (
     <GoldSiverHeader previous={'/home'} title='House Seller'>
-      <div className='container p-5 challenge'>
+      <div className='container p-2 challenge'>
 
 
         <Card border='dark' text='white' className='bg-theme'>

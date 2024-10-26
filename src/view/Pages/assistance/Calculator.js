@@ -45,7 +45,7 @@ function Calculator() {
         dispatch(getPlayerPokemons())
     }, []);
     return (
-        <div className='container p-5 challenge'>
+        <div className='container p-2 challenge'>
             <Card border='dark' text='white' className='bg-theme'>
                 <Card.Header><h3 className='text-center'> Pokemon Calculator</h3></Card.Header>
 

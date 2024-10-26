@@ -114,7 +114,7 @@ function Badges() {
     return (
         <GoldSiverHeader previous='/home' title='Badges'>
 
-        <div className='container p-5 challenge'>
+        <div className='container p-2 challenge'>
             <Card border='dark' text='white' className='bg-theme'>
                 <Card.Header><h3 className='text-center'> Badges</h3></Card.Header>
 

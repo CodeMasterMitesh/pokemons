@@ -13,7 +13,7 @@ function Classification() {
     return (
         <div>
             <GoldSiverHeader previous={'/home'} title='Gold market'>
-                <div className='container p-5 challenge'>
+                <div className='container p-2 challenge'>
                     <Card border='dark' text='white' className='bg-theme mt-2'>
                         <Card.Header><h3 className='text-center'> Ranking</h3></Card.Header>
 

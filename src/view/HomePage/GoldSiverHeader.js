@@ -18,8 +18,8 @@ const GoldSiverHeader = ({previous,title,children}) => {
         getProfileData()
     },[])
     return (
-        <div className='pb-5'>
-            <section className="ar_main_content_area_wrapper p-5">
+        <div className='pb-2'>
+            <section className="ar_main_content_area_wrapper p-2">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">

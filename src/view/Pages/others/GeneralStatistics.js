@@ -110,7 +110,7 @@ function GeneralStatistics() {
         <div>
             <GoldSiverHeader previous='/home' title='General Statistics'>
 
-                <div className='container p-5 challenge'>
+                <div className='container p-2 challenge'>
                     {arr.map((item, itemIndex) => {
                         return <Card border='dark' key={itemIndex} text='white' className='bg-theme mt-2 accordion-badge'>
                             <Card.Header><h3 className='text-center '>{item.name}</h3></Card.Header>

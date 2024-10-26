@@ -4,14 +4,15 @@ import DOMPurify from 'dompurify';
 import Badge from 'react-bootstrap/Badge';
 import Stack from 'react-bootstrap/Stack';
 import Table from 'react-bootstrap/Table';
+import { useNavigate } from 'react-router-dom';
 
 function PokemonProfile({ data }) {
-  console.log(data);
+  const navigate = useNavigate()
   const sanitizeHtml = (html) => DOMPurify.sanitize(html);
   return (
     <div className='w-100' style={{ minWidth: '350px', zIndex: 1000 }}>
       <Card color='text' bg='dark' >
-        <Card.Header><h5 className='text-center text-white'>#{data.real_id} {data.naam}</h5></Card.Header>
+        <Card.Header><h5 className='text-center text-white'><span className='cursor-pointer' onClick={()=>{navigate(`/pokemon-profile/${data.id}`)}}>&#9432;</span> #{data.real_id} {data.naam}</h5></Card.Header>
         <Card.Header> <div className='text-white'>
           <Stack direction="horizontal" gap={2} className='d-flex justify-content-center'>
 

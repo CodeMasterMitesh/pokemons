@@ -1344,6 +1344,7 @@ body {
 .bg-theme {
     background-color: #091647 !important;
 }
+
 .bg-light-theme {
     background-color: #1e2953 !important;
 }
@@ -2002,9 +2003,12 @@ body {
     background-color: #121d47 !important
 }
 
+.card-header{
+    border-bottom: 2px solid #1e2953 !important;
+}
 .header-main {
     background-image: url(../../../public/images/header-bg.png);
-    height: 80px;
+    height: 60px;
     width: 100%;
     background-position: center;
     background-size: cover;
@@ -2047,6 +2051,12 @@ body {
     min-width: 70px;
 }
 
+.elipse {
+    background: #0a184f;
+    border-radius: 50%;
+    padding: 4px;
+}
+
 .fishing-road {
     width: 113px;
     background: #1e2953;
@@ -2070,21 +2080,109 @@ body {
 .table-theme th,
 .table-theme td {
     background-color: #1e2953 !important;
-    --bs-table-bg-type: #1e2953 !important;
+    /* --bs-table-bg-type: #1e2953 !important; */
     border: 1px solid #000 !important;
     color: white !important;
     /* border-width: 0px !important; */
 }
-.normal-li li{
-    list-style: disc;
-}
-.specialist-button{
-    font-size: 16px!important;
-    width: 69px !important;
-    height: 28px!important;
+
+.table-theme tr:nth-child(even) td,
+.table-theme tr:nth-child(even) td {
+    background-color: #0a184f !important;
+    --bs-table-bg-typ: #0a184f !important;
+
 }
 
-.general-box{
+.header-theme {
+    padding: 5px;
+    background-color: #1e2953;
+}
+
+
+
+.border-none-theme th,
+.border-none-theme td {
+    border: 0px !important;
+}
+
+.btn-type {
+    padding-top: -3px;
+    color: #eee;
+    background-repeat: no-repeat;
+    height: 57px;
+    width: 154px;
+    margin: 3px 5px;
+    border: 0;
+    opacity: .8;
+    text-shadow: #000 1px -1px 2px, #000 -1px 1px 2px, #000 1px 1px 2px, #000 -1px -1px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.btn-type:hover {
+    opacity: 1;
+    box-shadow: 1px 1px 1px 1px gray;
+}
+
+.pl-style input::placeholder {
+    color: #a0a0a0;
+    /* Change to your desired color */
+    opacity: 1;
+    /* Adjust opacity if needed */
+}
+
+.img-round {
+    background-color: #091647;
+    padding: 5px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.vertical-align-middle {
+    vertical-align: middle;
+}
+
+.normal-li li {
+    list-style: disc;
+}
+
+.specialist-button {
+    font-size: 16px !important;
+    width: 69px !important;
+    height: 28px !important;
+}
+
+.pk-bg {
+    background-image: url('../../../public/images/amie/fire.png');
+    height: 215px;
+    margin-bottom: 6px;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress {
+    background-image: url(../../../public/images/progress.gif);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 4px;
+    height: 100%;
+    max-width: 100%;
+    transition: width 1s;
+}
+
+.potions-button {
+    font-size: 12px !important;
+    width: 69px !important;
+    height: 28px !important;
+}
+
+.general-box {
     background-color: #023177;
     padding: 20px;
     border-radius: 10px;
@@ -2105,6 +2203,98 @@ body {
 .pokeom-judge {
     font-size: 16px;
 }
-.pk-link:hover{
+
+.pk-link:hover {
     text-decoration: underline !important;
 }
+
+.Normalt {
+    background: #8a8a59;
+    background-image: -webkit-linear-gradient(#a8a878, #8a8a59);
+    background-image: linear-gradient(#a8a878, #8a8a59);
+    border-color: #79794e;
+}
+.tipo{
+    display: inline-block;
+    width: 31px;
+    height: 31px;
+    line-height: 32px;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 10px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #333;
+    text-transform: uppercase;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 1px;
+    border: 1px solid #577599;
+    box-shadow: 0 2px 0 0 #0f1a2a;
+    overflow: hidden;
+}
+
+.Firet {
+    background: #f08030;
+    background-image: -webkit-linear-gradient(#f08030, #dd6610);
+    background-image: linear-gradient(#f08030, #dd6610);
+    border-color: #b4530d;
+}
+.Watert {
+    background: #6890f0;
+    background-image: -webkit-linear-gradient(#6890f0, #386ceb);
+    background-image: linear-gradient(#6890f0, #386ceb);
+    border-color: #1753e3;
+}
+.Electrict {
+    background: #f8d030;
+    background-image: -webkit-linear-gradient(#f8d030, #f0c108);
+    background-image: linear-gradient(#f8d030, #f0c108);
+    border-color: #c19b07;
+}
+.Grasst{background: #78c850;
+    background-image: -webkit-linear-gradient(#78c850,#5ca935);
+    background-image: linear-gradient(#78c850,#5ca935);
+    border-color: #4a892b;}
+.Icet{    background: #98d8d8;
+    background-image: -webkit-linear-gradient(#98d8d8,#69c6c6);
+    background-image: linear-gradient(#98d8d8,#69c6c6);
+    border-color: #45b6b6;}
+.Fightingt{    background: #c03028;
+    background-image: -webkit-linear-gradient(#c03028,#9d2721);
+    background-image: linear-gradient(#c03028,#9d2721);
+    border-color: #82211b;}
+.Poisont{    background: #a040a0;
+    background-image: -webkit-linear-gradient(#a040a0,#803380);
+    background-image: linear-gradient(#a040a0,#803380);
+    border-color: #662966;}
+.Groundt{    background: #e0c068;
+    background-image: -webkit-linear-gradient(#e0c068,#d4a82f);
+    background-image: linear-gradient(#e0c068,#d4a82f);
+    border-color: #aa8623;}
+.Flyingt{background:#a890f0;
+	background-image:-webkit-linear-gradient(#a890f0,#9180c4);
+	background-image:linear-gradient(#a890f0,#9180c4);
+	border-color:#7762b6}
+
+    ::-webkit-scrollbar {
+        width: 7px; /* Change width as needed */
+        height:  7px; /* Change width as needed */
+      }
+      
+      /* Background of the entire scrollbar */
+      ::-webkit-scrollbar-track {
+        background: transparent; /* Track color */
+        border-radius: 10px; /* Rounded edges */
+      }
+      
+      /* Color and style of the scroll thumb */
+      ::-webkit-scrollbar-thumb {
+        background: #888; /* Thumb color */
+        border-radius: 10px; /* Rounded edges */
+      }
+      
+      /* Thumb hover effect */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555; /* Darker color when hovering */
+      }
