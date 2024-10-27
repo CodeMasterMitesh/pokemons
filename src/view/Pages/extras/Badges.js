@@ -6,9 +6,10 @@ import { getUsers } from '../../../store/auth';
 import { getSearchPlayers } from '../../../store/friends';
 import Accordion from 'react-bootstrap/Accordion';
 import GoldSiverHeader from '../../../view/HomePage/GoldSiverHeader';
+import { getUserBadge } from '../../../store/extras';
 function Badges() {
     const dispatch = useDispatch();
-    // const online_users = useSelector(state => state.auth.online_users)
+    const user_badges = useSelector(state => state.extras.user_badges)
     // const search_players = useSelector(state => state.friend.search_players)
     const arr = [
         {
@@ -104,12 +105,10 @@ function Badges() {
         },
     ]
     const init = () => {
-        // dispatch(getUsers()).unwrap()
-        // dispatch(getSearchPlayers(''))
-
+        dispatch(getUserBadge())
     }
     useEffect(() => {
-        // init()
+        init()
     }, [])
     return (
         <GoldSiverHeader previous='/home' title='Badges'>

@@ -1,3 +1,4 @@
+import { getUsers } from '../../store/auth';
 import { getSearchPlayers } from '../../store/friends';
 import React, { useEffect } from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
@@ -10,8 +11,8 @@ function OnlineTrainers() {
     const search_players = useSelector(state => state.friend.search_players)
 
     const init = () => {
-        // dispatch(getUsers()).unwrap()
-        dispatch(getSearchPlayers(''))
+        dispatch(getUsers()).unwrap()
+        // dispatch(getSearchPlayers(''))
 
     }
     useEffect(() => {
@@ -23,7 +24,7 @@ function OnlineTrainers() {
                 <Card.Header><h1 className='text-center'> Online Trainers</h1></Card.Header>
                 <Card.Body className='text-center'>
                     <Row style={{gap:'8px'}} className='justify-content-center p-3'>
-                        {search_players.map((item,index) => {
+                        {online_users.map((item,index) => {
                             return <Col md={3} lg={2} xs={5} key={index} className='onlineTrainer-names'>
                                 <div className="register-item-inner4 m-0">
                                    <span> {item.username}</span>

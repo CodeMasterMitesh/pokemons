@@ -10,6 +10,7 @@ import './assets/css/battle.css';
 import './assets/css/battleResponsive.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-tooltip/dist/react-tooltip.css'
 import { ToastContainer } from 'react-toastify';
 // import Home from './view/HomePage/Home';
 

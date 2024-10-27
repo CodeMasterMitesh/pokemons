@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import GoldSiverHeader from '../HomePage/GoldSiverHeader'
+import { getNotifications } from '../../store/other'
+import { useDispatch, useSelector } from 'react-redux'
 
 function Notification() {
+    const all_notification = useSelector(state => state.other.notifications)
+    const dispatch = useDispatch()
+    const init = () => {
+        dispatch(getNotifications())
+    }
+    useEffect(() => {
+        init()
+    }, [])
     return (
         <div>
             <GoldSiverHeader previous={'/home'} title='Notifications'>
@@ -17,59 +27,18 @@ function Notification() {
                                             </div>
                                         </div>
                                         <div class="ar_workFlex_wrapper">
-                                            <div class="ar_single_item_table_work hard">
-                                                <div class="ar_work_single_text text">
-                                                    <p><span>(Hard)</span>Help to clean your town</p>
+                                            {all_notification.map((item) => {
+                                                return <div class="ar_single_item_table_work easy">
+                                                    <div class="ar_work_single_text text notification" >
+                                                        <h5 dangerouslySetInnerHTML={{ __html: item.msg }}>
+
+                                                        </h5>
+                                                    </div>
+
                                                 </div>
 
-                                            </div>
-                                            <div class="ar_single_item_table_work easy">
-                                                <div class="ar_work_single_text text">
-                                                    <p><span>(Normal)</span>Help to clean your town</p>
-                                                </div>
-
-                                            </div>
-                                            <div class="ar_single_item_table_work normal">
-                                                <div class="ar_work_single_text text">
-                                                    <p><span>(Easy)</span>Help to clean your town</p>
-                                                </div>
-                                            </div>
-                                            <div class="ar_single_item_table_work hard">
-                                                <div class="ar_work_single_text text">
-                                                    <p><span>(Hard)</span>Help to clean your town</p>
-                                                </div>
-
-                                            </div>
-                                            <div class="ar_single_item_table_work easy">
-                                                <div class="ar_work_single_text text">
-                                                    <p><span>(Normal)</span>Help to clean your town</p>
-                                                </div>
-
-                                            </div>
-                                            <div class="ar_single_item_table_work normal">
-                                                <div class="ar_work_single_text text">
-                                                    <p><span>(Easy)</span>Help to clean your town</p>
-                                                </div>
-
-                                            </div>
-                                            <div class="ar_single_item_table_work hard">
-                                                <div class="ar_work_single_text text">
-                                                    <p><span>(Hard)</span>Help to clean your town</p>
-                                                </div>
-
-                                            </div>
-                                            <div class="ar_single_item_table_work easy">
-                                                <div class="ar_work_single_text text">
-                                                    <p><span>(Normal)</span>Help to clean your town</p>
-                                                </div>
-
-                                            </div>
-                                            <div class="ar_single_item_table_work normal">
-                                                <div class="ar_work_single_text text">
-                                                    <p><span>(Easy)</span>Help to clean your town</p>
-                                                </div>
-
-                                            </div>
+                                            })
+                                            }
                                         </div>
                                         <div class="ar_work_btn">
                                             <div class="ar_work_single_btn">

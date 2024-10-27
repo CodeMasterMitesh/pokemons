@@ -31,6 +31,35 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (userCredentia
         });
 });
 
+
+
+export const logout = createAsyncThunk('auth/logout', async (userCredentials, { rejectWithValue }) => {
+    return toast.promise(
+        axios({
+            url: API_ENDPOINTS.LOGOUT,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }),
+        {
+            pending: i18n.t('Logout...'),
+            success: i18n.t('logout successful!'),
+            error: {
+                render({ data }) {
+                    return data?.response?.data?.message || i18n.t('Logout failed!');
+                }
+            }
+        }
+    )
+        .then(response => {
+            return response.data
+        })
+        .catch(error => {
+            return rejectWithValue(error.response.data);
+        });
+});
+
 export const registerUser = createAsyncThunk('auth/registerUser', async (userCredentials, { rejectWithValue }) => {
     return toast.promise(
         axios({
@@ -119,7 +148,7 @@ export const updatePlayer = createAsyncThunk('auth/updatePlayer', async (data, {
         console.error('Error updating player:', error); // Log error for debugging
         // Handle both axios and non-axios errors gracefully
         return rejectWithValue(
-          error?.response?.data || 'An unknown error occurred.'
+            error?.response?.data || 'An unknown error occurred.'
         );
     }
 });

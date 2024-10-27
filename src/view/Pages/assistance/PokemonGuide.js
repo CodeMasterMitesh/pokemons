@@ -10,8 +10,9 @@ import Moods from './innerPage/Moods';
 import Skills from './innerPage/Skills';
 import Items from './innerPage/Items';
 
+import Spinner from 'react-bootstrap/Spinner';
+
 function PokemonGuide() {
-    const dispatch = useDispatch();
     const [key, setKey] = useState('faq')
 
     const handleSelect = (eventKey) => setKey(eventKey);
@@ -21,8 +22,9 @@ function PokemonGuide() {
                 <Card border='dark' text='white' className='bg-theme'>
                     <Card.Body className='text-center'>
                         <Nav variant="pills" activeKey={key} className='d-flex gap-3'
-                        onSelect={handleSelect}
+                            onSelect={handleSelect}
                         >
+
                             <Nav.Item>
                                 <Nav.Link eventKey="faq" href="#/home" className='bg-light-theme text-white'>
                                     FAQs
@@ -49,7 +51,9 @@ function PokemonGuide() {
                                 </Nav.Link>
                             </Nav.Item>
                         </Nav>
+                        {
 
+                        }
                         <div className='mt-5'>
                             {
                                 key == 'faq' && <Faq />

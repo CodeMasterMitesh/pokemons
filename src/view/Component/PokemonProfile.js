@@ -12,7 +12,7 @@ function PokemonProfile({ data }) {
   return (
     <div className='w-100' style={{ minWidth: '350px', zIndex: 1000 }}>
       <Card color='text' bg='dark' >
-        <Card.Header><h5 className='text-center text-white'><span className='cursor-pointer' onClick={()=>{navigate(`/pokemon-profile/${data.id}`)}}>&#9432;</span> #{data.real_id} {data.naam}</h5></Card.Header>
+        <Card.Header><h5 className='text-center text-white'><span className='cursor-pointer' onClick={()=>{navigate(`/pokemon-profile?id=${data.id}`)}}>&#9432;</span> #{data.real_id} {data.naam}</h5></Card.Header>
         <Card.Header> <div className='text-white'>
           <Stack direction="horizontal" gap={2} className='d-flex justify-content-center'>
 

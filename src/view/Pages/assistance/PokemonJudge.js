@@ -8,6 +8,7 @@ import 'react-multi-carousel/lib/styles.css';
 import PokemonProfile from '../../Component/PokemonProfile';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPlayerPokemons } from '../../../store/pokemon';
+import { clearPokemonJudge, pokemonJudge as PJ } from '../../../store/assistance';
 
 
 
@@ -17,59 +18,19 @@ function PokemonJudge() {
   const player_pokemons = useSelector(state => state.pokemon.player_pokemons);
   const [hoveredId, setHoveredId] = useState(null);
   const [pokemon, setPokemon] = useState({});
-
-  // const [target, setTarget] = useState(null);
-  // const targetRefs = useRef({});
-  const [target, setTarget] = useState(null); // Track the current target element
+  const pokemon_judge = useSelector(state => state.assistance.pokemon_judge)
+  const [target, setTarget] = useState(null);
 
 
   const handleMouseEnter = (e, id) => {
     setHoveredId(id);
-    // const element = document.getElementById(`pokemon-popup-${id}`);
     setTarget(e.currentTarget)
-
-
-    // setTimeout(() => {
-    //   const element = document.getElementById(`pokemon-popup-${id}`);
-    //   // setTarget(element)
-    //   if (element) {
-    //     const { right, left, width } = element.getBoundingClientRect();
-    //     const viewportWidth = window.innerWidth;
-
-    //     console.log('Viewport Width:', viewportWidth);
-    //     console.log('Element Bounds:', { right, left, width });
-
-    //     // Check if the popup overflows from the right side
-    //     if (right > viewportWidth) {
-    //       element.style.position = 'absolute';
-    //       element.style.right = '10px';
-    //       element.style.left = 'auto';
-    //       element.style.transform = 'translate(0%,0%) !important';
-    //       console.log('Adjusted Right:', element.style.right);
-    //     }
-    //     // Check if the popup overflows from the left side
-    //     else if (left < 0) {
-    //       element.style.position = 'absolute';
-    //       element.style.left = '10px';
-    //       element.style.transform = 'translate(0%,0%) !important';
-
-    //       element.style.right = 'auto';
-    //       console.log('Adjusted Left:', element.style.left);
-    //     }
-    //     // Handle near-left-edge cases
-    //     else if (left < 200) {
-    //       element.style.position = 'absolute';
-    //       element.style.left = `0px`;
-    //       element.style.right = 'auto';
-    //       element.style.transform = 'translate(0%,0%) !important';
-    //       console.log('Adjusted Near Left:', element.style.left);
-    //     }
-    //   } else {
-    //     console.warn(`Element with ID pokemon-popup-${id} not found.`);
-    //   }
-    // }, 0); // Allow for DOM updates to settle
-  };
-
+  }
+  const setPokemonJudge = (item) => {
+    dispatch(clearPokemonJudge())
+    setPokemon(item)
+    dispatch(PJ(item.id))
+  }
   const handleMouseLeave = () => {
     setHoveredId(null);
   };
@@ -111,30 +72,16 @@ function PokemonJudge() {
           <Card.Body className='pokeom-judge'>
             <Row>
               <Col className='p-5' md={7}>
-                <p>I see... I see...</p>
-                <p>This  <b>{pokemon.naam}  has</b> excellent <span className='text-success'>potential!</span> </p>
-                <p>In fact, I'd say its greatest potential lies in its <span className='text-success'>Attack .</span><br />
-                  Stats like those... They simply <span className='text-success'>can't be beat !</span></p>
-                <p className='mt-1'>- Hmm. And its <b> Defense</b> Stat is good too.</p>
+                <div dangerouslySetInnerHTML={{ __html: pokemon_judge.analysis }}>
 
-                <p className='mt-1'>- Though its <b> Attack Sp.</b> Stat is equally good.</p>
-
-                <p className='mt-1'>- However, its <b>Defense Sp.</b> Stat seems to be just as good.</p>
-
-                <p className='mt-1'>- And, well, its <b>Speed </b>​​Stat is good too.</p>
-
-                <p className='mt-1'>- Yeah! Its <b> HP</b> Stat is equally good.</p>
-
-                <p className='mt-5'>
-                  Anyway, that's how I judge it.
-                </p>
+                </div>
                 <p>  <b><a className='pk-link cursor-pointer text-white text-decoration-none' onClick={() => { setPokemon({}) }}>Help me with another Pokémon.</a></b></p>
               </Col>
               <Col md={5}>
                 <div className='d-flex align-items-center h-100'>
                   <div className='w-100'>
                     <img src={`/images/pokemon/${pokemon.wild_id}.gif`} alt="" width='40%' />
-                    <p>#4</p>
+                    <p>#{pokemon.id}</p>
                   </div>
 
                 </div>
@@ -204,7 +151,7 @@ function PokemonJudge() {
                     </div>
                     <div>
                       <div className="register-item-inner6 w-100 mt-4">
-                        <button className='challenge-button' onClick={() => { setPokemon(item) }}>See Judge</button>
+                        <button className='challenge-button' onClick={() => { setPokemonJudge(item) }}>See Judge</button>
                       </div>
                     </div>
                   </>

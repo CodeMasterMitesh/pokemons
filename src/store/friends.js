@@ -137,6 +137,32 @@ export const blockFriend = createAsyncThunk('auth/blockFriend', async (data, { r
             return rejectWithValue(error.response.data);
         });
 });
+export const removeFriend = createAsyncThunk('auth/removeFriend', async (data, { rejectWithValue }) => {
+
+    return toast.promise(axios({
+        url: API_ENDPOINTS.REMOVE_FRIEND,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        params: {
+            player:data
+        }
+    }), {
+        pending: i18n.t('Blocking...'),
+        success: i18n.t('Success!'),
+        error: {
+            render({ data }) {
+                return data?.response?.data?.message || i18n.t('failed!');
+            }
+        }
+    }
+    )
+        .then(response => response.data)
+        .catch(error => {
+            return rejectWithValue(error.response.data);
+        });
+});
 export const unblockFriend = createAsyncThunk('auth/unblockFriend', async (data, { rejectWithValue }) => {
 
     // return await 

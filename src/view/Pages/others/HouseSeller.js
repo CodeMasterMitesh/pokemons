@@ -1,49 +1,28 @@
+import { useDispatch, useSelector } from 'react-redux'
 import OnlineTrainers from '../../../view/Component/OnlineTrainers'
 import GoldSiverHeader from '../../../view/HomePage/GoldSiverHeader'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card, Table, Form } from 'react-bootstrap'
+import { getHouseSell, houseSeller } from '../../../store/other'
+import { toast } from 'react-toastify'
 
 function HouseSeller() {
+const dispatch = useDispatch();
+const house_seller_data = useSelector(state=>state.other.house_seller_data);
+const [checked,setChecked]=useState(null);
 
-  const [data, setData] = useState([
-    {
-      name: "Cardboard Box",
-      price: '500',
-      description: 'An extremely simple box. It can hold up to 2 Pokémon.',
-      img: 'house1.png',
-      checked: false
-    },
-    {
-      name: "Small House",
-      price: '3000',
-      description: 'A very popular house among beginner trainers. It can hold up to 20 Pokémon.',
-      img: 'house2.gif',
-      checked: false
-
-    },
-    {
-      name: "Normal House",
-      price: '30000',
-      description: ' A beautiful house with a garden and a pond with fish, your Pokémon will love it. It can accommodate up to 100 Pokémon.',
-      img: 'house3.gif',
-      checked: false
-
-    },
-    {
-      name: "Mansion",
-      price: '80000',
-      description: 'A huge property with open fields and a beautiful garden with majestic lakes. It can accommodate up to 2,500 Pokémon.',
-      img: 'house4.gif',
-      checked: false
-
-    },
-  ])
-  const handleSelect = (e, index) => {
-    setData((prev) => {
-      let item = prev[index];
-      item.checked = e;
-      return prev;
-    })
+  useEffect(()=>{
+    dispatch(getHouseSell())
+  },[])
+  const handleBuy=()=>{
+    if(checked || checked==0){
+      dispatch(houseSeller(house_seller_data[checked]));
+    }else{
+      toast.warning('Please select one')
+    }
+  }
+  const handleSelect = (index) => {
+    setChecked(index)
   }
   return (
     <GoldSiverHeader previous={'/home'} title='House Seller'>
@@ -71,21 +50,20 @@ function HouseSeller() {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.map((item, index) => {
-                    return <tr key={index} style={{ verticalAlign: 'middle' }} onClick={(e) => { (handleSelect(!item.checked, index)) }}>
+                  {house_seller_data.map((item, index) => {
+                    return <tr key={index} style={{ verticalAlign: 'middle' }} onClick={(e) => { (handleSelect(index)) }}>
                       <td className='text-center'>
-                        <Form.Check type='radio' checked={item.checked} onChange={(e) => { (handleSelect(e.target.checked, index)) }} />
+                        <Form.Check type='radio' name='check' checked={index == checked} onChange={(e) => { (handleSelect(index)) }} />
                       </td>
                       <td className='text-center'>
-                        <img src={`/images/${item.img}`} alt="" />
+                        <img src={`/${item.link}`} alt="" />
 
                       </td>
                       <td style={{ textAlign: 'center' }}>
-                        {item.price}
+                        {item.kosten}
                         <img src="/images/icons/silver.png" alt="" />
                       </td>
-                      <td style={{ maxWidth: '200px' }}>
-                        The <b>{item.name}.</b> {item.description}
+                      <td style={{ maxWidth: '200px' }} dangerouslySetInnerHTML={{__html:item.omschrijving_en}}>
                       </td>
                     </tr>
                   })
@@ -93,7 +71,7 @@ function HouseSeller() {
                 </tbody>
               </Table>
               <div className="register-item-inner6 w-100 mt-4">
-                <button className='challenge-button'>Buy</button>
+                <button className='challenge-button' onClick={handleBuy}>Buy</button>
               </div>
             </div>
 

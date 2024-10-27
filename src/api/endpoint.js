@@ -24,4 +24,12 @@ export const API_ENDPOINTS = {
     PLAYER_POKEMONS:'api/getPlayerPokemon.php',
     UPDATE_PLAYERS:'api/addNewPlayer.php',
     ADD_PLAYER_POKEMON:'api/addPlayerPokemon.php',
+    NOTIFICATIONS:'api/getNotification.php',
+    LOGOUT:'api/logout.php',
+    REMOVE_FRIEND:'api/removeFriend.php',
+    HOUSE_SELLER:'api/buyHouse.php',
+    GET_HOUSE_SELLER:"api/getHouseSell.php",
+    USER_BADGE:"api/getUserBadge.php",
+    POKEMON_JUDGE:"api/PokemonJudge.php",
+    POKEMON_GUID:"api/pokemonGuide.php",
 };

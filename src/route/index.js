@@ -89,7 +89,7 @@ const MainRoutes = {
                             element: <Classification />
                         },
                         {
-                            path: '/pokemon-profile/:id', 
+                            path: '/pokemon-profile', 
                             element: <PokemonProfile />
                         },
                         {
