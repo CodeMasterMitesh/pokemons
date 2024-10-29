@@ -120,7 +120,7 @@ export const blockFriend = createAsyncThunk('auth/blockFriend', async (data, { r
             'Content-Type': 'application/json',
         },
         params: {
-            player:data
+            player: data
         }
     }), {
         pending: i18n.t('Blocking...'),
@@ -138,30 +138,30 @@ export const blockFriend = createAsyncThunk('auth/blockFriend', async (data, { r
         });
 });
 export const removeFriend = createAsyncThunk('auth/removeFriend', async (data, { rejectWithValue }) => {
-
-    return toast.promise(axios({
-        url: API_ENDPOINTS.REMOVE_FRIEND,
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        params: {
-            player:data
-        }
-    }), {
-        pending: i18n.t('Blocking...'),
-        success: i18n.t('Success!'),
-        error: {
-            render({ data }) {
-                return data?.response?.data?.message || i18n.t('failed!');
+    try {
+        const response = await toast.promise(axios({
+            url: API_ENDPOINTS.REMOVE_FRIEND,
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            params: {
+                player: data
+            }
+        }), {
+            pending: i18n.t('Blocking...'),
+            success: i18n.t('Success!'),
+            error: {
+                render({ data }) {
+                    return data?.response?.data?.message || i18n.t('failed!');
+                }
             }
         }
+        )
+        return response.data
+    } catch (error) {
+      // return rejectWithValue(error.response.data);
     }
-    )
-        .then(response => response.data)
-        .catch(error => {
-            return rejectWithValue(error.response.data);
-        });
 });
 export const unblockFriend = createAsyncThunk('auth/unblockFriend', async (data, { rejectWithValue }) => {
 
@@ -172,8 +172,8 @@ export const unblockFriend = createAsyncThunk('auth/unblockFriend', async (data,
         headers: {
             'Content-Type': 'application/json',
         },
-        params:{
-            player:data
+        params: {
+            player: data
         }
     }), {
         pending: i18n.t('Unblocking...'),
@@ -214,7 +214,7 @@ const initialState = {
     block_friends: [],
     online_friend_count: 0,
     search_players: [],
-    block_friend_list:[]
+    block_friend_list: []
 };
 export const friendSlicer = createSlice({
     name: 'friend',
@@ -229,7 +229,7 @@ export const friendSlicer = createSlice({
             })
             .addCase(getFriends.fulfilled, (state, action) => {
                 state.friends_loading = false;
-                state.friends = action.payload?.friends ?action.payload?.friends:[];
+                state.friends = action.payload?.friends ? action.payload?.friends : [];
                 state.online_friend_count = action.payload?.online_friends;
             })
             .addCase(getFriends.rejected, (state, action) => {
@@ -254,7 +254,7 @@ export const friendSlicer = createSlice({
             })
             .addCase(getFriendRequest.fulfilled, (state, action) => {
                 state.friend_requests_loading = false;
-                state.friend_requests = action.payload.friends?action.payload.friends:[];
+                state.friend_requests = action.payload.friends ? action.payload.friends : [];
             })
             .addCase(getFriendRequest.rejected, (state, action) => {
                 state.friend_requests_loading = false;
@@ -325,7 +325,7 @@ export const friendSlicer = createSlice({
             })
             .addCase(getBlockList.fulfilled, (state, action) => {
                 state.block_friend_list_loading = false;
-                state.block_friend_list=action.payload.data?action.payload.data:[];
+                state.block_friend_list = action.payload.data ? action.payload.data : [];
             })
             .addCase(getBlockList.rejected, (state, action) => {
                 state.block_friend_list_loading = false;

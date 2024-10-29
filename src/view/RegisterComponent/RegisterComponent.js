@@ -34,14 +34,14 @@ const Register = () => {
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="register-item-inner">
                                 <h2>{t('Open an account')}</h2>
-                                <img src="images/register-01.png" alt="" />
+                                <img src="/images/register-01.png" alt="" />
                             </div>
                             <div className="register-item-inner2">
                                 <div className="register-item-inner3">
                                     <div className='validation-box'>
                                         <div className="register-item-inner4 m-0">
                                             <input name="" type='email' placeholder={t('Email')} {...register('email', { required: true })} />
-                                            <img src="images/register-02.png" alt="" />
+                                            <img src="/images/register-02.png" alt="" />
                                         </div>
                                         {errors.email && <div className='error-text m-2'>{t('This field is required')}</div>}
                                     </div>
@@ -50,7 +50,7 @@ const Register = () => {
                                     <div className='validation-box'>
                                         <div className="register-item-inner4 m-0">
                                             <input type="text" name="" placeholder={t('Username')} {...register('username', { required: true })} />
-                                            <img src="images/register-02.png" alt="" />
+                                            <img src="/images/register-02.png" alt="" />
                                         </div>
                                         {errors.username && <div className='error-text m-2'>{t('This field is required')}</div>}
                                     </div>
@@ -60,7 +60,7 @@ const Register = () => {
 
                                         <div className="register-item-inner4 m-0">
                                             <input type="password" name="" placeholder={t('Password')} {...register('wachtwoord', { required: true })} />
-                                            <img src="images/register-02.png" alt="" />
+                                            <img src="/images/register-02.png" alt="" />
                                         </div>
                                         {errors.wachtwoord && <div className='error-text m-2'>{t('This field is required')}</div>}
 
@@ -74,7 +74,7 @@ const Register = () => {
                                                     required: "This field is required",
                                                     validate: value => value === password || "Passwords do not match"
                                                 })} />
-                                            <img src="images/register-02.png" alt="" />
+                                            <img src="/images/register-02.png" alt="" />
                                         </div>
                                         {errors.wachtwoord_nogmaals && <div className='error-text m-2'>{t(errors.wachtwoord_nogmaals.message)}</div>}
 
@@ -84,7 +84,7 @@ const Register = () => {
                                     <div className='validation-box'>
                                         <div className="register-item-inner4 m-0">
                                             <input type="password" name="" placeholder={t('Refferal')} {...register('refferal')} />
-                                            <img src="images/register-02.png" alt="" />
+                                            <img src="/images/register-02.png" alt="" />
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@ const Register = () => {
                                 <input type="checkbox" id="test" {...register("others", { required: true })} />
                                 <label htmlFor="test">
                                     <span>
-                                        {isChecked && <img src="images/register-03.png" alt="Checked" />} {/* Show image if checked */}
+                                        {isChecked && <img src="/images/register-03.png" alt="Checked" />} {/* Show image if checked */}
                                     </span>
                                     {t('I agree with the Terms of Service and Privacy Policy')}
                                 </label>
@@ -105,7 +105,7 @@ const Register = () => {
                             <div className="register-item-inner6 mt-3">
                                 <button onClick={()=>{navigate('/login')}} className='register-button'>
                                     <span>{t('Login')}</span>
-                                <img src="images/banner-03.png" alt=""/>
+                                <img src="/images/banner-03.png" alt=""/>
                                 </button>
                             </div>
                         </form>

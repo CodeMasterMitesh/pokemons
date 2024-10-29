@@ -81,7 +81,7 @@ function Chat() {
                                 <div key={i} className="mock-item3-inner5">
                                     <div className="mock-item3-inner6">
                                         {/* <p><img src={i % 2 === 0 ? "images/mock-14.png" : "images/mock-15.png"} alt="" /> {i % 2 === 0 ? t('user1') : t('user2')}</p> */}
-                                        <p><img src="images/mock-14.png" alt="" /> {item.friend_name}</p>
+                                        <p><img src="/images/mock-14.png" alt="" /> {item.friend_name}</p>
                                     </div>
                                     <div className="mock-item3-inner7">
                                         {/* <h2>{i % 2 === 0 ? <strong>{t('hebrewText')}</strong> : t('timeAgo')}</h2> */}
@@ -99,7 +99,7 @@ function Chat() {
                                 <div key={i} className="mock-item3-inner5">
                                     <div className="mock-item3-inner6">
                                         {/* <p><img src={i % 2 === 0 ? "images/mock-14.png" : "images/mock-15.png"} alt="" /> {i % 2 === 0 ? t('user1') : t('user2')}</p> */}
-                                        <p><img src="images/mock-14.png" alt="" /> {item.username}</p>
+                                        <p><img src="/images/mock-14.png" alt="" /> {item.username}</p>
                                     </div>
                                     <div className="mock-item3-inner7">
                                         {/* <h2>{i % 2 === 0 ? <strong>{t('hebrewText')}</strong> : t('timeAgo')}</h2> */}
@@ -130,7 +130,7 @@ function Chat() {
                                             <span>{item.name}</span>
                                         </h2>
                                         <p>{item.msg}</p>
-                                        <img src="images/mock-19.png" alt="" />
+                                        <img src="/images/mock-19.png" alt="" />
                                     </div>
                                 ))}
 
@@ -153,7 +153,7 @@ function Chat() {
                                 <p>{t('goBack')}</p>
                             </div>
                             <div>
-                                <img src="images/mock-18.png" alt="" />
+                                <img src="/images/mock-18.png" alt="" />
                             </div>
                         </div> */}
                             </div>

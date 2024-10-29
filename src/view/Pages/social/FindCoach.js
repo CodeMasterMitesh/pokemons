@@ -68,7 +68,7 @@ function FindCoach() {
                                                                     <td></td>
                                                                     <td>
                                                                         {!friends.includes(parseInt(item.user_id)) && userData?.UserId != item.user_id  && <a className='cursor-pointer' onClick={() => { dispatch(sendFriendRequest(item.user_id)) }}>
-                                                                            <img src="images/mock-03.png" alt="" />
+                                                                            <img src="/images/mock-03.png" alt="" />
                                                                             </a>}
                                                                             {/* {
                                                                         friends.includes(parseInt(item.user_id))&&<span>Already Friend</span>

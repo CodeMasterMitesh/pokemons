@@ -79,8 +79,8 @@ function PokemonProfile() {
                             interval={null}
                             className='h-100'
                             activeIndex={selectedIndex} onSelect={handleSelect}
-                            prevIcon={<img src="images/pokeProfile/leftarrow.png" alt="images" className='navigation-image' style={{ width: '30px' }} />}
-                            nextIcon={<img src="images/pokeProfile/rightarrow.png" alt="images" className='navigation-image' style={{ width: '30px' }} />}
+                            prevIcon={<img src="/images/pokeProfile/leftarrow.png" alt="images" className='navigation-image' style={{ width: '30px' }} />}
+                            nextIcon={<img src="/images/pokeProfile/rightarrow.png" alt="images" className='navigation-image' style={{ width: '30px' }} />}
                         >
                             {all_pokemons.map((item) => {
                                 return <Carousel.Item className='h-100' >

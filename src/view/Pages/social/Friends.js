@@ -37,14 +37,20 @@ function Friends() {
                                         <div className="ar_workFlex_wrapper">
                                             {friends.map((item, index) => {
                                                 return <div key={index} className="ar_single_item_table_work hard w-100">
-                                                    <div className="p-5 d-flex justify-content-between w-100 chat-box">
+                                                    <div className="p-2 d-flex justify-content-between w-100">
                                                         <div className='d-flex gap-3 align-items-center'>
-                                                            <img src="images/mock-19.png" alt="" />
+                                                            <img src="/images/mock-19.png" alt="" />
                                                             <h2>{item.friend_name}</h2>
                                                         </div>
-                                                        <div>
-                                                            <a className='cursor-pointer' onClick={() => { handleRemove(item.friend_name) }}><img src="images/playerProfile/nished.png" alt="" /></a>
-                                                            <a className='cursor-pointer' onClick={() => { handleBlock(item.friend_name) }}><img src="images/playerProfile/nished.png" alt="" /></a>
+                                                        <div className='d-flex align-items-center'>
+                                                            {/* <a className='cursor-pointer' onClick={() => {  }}><img src="/images/playerProfile/nished.png" alt="" /></a> */}
+                                                            <div className="ar_play_middle_top_tag cursor-pointer" style={{width:'100px'}} onClick={() => { handleRemove(item.friend_name) }}>
+                                                                <a className='w-100'><img style={{width:"100%"}} src="/images/playerProfile/btnUser.png" alt="" /></a>
+                                                                <div className="ar_play_middle_top_tagText">
+                                                                    <p>Remove</p>
+                                                                </div>
+                                                            </div>
+                                                            <a className='cursor-pointer' onClick={() => { handleBlock(item.friend_name) }}><img src="/images/playerProfile/nished.png" alt="" /></a>
                                                         </div>
 
                                                     </div>

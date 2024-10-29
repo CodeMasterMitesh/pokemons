@@ -12,10 +12,10 @@ function Fortune() {
                                 <div class="ar_item_area">
                                     <div class="ar_singnle_iteam_area">
                                         <div class="ar_single_item_img">
-                                            <img src="images/game-ui/items.png" alt="images" />
+                                            <img src="/images/game-ui/items.png" alt="images" />
                                             <div class="ar_single_item_cont">
                                                 <div class="ar_single_item_cont_img">
-                                                    <img src="images/game-ui/itemImg.png" alt="images" />
+                                                    <img src="/images/game-ui/itemImg.png" alt="images" />
                                                 </div>
                                                 <div class="ar_single_item_cont_title">
                                                     <h5>10x Pokeball</h5>
@@ -31,10 +31,10 @@ function Fortune() {
                                     </div>
                                     <div class="ar_singnle_iteam_area">
                                         <div class="ar_single_item_img">
-                                            <img src="images/game-ui/items.png" alt="images" />
+                                            <img src="/images/game-ui/items.png" alt="images" />
                                             <div class="ar_single_item_cont">
                                                 <div class="ar_single_item_cont_img">
-                                                    <img src="images/game-ui/itemImg.png" alt="images" />
+                                                    <img src="/images/game-ui/itemImg.png" alt="images" />
                                                 </div>
                                                 <div class="ar_single_item_cont_title">
                                                     <h5>10x Pokeball</h5>
@@ -50,10 +50,10 @@ function Fortune() {
                                     </div>
                                     <div class="ar_singnle_iteam_area">
                                         <div class="ar_single_item_img">
-                                            <img src="images/game-ui/items.png" alt="images" />
+                                            <img src="/images/game-ui/items.png" alt="images" />
                                             <div class="ar_single_item_cont">
                                                 <div class="ar_single_item_cont_img">
-                                                    <img src="images/game-ui/itemImg.png" alt="images" />
+                                                    <img src="/images/game-ui/itemImg.png" alt="images" />
                                                 </div>
                                                 <div class="ar_single_item_cont_title">
                                                     <h5>10x Pokeball</h5>
@@ -69,10 +69,10 @@ function Fortune() {
                                     </div>
                                     <div class="ar_singnle_iteam_area">
                                         <div class="ar_single_item_img">
-                                            <img src="images/game-ui/items.png" alt="images" />
+                                            <img src="/images/game-ui/items.png" alt="images" />
                                             <div class="ar_single_item_cont">
                                                 <div class="ar_single_item_cont_img">
-                                                    <img src="images/game-ui/itemImg.png" alt="images" />
+                                                    <img src="/images/game-ui/itemImg.png" alt="images" />
                                                 </div>
                                                 <div class="ar_single_item_cont_title">
                                                     <h5>10x Pokeball</h5>
@@ -88,10 +88,10 @@ function Fortune() {
                                     </div>
                                     <div class="ar_singnle_iteam_area">
                                         <div class="ar_single_item_img">
-                                            <img src="images/game-ui/items.png" alt="images" />
+                                            <img src="/images/game-ui/items.png" alt="images" />
                                             <div class="ar_single_item_cont">
                                                 <div class="ar_single_item_cont_img">
-                                                    <img src="images/game-ui/itemImg.png" alt="images" />
+                                                    <img src="/images/game-ui/itemImg.png" alt="images" />
                                                 </div>
                                                 <div class="ar_single_item_cont_title">
                                                     <h5>10x Pokeball</h5>
@@ -107,10 +107,10 @@ function Fortune() {
                                     </div>
                                     <div class="ar_singnle_iteam_area">
                                         <div class="ar_single_item_img">
-                                            <img src="images/game-ui/items.png" alt="images" />
+                                            <img src="/images/game-ui/items.png" alt="images" />
                                             <div class="ar_single_item_cont">
                                                 <div class="ar_single_item_cont_img">
-                                                    <img src="images/game-ui/itemImg.png" alt="images" />
+                                                    <img src="/images/game-ui/itemImg.png" alt="images" />
                                                 </div>
                                                 <div class="ar_single_item_cont_title">
                                                     <h5>10x Pokeball</h5>
@@ -126,10 +126,10 @@ function Fortune() {
                                     </div>
                                     <div class="ar_singnle_iteam_area">
                                         <div class="ar_single_item_img">
-                                            <img src="images/game-ui/items.png" alt="images" />
+                                            <img src="/images/game-ui/items.png" alt="images" />
                                             <div class="ar_single_item_cont">
                                                 <div class="ar_single_item_cont_img">
-                                                    <img src="images/game-ui/itemImg.png" alt="images" />
+                                                    <img src="/images/game-ui/itemImg.png" alt="images" />
                                                 </div>
                                                 <div class="ar_single_item_cont_title">
                                                     <h5>10x Pokeball</h5>
@@ -145,10 +145,10 @@ function Fortune() {
                                     </div>
                                     <div class="ar_singnle_iteam_area">
                                         <div class="ar_single_item_img">
-                                            <img src="images/game-ui/items.png" alt="images" />
+                                            <img src="/images/game-ui/items.png" alt="images" />
                                             <div class="ar_single_item_cont">
                                                 <div class="ar_single_item_cont_img">
-                                                    <img src="images/game-ui/itemImg.png" alt="images" />
+                                                    <img src="/images/game-ui/itemImg.png" alt="images" />
                                                 </div>
                                                 <div class="ar_single_item_cont_title">
                                                     <h5>10x Pokeball</h5>
@@ -164,10 +164,10 @@ function Fortune() {
                                     </div>
                                     <div class="ar_singnle_iteam_area">
                                         <div class="ar_single_item_img">
-                                            <img src="images/game-ui/items.png" alt="images" />
+                                            <img src="/images/game-ui/items.png" alt="images" />
                                             <div class="ar_single_item_cont">
                                                 <div class="ar_single_item_cont_img">
-                                                    <img src="images/game-ui/itemImg.png" alt="images" />
+                                                    <img src="/images/game-ui/itemImg.png" alt="images" />
                                                 </div>
                                                 <div class="ar_single_item_cont_title">
                                                     <h5>10x Pokeball</h5>

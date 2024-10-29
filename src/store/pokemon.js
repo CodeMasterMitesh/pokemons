@@ -43,6 +43,26 @@ export const getPlayerPokemons = createAsyncThunk('auth/getPlayerPokemons', asyn
 
     }
 });
+export const getPokemonById = createAsyncThunk('auth/getPlayerPokemons', async (_, { rejectWithValue }) => {
+    try {
+
+        return axios({
+            url: `${API_ENDPOINTS.PLAYER_POKEMONS}`,
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(response => response.data)
+            .catch(error => {
+                // return rejectWithValue(error.response.data);
+            });
+    }
+
+    catch (error) {
+
+    }
+});
 
 export const getCharacters = createAsyncThunk('auth/getCharacters', async (userCredentials, { rejectWithValue }) => {
 

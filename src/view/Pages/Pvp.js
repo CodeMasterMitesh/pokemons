@@ -16,12 +16,12 @@ function Pvp() {
                                                 <h3>unii</h3>
                                             </div>
                                             <div class="ar_pvp_character_area">
-                                                <a href="#"><img src="images/pvp/pvpchare.png" alt="images"/></a>
-                                                <a href="#"><img src="images/pvp/pvp-empty.png" alt="images"/></a>
-                                                <a href="#"><img src="images/pvp/pvp-empty.png" alt="images"/></a>
-                                                <a href="#"><img src="images/pvp/pvp-empty.png" alt="images"/></a>
-                                                <a href="#"><img src="images/pvp/pvp-empty.png" alt="images"/></a>
-                                                <a href="#"><img src="images/pvp/pvp-empty.png" alt="images"/></a>
+                                                <a href="#"><img src="/images/pvp/pvpchare.png" alt="images"/></a>
+                                                <a href="#"><img src="/images/pvp/pvp-empty.png" alt="images"/></a>
+                                                <a href="#"><img src="/images/pvp/pvp-empty.png" alt="images"/></a>
+                                                <a href="#"><img src="/images/pvp/pvp-empty.png" alt="images"/></a>
+                                                <a href="#"><img src="/images/pvp/pvp-empty.png" alt="images"/></a>
+                                                <a href="#"><img src="/images/pvp/pvp-empty.png" alt="images"/></a>
                                             </div>
                                         </div>
                                         <div class="ar_pvp_wrapper_right">
@@ -29,12 +29,12 @@ function Pvp() {
                                                 <h3>ASH2002</h3>
                                             </div>
                                             <div class="ar_pvp_character_area last">
-                                                <a href="#"><img src="images/pvp/pvpchare.png" alt="images"/></a>
-                                                <a href="#"><img src="images/pvp/pvp-empty.png" alt="images"/></a>
-                                                <a href="#"><img src="images/pvp/pvp-empty.png" alt="images"/></a>
-                                                <a href="#"><img src="images/pvp/pvp-empty.png" alt="images"/></a>
-                                                <a href="#"><img src="images/pvp/pvp-empty.png" alt="images"/></a>
-                                                <a href="#"><img src="images/pvp/pvp-empty.png" alt="images"/></a>
+                                                <a href="#"><img src="/images/pvp/pvpchare.png" alt="images"/></a>
+                                                <a href="#"><img src="/images/pvp/pvp-empty.png" alt="images"/></a>
+                                                <a href="#"><img src="/images/pvp/pvp-empty.png" alt="images"/></a>
+                                                <a href="#"><img src="/images/pvp/pvp-empty.png" alt="images"/></a>
+                                                <a href="#"><img src="/images/pvp/pvp-empty.png" alt="images"/></a>
+                                                <a href="#"><img src="/images/pvp/pvp-empty.png" alt="images"/></a>
                                             </div>
                                         </div>
                                     </div>

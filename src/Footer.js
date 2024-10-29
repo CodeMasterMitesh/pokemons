@@ -35,13 +35,13 @@ const Footer = () => {
                     <div className="footer-item-inner2">
                         <h2>{t('stayConnected')}</h2>
                         <ul>
-                            <li><a href="#"><img src="images/footer-02.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/footer-03.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/footer-04.png" alt="" /></a></li>
+                            <li><a href="#"><img src="/images/footer-02.png" alt="" /></a></li>
+                            <li><a href="#"><img src="/images/footer-03.png" alt="" /></a></li>
+                            <li><a href="#"><img src="/images/footer-04.png" alt="" /></a></li>
                         </ul>
                     </div>
                     <div className="footer-item-inner3">
-                        <img src="images/footer-01.png" alt="" />
+                        <img src="/images/footer-01.png" alt="" />
                     </div>
                 </div>
             </div>

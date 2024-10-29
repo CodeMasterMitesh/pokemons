@@ -34,7 +34,7 @@ function Works() {
                                                     <p><span>(Hard)</span>Help to clean your town</p>
                                                 </div>
                                                 <div class="ar_work_single_text gold">
-                                                    <p><img src="images/work/gold.png" alt=""/>500</p>
+                                                    <p><img src="/images/work/gold.png" alt=""/>500</p>
                                                 </div>
                                                 <div class="ar_work_single_text">
                                                     <p>Info 3,5</p>
@@ -43,7 +43,7 @@ function Works() {
                                                     <p>95%</p>
                                                 </div>
                                                 <div class="ar_work_single_text check">
-                                                    <img src="images/work/check.png" alt=""/>
+                                                    <img src="/images/work/check.png" alt=""/>
                                                 </div>
                                             </div>
                                             <div class="ar_single_item_table_work easy">
@@ -51,7 +51,7 @@ function Works() {
                                                     <p><span>(Normal)</span>Help to clean your town</p>
                                                 </div>
                                                 <div class="ar_work_single_text gold">
-                                                    <p><img src="images/work/gold.png" alt=""/>500</p>
+                                                    <p><img src="/images/work/gold.png" alt=""/>500</p>
                                                 </div>
                                                 <div class="ar_work_single_text">
                                                     <p>Info 3,5</p>
@@ -60,7 +60,7 @@ function Works() {
                                                     <p>95%</p>
                                                 </div>
                                                 <div class="ar_work_single_text check">
-                                                    <img src="images/work/check.png" alt=""/>
+                                                    <img src="/images/work/check.png" alt=""/>
                                                 </div>
                                             </div>
                                             <div class="ar_single_item_table_work normal">
@@ -68,7 +68,7 @@ function Works() {
                                                     <p><span>(Easy)</span>Help to clean your town</p>
                                                 </div>
                                                 <div class="ar_work_single_text gold">
-                                                    <p><img src="images/work/gold.png" alt=""/>500</p>
+                                                    <p><img src="/images/work/gold.png" alt=""/>500</p>
                                                 </div>
                                                 <div class="ar_work_single_text">
                                                     <p>Info 3,5</p>
@@ -77,7 +77,7 @@ function Works() {
                                                     <p>95%</p>
                                                 </div>
                                                 <div class="ar_work_single_text check">
-                                                    <img src="images/work/check.png" alt=""/>
+                                                    <img src="/images/work/check.png" alt=""/>
                                                 </div>
                                             </div>
                                             <div class="ar_single_item_table_work hard">
@@ -85,7 +85,7 @@ function Works() {
                                                     <p><span>(Hard)</span>Help to clean your town</p>
                                                 </div>
                                                 <div class="ar_work_single_text gold">
-                                                    <p><img src="images/work/gold.png" alt=""/>500</p>
+                                                    <p><img src="/images/work/gold.png" alt=""/>500</p>
                                                 </div>
                                                 <div class="ar_work_single_text">
                                                     <p>Info 3,5</p>
@@ -94,7 +94,7 @@ function Works() {
                                                     <p>95%</p>
                                                 </div>
                                                 <div class="ar_work_single_text check">
-                                                    <img src="images/work/check.png" alt=""/>
+                                                    <img src="/images/work/check.png" alt=""/>
                                                 </div>
                                             </div>
                                             <div class="ar_single_item_table_work easy">
@@ -102,7 +102,7 @@ function Works() {
                                                     <p><span>(Normal)</span>Help to clean your town</p>
                                                 </div>
                                                 <div class="ar_work_single_text gold">
-                                                    <p><img src="images/work/gold.png" alt=""/>500</p>
+                                                    <p><img src="/images/work/gold.png" alt=""/>500</p>
                                                 </div>
                                                 <div class="ar_work_single_text">
                                                     <p>Info 3,5</p>
@@ -111,7 +111,7 @@ function Works() {
                                                     <p>95%</p>
                                                 </div>
                                                 <div class="ar_work_single_text check">
-                                                    <img src="images/work/check.png" alt=""/>
+                                                    <img src="/images/work/check.png" alt=""/>
                                                 </div>
                                             </div>
                                             <div class="ar_single_item_table_work normal">
@@ -119,7 +119,7 @@ function Works() {
                                                     <p><span>(Easy)</span>Help to clean your town</p>
                                                 </div>
                                                 <div class="ar_work_single_text gold">
-                                                    <p><img src="images/work/gold.png" alt=""/>500</p>
+                                                    <p><img src="/images/work/gold.png" alt=""/>500</p>
                                                 </div>
                                                 <div class="ar_work_single_text">
                                                     <p>Info 3,5</p>
@@ -128,7 +128,7 @@ function Works() {
                                                     <p>95%</p>
                                                 </div>
                                                 <div class="ar_work_single_text check">
-                                                    <img src="images/work/check.png" alt=""/>
+                                                    <img src="/images/work/check.png" alt=""/>
                                                 </div>
                                             </div>
                                             <div class="ar_single_item_table_work hard">
@@ -136,7 +136,7 @@ function Works() {
                                                     <p><span>(Hard)</span>Help to clean your town</p>
                                                 </div>
                                                 <div class="ar_work_single_text gold">
-                                                    <p><img src="images/work/gold.png" alt=""/>500</p>
+                                                    <p><img src="/images/work/gold.png" alt=""/>500</p>
                                                 </div>
                                                 <div class="ar_work_single_text">
                                                     <p>Info 3,5</p>
@@ -145,7 +145,7 @@ function Works() {
                                                     <p>95%</p>
                                                 </div>
                                                 <div class="ar_work_single_text check">
-                                                    <img src="images/work/check.png" alt=""/>
+                                                    <img src="/images/work/check.png" alt=""/>
                                                 </div>
                                             </div>
                                             <div class="ar_single_item_table_work easy">
@@ -153,7 +153,7 @@ function Works() {
                                                     <p><span>(Normal)</span>Help to clean your town</p>
                                                 </div>
                                                 <div class="ar_work_single_text gold">
-                                                    <p><img src="images/work/gold.png" alt=""/>500</p>
+                                                    <p><img src="/images/work/gold.png" alt=""/>500</p>
                                                 </div>
                                                 <div class="ar_work_single_text">
                                                     <p>Info 3,5</p>
@@ -162,7 +162,7 @@ function Works() {
                                                     <p>95%</p>
                                                 </div>
                                                 <div class="ar_work_single_text check">
-                                                    <img src="images/work/check.png" alt=""/>
+                                                    <img src="/images/work/check.png" alt=""/>
                                                 </div>
                                             </div>
                                             <div class="ar_single_item_table_work normal">
@@ -170,7 +170,7 @@ function Works() {
                                                     <p><span>(Easy)</span>Help to clean your town</p>
                                                 </div>
                                                 <div class="ar_work_single_text gold">
-                                                    <p><img src="images/work/gold.png" alt=""/>500</p>
+                                                    <p><img src="/images/work/gold.png" alt=""/>500</p>
                                                 </div>
                                                 <div class="ar_work_single_text">
                                                     <p>Info 3,5</p>
@@ -179,16 +179,16 @@ function Works() {
                                                     <p>95%</p>
                                                 </div>
                                                 <div class="ar_work_single_text check">
-                                                    <img src="images/work/check.png" alt=""/>
+                                                    <img src="/images/work/check.png" alt=""/>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="ar_work_btn">
                                             <div class="ar_work_single_btn">
-                                                <img src="images/work/input.png" alt=""/>
+                                                <img src="/images/work/input.png" alt=""/>
                                             </div>
                                             <div class="ar_work_single_btn">
-                                                <a href="#"><img src="images/work/workbtn2.png" alt=""/></a>
+                                                <a href="#"><img src="/images/work/workbtn2.png" alt=""/></a>
                                                 <div class="ar_work_btn_xont">
                                                     <p>רומשל </p>
                                                 </div>

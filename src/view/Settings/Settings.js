@@ -13,7 +13,7 @@ function Settings() {
                                 <div className="ar_myProfile_itam_wrapper">
                                     <div className="ar_myProfile_single_item">
                                         <div className="ar_myProfile_sinle_title">
-                                            <a href="#"><img src="images/myAccount/shap.png" alt=""/>ישיא עדימ</a>
+                                            <a href="#"><img src="/images/myAccount/shap.png" alt=""/>ישיא עדימ</a>
                                         </div>
                                         <div className="ar_myProfile_swithc_area">
                                             <div className="ar_myProfile_sinlge_switch_area">
@@ -89,7 +89,7 @@ function Settings() {
                                             </div>
                                         </div>
                                         <div className="ar_myProfile_btn">
-                                            <a href="#"><img src="images/myAccount/accBtn.png" alt=""/></a>
+                                            <a href="#"><img src="/images/myAccount/accBtn.png" alt=""/></a>
                                             <div className="ar_myProfile_btn_text">
                                                 <p>רומשל </p>
                                             </div>
@@ -97,7 +97,7 @@ function Settings() {
                                     </div>
                                     <div className="ar_myProfile_single_item">
                                         <div className="ar_myProfile_sinle_title">
-                                            <a href="#"><img src="images/myAccount/shap.png" alt=""/>ישיא עדימ</a>
+                                            <a href="#"><img src="/images/myAccount/shap.png" alt=""/>ישיא עדימ</a>
                                         </div>
                                         <div className="ar_myProfile_sinlge_switch">
                                             <label className='toggle-label big_toggle_label'>
@@ -111,26 +111,26 @@ function Settings() {
                                         </div>
                                         <div className="arMyprofile_btn_cont">
                                             <div className="ar_myProfile_btnCont_single">
-                                                <a href="#"><img src="images/myAccount/input.png" alt=""/></a>
+                                                <a href="#"><img src="/images/myAccount/input.png" alt=""/></a>
                                                 <div className="ar_myProfile_btnCont_text">
                                                     <p>לעופב אמסיס</p>
                                                 </div>
                                             </div>
                                             <div className="ar_myProfile_btnCont_single">
-                                                <a href="#"><img src="images/myAccount/input.png" alt=""/></a>
+                                                <a href="#"><img src="/images/myAccount/input.png" alt=""/></a>
                                                 <div className="ar_myProfile_btnCont_text">
                                                     <p>השדח המסיס</p>
                                                 </div>
                                             </div>
                                             <div className="ar_myProfile_btnCont_single">
-                                                <a href="#"><img src="images/myAccount/input.png" alt=""/></a>
+                                                <a href="#"><img src="/images/myAccount/input.png" alt=""/></a>
                                                 <div className="ar_myProfile_btnCont_text">
                                                     <p>המסיס רשא</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="ar_myProfile_btn">
-                                            <a href="#"><img src="images/myAccount/accBtn.png" alt=""/></a>
+                                            <a href="#"><img src="/images/myAccount/accBtn.png" alt=""/></a>
                                             <div className="ar_myProfile_btn_text">
                                                 <p>רומשל </p>
                                             </div>
@@ -138,7 +138,7 @@ function Settings() {
                                     </div>
                                     <div className="ar_myProfile_single_item">
                                         <div className="ar_myProfile_sinle_title">
-                                            <a href="#"><img src="images/myAccount/shap.png" alt=""/>ישיא עדימ</a>
+                                            <a href="#"><img src="/images/myAccount/shap.png" alt=""/>ישיא עדימ</a>
                                         </div>
 
                                         <div className="ar_myProfile_select_area">
@@ -151,7 +151,7 @@ function Settings() {
                                         </div>
 
                                         <div className="ar_myProfile_btn">
-                                            <a href="#"><img src="images/myAccount/accBtn.png" alt=""/></a>
+                                            <a href="#"><img src="/images/myAccount/accBtn.png" alt=""/></a>
                                             <div className="ar_myProfile_btn_text">
                                                 <p>רומשל </p>
                                             </div>

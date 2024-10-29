@@ -12,17 +12,17 @@ function Steal() {
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="ar_raceInvite_area">
-                                    <img src="images/raceInvite/bg-content.png" alt="images" />
+                                    <img src="/images/raceInvite/bg-content.png" alt="images" />
                                     <div class="ar_raceinvite_mainBody_in">
                                         <div class="ar_raceInvite_banner_area ar_stealBanner_area">
-                                            <img src="images/raceInvite/steal-msg-bg.png" alt="images" />
+                                            <img src="/images/raceInvite/steal-msg-bg.png" alt="images" />
                                             <div class="ar_raceInvite_banner_cont ar_stealCont">
                                                 <p>When you steal a player you have chances to get his pokémons or items from his bag.</p>
                                                 <h5>.You can steal only <span>3</span> times per day</h5>
                                             </div>
                                         </div>
                                         <div class="ar_raceInvite_btn_area ar_stealBtn_area">
-                                            <img src="images/raceInvite/info-bg.png" alt="" />
+                                            <img src="/images/raceInvite/info-bg.png" alt="" />
                                             <div class="ar_raceInvoice_btn_single ar_steaBtn_single">
                                                 <div class="ar_steal_btn_single_item after arStealSingle arStealSingle100">
                                                     <p>Last steal from player: <b>YourNightmare</b></p>
@@ -33,7 +33,7 @@ function Steal() {
                                                 </div>
 
                                                 <div class="ar_steal_btn_single_item last arStealSingle">
-                                                    <a href="#"><img src="images/raceInvite/inname.png" alt="" /></a>
+                                                    <a href="#"><img src="/images/raceInvite/inname.png" alt="" /></a>
                                                     <p>רומשל </p>
                                                 </div>
                                             </div>

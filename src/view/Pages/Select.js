@@ -11,48 +11,48 @@ function Select() {
                             <div class="col-md-12">
                                 <div class="ar_select_area">
                                     <div class="ar_single_select_item">
-                                        <a href="#"><img src="images/select/ch1.png" alt="images"/></a>
+                                        <a href="#"><img src="/images/select/ch1.png" alt="images"/></a>
                                         <div class="ar_select_img_cont">
                                             <p>unii210</p>
                                             <p>Lv. <span>90</span></p>
                                         </div>
                                     </div>
                                     <div class="ar_single_select_item">
-                                        <a href="#"><img src="images/select/ch2.png" alt="images"/></a>
+                                        <a href="#"><img src="/images/select/ch2.png" alt="images"/></a>
                                         <div class="ar_select_img_cont">
                                             <p>Sindy</p>
                                             <p>Lv. <span>90</span></p>
                                         </div>
                                     </div>
                                     <div class="ar_single_select_item">
-                                        <a href="#"><img src="images/select/chbl.png" alt="images"/></a>
+                                        <a href="#"><img src="/images/select/chbl.png" alt="images"/></a>
                                     </div>
                                     <div class="ar_single_select_item">
-                                        <a href="#"><img src="images/select/chbl.png" alt="images"/></a>
+                                        <a href="#"><img src="/images/select/chbl.png" alt="images"/></a>
                                     </div>
                                     <div class="ar_single_select_item">
-                                        <a href="#"><img src="images/select/chbl.png" alt="images"/></a>
+                                        <a href="#"><img src="/images/select/chbl.png" alt="images"/></a>
                                     </div>
                                     <div class="ar_single_select_item">
-                                        <a href="#"><img src="images/select/chbl.png" alt="images"/></a>
+                                        <a href="#"><img src="/images/select/chbl.png" alt="images"/></a>
                                     </div>
                                     <div class="ar_single_select_item">
-                                        <a href="#"><img src="images/select/chbl.png" alt="images"/></a>
+                                        <a href="#"><img src="/images/select/chbl.png" alt="images"/></a>
                                     </div>
                                     <div class="ar_single_select_item">
-                                        <a href="#"><img src="images/select/chbl.png" alt="images"/></a>
+                                        <a href="#"><img src="/images/select/chbl.png" alt="images"/></a>
                                     </div>
                                     <div class="ar_single_select_item">
-                                        <a href="#"><img src="images/select/chbl.png" alt="images"/></a>
+                                        <a href="#"><img src="/images/select/chbl.png" alt="images"/></a>
                                     </div>
                                     <div class="ar_single_select_item">
-                                        <a href="#"><img src="images/select/chbl.png" alt="images"/></a>
+                                        <a href="#"><img src="/images/select/chbl.png" alt="images"/></a>
                                     </div>
                                     <div class="ar_single_select_item">
-                                        <a href="#"><img src="images/select/chbl.png" alt="images"/></a>
+                                        <a href="#"><img src="/images/select/chbl.png" alt="images"/></a>
                                     </div>
                                     <div class="ar_single_select_item">
-                                        <a href="#"><img src="images/select/chbl.png" alt="images"/></a>
+                                        <a href="#"><img src="/images/select/chbl.png" alt="images"/></a>
                                     </div>
 
                                 </div>

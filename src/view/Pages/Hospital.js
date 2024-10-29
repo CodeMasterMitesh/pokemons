@@ -10,21 +10,21 @@ function Hospital() {
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="ar_hospital_area">
-                                    <img src="images/hospital/hospital-bg.png" alt=""/>
+                                    <img src="/images/hospital/hospital-bg.png" alt=""/>
                                         <div class="ar_hospital_recovery">
-                                            <img src="images/hospital/recovery.png" alt=""/>
+                                            <img src="/images/hospital/recovery.png" alt=""/>
                                         </div>
                                         <div class="ar_hotpita_btnCoin">
-                                            <a href="#"><img src="images/hospital/hosbtn.png" alt=""/></a>
-                                            <a href="#"><img src="images/hospital/btnplace.png" alt=""/></a>
+                                            <a href="#"><img src="/images/hospital/hosbtn.png" alt=""/></a>
+                                            <a href="#"><img src="/images/hospital/btnplace.png" alt=""/></a>
                                         </div>
                                         <div class="ar_hospital_item_single">
-                                            <img src="images/hospital/ho1.png" alt=""/>
-                                                <img src="images/hospital/ho2.png" alt=""/>
-                                                    <img src="images/hospital/ho2.png" alt=""/>
-                                                        <img src="images/hospital/ho2.png" alt=""/>
-                                                            <img src="images/hospital/ho2.png" alt=""/>
-                                                                <img src="images/hospital/ho2.png" alt=""/>
+                                            <img src="/images/hospital/ho1.png" alt=""/>
+                                                <img src="/images/hospital/ho2.png" alt=""/>
+                                                    <img src="/images/hospital/ho2.png" alt=""/>
+                                                        <img src="/images/hospital/ho2.png" alt=""/>
+                                                            <img src="/images/hospital/ho2.png" alt=""/>
+                                                                <img src="/images/hospital/ho2.png" alt=""/>
                                                                 </div>
                                                             </div>
                                                         </div>

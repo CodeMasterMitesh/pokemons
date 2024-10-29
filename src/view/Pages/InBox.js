@@ -29,7 +29,7 @@ function InBox() {
                                                 return <div class="ar_single_item_table_work hard w-100">
                                                     <div class="p-5 d-flex justify-content-between w-100 block-box">
                                                         <div className='d-flex gap-3 align-items-center'>
-                                                            <img src="images/mock-19.png" alt="" />
+                                                            <img src="/images/mock-19.png" alt="" />
                                                             <h2>{item.name}</h2>
                                                         </div>
 

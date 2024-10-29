@@ -1758,6 +1758,7 @@ a {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
+   height: 650px;
 }
 .ar_pokeProfile_left_area{
    padding: 20px 50px ;
@@ -1766,7 +1767,7 @@ a {
            flex: 0 0 50%;
 }
 .ar_pokeProfile_carousel .navigation-image{
-   height: 20px !important;
+   height: 40px !important;
    width: auto;
 }
 .arPokeprofile_left_top{
@@ -1830,7 +1831,7 @@ a {
    -webkit-box-pack: center;
        -ms-flex-pack: center;
            justify-content: center;
-   padding-top: 120px;
+   /* padding-top: 120px; */
    padding-bottom: 13px;
 }
 .arPokeProfile_skils_status img{
@@ -1924,8 +1925,8 @@ a {
    margin-top: 30px;
 }
 .ar_pokeProfile_right_single_cont{
-   height: 400px;
-   overflow-y: scroll;
+   max-height: 600px;
+   overflow-y: auto;
    scrollbar-width: thin;
    margin-right: 2px;
    padding-right: 30px;

@@ -185,9 +185,9 @@ function Packages() {
                                            
                                             {(selected == 'golds' || selected == 'silvers') && gold_packages?.map((item, index) => {
                                                 return item[selected]!=0 && <div className={`ar_shop_single_item packages`} key={index}>
-                                                    <img src="images/shop/item.png" alt="" />
+                                                    <img src="/images/shop/item.png" alt="" />
                                                     <div className="ar_shop_in_cont">
-                                                        <img src="images/shop/item-img.png" alt="" />
+                                                        <img src="/images/shop/item-img.png" alt="" />
                                                         <p>{item.naam}</p>
                                                     </div>
                                                     <div className="ar_shop_bottom_cont">
@@ -207,9 +207,9 @@ function Packages() {
                                             }
                                             {(selected !== 'golds' && selected !== 'silvers') && packages[selected].map((item, index) => {
                                                 return <div className="ar_shop_single_item" key={index}>
-                                                    <img src="images/shop/item.png" alt="" />
+                                                    <img src="/images/shop/item.png" alt="" />
                                                     <div className="ar_shop_in_cont">
-                                                        <img src="images/shop/item-img.png" alt="" />
+                                                        <img src="/images/shop/item-img.png" alt="" />
                                                         <p>{item.name}</p>
                                                     </div>
                                                     <div className="ar_shop_bottom_cont">
@@ -226,9 +226,9 @@ function Packages() {
                                             {featured_packages.length && <h1 className='w-100 mb-2 text-light text-center'>Featured Packages</h1>}
                                             {(selected == 'golds' || selected == 'silvers') && featured_packages?.map((item, index) => {
                                                 return item[selected]!=0 && <div className={`ar_shop_single_item packages`} key={index}>
-                                                    <img src="images/shop/item.png" alt="" />
+                                                    <img src="/images/shop/item.png" alt="" />
                                                     <div className="ar_shop_in_cont">
-                                                        <img src="images/shop/item-img.png" alt="" />
+                                                        <img src="/images/shop/item-img.png" alt="" />
                                                         <p>{item.naam}</p>
                                                     </div>
                                                     <div className="ar_shop_bottom_cont">

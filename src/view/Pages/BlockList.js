@@ -44,12 +44,12 @@ function BlockList() {
                                                 return <div className="ar_single_item_table_work hard w-100">
                                                     <div className="p-5 d-flex justify-content-between w-100 block-box">
                                                         <div className='d-flex gap-3 align-items-center'>
-                                                            <img src="images/mock-19.png" alt="" />
+                                                            <img src="/images/mock-19.png" alt="" />
                                                             <h2>{item.username}</h2>
                                                         </div>
                                                         <div>
                                                             <div className="ar_play_middle_top_tag cursor-pointer" onClick={() => { handleUnblock(item.username) }}>
-                                                                <a ><img src="images/playerProfile/btnUser.png" alt="" /></a>
+                                                                <a ><img src="/images/playerProfile/btnUser.png" alt="" /></a>
                                                                 <div className="ar_play_middle_top_tagText">
                                                                     <p>Unblock</p>
                                                                 </div>

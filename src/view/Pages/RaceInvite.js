@@ -11,20 +11,20 @@ function RaceInvite() {
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="ar_raceInvite_area">
-                                    <img src="images/raceInvite/bg-content.png" alt="images"/>
+                                    <img src="/images/raceInvite/bg-content.png" alt="images"/>
                                         <div class="ar_raceinvite_mainBody_in">
                                             <div class="ar_raceInvite_banner_area">
-                                                <img src="images/raceInvite/race-msg-bg.png" alt="images"/>
+                                                <img src="/images/raceInvite/race-msg-bg.png" alt="images"/>
                                                     <div class="ar_raceInvite_banner_cont">
                                                         <p>.Invite your friends or enemies for a race</p>
                                                         <h5>.You can invite only <span>5</span> times per day</h5>
                                                     </div>
                                             </div>
                                             <div class="ar_raceInvite_btn_area">
-                                                <img class="bgArea" src="images/raceInvite/info-bg.png" alt=""/>
+                                                <img class="bgArea" src="/images/raceInvite/info-bg.png" alt=""/>
                                                     <div class="ar_raceInvoice_btn_single">
                                                         <div class="ar_raceinvoice_single_item">
-                                                            <a href="#"><img src="images/raceInvite/input.png" alt=""/></a>
+                                                            <a href="#"><img src="/images/raceInvite/input.png" alt=""/></a>
                                                             <p>First input</p>
                                                         </div>
                                                         <div class="ar_raceinvoice_single_item">
@@ -45,12 +45,12 @@ function RaceInvite() {
                                                             </div>
                                                         </div>
                                                         <div class="ar_raceinvoice_single_item">
-                                                            <a href="#"><img src="images/raceInvite/input.png" alt=""/></a>
+                                                            <a href="#"><img src="/images/raceInvite/input.png" alt=""/></a>
                                                             <p>Second input</p>
                                                         </div>
 
                                                         <div class="ar_raceinvoice_single_item last">
-                                                            <a href="#"><img src="images/raceInvite/inname.png" alt=""/></a>
+                                                            <a href="#"><img src="/images/raceInvite/inname.png" alt=""/></a>
                                                             <p>רומשל </p>
                                                         </div>
                                                     </div>

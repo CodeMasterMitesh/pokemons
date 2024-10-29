@@ -21,6 +21,22 @@ export const getNotifications = createAsyncThunk('other/getNotifications', async
         rejectWithValue(error.response.data)
     }
 });
+export const getNotificationCount = createAsyncThunk('other/getNotificationCount', async (_, { rejectWithValue }) => {
+    try {
+
+        const response = await axios({
+            url: `${API_ENDPOINTS.NOTIFICATION_COUNT}`,
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        return response.data
+
+    } catch (error) {
+        rejectWithValue(error.response.data)
+    }
+});
 export const houseSeller = createAsyncThunk('other/houseSeller', async (data, { rejectWithValue }) => {
     try {
         const response = await toast.promise(
@@ -73,6 +89,7 @@ export const getHouseSell = createAsyncThunk('other/getHouseSell', async (_, { r
 
 const initialState = {
     notifications: [],
+    notification_count: 0,
     house_seller_data: []
 }
 
@@ -95,6 +112,9 @@ export const otherSlice = createSlice({
             .addCase(getNotifications.rejected, (state, action) => {
                 state.notifications_loading = false;
                 state.notifications_error = action.payload;
+            })
+            .addCase(getNotificationCount.fulfilled, (state, action) => {
+                state.notification_count = action.payload.data ? action.payload.data : []
             })
             .addCase(houseSeller.pending, (state, action) => {
                 state.house_seller_loading = true;

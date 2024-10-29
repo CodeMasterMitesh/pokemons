@@ -26,7 +26,7 @@ const ForgotPassword = () => {
                     <div className="register-item register-item2">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="register-item-inner">
-                                <h2>{t('Forgot Password')}<img src="images/register-01.png" alt="" /></h2>
+                                <h2>{t('Forgot Password')}<img src="/images/register-01.png" alt="" /></h2>
                             </div>
                             <div className="register-item-inner7">
                                 <div className='validation-box'>
@@ -35,7 +35,7 @@ const ForgotPassword = () => {
                                             id="name"
                                             placeholder={t('Email')}
                                             {...register("email", { required: true })} />
-                                        <img src="images/register-02.png" alt="" />
+                                        <img src="/images/register-02.png" alt="" />
                                     </div>
                                     {errors.email && <span className='error-text m-3'>{t('This field is required')}</span>}
                                 </div>
@@ -47,7 +47,7 @@ const ForgotPassword = () => {
                             <div className="register-item-inner6 mt-3">
                                 <button onClick={()=>{navigate('/login')}} className='register-button'>
                                     <span>{t('Back to login')}</span>
-                                <img src="images/banner-03.png" alt=""/>
+                                <img src="/images/banner-03.png" alt=""/>
                                 </button>
                             </div>
                         </form>

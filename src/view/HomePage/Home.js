@@ -16,6 +16,7 @@ import Loader from '../Pages/Spinner';
 import { toast } from 'react-toastify';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import PokemonProfile from '../Component/PokemonProfile';
+import { getNotificationCount } from '../../store/other';
 
 const Home = () => {
     const [show, setShow] = useState(false);
@@ -48,9 +49,6 @@ const Home = () => {
             if (element) {
               const { right, left, width } = element.getBoundingClientRect();
               const viewportWidth = window.innerWidth;
-        
-              console.log('Viewport Width:', viewportWidth);
-              console.log('Element Bounds:', { right, left, width });
         
               // Check if the popup overflows from the right side
               if (right > viewportWidth) {
@@ -165,6 +163,7 @@ const Home = () => {
     }
     useEffect(() => {
         getProfileData()
+        dispatch(getNotificationCount())
     }, []);
     return (
         <>
@@ -223,7 +222,7 @@ const Home = () => {
                                     name="username"
                                     onChange={(e) => { hanldedata(e) }}
                                     placeholder={t('Usernmae')} />
-                                <img src="images/register-02.png" alt="" />
+                                <img src="/images/register-02.png" alt="" />
                             </div>
                         </Col>}
                         {current_step == 1 && <Col md={6}>
@@ -300,7 +299,7 @@ const Home = () => {
                             <div className="side-menu">
                                 <ul className='p-0'>
                                     <li onClick={() => { navigate('/profile') }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsPersonCircle />{t('User')}</a></li>
-                                    <li onClick={() => { navigate('/pokemon-profile') }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsFilePersonFill />{t('My Character')}</a></li>
+                                    <li onClick={() => { navigate('/character') }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsFilePersonFill />{t('My Character')}</a></li>
                                     <li onClick={() => { navigate('/notification') }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsBellFill />{t('Notification')} (0)</a></li>
                                     <li onClick={() => { navigate('/settings') }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"><BsGearFill />   {t('Settings')}</a></li>
                                     <li onClick={() => { handleLogout() }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#" ><BsXLg />{t('Logout')} </a></li>
@@ -315,18 +314,18 @@ const Home = () => {
                                 <div className="character-item-inner">
                                     <div className="mock-item-inner">
                                         <ul>
-                                            <li><img src="images/mock-03.png" alt="" onClick={() => navigate('/packages?buy=silvers')} /><span>{userData?.silver}</span><img src="images/mock-05.png" alt="" /></li>
-                                            <li><img src="images/mock-03.png" alt="" onClick={() => navigate('/packages?buy=golds')} /><span>{userData?.gold}</span><img src="images/mock-04.png" alt="" /></li>
+                                            <li><img src="/images/mock-03.png" alt="" onClick={() => navigate('/packages?buy=silvers')} /><span>{userData?.silver}</span><img src="/images/mock-05.png" alt="" /></li>
+                                            <li><img src="/images/mock-03.png" alt="" onClick={() => navigate('/packages?buy=golds')} /><span>{userData?.gold}</span><img src="/images/mock-04.png" alt="" /></li>
                                         </ul>
                                     </div>
                                     <div className="character-item-inner2">
                                         <ul>
                                             <li data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" onClick={handleShow}>
-                                                <img src="images/character-01.png" alt="" />
+                                                <img src="/images/character-01.png" alt="" />
                                             </li>
-                                            <li><img src="images/character-02.png" alt="" /><span>{t('Champion Title')}</span></li>
-                                            <li onClick={() => { navigate('/battle') }}><img src="images/character-03.png" alt="" /><span>{t('Match Wins')}</span></li>
-                                            <li><img src="images/character-04.png" onClick={() => navigate('/inbox')} alt="" /><span>{t('VIP')}</span></li>
+                                            <li><img src="/images/character-02.png" alt="" /><span>{t('Champion Title')}</span></li>
+                                            <li onClick={() => { navigate('/battle') }}><img src="/images/character-03.png" alt="" /><span>{t('Match Wins')}</span></li>
+                                            <li><img src="/images/character-04.png" onClick={() => navigate('/inbox')} alt="" /><span>{t('VIP')}</span></li>
                                         </ul>
                                     </div>
                                     <div className="character-item-inner3">
@@ -339,7 +338,7 @@ const Home = () => {
                                         <div className="character-item-inner6">
                                             <div className="character-item-inner7">
                                                 <div onClick={() => { setRegionModal(true) }} className='cursor-pointer'>
-                                                    <h3>{userData?.wereld} <img src="images/character-07.png" alt="" /></h3>
+                                                    <h3>{userData?.wereld} <img src="/images/character-07.png" alt="" /></h3>
                                                 </div>
                                                 <div>
                                                     <p><span>(Vip)</span>{userData?.username}</p>
@@ -351,7 +350,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                         <div className="character-item-inner9">
-                                            <img src="images/character-06.png" alt="" />
+                                            <img src="/images/character-06.png" alt="" />
                                         </div>
                                     </div>
                                     <div className="character-item-inner10">
@@ -360,7 +359,7 @@ const Home = () => {
                                                 <h2>{t('Match Wins')} <span>[VIP]</span></h2>
                                             </div>
                                             <div>
-                                                <img src="images/character-12.png" alt="" />
+                                                <img src="/images/character-12.png" alt="" />
                                             </div>
                                         </div>
                                     </div>
@@ -369,7 +368,7 @@ const Home = () => {
                                             <h2>{t('Match Wins')} <span>97 Wins</span></h2>
                                         </div>
                                         <div>
-                                            <img src="images/character-14.png" alt="" />
+                                            <img src="/images/character-14.png" alt="" />
                                         </div>
                                     </div>
                                 </div>
@@ -387,7 +386,7 @@ const Home = () => {
                                                         onMouseLeave={handleMouseLeave}>
                                                         <img src={`images/pokemon/${item.wild_id}.gif`} alt="" />
                                                         <div className="character-item2-inner4">
-                                                            <img src="images/character-17.png" alt="" />
+                                                            <img src="/images/character-17.png" alt="" />
                                                         </div>
                                                         <div className="character-item2-inner5 b--35" >
                                                             <p  style={{minHeight:"60px"}}>{item.naam} - Lv <span>{item.level}</span></p>

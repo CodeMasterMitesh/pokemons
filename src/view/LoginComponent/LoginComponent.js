@@ -32,7 +32,7 @@ const Login = () => {
                     <div className="register-item register-item2">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="register-item-inner">
-                                <h2>{t('Login')} <img src="images/register-01.png" alt="" /></h2>
+                                <h2>{t('Login')} <img src="/images/register-01.png" alt="" /></h2>
                             </div>
                             <div className="register-item-inner7">
                                 <div className='validation-box'>
@@ -42,7 +42,7 @@ const Login = () => {
                                             id="name"
                                             placeholder={t('Name')}
                                             {...register("username", { required: true })} />
-                                        <img src="images/register-02.png" alt="" />
+                                        <img src="/images/register-02.png" alt="" />
                                     </div>
                                     {errors.username && <div className='error-text m-2'>{t('This field is required')}</div>}
                                 </div>
@@ -54,7 +54,7 @@ const Login = () => {
                                             id="password"
                                             placeholder={t('Password')}
                                             {...register("wachtwoord", { required: true })} />
-                                        <img src="images/register-02.png" alt="" />
+                                        <img src="/images/register-02.png" alt="" />
                                     </div>
                                     {errors.wachtwoord && <div className='error-text m-2'>{t('This field is required')}</div>}
                                 </div>
@@ -68,7 +68,7 @@ const Login = () => {
                             <div className="register-item-inner6 mt-3">
                                 <button onClick={()=>{navigate('/register')}} className='register-button'>
                                     <span>{t('Open an account')}</span>
-                                <img src="images/banner-03.png" alt=""/>
+                                <img src="/images/banner-03.png" alt=""/>
                                 </button>
                             </div>
                         </form>

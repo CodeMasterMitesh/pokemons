@@ -63,18 +63,18 @@ const Home = () => {
                                 <div className="character-item-inner">
                                     <div className="mock-item-inner">
                                         <ul>
-                                            <li><img src="images/mock-03.png" alt="" onClick={() => navigate('/packages?buy=silvers')} /><span>{userData?.silver}</span><img src="images/mock-05.png" alt="" /></li>
-                                            <li><img src="images/mock-03.png" alt="" onClick={() => navigate('/packages?buy=golds')} /><span>{userData?.gold}</span><img src="images/mock-04.png" alt="" /></li>
+                                            <li><img src="/images/mock-03.png" alt="" onClick={() => navigate('/packages?buy=silvers')} /><span>{userData?.silver}</span><img src="/images/mock-05.png" alt="" /></li>
+                                            <li><img src="/images/mock-03.png" alt="" onClick={() => navigate('/packages?buy=golds')} /><span>{userData?.gold}</span><img src="/images/mock-04.png" alt="" /></li>
                                         </ul>
                                     </div>
                                     <div className="character-item-inner2">
                                         <ul>
                                             <li data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" onClick={handleShow}>
-                                                <img src="images/character-01.png" alt="" />
+                                                <img src="/images/character-01.png" alt="" />
                                             </li>
-                                            <li><img src="images/character-02.png" alt="" /><span>{t('Champion Title')}</span></li>
-                                            <li onClick={() => { navigate('/battle') }}><img src="images/character-03.png" alt="" /><span>{t('Match Wins')}</span></li>
-                                            <li><img src="images/character-04.png" alt="" /><span>{t('VIP')}</span></li>
+                                            <li><img src="/images/character-02.png" alt="" /><span>{t('Champion Title')}</span></li>
+                                            <li onClick={() => { navigate('/battle') }}><img src="/images/character-03.png" alt="" /><span>{t('Match Wins')}</span></li>
+                                            <li><img src="/images/character-04.png" alt="" /><span>{t('VIP')}</span></li>
                                         </ul>
                                     </div>
                                     <div className="character-item-inner3">
@@ -87,7 +87,7 @@ const Home = () => {
                                         <div className="character-item-inner6">
                                             <div className="character-item-inner7">
                                                 <div>
-                                                    <h3>{t('Kanto')} <img src="images/character-07.png" alt="" /></h3>
+                                                    <h3>{t('Kanto')} <img src="/images/character-07.png" alt="" /></h3>
                                                 </div>
                                                 <div>
                                                     <p><span>(Vip)</span>{userData?.username}</p>
@@ -99,7 +99,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                         <div className="character-item-inner9">
-                                            <img src="images/character-06.png" alt="" />
+                                            <img src="/images/character-06.png" alt="" />
                                         </div>
                                     </div>
                                     <div className="character-item-inner10">
@@ -108,7 +108,7 @@ const Home = () => {
                                                 <h2>{t('Match Wins')} <span>[VIP]</span></h2>
                                             </div>
                                             <div>
-                                                <img src="images/character-12.png" alt="" />
+                                                <img src="/images/character-12.png" alt="" />
                                             </div>
                                         </div>
                                     </div>
@@ -117,7 +117,7 @@ const Home = () => {
                                             <h2>{t('Match Wins')} <span>97 Wins</span></h2>
                                         </div>
                                         <div>
-                                            <img src="images/character-14.png" alt="" />
+                                            <img src="/images/character-14.png" alt="" />
                                         </div>
                                     </div>
                                 </div>
@@ -128,9 +128,9 @@ const Home = () => {
                                     <div className="character-item2-inner">
                                         <div className="character-item2-inner2">
                                             <div className="character-item2-inner3">
-                                                <img src="images/character-16.png" alt="" />
+                                                <img src="/images/character-16.png" alt="" />
                                                 <div className="character-item2-inner4">
-                                                    <img src="images/character-17.png" alt="" />
+                                                    <img src="/images/character-17.png" alt="" />
                                                 </div>
                                                 <div className="character-item2-inner5">
                                                     <p>{t('Mewtwo')} - Lv <span>2</span></p>
@@ -139,9 +139,9 @@ const Home = () => {
                                         </div>
                                         <div className="character-item2-inner2">
                                             <div className="character-item2-inner3">
-                                                <img src="images/character-18.png" alt="" />
+                                                <img src="/images/character-18.png" alt="" />
                                                 <div className="character-item2-inner4">
-                                                    <img src="images/character-17.png" alt="" />
+                                                    <img src="/images/character-17.png" alt="" />
                                                 </div>
                                                 <div className="character-item2-inner5">
                                                     <p>{t('Pikachu')} - Lv <span>2</span></p>

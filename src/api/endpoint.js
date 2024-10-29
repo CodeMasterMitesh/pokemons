@@ -32,4 +32,5 @@ export const API_ENDPOINTS = {
     USER_BADGE:"api/getUserBadge.php",
     POKEMON_JUDGE:"api/PokemonJudge.php",
     POKEMON_GUID:"api/pokemonGuide.php",
+    NOTIFICATION_COUNT:"api/getNotificationCount.php"
 };

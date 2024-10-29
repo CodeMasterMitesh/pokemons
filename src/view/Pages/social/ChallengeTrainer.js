@@ -40,7 +40,7 @@ function ChallengeTrainer() {
                                     className="form-control"
                                     id="name"
                                 />
-                                <img src="images/register-02.png" alt="" />
+                                <img src="/images/register-02.png" alt="" />
                             </div>
                         </Col>
                         <Col md={3}>
@@ -49,7 +49,7 @@ function ChallengeTrainer() {
                                 <input type="text"
                                     className="form-control bg-theme"
                                     id="name" />
-                                <img src="images/register-02.png" alt="" />
+                                <img src="/images/register-02.png" alt="" />
                             </div>
                         </Col>
                         <Col md={12}  >

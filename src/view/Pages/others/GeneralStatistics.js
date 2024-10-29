@@ -1,7 +1,7 @@
 import { Card, Col, Overlay, Popover, Row } from 'react-bootstrap'
 import GoldSiverHeader from '../../../view/HomePage/GoldSiverHeader'
 import React, { useState } from 'react'
-import PokemonProfile from '../../../view/Component/PokemonProfile';
+import PokemonProfile from '../../Component/PokemonProfile';
 
 function GeneralStatistics() {
 

@@ -12,16 +12,16 @@ function Town() {
                                 <div class="ar_town_area">
                                     <div class="ar_town_carousel_wrapper owl-carousel owl-theme">
                                         <div class="ar_singe_town_itwm">
-                                            <img src="images/town/hospital.png" alt="images"/>
+                                            <img src="/images/town/hospital.png" alt="images"/>
                                         </div>
                                         <div class="ar_singe_town_itwm">
-                                            <img src="images/town/townCoro.png" alt="images"/>
+                                            <img src="/images/town/townCoro.png" alt="images"/>
                                         </div>
                                         <div class="ar_singe_town_itwm">
-                                            <img src="images/town/townCoro.png" alt="images"/>
+                                            <img src="/images/town/townCoro.png" alt="images"/>
                                         </div>
                                         <div class="ar_singe_town_itwm">
-                                            <img src="images/town/townCoro.png" alt="images"/>
+                                            <img src="/images/town/townCoro.png" alt="images"/>
                                         </div>
                                     </div>
                                 </div>

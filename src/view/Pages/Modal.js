@@ -8,9 +8,9 @@ function Modal() {
                     <div class="container">
                         <div class="modal_content">
                             <div class="modal_button">
-                                <a class="modal_btn" href="#"><img src="images/modal/successfully-message.png" alt="" /><p>החלצהב העדוה </p></a>
+                                <a class="modal_btn" href="#"><img src="/images/modal/successfully-message.png" alt="" /><p>החלצהב העדוה </p></a>
                                 <a href="#" class="modal_close">
-                                    <img src="images/menu/popup-close-button.png" alt="" />
+                                    <img src="/images/menu/popup-close-button.png" alt="" />
                                 </a>
                             </div>
                         </div>
