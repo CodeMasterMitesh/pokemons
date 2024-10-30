@@ -7,8 +7,10 @@ import { getSearchPlayers } from '../../../store/friends';
 import Accordion from 'react-bootstrap/Accordion';
 import GoldSiverHeader from '../../../view/HomePage/GoldSiverHeader';
 import { getUserBadge } from '../../../store/extras';
+import { useNavigate } from 'react-router-dom';
 function Badges() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const user_badges = useSelector(state => state.extras.user_badges)
     // const search_players = useSelector(state => state.friend.search_players)
     const arr = [
@@ -104,8 +106,11 @@ function Badges() {
             ]
         },
     ]
-    const init = () => {
-        dispatch(getUserBadge())
+    const init = async () => {
+        let badges = await dispatch(getUserBadge()).unwrap();
+        if(badges.message){
+            navigate('/home')
+        }
     }
     useEffect(() => {
         init()

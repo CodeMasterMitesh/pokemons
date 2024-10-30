@@ -32,5 +32,8 @@ export const API_ENDPOINTS = {
     USER_BADGE:"api/getUserBadge.php",
     POKEMON_JUDGE:"api/PokemonJudge.php",
     POKEMON_GUID:"api/pokemonGuide.php",
-    NOTIFICATION_COUNT:"api/getNotificationCount.php"
+    NOTIFICATION_COUNT:"api/getNotificationCount.php",
+    POKEMON_BY_ID:'api/getPokemonProfileById.php',
+    BEST_FISHER_OF_THE_DAY:'api/getBestFisherManOfDay.php',
+    BEST_FISHER_OF_THE_YESTERDAY:'api/getBestFisherManOfYesterday.php',
 };

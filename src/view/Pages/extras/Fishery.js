@@ -8,11 +8,19 @@ import Accordion from 'react-bootstrap/Accordion';
 import Toast from 'react-bootstrap/Toast';
 import OnlineTrainers from '../../../view/Component/OnlineTrainers';
 import GoldSiverHeader from '../../../view/HomePage/GoldSiverHeader';
+import { getBestFisherManOfDay, getBestFisherManOfYesterday } from '../../../store/extras';
 
 
 function Fishery() {
     const dispatch = useDispatch();
-
+    const best_fisher_of_the_day = useSelector(state => state.extras.best_fisher_of_the_day)
+    console.log(best_fisher_of_the_day);
+    
+    const best_fisher_of_yesterday = useSelector(state => state.extras.best_fisher_of_yesterday)
+    useEffect(() => {
+        dispatch(getBestFisherManOfDay())
+        dispatch(getBestFisherManOfYesterday())
+    }, [])
     return (
         <GoldSiverHeader previous='/home' title='Fishery'>
             <div className='container p-2 challenge'>
@@ -63,7 +71,7 @@ function Fishery() {
                         <Row>
                             <Col md={6}>
                                 <h4 className='text-center'>Best fishermen of the day</h4>
-                                <Table striped bordered hover variant='dark' className='table-theme'>
+                                <Table striped bordered hover className='table-theme'>
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -72,28 +80,20 @@ function Fishery() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>NightSlash</td>
-                                            <td>71,312 Points</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Lost</td>
-                                            <td>0 Points</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>jkhan</td>
-                                            <td>0 Point</td>
-                                        </tr>
+                                        {best_fisher_of_the_day?.map((item,index) => {
+                                            return <tr>
+                                                <td>{index + 1}</td>
+                                                <td>{item.username}</td>
+                                                <td>{parseFloat(item.fishing)?.toLocaleString()} Points</td>
+                                            </tr>
+                                        })}
                                     </tbody>
                                 </Table>
                             </Col>
                             <Col>
                                 <h4 className='text-center'>Best fishermen of yesterday</h4>
 
-                                <Table striped bordered hover variant='dark' className='table-theme'>
+                                <Table striped bordered hover className='table-theme'>
                                     <thead>
                                         <tr>
                                             <th>#</th>

@@ -44,7 +44,7 @@ function FindCoach() {
                                                 />
                                             </div>
                                             <div className='overflow-auto mt-5' style={{maxHeight:"500px"}}>
-                                                <Table striped bordered hover variant='dark'>
+                                                <Table striped bordered hover  className='table-theme'>
                                                     <thead>
                                                         <tr className='table-sticky-header'>
                                                             <th>#</th>

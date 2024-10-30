@@ -114,7 +114,7 @@ export const otherSlice = createSlice({
                 state.notifications_error = action.payload;
             })
             .addCase(getNotificationCount.fulfilled, (state, action) => {
-                state.notification_count = action.payload.data ? action.payload.data : []
+                state.notification_count = action.payload.data ? action.payload.data.notification_count : 0
             })
             .addCase(houseSeller.pending, (state, action) => {
                 state.house_seller_loading = true;

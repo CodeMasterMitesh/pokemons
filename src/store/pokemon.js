@@ -3,11 +3,13 @@ import axios from '../api/axios';
 import { API_ENDPOINTS } from "../api/endpoint";
 import { toast } from 'react-toastify';
 import i18n from "i18next";  // Importing i18n for translations
+import { logDOM } from "@testing-library/react";
 
 const initialState = {
     pokemons: [],
     characters: [],
-    player_pokemons: []
+    player_pokemons: [],
+    pokemon:{}
 };
 
 export const getPokemons = createAsyncThunk('auth/getPokemons', async (_, { rejectWithValue }) => {
@@ -43,15 +45,18 @@ export const getPlayerPokemons = createAsyncThunk('auth/getPlayerPokemons', asyn
 
     }
 });
-export const getPokemonById = createAsyncThunk('auth/getPlayerPokemons', async (_, { rejectWithValue }) => {
+export const getPokemonProfileById = createAsyncThunk('auth/getPokemonProfileById', async (id, { rejectWithValue }) => {
     try {
 
         return axios({
-            url: `${API_ENDPOINTS.PLAYER_POKEMONS}`,
+            url: `${API_ENDPOINTS.POKEMON_BY_ID}`,
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
+            params:{
+                id:id
+            }
         })
             .then(response => response.data)
             .catch(error => {
@@ -127,6 +132,18 @@ export const pokemonSlice = createSlice({
             .addCase(getPokemons.rejected, (state, action) => {
                 state.pokemons_loading = false;
                 state.pokemons_error = action.payload;
+            })
+            .addCase(getPokemonProfileById.pending, (state) => {
+                state.pokemon_loading = true;
+                state.pokemon_error = null;
+            })
+            .addCase(getPokemonProfileById.fulfilled, (state, action) => {
+                state.pokemon_loading = false;
+                state.pokemon = action.payload?.data[0];
+            })
+            .addCase(getPokemonProfileById.rejected, (state, action) => {
+                state.pokemon_loading = false;
+                state.pokemon_error = action.payload;
             })
             .addCase(getCharacters.pending, (state) => {
                 state.characters_loading = true;
