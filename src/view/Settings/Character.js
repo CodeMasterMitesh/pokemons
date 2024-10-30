@@ -227,8 +227,8 @@ function Character() {
                                                     <a href="#"><img src="/images/pokeProfile/circle.png" alt="" />Mood: <span>{pokemon.Mood}</span> </a>
                                                 </div>
                                                 <div className="ar_pokeProfile_single_wrapper">
-                                                    <a href="#"><img src="/images/pokeProfile/circle.png" alt="" />Species: {selected.naam}</a>
-                                                    <a href="#"><img src="/images/pokeProfile/circle.png" alt="" />Pokeball: <img src={`/images/items/${selected.Pokéball}.png`} alt="" /></a>
+                                                    <a href="#"><img src="/images/pokeProfile/circle.png" alt="" />Species: {pokemon.Species}</a>
+                                                    <a href="#"><img src="/images/pokeProfile/circle.png" alt="" />Pokeball: <img src={`/images/items/${pokemon.Pokéball}.png`} alt="" /></a>
                                                 </div>
                                             </div>
 
