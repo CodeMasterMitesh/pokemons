@@ -1,13 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import GoldSiverHeader from '../HomePage/GoldSiverHeader'
 import { useDispatch, useSelector } from 'react-redux'
-import { acceptFriendRequest, declineFriendRequest, getFriendRequest,getSearchPlayers, sendFriendRequest } from '../../store/friends'
+import { acceptFriendRequest, declineFriendRequest, getFriendRequest, getSearchPlayers, sendFriendRequest } from '../../store/friends'
 import { Form } from 'react-bootstrap'
-import debounce from 'lodash.debounce'  
+import debounce from 'lodash.debounce'
 
 function FriendRequest() {
     const dispatch = useDispatch()
     const friend_requests = useSelector(state => state.friend.friend_requests)
+    console.log(friend_requests);
     
     const search_players = useSelector(state => state.friend.search_players)
     // const [search,setSearch] = useState('');
@@ -20,7 +21,7 @@ function FriendRequest() {
     const debouncedFetchResults = useCallback(
         debounce((value) => dispatch(getSearchPlayers(value)), 1000), // 500ms debounce
         []
-      );
+    );
     const handleDecline = async (id) => {
         const data = {
             id: id
@@ -29,28 +30,19 @@ function FriendRequest() {
             await dispatch(declineFriendRequest(data)).unwrap()
             dispatch(getFriendRequest())
         } catch (error) {
-            
+
         }
     }
     const handleAccept = async (id) => {
         const data = {
             user_id: id
         }
-        try {
-            await dispatch(acceptFriendRequest(data)).unwrap()
-            dispatch(getFriendRequest())
-        } catch (error) {
-            
-        }
+        await dispatch(acceptFriendRequest(data)).unwrap()
+        dispatch(getFriendRequest())
     }
     useEffect(() => {
-        try {
-            dispatch(getFriendRequest())
-            dispatch(getSearchPlayers(''))
-        } catch (error) {
-            
-        }
-    },[])
+        dispatch(getFriendRequest())
+    }, [])
     return (
         <div>
             <GoldSiverHeader previous={'/profile'} title='Friend Requests'>
@@ -66,9 +58,9 @@ function FriendRequest() {
                                             </div>
                                         </div>
                                         <div class="ar_workFlex_wrapper">
-                                            {friend_requests.map((item) => {
+                                            {friend_requests?.map((item) => {
                                                 return <div class="ar_single_item_table_work hard w-100">
-                                                    <div class="p-5 d-flex justify-content-between w-100 chat-box">
+                                                    <div class="p-3 d-flex justify-content-between w-100 chat-box">
                                                         <div className='d-flex gap-3 align-items-center'>
                                                             <img src="/images/mock-19.png" alt="" />
                                                             <h2>{item.friend_name}</h2>
@@ -112,7 +104,7 @@ function FriendRequest() {
                                         <div class="ar_workFlex_wrapper mt-2">
                                             {search_players.map((item) => {
                                                 return <div class="ar_single_item_table_work hard w-100">
-                                                    <div class="p-5 d-flex justify-content-between w-100 chat-box">
+                                                    <div class="p-3 d-flex justify-content-between w-100 chat-box">
                                                         <div className='d-flex gap-3 align-items-center'>
                                                             <img src="/images/mock-19.png" alt="" />
                                                             <h2>{item.username}</h2>

@@ -8,20 +8,16 @@ import i18n from "i18next";
 export const getFriendRequest = createAsyncThunk('auth/getFriendRequest', async (_, { rejectWithValue }) => {
     try {
 
-        return await axios({
+        let response = await axios({
             url: API_ENDPOINTS.GET_FRIEND_REQUEST,
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
         })
-            .then(response => response.data)
-            .catch(error => {
-                toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
-
-            });
+        return response.data
     } catch (error) {
-
+        toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
     }
 });
 export const getFriends = createAsyncThunk('auth/getFriends', async (userCredentials, { rejectWithValue }) => {
@@ -264,6 +260,7 @@ export const friendSlicer = createSlice({
             })
             .addCase(getFriendRequest.fulfilled, (state, action) => {
                 state.friend_requests_loading = false;
+                
                 state.friend_requests = action.payload.friends ? action.payload.friends : [];
             })
             .addCase(getFriendRequest.rejected, (state, action) => {
@@ -272,7 +269,7 @@ export const friendSlicer = createSlice({
             })
             .addCase(sendFriendRequest.pending, (state) => {
                 state.send_friend_requests_loading = true;
-                state.friend_requests_error = null;
+                state.send_friend_requests_error = null;
             })
             .addCase(sendFriendRequest.fulfilled, (state, action) => {
                 state.send_friend_requests_loading = false;
@@ -280,7 +277,7 @@ export const friendSlicer = createSlice({
             })
             .addCase(sendFriendRequest.rejected, (state, action) => {
                 state.send_friend_requests_loading = false;
-                state.friend_requests_error = action.payload;
+                state.send_friend_requests_error = action.payload;
             })
             .addCase(acceptFriendRequest.pending, (state) => {
                 state.accept_friend_requests_loading = true;
@@ -288,7 +285,7 @@ export const friendSlicer = createSlice({
             })
             .addCase(acceptFriendRequest.fulfilled, (state, action) => {
                 state.accept_friend_requests_loading = false;
-                state.friend_requests = action.payload;
+                state.accept_friend_requests = action.payload;
             })
             .addCase(acceptFriendRequest.rejected, (state, action) => {
                 state.accept_friend_requests_loading = false;
@@ -300,7 +297,7 @@ export const friendSlicer = createSlice({
             })
             .addCase(declineFriendRequest.fulfilled, (state, action) => {
                 state.decline_friend_requests_loading = false;
-                state.friend_requests = action.payload;
+                state.decline_friend_requests = action.payload;
             })
             .addCase(declineFriendRequest.rejected, (state, action) => {
                 state.decline_friend_requests_loading = false;
