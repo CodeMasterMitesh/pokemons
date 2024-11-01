@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../api/axios";
 import { API_ENDPOINTS } from "../api/endpoint";
+import { toast } from "react-toastify";
 
 
 export const pokemonJudge = createAsyncThunk('other/pokemonJudge', async (id, { rejectWithValue }) => {
@@ -15,11 +16,17 @@ export const pokemonJudge = createAsyncThunk('other/pokemonJudge', async (id, { 
                 pokemonid:id
             }
         })
+        response.data.success=true;
+        if(response.data.message){
+            response.data.success=false
+            toast.warn(response.data.message)
+        }
         return response.data
-
-    } catch (error) {
-        rejectWithValue(error.response.data)
     }
+        catch (error) {
+            toast.error((error?.response?.data?.message || error?.response?.data?.error ) || 'failed!')
+            // rejectWithValue(error.response.data)
+        }
 });
 
 export const pokemonGuide = createAsyncThunk('other/pokemonGuide', async (data, { rejectWithValue }) => {
@@ -35,7 +42,30 @@ export const pokemonGuide = createAsyncThunk('other/pokemonGuide', async (data, 
         return response.data
 
     } catch (error) {
-        rejectWithValue(error.response.data)
+        toast.error((error?.response?.data?.message || error?.response?.data?.error ) || 'failed!')
+
+    }
+});
+export const PokemonCalculatorIvs = createAsyncThunk('other/PokemonCalculatorIvs', async (data, { rejectWithValue }) => {
+    try {
+        const response = await axios({
+            url: `${API_ENDPOINTS.POKEMON_CALCULATOR_IVS}`,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data
+        })
+        response.data.success=true
+        if(response.data.message){
+            response.data.success = false
+            toast.warn(response.data.message)
+        }
+        return response.data
+
+    } catch (error) {
+        toast.error((error?.response?.data?.message || error?.response?.data?.error ) || 'failed!')
+        // rejectWithValue(error.response.data)
     }
 });
 
@@ -82,6 +112,18 @@ export const assistanceSlice = createSlice({
             .addCase(pokemonGuide.rejected, (state, action) => {
                 state.pokemon_guide_loading = false;
                 state.pokemon_guide_error = action.payload;
+            })
+            .addCase(PokemonCalculatorIvs.pending, (state, action) => {
+                state.pokemon_calculator_loading = true;
+                state.pokemon_calculator_error = null;
+            })
+            .addCase(PokemonCalculatorIvs.fulfilled, (state, action) => {
+                state.pokemon_calculator_loading = false;
+                state.pokemon_calculator = action.payload
+            })
+            .addCase(PokemonCalculatorIvs.rejected, (state, action) => {
+                state.pokemon_calculator_loading = false;
+                state.pokemon_calculator_error = action.payload;
             })
     }
 })

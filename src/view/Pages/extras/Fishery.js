@@ -8,13 +8,16 @@ import Accordion from 'react-bootstrap/Accordion';
 import Toast from 'react-bootstrap/Toast';
 import OnlineTrainers from '../../../view/Component/OnlineTrainers';
 import GoldSiverHeader from '../../../view/HomePage/GoldSiverHeader';
-import { getBestFisherManOfDay, getBestFisherManOfYesterday } from '../../../store/extras';
+import { fishing, getBestFisherManOfDay, getBestFisherManOfYesterday } from '../../../store/extras';
 
 
 function Fishery() {
     const dispatch = useDispatch();
     const best_fisher_of_the_day = useSelector(state => state.extras.best_fisher_of_the_day)
-    console.log(best_fisher_of_the_day);
+
+    const handleFishing = ()=>{
+        dispatch(fishing())
+    }
     
     const best_fisher_of_yesterday = useSelector(state => state.extras.best_fisher_of_yesterday)
     useEffect(() => {
@@ -62,7 +65,7 @@ function Fishery() {
                             />
                         </div>
                         <div className="register-item-inner6 w-100 mt-4">
-                            <button type="submit" className='challenge-button'>Fish</button>
+                            <button type="submit" className='challenge-button' onClick={handleFishing}>Fish</button>
                         </div>
                     </Card.Body>
                 </Card>

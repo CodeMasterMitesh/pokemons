@@ -9,7 +9,7 @@ const initialState = {
     pokemons: [],
     characters: [],
     player_pokemons: [],
-    pokemon:{}
+    pokemon: {}
 };
 
 export const getPokemons = createAsyncThunk('auth/getPokemons', async (_, { rejectWithValue }) => {
@@ -22,7 +22,9 @@ export const getPokemons = createAsyncThunk('auth/getPokemons', async (_, { reje
     })
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+
         });
 });
 export const getPlayerPokemons = createAsyncThunk('auth/getPlayerPokemons', async (_, { rejectWithValue }) => {
@@ -37,6 +39,9 @@ export const getPlayerPokemons = createAsyncThunk('auth/getPlayerPokemons', asyn
         })
             .then(response => response.data)
             .catch(error => {
+                toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+
                 // return rejectWithValue(error.response.data);
             });
     }
@@ -54,12 +59,15 @@ export const getPokemonProfileById = createAsyncThunk('auth/getPokemonProfileByI
             headers: {
                 'Content-Type': 'application/json',
             },
-            params:{
-                id:id
+            params: {
+                id: id
             }
         })
             .then(response => response.data)
             .catch(error => {
+                toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+
                 // return rejectWithValue(error.response.data);
             });
     }
@@ -80,7 +88,9 @@ export const getCharacters = createAsyncThunk('auth/getCharacters', async (userC
     })
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+            // return rejectWithValue(error.response.data);
         });
 });
 export const addPlayerPokemon = createAsyncThunk('auth/addPlayerPokemon', async (data, { rejectWithValue }) => {
@@ -107,11 +117,8 @@ export const addPlayerPokemon = createAsyncThunk('auth/addPlayerPokemon', async 
         )
         return response.data
     } catch (error) {
-        console.error('Error updating player:', error); // Log error for debugging
-        // Handle both axios and non-axios errors gracefully
-        return rejectWithValue(
-          error?.response?.data || 'An unknown error occurred.'
-        );
+        toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
     }
 });
 

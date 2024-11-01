@@ -46,6 +46,7 @@ import Backpack from '../view/Pages/Backpack';
 import Map from '../view/Pages/Map';
 import PokemonProfile from '../view/Pages/PokemonProfile';
 import NPCs from '../view/Pages/NPCs';
+import TransferValue from '../view/Pages/TransferValue';
 
 
 const MainRoutes = {
@@ -91,6 +92,10 @@ const MainRoutes = {
                         {
                             path: '/pokemon-profile', 
                             element: <PokemonProfile />
+                        },
+                        {
+                            path: '/transfer-value', 
+                            element: <TransferValue />
                         },
                         {
                             path: '/map', 

@@ -2798,7 +2798,7 @@ a {
 }
 
 .arPlayerProfle_chacter_item a img{
-   width: 120px;
+   width: 140px;
 }
 
 .ar_playerProfile_cha_text p span{
@@ -2806,7 +2806,7 @@ a {
 }
 .arPlayerProfle_chacter_item{
    position: relative;
-   margin-right: 15px;
+   /* margin-right: 15px; */
    margin-bottom: 15px;
 }
 .ar_playerProfile_cha_text p{

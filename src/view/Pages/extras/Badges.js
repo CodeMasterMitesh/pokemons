@@ -108,7 +108,7 @@ function Badges() {
     ]
     const init = async () => {
         let badges = await dispatch(getUserBadge()).unwrap();
-        if(badges.message){
+        if(badges.success == false){
             navigate('/home')
         }
     }

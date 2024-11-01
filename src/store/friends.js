@@ -17,7 +17,8 @@ export const getFriendRequest = createAsyncThunk('auth/getFriendRequest', async 
         })
             .then(response => response.data)
             .catch(error => {
-                return rejectWithValue(error.response.data);
+                toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
             });
     } catch (error) {
 
@@ -34,7 +35,8 @@ export const getFriends = createAsyncThunk('auth/getFriends', async (userCredent
     })
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
         });
 });
 export const getSearchPlayers = createAsyncThunk('auth/getSearchPlayers', async (data, { rejectWithValue }) => {
@@ -51,7 +53,8 @@ export const getSearchPlayers = createAsyncThunk('auth/getSearchPlayers', async 
     })
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
         });
 });
 export const sendFriendRequest = createAsyncThunk('auth/sendFriendRequest', async (id, { rejectWithValue }) => {
@@ -71,14 +74,15 @@ export const sendFriendRequest = createAsyncThunk('auth/sendFriendRequest', asyn
         success: i18n.t('Successfully sent !'),
         error: {
             render({ data }) {
-                return data?.response?.data?.message || i18n.t('failed!');
+                return data?.response?.data?.message || i18n.t('Failed!');
             }
         }
     }
     )
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
         });
 });
 export const acceptFriendRequest = createAsyncThunk('auth/acceptFriendRequest', async (data, { rejectWithValue }) => {
@@ -93,7 +97,8 @@ export const acceptFriendRequest = createAsyncThunk('auth/acceptFriendRequest', 
     })
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
         });
 });
 export const declineFriendRequest = createAsyncThunk('auth/declineFriendRequest', async (data, { rejectWithValue }) => {
@@ -108,7 +113,8 @@ export const declineFriendRequest = createAsyncThunk('auth/declineFriendRequest'
     })
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
         });
 });
 export const blockFriend = createAsyncThunk('auth/blockFriend', async (data, { rejectWithValue }) => {
@@ -127,14 +133,15 @@ export const blockFriend = createAsyncThunk('auth/blockFriend', async (data, { r
         success: i18n.t('Success!'),
         error: {
             render({ data }) {
-                return data?.response?.data?.message || i18n.t('failed!');
+                return data?.response?.data?.message || i18n.t('Failed!');
             }
         }
     }
     )
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
         });
 });
 export const removeFriend = createAsyncThunk('auth/removeFriend', async (data, { rejectWithValue }) => {
@@ -149,18 +156,19 @@ export const removeFriend = createAsyncThunk('auth/removeFriend', async (data, {
                 player: data
             }
         }), {
-            pending: i18n.t('Blocking...'),
+            pending: i18n.t('Removing...'),
             success: i18n.t('Success!'),
             error: {
                 render({ data }) {
-                    return data?.response?.data?.message || i18n.t('failed!');
+                    return data?.response?.data?.message || i18n.t('Failed!');
                 }
             }
         }
         )
         return response.data
     } catch (error) {
-      // return rejectWithValue(error.response.data);
+        toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
     }
 });
 export const unblockFriend = createAsyncThunk('auth/unblockFriend', async (data, { rejectWithValue }) => {
@@ -180,14 +188,15 @@ export const unblockFriend = createAsyncThunk('auth/unblockFriend', async (data,
         success: i18n.t('Success!'),
         error: {
             render({ data }) {
-                return data?.response?.data?.message || i18n.t('failed!');
+                return data?.response?.data?.message || i18n.t('Failed!');
             }
         }
     }
     )
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
         });
 });
 export const getBlockList = createAsyncThunk('auth/getBlockList', async (data, { rejectWithValue }) => {
@@ -202,7 +211,8 @@ export const getBlockList = createAsyncThunk('auth/getBlockList', async (data, {
     })
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
         });
 });
 

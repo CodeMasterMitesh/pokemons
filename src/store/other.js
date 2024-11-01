@@ -18,7 +18,8 @@ export const getNotifications = createAsyncThunk('other/getNotifications', async
         return response.data
 
     } catch (error) {
-        rejectWithValue(error.response.data)
+        toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
     }
 });
 export const getNotificationCount = createAsyncThunk('other/getNotificationCount', async (_, { rejectWithValue }) => {
@@ -34,7 +35,8 @@ export const getNotificationCount = createAsyncThunk('other/getNotificationCount
         return response.data
 
     } catch (error) {
-        rejectWithValue(error.response.data)
+        toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
     }
 });
 export const houseSeller = createAsyncThunk('other/houseSeller', async (data, { rejectWithValue }) => {
@@ -60,13 +62,47 @@ export const houseSeller = createAsyncThunk('other/houseSeller', async (data, { 
         )
         if (response.data.error) {
             toast.error(i18n.t(response.data.error));
-        }else{
+        } else {
             toast.success("Success");
         }
         return response.data
 
     } catch (error) {
-        rejectWithValue(error.response.data)
+        toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+    }
+});
+export const transferValue = createAsyncThunk('other/transferValue', async (data, { rejectWithValue }) => {
+    try {
+        const response = await toast.promise(
+            axios({
+                url: API_ENDPOINTS.TRANSFER_VALUE,
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                data
+            }), {
+            pending: i18n.t('Loading...'),
+            success: {
+                render({ data }) {
+                    console.log(data);
+                    
+                    return data?.data?.message || i18n.t('Success!');
+                }
+            },
+            error: {
+                render({ data }) {
+                    return (data?.response?.data?.message || data?.response?.data?.error) || i18n.t('Failed!');
+                }
+            }
+        }
+        )
+        return response.data
+
+    } catch (error) {
+        // toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
     }
 });
 export const getHouseSell = createAsyncThunk('other/getHouseSell', async (_, { rejectWithValue }) => {
@@ -82,7 +118,8 @@ export const getHouseSell = createAsyncThunk('other/getHouseSell', async (_, { r
         return response.data
 
     } catch (error) {
-        rejectWithValue(error.response.data)
+        toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
     }
 });
 

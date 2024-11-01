@@ -15,10 +15,16 @@ export const getUserBadge = createAsyncThunk('other/getUserBadge', async (_, { r
                 'Content-Type': 'application/json',
             },
         })
+
+        if (response.data?.message) {
+            response.data.success = false
+            toast.warn(response.data?.message)
+        }
         return response.data
 
     } catch (error) {
-        // rejectWithValue(error.response.data)
+        toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
     }
 });
 export const getBestFisherManOfDay = createAsyncThunk('other/getBestFisherManOfDay', async (_, { rejectWithValue }) => {
@@ -34,7 +40,8 @@ export const getBestFisherManOfDay = createAsyncThunk('other/getBestFisherManOfD
         return response.data
 
     } catch (error) {
-        // rejectWithValue(error.response.data)
+        toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
     }
 });
 export const getBestFisherManOfYesterday = createAsyncThunk('other/getBestFisherManOfYesterday', async (_, { rejectWithValue }) => {
@@ -50,7 +57,44 @@ export const getBestFisherManOfYesterday = createAsyncThunk('other/getBestFisher
         return response.data
 
     } catch (error) {
-        // rejectWithValue(error.response.data)
+        toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+    }
+});
+
+export const fishing = createAsyncThunk('other/fishing', async (data, { rejectWithValue }) => {
+    try {
+
+        const response = await toast.promise(
+            axios({
+                url: API_ENDPOINTS.START_FISHING,
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                data: {
+                    road: 1
+                },
+            }),
+            {
+                pending: i18n.t('Loading...'),
+                success: {
+                    render({ data }) {
+                        return data?.message  || i18n.t('Success!');
+                    }
+                },
+                error: {
+                    render({ data }) {
+                        return (data?.response?.data?.message || data?.response?.data?.error) || i18n.t('failed!');
+                    }
+                }
+            }
+        )
+        return response.data
+
+    } catch (error) {
+        // toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
     }
 });
 
@@ -101,6 +145,18 @@ export const extrasSlice = createSlice({
             .addCase(getBestFisherManOfYesterday.rejected, (state, action) => {
                 state.best_fisher_of_yesterday_loading = false;
                 state.best_fisher_of_yesterday_error = action.payload;
+            })
+            .addCase(fishing.pending, (state, action) => {
+                state.fishing_loading = true;
+                state.fishing_error = null;
+            })
+            .addCase(fishing.fulfilled, (state, action) => {
+                state.fishing_loading = false;
+                state.fishing = action.payload.data ? action.payload.data : []
+            })
+            .addCase(fishing.rejected, (state, action) => {
+                state.fishing_loading = false;
+                state.fishing_error = action.payload;
             })
     }
 })

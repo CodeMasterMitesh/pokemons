@@ -26,10 +26,12 @@ function PokemonJudge() {
     setHoveredId(id);
     setTarget(e.currentTarget)
   }
-  const setPokemonJudge = (item) => {
+  const setPokemonJudge = async(item) => {
     dispatch(clearPokemonJudge())
-    setPokemon(item)
-    dispatch(PJ(item.id))
+    let data = await dispatch(PJ(item.id)).unwrap();
+    if(data.success){
+      setPokemon(item)
+    }
   }
   const handleMouseLeave = () => {
     setHoveredId(null);

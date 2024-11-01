@@ -4,9 +4,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import { acceptFriendRequest, blockFriend, declineFriendRequest, getFriendRequest, getFriends, getSearchPlayers, removeFriend, sendFriendRequest } from '../../../store/friends'
 import { Form } from 'react-bootstrap'
 import debounce from 'lodash.debounce'
+import { MdBlock } from "react-icons/md";
+import { IoIosRemoveCircleOutline } from "react-icons/io";
+import { Tooltip } from 'react-tooltip';
+
+import { AiFillBank } from "react-icons/ai";
+import { useNavigate } from 'react-router-dom'
+
 
 function Friends() {
     const dispatch = useDispatch()
+    const naviagate = useNavigate()
     const friends = useSelector(state => state.friend.friends)
 
     const handleBlock = async (name) => {
@@ -44,13 +52,26 @@ function Friends() {
                                                         </div>
                                                         <div className='d-flex align-items-center'>
                                                             {/* <a className='cursor-pointer' onClick={() => {  }}><img src="/images/playerProfile/nished.png" alt="" /></a> */}
-                                                            <div className="ar_play_middle_top_tag cursor-pointer" style={{width:'100px'}} onClick={() => { handleRemove(item.friend_name) }}>
-                                                                <a className='w-100'><img style={{width:"100%"}} src="/images/playerProfile/btnUser.png" alt="" /></a>
+                                                            {/* <div className="ar_play_middle_top_tag cursor-pointer" style={{ width: '80px' }} >
+                                                                <a className='w-100'><img style={{ width: "100%" }} src="/images/playerProfile/btnUser.png" alt="" /></a>
                                                                 <div className="ar_play_middle_top_tagText">
                                                                     <p>Remove</p>
                                                                 </div>
+                                                            </div> */}
+                                                            <div data-tooltip-id="Remove" data-tooltip-content='Remove' className='cursor-pointer small-button'>
+                                                                <IoIosRemoveCircleOutline onClick={() => { handleRemove(item.friend_name) }} size={30} />
+                                                                <Tooltip id="Remove" />
+
                                                             </div>
-                                                            <a className='cursor-pointer' onClick={() => { handleBlock(item.friend_name) }}><img src="/images/playerProfile/nished.png" alt="" /></a>
+                                                            <div data-tooltip-id="Transfer-Value" data-tooltip-content='Transfer Value' className='cursor-pointer small-button'>
+                                                                <Tooltip id="Transfer-Value" />
+                                                                <AiFillBank onClick={() => { naviagate('/transfer-value') }} size={30} />
+                                                            </div>
+                                                            <div data-tooltip-id="Block" data-tooltip-content='Block' className='cursor-pointer small-button'>
+
+                                                            <Tooltip id="Block" />
+                                                                <MdBlock size={30} onClick={() => { handleBlock(item.friend_name) }} color='red' />
+                                                            </div>
                                                         </div>
 
                                                     </div>

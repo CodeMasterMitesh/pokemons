@@ -6,29 +6,33 @@ import i18n from "i18next";  // Importing i18n for translations
 
 
 export const loginUser = createAsyncThunk('auth/loginUser', async (userCredentials, { rejectWithValue }) => {
-    return toast.promise(
-        axios({
-            url: API_ENDPOINTS.LOGIN,
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            data: userCredentials,
-        }),
-        {
-            pending: i18n.t('Logging in...'),
-            success: i18n.t('Login successful!'),
-            error: {
-                render({ data }) {
-                    return data?.response?.data?.message || i18n.t('Login failed!');
+    try {
+
+        const response =await toast.promise(
+            axios({
+                url: API_ENDPOINTS.LOGIN,
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                data: userCredentials,
+            }),
+            {
+                pending: i18n.t('Logging in...'),
+                success: i18n.t('Login successful!'),
+                error: {
+                    render({ data }) {
+                        return data?.response?.data?.message || i18n.t('Login failed!');
+                    }
                 }
             }
-        }
-    )
-        .then(response => response.data)
-        .catch(error => {
-            return rejectWithValue(error.response.data);
-        });
+        )
+        return response.data
+
+    }catch (error) {
+        toast.error((error?.response?.data?.message || error?.response?.data?.error ) || 'failed!')
+        // rejectWithValue(error.response.data)
+    }
 });
 
 
@@ -55,9 +59,6 @@ export const logout = createAsyncThunk('auth/logout', async (userCredentials, { 
         .then(response => {
             return response.data
         })
-        .catch(error => {
-            return rejectWithValue(error.response.data);
-        });
 });
 
 export const registerUser = createAsyncThunk('auth/registerUser', async (userCredentials, { rejectWithValue }) => {
@@ -80,9 +81,6 @@ export const registerUser = createAsyncThunk('auth/registerUser', async (userCre
     }
     )
         .then(response => response.data)
-        .catch(error => {
-            return rejectWithValue(error.response.data);
-        });
 });
 
 export const getUsers = createAsyncThunk('auth/getUsers', async (userCredentials, { rejectWithValue }) => {
@@ -96,7 +94,7 @@ export const getUsers = createAsyncThunk('auth/getUsers', async (userCredentials
     })
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+                toast.error((error?.response?.data?.message || error?.response?.data?.error ) || 'failed!')
         });
 });
 
@@ -115,7 +113,8 @@ export const getPlayers = createAsyncThunk('auth/getPlayers', async (data, { rej
     })
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+            toast.error((error?.response?.data?.message || error?.response?.data?.error ) || 'failed!')
+
         });
 });
 
@@ -145,11 +144,8 @@ export const updatePlayer = createAsyncThunk('auth/updatePlayer', async (data, {
         );
         return response.data;
     } catch (error) {
-        console.error('Error updating player:', error); // Log error for debugging
-        // Handle both axios and non-axios errors gracefully
-        return rejectWithValue(
-            error?.response?.data || 'An unknown error occurred.'
-        );
+        toast.error((error?.response?.data?.message || error?.response?.data?.error ) || 'failed!')
+        // rejectWithValue(error.response.data)
     }
 });
 export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (userCredentials, { rejectWithValue }) => {
@@ -173,8 +169,8 @@ export const forgotPassword = createAsyncThunk('auth/forgotPassword', async (use
     }
     )
         .then(response => response.data)
-        .catch(error => {
-            return rejectWithValue(error.response.data);
+        .catch(error => {                toast.error((error?.response?.data?.message || error?.response?.data?.error ) || 'failed!')
+
         });
 });
 
@@ -189,7 +185,8 @@ export const getProfile = createAsyncThunk('auth/getProfile', async (_, { reject
     })
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+            toast.error((error?.response?.data?.message || error?.response?.data?.error ) || 'failed!')
+
         });
 });
 

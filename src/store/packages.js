@@ -1,15 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from '../api/axios';
 import { API_ENDPOINTS } from "../api/endpoint";
+import { toast } from "react-toastify";
 
 const initialState = {
     packages: [],
     featuredPackages: [],
-    userInvoice:[]
+    userInvoice: []
 };
 
-export const getPackages = createAsyncThunk('auth/getPackages', async (_,{ rejectWithValue,getState }) => {
-    return  axios({
+export const getPackages = createAsyncThunk('auth/getPackages', async (_, { rejectWithValue, getState }) => {
+    return axios({
         url: `${API_ENDPOINTS.PACKAGES}`,
         method: 'GET',
         headers: {
@@ -18,12 +19,13 @@ export const getPackages = createAsyncThunk('auth/getPackages', async (_,{ rejec
     })
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
         });
 });
 
-export const getUserInvoice = createAsyncThunk('auth/getUserInvoice', async (_,{ rejectWithValue,getState }) => {
-    return  axios({
+export const getUserInvoice = createAsyncThunk('auth/getUserInvoice', async (_, { rejectWithValue, getState }) => {
+    return axios({
         url: `${API_ENDPOINTS.USER_INVOICE}`,
         method: 'GET',
         headers: {
@@ -32,11 +34,12 @@ export const getUserInvoice = createAsyncThunk('auth/getUserInvoice', async (_,{
     })
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
         });
 });
-export const getFeaturedPackages = createAsyncThunk('auth/getFeaturedPackages', async (_,{ rejectWithValue,getState }) => {
-    return  axios({
+export const getFeaturedPackages = createAsyncThunk('auth/getFeaturedPackages', async (_, { rejectWithValue, getState }) => {
+    return axios({
         url: `${API_ENDPOINTS.FEATURED_PACKAGES}`,
         method: 'GET',
         headers: {
@@ -45,7 +48,8 @@ export const getFeaturedPackages = createAsyncThunk('auth/getFeaturedPackages', 
     })
         .then(response => response.data)
         .catch(error => {
-            return rejectWithValue(error.response.data);
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
         });
 });
 

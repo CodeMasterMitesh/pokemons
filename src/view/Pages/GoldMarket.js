@@ -4,43 +4,95 @@ import { useDispatch, useSelector } from 'react-redux'
 import { acceptFriendRequest, declineFriendRequest, getBlockList, getFriendRequest, unblockFriend } from '../../store/friends'
 import { Card, Form, Table } from 'react-bootstrap'
 import OnlineTrainers from '../Component/OnlineTrainers'
+import { goldMarket } from '../../store/pages'
+import { getProfile } from '../../store/auth'
+import { getCharacters } from '../../store/pokemon'
+import { set } from 'date-fns'
+import { toast } from 'react-toastify'
 
 function GoldMarket() {
+    const dispatch = useDispatch()
+    const userData = useSelector(state => state.auth.user_data)
+    const [username, setUsername] = useState('')
+    const [character, setCharacter] = useState('')
+    const characters = useSelector(state => state.pokemon.characters);
 
+    useEffect(() => {
+        setUsername(userData.username)
+        setCharacter(userData.character)
+    }, [userData])
     const [data, setData] = useState([
         {
-            name: "» Vip - 7 dias",
+            id: 1,
+            name: "» Vip - 7 days",
             price: '32',
-            description: 'Ao adquirir vip, você ganha algumas vantagens, como bonus de experiência/silvers, vip bar, tempo reduzido no centro pokémon e viagens e mais...',
+            button: 'Buy',
+            key: 'buy_vip7',
+            description: 'When you purchase VIP, you get some benefits, such as experience/silvers bonus, VIP bar, reduced time at the Pokémon Center and trips and more...',
         },
         {
-            name: "» Vip - 15 dias",
+            id: 2,
+            name: "» Vip - 15 days",
             price: '60',
-            description: 'Ao adquirir vip, você ganha algumas vantagens, como bonus de experiência/silvers, vip bar, tempo reduzido no centro pokémon e viagens e mais...',
+            button: 'Buy',
+            key: 'buy_vip15',
+            description: 'When you purchase VIP, you get some benefits, such as experience/silvers bonus, VIP bar, reduced time at the Pokémon Center and trips and more...',
 
         },
         {
-            name: "» Vip - 30 dias",
+            id: 3,
+            name: "» Vip - 30 days",
             price: '100',
-            description: ' A beautiful house with a garden and a pond with fish, your Pokémon will love it. It can accommodate up to 100 Pokémon.Ao adquirir vip, você ganha algumas vantagens, como bonus de experiência/silvers, vip bar, tempo reduzido no centro pokémon e viagens e mais...',
+            button: 'Buy',
+            key: 'buy_vip30',
+            description: 'When you purchase VIP, you get some benefits, such as experience/silvers bonus, VIP bar, reduced time at the Pokémon Center and trips and more...',
 
         },
         {
-            name: "» Troca de nome",
+            id: 4,
+            name: "» Name change",
             price: '20',
-            description: 'Aqui você pode mudar o nome do seu treinador por um pequeno custo.',
+            description: "Here you can change your trainer's name for a small fee.",
             button: 'To Alter',
-            textBox: true
+            textBox: true,
+            key: 'change_name'
         },
         {
+            id: 5,
             name: "» Character Swap",
             price: '20',
             description: 'Here you can change your trainer character for a small cost.',
             button: 'To Alter',
             select: true,
-            options: ['Alexa', 'Ash']
+            key: 'change_perso',
         },
     ])
+    const handleBuy = (item) => {
+        let payload = {}
+        if (item.id == 4) {
+            if (username) {
+                payload[item.key] = username
+            } else {
+                toast.warn('Please add name')
+                return
+            }
+        } else if (item.id == 5) {
+            if (character) {
+                payload[item.key] = character
+            } else {
+                toast.warn('Please select character')
+                return
+            }
+        }
+        else {
+            payload[item.key] = item.price
+        }
+        dispatch(goldMarket(payload))
+    }
+    useEffect(() => {
+        dispatch(getProfile())
+        dispatch(getCharacters())
+    }, [])
     return (
         <div>
             <GoldSiverHeader previous={'/home'} title='Gold market'>
@@ -77,14 +129,13 @@ function GoldMarket() {
                                                     <h5>{item.name}</h5>
                                                     <h6>{item.description}</h6>
 
-                                                    {item.textBox && <Form.Control className='bg-theme text-white'  style={{width:'200px'}} type="text" value='Ho-oh'
+                                                    {item.textBox && <Form.Control className='bg-theme text-white' style={{ width: '200px' }} type="text" value={username} onChange={(e) => { setUsername(e.target.value) }}
                                                         placeholder="Enter name" />}
-                                                    {item.select && <Form.Select className='bg-theme text-white' style={{width:'100px'}}>
-                                                        <option>Attack</option>
-                                                        <option>Defance</option>
-                                                        <option>Sp. Atk</option>
-                                                        <option>Sp. Def</option>
-                                                        <option>Speed</option>
+                                                    {item.select && <Form.Select value={character} onChange={(e) => { setCharacter(e.target.value) }} className='bg-theme text-white' style={{ width: '100px' }}>
+                                                        {/* <option>None</option> */}
+                                                        {characters.map((item) => {
+                                                            return <option>{item.naam}</option>
+                                                        })}
                                                     </Form.Select>}
 
                                                 </td>
@@ -94,7 +145,7 @@ function GoldMarket() {
                                                 </td>
                                                 <td>
                                                     <div className="register-item-inner6 w-100">
-                                                        <button className='specialist-button'>Buy</button>
+                                                        <button style={{ width: "100px", height: "40px", fontSize: '12px' }} onClick={() => { handleBuy(item) }}>{item.button}</button>
                                                     </div>
                                                 </td>
                                             </tr>

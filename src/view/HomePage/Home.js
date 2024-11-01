@@ -34,7 +34,6 @@ const Home = () => {
     const pokemons = useSelector(state => state.pokemon.pokemons);
     const player_pokemons = useSelector(state => state.pokemon.player_pokemons);
     const characters = useSelector(state => state.pokemon.characters);
-    const profile_loading = useSelector(state => state.auth.profile_loading);
     const [current_step, setStep] = useState(1);
 
     const [data, setData] = useState({});
@@ -299,7 +298,7 @@ const Home = () => {
                         <Offcanvas.Body>
                             <div className="side-menu">
                                 <ul className='p-0'>
-                                    <li onClick={() => { navigate('/character') }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsPersonCircle />{userData.username}</a></li>
+                                    <li onClick={() => { navigate('/profile') }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsPersonCircle />{userData.username}</a></li>
                                     <li onClick={() => { navigate('/notification') }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsBellFill />{t('Notification')} ({notification_count})</a></li>
                                     <li onClick={() => { navigate('/settings') }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"><BsGearFill />   {t('Settings')}</a></li>
                                     <li onClick={() => { handleLogout() }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#" ><BsXLg />{t('Logout')} </a></li>
@@ -314,8 +313,8 @@ const Home = () => {
                                 <div className="character-item-inner">
                                     <div className="mock-item-inner">
                                         <ul>
-                                            <li><img src="/images/mock-03.png" alt="" onClick={() => navigate('/packages?buy=silvers')} /><span>{userData?.silver}</span><img src="/images/mock-05.png" alt="" /></li>
-                                            <li><img src="/images/mock-03.png" alt="" onClick={() => navigate('/packages?buy=golds')} /><span>{userData?.gold}</span><img src="/images/mock-04.png" alt="" /></li>
+                                            <li><img src="/images/mock-03.png" alt="" onClick={() => navigate('/packages?buy=silvers')} /><span style={{direction:'ltr'}}>{userData?.silver}</span><img src="/images/mock-05.png" alt="" /></li>
+                                            <li><img src="/images/mock-03.png" alt="" onClick={() => navigate('/packages?buy=golds')} /><span style={{direction:'ltr'}}>{userData?.gold}</span><img src="/images/mock-04.png" alt="" /></li>
                                         </ul>
                                     </div>
                                     <div className="character-item-inner2">

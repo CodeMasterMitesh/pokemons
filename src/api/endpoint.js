@@ -36,4 +36,8 @@ export const API_ENDPOINTS = {
     POKEMON_BY_ID:'api/getPokemonProfileById.php',
     BEST_FISHER_OF_THE_DAY:'api/getBestFisherManOfDay.php',
     BEST_FISHER_OF_THE_YESTERDAY:'api/getBestFisherManOfYesterday.php',
+    POKEMON_CALCULATOR_IVS:'api/PokemonCalculatorIvs.php',
+    GOLD_MARKET:'api/goldMarket.php',
+    START_FISHING:'api/startFishing.php',
+    TRANSFER_VALUE:'api/transferValueToFriend.php',
 };
