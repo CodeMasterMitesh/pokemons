@@ -14,8 +14,6 @@ function BlockList() {
     // ]
     const handleUnblock = async (name) => {
         try {
-            console.log(name);
-            
             await dispatch(unblockFriend(name)).unwrap()
             dispatch(getBlockList())
         } catch (error) {

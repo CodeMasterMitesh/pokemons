@@ -47,6 +47,7 @@ import Map from '../view/Pages/Map';
 import PokemonProfile from '../view/Pages/PokemonProfile';
 import NPCs from '../view/Pages/NPCs';
 import TransferValue from '../view/Pages/TransferValue';
+import Conversation from '../view/Pages/conversation';
 
 
 const MainRoutes = {
@@ -84,6 +85,10 @@ const MainRoutes = {
                         {
                             path: '/gold-market', 
                             element: <GoldMarket />
+                        },
+                        {
+                            path: '/Conversation', 
+                            element: <Conversation />
                         },
                         {
                             path: '/classification', 

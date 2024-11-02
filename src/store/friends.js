@@ -211,6 +211,32 @@ export const getBlockList = createAsyncThunk('auth/getBlockList', async (data, {
 
         });
 });
+export const createMessage = createAsyncThunk('auth/createMessage', async (data, { rejectWithValue }) => {
+
+    // return await 
+    return toast.promise(axios({
+        url: API_ENDPOINTS.CREATE_MESSAGE,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data
+    }), {
+        pending: i18n.t('Sending...'),
+        success: i18n.t('Success!'),
+        error: {
+            render({ data }) {
+                return data?.response?.data?.message || i18n.t('Failed!');
+            }
+        }
+    }
+    )
+        .then(response => response.data)
+        .catch(error => {
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+        });
+});
 
 
 
@@ -260,7 +286,7 @@ export const friendSlicer = createSlice({
             })
             .addCase(getFriendRequest.fulfilled, (state, action) => {
                 state.friend_requests_loading = false;
-                
+
                 state.friend_requests = action.payload.friends ? action.payload.friends : [];
             })
             .addCase(getFriendRequest.rejected, (state, action) => {

@@ -1380,7 +1380,8 @@ body {
 .onlineTrainer-names img {
     left: 5px !important;
 }
-.tf-check input{
+
+.tf-check input {
     height: 20px;
     width: 20px;
 }
@@ -1396,6 +1397,50 @@ body {
     height: 42px !important;
     width: 139px !important;
     font-size: 16px !important;
+}
+
+.block-button {
+    height: 30px !important;
+    width: 100px !important;
+    font-size: 12px !important;
+}
+
+.change-password input {
+    background-color: #0C1945 !important;
+    border-radius: 35px;
+    width: 100%;
+    height: 60px;
+    border: none;
+    padding-left: 65px;
+    padding-right: 15px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #9E8F61 !important;
+    text-align: left;
+}
+.lavel-radio input{
+    width: 20px;
+    height: 20px;
+}
+.settings-anchor{
+    text-decoration: none;
+}
+.change-password .validation-box img {
+    left: 25px;
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.change-password input::placeholder {
+    color: gray;
+}
+
+.unblock-button {
+    height: 25px !important;
+    width: 80px !important;
+    font-size: 12px !important;
 }
 
 .calculator-button {

@@ -40,4 +40,5 @@ export const API_ENDPOINTS = {
     GOLD_MARKET:'api/goldMarket.php',
     START_FISHING:'api/startFishing.php',
     TRANSFER_VALUE:'api/transferValueToFriend.php',
+    CREATE_MESSAGE:'api/createMessage.php'
 };

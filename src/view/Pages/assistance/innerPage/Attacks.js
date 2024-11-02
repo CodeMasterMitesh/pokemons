@@ -60,8 +60,8 @@ function Attacks() {
 
                             <td><div className={`type-icon type-${item.soort}`}>{item.soort}</div></td>
                             <td>{item.sterkte}</td>
-                            <td>--</td>
-                            <td>--</td>
+                            <td>{item.hit}</td>
+                            <td>{item.effect}</td>
                             <td>
                                 <img src={`/images/icons/${item.makes_contact}.png`} alt="" />
                             </td>
