@@ -1,7 +1,7 @@
 import { getProfile, getProfileByName, updatePlayer } from '../../store/auth'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { Row, Col } from 'react-bootstrap';
 
 import { Modal, Button } from 'react-bootstrap';
@@ -14,8 +14,11 @@ function Profile() {
     const dispatch = useDispatch()
     const params = useParams();
     let name = JSON.parse(localStorage.getItem('userData'))?.playerName
-    if(params.playername){ 
-        name = params.playername;
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+
+    if (queryParams.get('playername')) {
+        name = queryParams.get('playername');
     }
     const player_pokemons = useSelector(state => state.pokemon.player_pokemons);
 
@@ -73,10 +76,15 @@ function Profile() {
     const handleMouseLeave = () => {
         setHoveredId(null);
     };
+    const init = async() => {
+        let data = await dispatch(getProfileByName(name)).unwrap()
+        if(!data){
+            navigate('/home')
+        }
+    }
     useEffect(() => {
-        dispatch(getProfileByName(name))
+        init()
         dispatch(getPlayerPokemons())
-
     }, [])
     return (
         <div>
@@ -183,11 +191,11 @@ function Profile() {
                                                 <div className="ar_playerMiddle_bottom_single_itemTexy">
                                                     <p>
                                                         {/* <span>[off]</span> */}
-                                                    {profile_by_name.username}</p>
-                                                    <p>Lv <span>{profile_by_name.rank}</span></p>
+                                                        {profile_by_name?.username}</p>
+                                                    <p>Lv <span>{profile_by_name?.rank}</span></p>
                                                 </div>
                                             </div>
-                                            <div className="ar_playerMiddle_bottom_single_item" onClick={()=>{navigate('/social/challenge-trainer')}}>
+                                            <div className="ar_playerMiddle_bottom_single_item" onClick={() => { navigate('/social/challenge-trainer') }}>
                                                 <a href=""><img src="/images/playerProfile/playBtn.png" alt="" /></a>
                                                 <div className="ar_playerMiddle_bottom_single_itemTexy last">
                                                     <p>Challenge</p>
