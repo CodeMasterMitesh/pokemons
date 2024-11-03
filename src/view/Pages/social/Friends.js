@@ -9,6 +9,7 @@ import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { Tooltip } from 'react-tooltip';
 
 import { AiFillBank } from "react-icons/ai";
+import { LuMessagesSquare } from "react-icons/lu";
 import { useNavigate } from 'react-router-dom'
 
 
@@ -61,6 +62,11 @@ function Friends() {
                                                             <div data-tooltip-id="Remove" data-tooltip-content='Remove' className='cursor-pointer small-button'>
                                                                 <IoIosRemoveCircleOutline onClick={() => { handleRemove(item.friend_name) }} size={30} />
                                                                 <Tooltip id="Remove" />
+
+                                                            </div>
+                                                            <div data-tooltip-id="message" data-tooltip-content='Messages' className='cursor-pointer small-button'>
+                                                                <LuMessagesSquare onClick={() => { naviagate('/conversation') }} size={30} />
+                                                                <Tooltip id="message" />
 
                                                             </div>
                                                             <div data-tooltip-id="Transfer-Value" data-tooltip-content='Transfer Value' className='cursor-pointer small-button'>

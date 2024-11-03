@@ -14,6 +14,7 @@ import { clearPokemonJudge, pokemonJudge as PJ } from '../../../store/assistance
 
 function PokemonJudge() {
   const dispatch = useDispatch();
+  const user_data = useSelector(state=>state.auth.user_data)
 
   const player_pokemons = useSelector(state => state.pokemon.player_pokemons);
   const [hoveredId, setHoveredId] = useState(null);
@@ -67,6 +68,8 @@ function PokemonJudge() {
             <h5 >Do you have any? If so, I'll be happy to help you! </h5>
             <h5 className='mt-5'>With this tool, you can find out what your Pokémon is strong or weak at, and for just: 10,000 silvers! </h5>
             <h5>3rd Place: 5,000</h5>
+            {user_data.rank < 4&&  <h5 className='text-danger'><b>Note: MINIMUM RANK TO SEE POKÉMON JUDGE: 4 - TRAINER. KEEP LEVELING UP TO UNLOCK!</b></h5>}
+
 
           </Card.Body>
         </Card>

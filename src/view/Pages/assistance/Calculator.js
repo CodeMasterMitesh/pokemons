@@ -13,7 +13,7 @@ import { PokemonCalculatorIvs } from '../../../store/assistance';
 function Calculator() {
     const dispatch = useDispatch();
     const [selectedIndex, setSelectedIndex] = useState(0)
-
+    const user_data = useSelector(state=>state.auth.user_data)
     const player_pokemons = useSelector(state => state.pokemon.player_pokemons);
     const [hoveredId, setHoveredId] = useState(null);
     const pokemon_calculator = useSelector(state => state.assistance.pokemon_calculator)
@@ -114,8 +114,9 @@ function Calculator() {
                     <h5>With the Pokémon Calculator you will be sure whether or not your Pokémon is strong enough to do well in the world of Pokémon World Legends !</h5>
                     <h5>There are two types of Calculator: SIMPLE and PREMIUM !</h5>
                     <h5>Make the most of this function and become the best Pokémon Master!</h5>
+                    {user_data.rank < 4&&  <h5 className='text-danger'><b>Note: MINIMUM RANK TO SEE POKÉMON IVs: 4 - TRAINER. KEEP LEVELING UP TO UNLOCK!</b></h5>}
                 </Card.Body>
-            </Card>
+            </Card >
             {!calc && <Card border='dark' text='white' className='bg-theme mt-1'>
                 <Card.Header><h3 className='text-center'> My Team</h3></Card.Header>
                 <Card.Body >
@@ -165,76 +166,83 @@ function Calculator() {
                         }
                     </Carousel>}
                 </Card.Body>
-            </Card>}
-            {!calc && <Card className='mt-2 bg-theme text-white'>
-                <Row>
-                    <Col md={6} className='d-flex justify-content-between flex-column'>
-                        <Card.Header><h3 className='text-center'> Simple Calculator</h3></Card.Header>
+            </Card>
+            }
+            {
+                !calc && <Card className='mt-2 bg-theme text-white'>
+                    <Row>
+                        <Col md={6} className='d-flex justify-content-between flex-column'>
+                            <Card.Header><h3 className='text-center'> Simple Calculator</h3></Card.Header>
 
-                        <Card.Body>
-                            <ul className='normal-li'>
-                                <li><b>With the simple calculator, you will be able to see the APPROXIMATE</b> IV values ​​of your Pokémon.</li>
-                                <li>Per day you will have 5 (or ∞ if it is a <b> PREMIUM ACCOUNT</b> ) FREE uses .</li>
-                                <li>After free uses, a fee will be charged according to the number of uses up to the <b>20th use </b>.</li>
-                                <li><b>Price</b>: Free</li>
-                                <li><b>FREE</b> Uses Remaining: ∞</li>
-                            </ul>
-                        </Card.Body>
-                        <div className="register-item-inner6 w-100  p-3">
-                            <button className='challenge-button' onClick={() => setCalcData('simple')}><span style={{ fontSize: '12px' }}>See simple IV's</span></button>
-                        </div>
-                    </Col>
-                    <Col md={6} className='d-flex justify-content-between flex-column'>
-                        <Card.Header><h3 className='text-center'> See simple IV's</h3></Card.Header>
+                            <Card.Body>
+                                <ul className='normal-li'>
+                                    <li><b>With the simple calculator, you will be able to see the APPROXIMATE</b> IV values ​​of your Pokémon.</li>
+                                    <li>Per day you will have 5 (or ∞ if it is a <b> PREMIUM ACCOUNT</b> ) FREE uses .</li>
+                                    <li>After free uses, a fee will be charged according to the number of uses up to the <b>20th use </b>.</li>
+                                    <li><b>Price</b>: Free</li>
+                                    <li><b>FREE</b> Uses Remaining: ∞</li>
+                                </ul>
+                            </Card.Body>
+                            <div className="register-item-inner6 w-100  p-3">
+                                <button className='challenge-button' onClick={() => setCalcData('simple')}><span style={{ fontSize: '12px' }}>See simple IV's</span></button>
+                            </div>
+                        </Col>
+                        <Col md={6} className='d-flex justify-content-between flex-column'>
+                            <Card.Header><h3 className='text-center'> See simple IV's</h3></Card.Header>
 
-                        <Card.Body>
-                            <ul className='normal-li'>
-                                <li><b>With the premium calculator, you will be able to see the EXACT </b>IV values ​​of your Pokémon.</li>
-                                <li>The price is <b>FIXED</b> , so there is no <b>daily limit</b> on how much the rate can increase..</li>
-                                <li>After viewing, the graph will be SAVED to your <b>Pokémon 's PROFILE</b> ..</li>
-                                <li><b>Price</b>:
-                                    <img src="/images/icons/gold.png" alt="" />
-                                    5</li>
-                            </ul>
-                        </Card.Body>
+                            <Card.Body>
+                                <ul className='normal-li'>
+                                    <li><b>With the premium calculator, you will be able to see the EXACT </b>IV values ​​of your Pokémon.</li>
+                                    <li>The price is <b>FIXED</b> , so there is no <b>daily limit</b> on how much the rate can increase..</li>
+                                    <li>After viewing, the graph will be SAVED to your <b>Pokémon 's PROFILE</b> ..</li>
+                                    <li><b>Price</b>:
+                                        <img src="/images/icons/gold.png" alt="" />
+                                        5</li>
+                                </ul>
+                            </Card.Body>
+                            <div className="register-item-inner6 w-100 p-3">
+                                <button className='challenge-button' onClick={() => setCalcData('premium')}> <span style={{ fontSize: '12px' }}>See premium IV's</span></button>
+                            </div>
+                        </Col>
+                    </Row>
+                </Card>
+            }
+            {
+                calc && <Card border='dark' text='white' className='bg-theme mt-2'>
+                    <Card.Header><h3 className='text-center'> {calc}IV Calculator</h3></Card.Header>
+
+                    <Card.Body className='text-center'>
+                        <Table className='table-theme color-white'>
+                            <tbody>
+                                <tr>
+                                    <td className='text-start'><b>HP: {pokemon_calculator.hp_iv}</b></td>
+                                    <td className='text-end'><b>Sp. Attack: {pokemon_calculator['spc.attack_iv']}</b></td>
+                                </tr>
+                                <tr>
+                                    <td className='text-start'><b>Attack: {pokemon_calculator.attack_iv}</b></td>
+                                    <td className='text-end'><b>Sp. Defense: {pokemon_calculator['spc.defence_iv']}</b></td>
+                                </tr>
+                                <tr>
+                                    <td className='text-start'><b>Defense: {pokemon_calculator['defence_iv']}</b></td>
+                                    <td className='text-end'><b>Speed: {pokemon_calculator['speed_iv']}</b></td>
+                                </tr>
+                            </tbody>
+                        </Table>
                         <div className="register-item-inner6 w-100 p-3">
-                            <button className='challenge-button' onClick={() => setCalcData('premium')}> <span style={{ fontSize: '12px' }}>See premium IV's</span></button>
+                            <button className='calculator-button' onClick={() => setCalc('')}> <span style={{ fontSize: '12px', width: '200px' }}>See more pokemon premium IV's</span></button>
                         </div>
-                    </Col>
-                </Row>
-            </Card>}
-            {calc && <Card border='dark' text='white' className='bg-theme mt-2'>
-                <Card.Header><h3 className='text-center'> {calc}IV Calculator</h3></Card.Header>
-
-                <Card.Body className='text-center'>
-                    <Table className='table-theme color-white'>
-                        <tbody>
-                            <tr>
-                                <td className='text-start'><b>HP: {pokemon_calculator.hp_iv}</b></td>
-                                <td className='text-end'><b>Sp. Attack: {pokemon_calculator['spc.attack_iv']}</b></td>
-                            </tr>
-                            <tr>
-                                <td className='text-start'><b>Attack: {pokemon_calculator.attack_iv}</b></td>
-                                <td className='text-end'><b>Sp. Defense: {pokemon_calculator['spc.defence_iv']}</b></td>
-                            </tr>
-                            <tr>
-                                <td className='text-start'><b>Defense: {pokemon_calculator['defence_iv']}</b></td>
-                                <td className='text-end'><b>Speed: {pokemon_calculator['speed_iv']}</b></td>
-                            </tr>
-                        </tbody>
-                    </Table>
-                    <div className="register-item-inner6 w-100 p-3">
-                        <button className='calculator-button' onClick={() => setCalc('')}> <span style={{ fontSize: '12px', width: '200px' }}>See more pokemon premium IV's</span></button>
-                    </div>
-                </Card.Body>
-            </Card>}
-            {calc && player_pokemons[selectedIndex] && <Card border='dark' text='white' className='bg-theme mt-2'>
-                <Card.Header><h3 className='text-center'> IV of {player_pokemons[selectedIndex].naam}</h3></Card.Header>
-                <Card.Body className='text-center'>
-                    {series && series[0].data.length && <Chart options={options} series={series} type="radar" height={350} />}
-                </Card.Body>
-            </Card>}
-        </div>
+                    </Card.Body>
+                </Card>
+            }
+            {
+                calc && player_pokemons[selectedIndex] && <Card border='dark' text='white' className='bg-theme mt-2'>
+                    <Card.Header><h3 className='text-center'> IV of {player_pokemons[selectedIndex].naam}</h3></Card.Header>
+                    <Card.Body className='text-center'>
+                        {series && series[0].data.length && <Chart options={options} series={series} type="radar" height={350} />}
+                    </Card.Body>
+                </Card>
+            }
+        </div >
     )
 }
 

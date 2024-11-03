@@ -189,12 +189,30 @@ export const getProfile = createAsyncThunk('auth/getProfile', async (_, { reject
 
         });
 });
+export const getProfileByName = createAsyncThunk('auth/getProfileByName', async (name, { rejectWithValue, getState }) => {
+    return axios({
+        url: `${API_ENDPOINTS.PLAYER_PROFILE}`,
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        params:{
+            player:name
+        }
+    })
+        .then(response => response.data)
+        .catch(error => {
+            toast.error((error?.response?.data?.message || error?.response?.data?.error ) || 'failed!')
+
+        });
+});
 
 const initialState = {
     user_data: {},
     online_users: [],
     characters: [],
     players: [],
+    profile_by_name:{},
     online_user_count: 0
 };
 export const authSlice = createSlice({
@@ -259,6 +277,18 @@ export const authSlice = createSlice({
             .addCase(getProfile.rejected, (state, action) => {
                 state.profile_loading = false;
                 state.profile_error = action.payload;
+            })
+            .addCase(getProfileByName.pending, (state) => {
+                state.profile_by_name_loading = true;
+                state.profile_by_name_error = null;
+            })
+            .addCase(getProfileByName.fulfilled, (state, action) => {
+                state.profile_by_name_loading = false;
+                state.profile_by_name = action.payload?.data;
+            })
+            .addCase(getProfileByName.rejected, (state, action) => {
+                state.profile_by_name_loading = false;
+                state.profile_by_name_error = action.payload;
             })
             .addCase(getUsers.pending, (state) => {
                 state.online_users_loading = true;

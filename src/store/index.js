@@ -8,6 +8,7 @@ import other from './other'
 import extras from './extras'
 import assistance from './assistance'
 import pages  from './pages'
+import settings  from './settings'
 export const store = configureStore({
     reducer:{
         auth,
@@ -18,6 +19,7 @@ export const store = configureStore({
         packages,
         pokemon,
         other,
-        pages
+        pages,
+        settings
     }
 })

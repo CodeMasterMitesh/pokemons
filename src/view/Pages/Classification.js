@@ -2,14 +2,23 @@ import React, { useEffect, useState } from 'react'
 import GoldSiverHeader from '../HomePage/GoldSiverHeader'
 import { useDispatch, useSelector } from 'react-redux'
 import { acceptFriendRequest, declineFriendRequest, getBlockList, getFriendRequest, unblockFriend } from '../../store/friends'
-import { Card, Form, Table } from 'react-bootstrap'
+import { Card, Form, Pagination, Table } from 'react-bootstrap'
 import OnlineTrainers from '../Component/OnlineTrainers'
+import { getRankList } from '../../store/pages'
 
 function Classification() {
-
-    const [data, setData] = useState([
-
-    ])
+    const dispatch = useDispatch()
+    const rank_list = useSelector(state => state.pages.rank_list)
+    const payload={
+        page:1
+    }
+    const handleChange = (e, value) => {
+        payload.page = value;
+        dispatch(getRankList(payload))
+    }
+    useEffect(() => {
+        dispatch(getRankList(payload))
+    }, [])
     return (
         <div>
             <GoldSiverHeader previous={'/home'} title='Gold market'>
@@ -30,7 +39,7 @@ function Classification() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {data.map((item, index) => {
+                                        {rank_list?.ranklist?.map((item, index) => {
                                             return <tr key={index} style={{ verticalAlign: 'middle' }} >
                                                 <td className='text-center p-2'>
                                                     <img src="/images/icons/gold-vip1.png" alt="" />
@@ -62,11 +71,18 @@ function Classification() {
                                             </tr>
                                         })
                                         }
-                                        {!data.length && <tr>
+                                        {!rank_list?.ranklist?.length && <tr>
                                             <td colSpan={5} className='text-center'> No Results.</td>
                                         </tr>}
                                     </tbody>
                                 </Table>
+
+                                <div className='d-flex justify-content-between'>
+                                    <div className='pl-style'>
+                                        {/* <Form.Control className='bg-theme text-white ' type="text" value={search} placeholder="Search" onChange={(e) => handleChangeSearch(e)} /> */}
+                                    </div>
+                                    <Pagination variant='outlined text-white' color="primary" shape="rounded" count={rank_list?.pagination?.total_pages} onChange={handleChange} />
+                                </div>
                             </div>
 
                         </Card.Body>

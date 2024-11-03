@@ -2782,6 +2782,8 @@ a {
 }
 .ar_playerProfile_area{
    background: url('../../../public/images/playerProfile/bg2.png') no-repeat scroll 0 0 / 100% 100%;
+   background-position: top;
+   background-size:cover;
    /* padding: 30px; */
 }
 .ar_playerProfile_area{

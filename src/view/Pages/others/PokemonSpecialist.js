@@ -1,9 +1,12 @@
+import { useSelector } from 'react-redux'
 import OnlineTrainers from '../../../view/Component/OnlineTrainers'
 import GoldSiverHeader from '../../../view/HomePage/GoldSiverHeader'
 import React from 'react'
 import { Card, Col, Form, Row, Table } from 'react-bootstrap'
 
 function PokemonSpecialist() {
+  const user_data = useSelector(state=>state.auth.user_data)
+
   return (
     <GoldSiverHeader previous='/home' title='Specialist'>
       <div className='p-5'>
@@ -15,6 +18,8 @@ function PokemonSpecialist() {
             <h5 className='mt-5'>Shiny Specialist: They are able to transform any Pokémon into a shiny Pokémon!</h5>
             <h5>Mood Specialist: These are the ones responsible for taking care of your Pokémon's mood!</h5>
             <h5>Name Specialist: These specialists are the ones who give names to your Pokémon!</h5>
+            {<h5><b>Note: MINIMUM RANK TO SEE POKÉMON Specialist: 5 - TRAINER. KEEP LEVELING UP TO UNLOCK!</b></h5>}
+
           </Card.Body>
         </Card>
         <Row className='mt-2'>
@@ -228,7 +233,7 @@ function PokemonSpecialist() {
           </Col>
         </Row>
         <div>
-          <OnlineTrainers/>
+          <OnlineTrainers />
         </div>
       </div>
     </GoldSiverHeader>

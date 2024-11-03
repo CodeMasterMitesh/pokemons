@@ -1,16 +1,54 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import GoldSiverHeader from '../HomePage/GoldSiverHeader'
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Col, Form, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProfile } from '../../store/auth';
+import { changePersonalData, updateEmail, updatePassword } from '../../store/settings';
 
 function Settings() {
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const { register: registerForm2, handleSubmit: handleSubmitForm2, formState: { errors: errorsForm2 } } = useForm();
+  const onSubmitForm2 = (data) => {
+    dispatch(updateEmail(data))
+  };
     const { t } = useTranslation()
+    const dispatch = useDispatch()
+    const profile_data = useSelector(state => state.auth.user_data)
+    console.log(profile_data);
+
+    const [personalData, setPersonalData] = useState({
+        teamzien: 0,
+        chat: 0,
+        badgeszien: 0,
+        dueluitnodiging: 0,
+        exibepokes: 0,
+        volume: 0
+    })
 
     const onSubmit = async (data) => {
+        dispatch(updatePassword(data))
 
     };
+    const onPersonalDataSubmit = () => {
+        dispatch(changePersonalData(personalData))
+
+    }
+    useEffect(() => {
+        setPersonalData(
+            {
+                teamzien: parseInt(profile_data.teamzien),
+                chat: parseInt(profile_data.chat),
+                badgeszien: parseInt(profile_data.badgeszien),
+                dueluitnodiging: parseInt(profile_data.dueluitnodiging),
+                exibepokes: 1,
+                volume: parseInt(profile_data.volume)
+            }
+        )
+        
+    }, [profile_data])
     return (
         <div>
             <GoldSiverHeader previous={'/home'} title='Settings'>
@@ -35,11 +73,11 @@ function Settings() {
                                                                     </div>
                                                                     <div className="ar_myProfile_sinlge_switch">
                                                                         <label className='toggle-label'>
-                                                                            <input type='checkbox' />
+                                                                            <input type='checkbox' checked={personalData.teamzien ? true : false} />
                                                                             <span className='back'>
                                                                                 <span className='toggle'></span>
-                                                                                <span className='label on'>Yes</span>
-                                                                                <span className='label off'>No</span>
+                                                                                <span className='label on' onClick={() => setPersonalData({ ...personalData, teamzien: 0 })}>No</span>
+                                                                                <span className='label off' onClick={() => setPersonalData({ ...personalData, teamzien: 1 })}>Yes</span>
                                                                             </span>
                                                                         </label>
                                                                     </div>
@@ -50,11 +88,11 @@ function Settings() {
                                                                     </div>
                                                                     <div className="ar_myProfile_sinlge_switch">
                                                                         <label className='toggle-label'>
-                                                                            <input type='checkbox' />
+                                                                            <input type='checkbox' checked={personalData.badgeszien ? true : false} />
                                                                             <span className='back'>
                                                                                 <span className='toggle'></span>
-                                                                                <span className='label on'>Yes</span>
-                                                                                <span className='label off'>No</span>
+                                                                                <span className='label on' onClick={() => setPersonalData({ ...personalData, badgeszien: 0 })}>No</span>
+                                                                                <span className='label off' onClick={() => setPersonalData({ ...personalData, badgeszien: 1 })}>Yes</span>
                                                                             </span>
                                                                         </label>
                                                                     </div>
@@ -65,11 +103,11 @@ function Settings() {
                                                                     </div>
                                                                     <div className="ar_myProfile_sinlge_switch">
                                                                         <label className='toggle-label'>
-                                                                            <input type='checkbox' />
+                                                                            <input type='checkbox' checked={personalData.chat ? true : false} />
                                                                             <span className='back'>
                                                                                 <span className='toggle'></span>
-                                                                                <span className='label on'>Yes</span>
-                                                                                <span className='label off'>No</span>
+                                                                                <span className='label on' onClick={() => setPersonalData({ ...personalData, chat: 0 })}>No</span>
+                                                                                <span className='label off' onClick={() => setPersonalData({ ...personalData, chat: 1 })}>Yes</span>
                                                                             </span>
                                                                         </label>
                                                                     </div>
@@ -80,11 +118,11 @@ function Settings() {
                                                                     </div>
                                                                     <div className="ar_myProfile_sinlge_switch">
                                                                         <label className='toggle-label'>
-                                                                            <input type='checkbox' />
+                                                                            <input type='checkbox' checked={personalData.dueluitnodiging ? true : false} />
                                                                             <span className='back'>
                                                                                 <span className='toggle'></span>
-                                                                                <span className='label on'>Yes</span>
-                                                                                <span className='label off'>No</span>
+                                                                                <span className='label on' onClick={() => setPersonalData({ ...personalData, dueluitnodiging: 0 })}>No</span>
+                                                                                <span className='label off' onClick={() => setPersonalData({ ...personalData, dueluitnodiging: 1 })}>Yes</span>
                                                                             </span>
                                                                         </label>
                                                                     </div>
@@ -95,11 +133,11 @@ function Settings() {
                                                                     </div>
                                                                     <div className="ar_myProfile_sinlge_switch">
                                                                         <label className='toggle-label'>
-                                                                            <input type='checkbox' />
+                                                                            <input type='checkbox' checked={personalData.exibepokes ? true : false} />
                                                                             <span className='back'>
                                                                                 <span className='toggle'></span>
-                                                                                <span className='label on'>Yes</span>
-                                                                                <span className='label off'>No</span>
+                                                                                <span className='label on' onClick={() => setPersonalData({ ...personalData, exibepokes: 0 })}>No</span>
+                                                                                <span className='label off' onClick={() => setPersonalData({ ...personalData, exibepokes: 1 })}>Yes</span>
                                                                             </span>
                                                                         </label>
                                                                     </div>
@@ -108,14 +146,14 @@ function Settings() {
                                                             <div className="ar_myProfile_range_area">
                                                                 <div className="ar_myProfile_range_text">
                                                                     <p>Volume:</p>
-                                                                    <p>30%</p>
+                                                                    <p>{personalData.volume}%</p>
                                                                 </div>
                                                                 <div className="ar_myProfile_range">
                                                                     {/* <label for="customRange1" className="form-label">Example range</label> */}
-                                                                    <input type="range" className="form-range" id="customRange1" />
+                                                                    <input type="range" value={personalData.volume} className="form-range" id="customRange1" onChange={(e) => setPersonalData({ ...personalData, volume: e.target.value })} />
                                                                 </div>
                                                             </div>
-                                                            <div className="ar_myProfile_btn">
+                                                            <div className="ar_myProfile_btn" onClick={onPersonalDataSubmit}>
                                                                 <a href="#" className='settings-anchor'><img src="/images/myAccount/accBtn.png" alt="" /></a>
                                                                 <div className="ar_myProfile_btn_text">
                                                                     <p>Edit </p>
@@ -134,11 +172,11 @@ function Settings() {
                                                                     <input type="text"
                                                                         className="form-control"
                                                                         id="name"
-                                                                        placeholder={t('Old Password')}
-                                                                        {...register("old_password", { required: true })} />
+                                                                        placeholder={t('Current Password')}
+                                                                        {...register("current_password", { required: true })} />
                                                                     <img src="/images/register-02.png" alt="" />
                                                                 </div>
-                                                                {errors.old_password && <div className='error-text m-2'>{t('This field is required')}</div>}
+                                                                {errors.current_password && <div className='error-text m-2'>{t('This field is required')}</div>}
                                                             </div>
 
                                                             <div className='validation-box'>
@@ -158,10 +196,10 @@ function Settings() {
                                                                         className="form-control"
                                                                         id="password"
                                                                         placeholder={t('Confirm Password')}
-                                                                        {...register("confirm_password", { required: true })} />
+                                                                        {...register("password", { required: true })} />
                                                                     <img src="/images/register-02.png" alt="" />
                                                                 </div>
-                                                                {errors.confirm_password && <div className='error-text m-2'>{t('This field is required')}</div>}
+                                                                {errors.password && <div className='error-text m-2'>{t('This field is required')}</div>}
                                                             </div>
                                                             <div className="ar_myProfile_btn">
                                                                 <a href="#" className='settings-anchor'><img src="/images/myAccount/accBtn.png" alt="" /></a>
@@ -208,11 +246,12 @@ function Settings() {
                                                             </div>
                                                             <div className='validation-box'>
                                                                 <div className="position-relative m-0">
-                                                                    <input type="text"
+                                                                <input type="text"
                                                                         className="form-control"
-                                                                        id="name"
-                                                                        placeholder={t('Old Password')}
-                                                                        {...register("old_password", { required: true })} />
+                                                                        id="password"
+                                                                        placeholder={t('Email')}
+                                                                        value={profile_data.email}
+                                                                        disabled/>
                                                                     <img src="/images/register-02.png" alt="" />
                                                                 </div>
                                                                 {errors.old_password && <div className='error-text m-2'>{t('This field is required')}</div>}
@@ -220,33 +259,34 @@ function Settings() {
 
                                                             <div className='validation-box'>
                                                                 <div className="position-relative m-0">
-                                                                    <input type="password"
+                                                                    <input 
                                                                         className="form-control"
                                                                         id="password"
-                                                                        placeholder={t('New Password')}
-                                                                        {...register("new_password", { required: true })} />
+                                                                        placeholder={t('Email')}
+                                                                        {...registerForm2("email", { required: true })} />
                                                                     <img src="/images/register-02.png" alt="" />
                                                                 </div>
-                                                                {errors.new_password && <div className='error-text m-2'>{t('This field is required')}</div>}
+                                                                {errors.email && <div className='error-text m-2'>{t('This field is required')}</div>}
                                                             </div>
                                                             <div className='validation-box'>
                                                                 <div className="position-relative m-0">
-                                                                    <input type="password"
+                                                                    <input 
                                                                         className="form-control"
                                                                         id="password"
-                                                                        placeholder={t('Confirm Password')}
-                                                                        {...register("confirm_password", { required: true })} />
+                                                                        placeholder={t('Confirm Email')}
+                                                                        {...registerForm2("email2", { required: true })} />
                                                                     <img src="/images/register-02.png" alt="" />
                                                                 </div>
-                                                                {errors.confirm_password && <div className='error-text m-2'>{t('This field is required')}</div>}
+                                                                {errors.email2 && <div className='error-text m-2'>{t('This field is required')}</div>}
                                                             </div>
                                                             <div className="ar_myProfile_btn">
                                                                 <a href="#" className='settings-anchor'><img src="/images/myAccount/accBtn.png" alt="" /></a>
                                                                 <div className="ar_myProfile_btn_text" >
-                                                                    <p className='m-0' style={{ fontSize: '11px', top: '20px' }} onClick={handleSubmit(onSubmit)}>Change Password </p>
+                                                                    <p className='m-0' style={{ fontSize: '11px', top: '20px' }} onClick={handleSubmitForm2(onSubmitForm2)}>Change Email </p>
                                                                 </div>
                                                             </div>
-                                                        </div></Col>
+                                                        </div>
+                                                    </Col>
                                                     <Col md={12} className='p-4'>
 
                                                         <div className="ar_myProfile_single_item lavel-radio h-100">

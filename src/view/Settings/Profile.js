@@ -1,7 +1,7 @@
-import { getProfile, updatePlayer } from '../../store/auth'
+import { getProfile, getProfileByName, updatePlayer } from '../../store/auth'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Row, Col } from 'react-bootstrap';
 
 import { Modal, Button } from 'react-bootstrap';
@@ -12,12 +12,17 @@ import PokemonProfile from '../Component/PokemonProfile';
 function Profile() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const params = useParams();
+    let name = JSON.parse(localStorage.getItem('userData'))?.playerName
+    if(params.playername){ 
+        name = params.playername;
+    }
     const player_pokemons = useSelector(state => state.pokemon.player_pokemons);
 
-    const profile_data = useSelector(state => state.auth.user_data)
+    const profile_by_name = useSelector(state => state.auth.profile_by_name)
     const [modal, setModal] = useState(false)
 
-    const [region, setRegion] = useState(profile_data?.wereld)
+    const [region, setRegion] = useState(profile_by_name?.wereld)
     const handleCloseModal = () => setModal(false);
     const [hoveredId, setHoveredId] = useState(null);
 
@@ -69,7 +74,7 @@ function Profile() {
         setHoveredId(null);
     };
     useEffect(() => {
-        dispatch(getProfile())
+        dispatch(getProfileByName(name))
         dispatch(getPlayerPokemons())
 
     }, [])
@@ -121,7 +126,7 @@ function Profile() {
                                             {
                                                 player_pokemons && player_pokemons.map((item) => {
 
-                                                    return <Col md={6} sm={12} className="character-item2-inner2 gap-2 cursor-pointer" >
+                                                    return <Col md={6} xs={4} className="character-item2-inner2 gap-2 cursor-pointer" >
                                                         <div className="character-item2-inner3 pokemon-gifs"
                                                             onMouseEnter={() => handleMouseEnter(item.wild_id)}
                                                             onMouseLeave={handleMouseLeave}>
@@ -146,7 +151,7 @@ function Profile() {
                                             }
                                             {
                                                 Array.from({ length: (6 - player_pokemons?.length) }).map(() => {
-                                                    return <Col md={6} sm={12} className="arPlayerProfle_chacter_item">
+                                                    return <Col md={6} xs={4} className="arPlayerProfle_chacter_item">
                                                         <a href="#"><img src="/images/playerProfile/pokemon-home-add.png" alt="" /></a>
                                                     </Col>
                                                 })
@@ -178,8 +183,8 @@ function Profile() {
                                                 <div className="ar_playerMiddle_bottom_single_itemTexy">
                                                     <p>
                                                         {/* <span>[off]</span> */}
-                                                    {profile_data.username}</p>
-                                                    <p>Lv <span>{profile_data.rank}</span></p>
+                                                    {profile_by_name.username}</p>
+                                                    <p>Lv <span>{profile_by_name.rank}</span></p>
                                                 </div>
                                             </div>
                                             <div className="ar_playerMiddle_bottom_single_item" onClick={()=>{navigate('/social/challenge-trainer')}}>
