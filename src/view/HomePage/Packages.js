@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import GoldSiverHeader from './GoldSiverHeader'
 import { useSearchParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getPackages } from '../../store/packages'
+import { getPackages, getUserInvoice } from '../../store/packages'
+import { Table } from 'react-bootstrap'
 
 function Packages() {
     const [params] = useSearchParams()
@@ -11,7 +12,7 @@ function Packages() {
     const [selected, setSelected] = useState(buy ? buy : 'golds')
     const gold_packages = useSelector(state => state.packages.packages);
     const featured_packages = useSelector(state => state.packages.featuredPackages);
-
+    const user_invoices = useSelector(state => state.packages.userInvoice)
     const items = {
         silver: [
             {
@@ -143,6 +144,7 @@ function Packages() {
     }
     useEffect(() => {
         dispatch(getPackages())
+        dispatch(getUserInvoice())
 
     }, [])
     return (
@@ -182,9 +184,9 @@ function Packages() {
                                     </div>
                                     <div className="ar_shop_area_right">
                                         <div className="ar_shop_item_wrapper p-5">
-                                           
+
                                             {(selected == 'golds' || selected == 'silvers') && gold_packages?.map((item, index) => {
-                                                return item[selected]!=0 && <div className={`ar_shop_single_item packages`} key={index}>
+                                                return item[selected] != 0 && <div className={`ar_shop_single_item packages`} key={index}>
                                                     <img src="/images/shop/item.png" alt="" />
                                                     <div className="ar_shop_in_cont">
                                                         <img src="/images/shop/item-img.png" alt="" />
@@ -193,7 +195,7 @@ function Packages() {
                                                     <div className="ar_shop_bottom_cont">
                                                         <p>{item[selected]}</p>
                                                     </div>
-                                                   {selected == 'silvers' &&  <div className='silver'>
+                                                    {selected == 'silvers' && <div className='silver'>
                                                         <img src="/images/mock-05.png" alt="" />
                                                     </div>}
                                                     <div className='button-group'>
@@ -225,7 +227,7 @@ function Packages() {
                                             })}
                                             {featured_packages.length && <h1 className='w-100 mb-2 text-light text-center'>Featured Packages</h1>}
                                             {(selected == 'golds' || selected == 'silvers') && featured_packages?.map((item, index) => {
-                                                return item[selected]!=0 && <div className={`ar_shop_single_item packages`} key={index}>
+                                                return item[selected] != 0 && <div className={`ar_shop_single_item packages`} key={index}>
                                                     <img src="/images/shop/item.png" alt="" />
                                                     <div className="ar_shop_in_cont">
                                                         <img src="/images/shop/item-img.png" alt="" />
@@ -234,7 +236,7 @@ function Packages() {
                                                     <div className="ar_shop_bottom_cont">
                                                         <p>{item[selected]}</p>
                                                     </div>
-                                                   {selected == 'silvers' &&  <div className='silver'>
+                                                    {selected == 'silvers' && <div className='silver'>
                                                         <img src="/images/mock-05.png" alt="" />
                                                     </div>}
                                                     <div className='button-group'>
@@ -248,11 +250,41 @@ function Packages() {
                                             }
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
+                <div className='container'>
+                    <div className="ar_myProfile_single_item2">
+                        <div className="ar_myProfile_sinle_title">
+                            <p className='settings-anchor d-flex justify-content-between'> <span ><img src="/images/myAccount/shap.png" alt="" />Last 10 transactions</span></p>
+                        </div>
+                        <Table >
+                            <thead>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Package</td>
+                                    <td>Price</td>
+                                    <td>Date</td>
+                                    <td>Status</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {user_invoices.map((item, index) => {
+                                    return <tr>
+                                        <td>{index + 1}</td>
+                                        <td>{item.pack_name}</td>
+                                        <td>{item.amount}</td>
+                                        <td>{item.date}</td>
+                                        <td>{item.status}</td>
+                                    </tr>
+                                })}
+                            </tbody>
+                        </Table>
+                    </div>
+                </div>
             </GoldSiverHeader>
         </div>
     )

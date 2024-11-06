@@ -81,6 +81,33 @@ export const updateEmail = createAsyncThunk('auth/updateEmail', async (data, { r
         })
 });
 
+export const accountSharing = createAsyncThunk('auth/accountSharing', async (id, { rejectWithValue }) => {
+    return toast.promise(
+        axios({
+            url: API_ENDPOINTS.ACCOUNT_SHARE,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data:{
+                acc_id:id
+            }
+        }),
+        {
+            pending: i18n.t('Updating...'),
+            success: i18n.t('Successful!'),
+            error: {
+                render({ data }) {
+                    return (data?.response?.data?.message ||data?.response?.data?.error) || i18n.t('Failed!');
+                }
+            }
+        }
+    )
+        .then(response => {
+            return response.data
+        })
+});
+
 const initialState = {
 };
 export const settingsSlice = createSlice({

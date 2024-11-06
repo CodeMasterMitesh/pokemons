@@ -5,19 +5,21 @@ import { useTranslation } from 'react-i18next';
 import { Col, Form, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProfile } from '../../store/auth';
-import { changePersonalData, updateEmail, updatePassword } from '../../store/settings';
+import { accountSharing, changePersonalData, updateEmail, updatePassword } from '../../store/settings';
+import { getFriends } from '../../store/friends';
+import { toast } from 'react-toastify';
 
 function Settings() {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const { register: registerForm2, handleSubmit: handleSubmitForm2, formState: { errors: errorsForm2 } } = useForm();
-  const onSubmitForm2 = (data) => {
-    dispatch(updateEmail(data))
-  };
+    const { register: registerForm2, handleSubmit: handleSubmitForm2, formState: { errors: errorsForm2 } } = useForm();
+    const onSubmitForm2 = (data) => {
+        dispatch(updateEmail(data))
+    };
     const { t } = useTranslation()
     const dispatch = useDispatch()
     const profile_data = useSelector(state => state.auth.user_data)
-    console.log(profile_data);
+    const friends = useSelector(state => state.friend.friends)
 
     const [personalData, setPersonalData] = useState({
         teamzien: 0,
@@ -27,6 +29,7 @@ function Settings() {
         exibepokes: 0,
         volume: 0
     })
+    const [selected_friend,setFriend] =useState();
 
     const onSubmit = async (data) => {
         dispatch(updatePassword(data))
@@ -36,19 +39,31 @@ function Settings() {
         dispatch(changePersonalData(personalData))
 
     }
-    useEffect(() => {
-        setPersonalData(
-            {
-                teamzien: parseInt(profile_data.teamzien),
-                chat: parseInt(profile_data.chat),
-                badgeszien: parseInt(profile_data.badgeszien),
-                dueluitnodiging: parseInt(profile_data.dueluitnodiging),
-                exibepokes: 1,
-                volume: parseInt(profile_data.volume)
-            }
-        )
+    const handleChangeAccount=(e)=>{
+        setFriend(e)
+    }
+    const handleAccount=()=>{
+        console.log(selected_friend);
         
+        if(selected_friend && selected_friend !== 'Select'){
+            dispatch(accountSharing(selected_friend))
+        }else{
+            toast.warn('Select trainer')
+        }
+    }
+    useEffect(() => {
+        setPersonalData({
+            teamzien: parseInt(profile_data.teamzien),
+            chat: parseInt(profile_data.chat),
+            badgeszien: parseInt(profile_data.badgeszien),
+            dueluitnodiging: parseInt(profile_data.dueluitnodiging),
+            exibepokes: 1,
+            volume: parseInt(profile_data.volume)
+        });
     }, [profile_data])
+    useEffect(()=>{
+        dispatch(getFriends())
+    },[])
     return (
         <div>
             <GoldSiverHeader previous={'/home'} title='Settings'>
@@ -221,18 +236,19 @@ function Settings() {
                                                             </div>
 
                                                             <div className="ar_myProfile_select_area">
-                                                                <select className="form-select" aria-label="Default select example">
-                                                                    <option selected>None</option>
-                                                                    <option value="1">One</option>
-                                                                    <option value="2">Two</option>
-                                                                    <option value="3">Three</option>
+                                                                <select className="form-select" aria-label="Default select example" onChange={(e)=>{handleChangeAccount(e.target.value)}}>
+                                                                    <option >Select</option>
+                                                                    {
+                                                                        friends.map((item)=>{
+                                                                            return <option value={item.friend_id}>{item.friend_name}</option>
+                                                                        })}
                                                                 </select>
                                                             </div>
 
-                                                            <div className="ar_myProfile_btn">
-                                                                <a href="#" className='settings-anchor'><img src="/images/myAccount/accBtn.png" alt="" /></a>
+                                                            <div className="ar_myProfile_btn" onClick={handleAccount}>
+                                                                <a href="#" className='settings-anchor'  ><img src="/images/myAccount/accBtn.png" alt=""/></a>
                                                                 <div className="ar_myProfile_btn_text">
-                                                                    <p>To Add </p>
+                                                                    <p>Share </p>
                                                                 </div>
                                                             </div>
 
@@ -246,12 +262,12 @@ function Settings() {
                                                             </div>
                                                             <div className='validation-box'>
                                                                 <div className="position-relative m-0">
-                                                                <input type="text"
+                                                                    <input type="text"
                                                                         className="form-control"
                                                                         id="password"
                                                                         placeholder={t('Email')}
                                                                         value={profile_data.email}
-                                                                        disabled/>
+                                                                        disabled />
                                                                     <img src="/images/register-02.png" alt="" />
                                                                 </div>
                                                                 {errors.old_password && <div className='error-text m-2'>{t('This field is required')}</div>}
@@ -259,7 +275,7 @@ function Settings() {
 
                                                             <div className='validation-box'>
                                                                 <div className="position-relative m-0">
-                                                                    <input 
+                                                                    <input
                                                                         className="form-control"
                                                                         id="password"
                                                                         placeholder={t('Email')}
@@ -270,7 +286,7 @@ function Settings() {
                                                             </div>
                                                             <div className='validation-box'>
                                                                 <div className="position-relative m-0">
-                                                                    <input 
+                                                                    <input
                                                                         className="form-control"
                                                                         id="password"
                                                                         placeholder={t('Confirm Email')}

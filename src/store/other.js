@@ -86,8 +86,6 @@ export const transferValue = createAsyncThunk('other/transferValue', async (data
             pending: i18n.t('Loading...'),
             success: {
                 render({ data }) {
-                    console.log(data);
-                    
                     return data?.data?.message || i18n.t('Success!');
                 }
             },
@@ -122,12 +120,100 @@ export const getHouseSell = createAsyncThunk('other/getHouseSell', async (_, { r
 
     }
 });
+export const presentation = createAsyncThunk('other/presentation', async (data, { rejectWithValue }) => {
+    try {
+
+        const response = await toast.promise(
+            axios({
+                url: `${API_ENDPOINTS.UPDATE_PRESENTATION}`,
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                data:{
+                    profiel:data
+                }
+            }), {
+            pending: i18n.t('Loading...'),
+            success: {
+                render({ data }) {
+                    return data?.data?.message || i18n.t('Success!');
+                }
+            },
+            error: {
+                render({ data }) {
+                    return (data?.response?.data?.message || data?.response?.data?.error) || i18n.t('Failed!');
+                }
+            }
+        }
+        )
+        return response.data
+
+    } catch (error) {
+        // toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+    }
+});
+export const updateHonors = createAsyncThunk('other/updateHonors', async (id, { rejectWithValue }) => {
+    try {
+
+        const response = await toast.promise(
+            axios({
+                url: `${API_ENDPOINTS.UPDATE_HONORS}`,
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                data:{
+                    user_id:id
+                }
+            }), {
+            pending: i18n.t('Loading...'),
+            success: {
+                render({ data }) {
+                    return data?.data?.message || i18n.t('Success!');
+                }
+            },
+            error: {
+                render({ data }) {
+                    return (data?.response?.data?.message || data?.response?.data?.error) || i18n.t('Failed!');
+                }
+            }
+        }
+        )
+        return response.data
+
+    } catch (error) {
+        // toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+    }
+});
+export const getHonors = createAsyncThunk('other/getHonors', async (_, { rejectWithValue }) => {
+    try {
+
+        const response = await axios({
+                url: `${API_ENDPOINTS.GET_HONORS}`,
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+        return response.data
+
+    } catch (error) {
+        toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+    }
+});
+
 
 
 const initialState = {
     notifications: [],
     notification_count: 0,
-    house_seller_data: []
+    house_seller_data: [],
+    presentation: {},
+    honors:{}
 }
 
 export const otherSlice = createSlice({
@@ -176,6 +262,14 @@ export const otherSlice = createSlice({
             .addCase(getHouseSell.rejected, (state, action) => {
                 state.house_seller_data_loading = false;
                 state.house_seller_data_error = action.payload;
+            })
+            .addCase(presentation.fulfilled, (state, action) => {
+                state.presentation_loading = false;
+                state.presentation = action.payload ? action.payload : []
+            })
+            .addCase(getHonors.fulfilled, (state, action) => {
+                state.honors_loading = false;
+                state.honors = action.payload ? action.payload : {}
             })
     }
 })

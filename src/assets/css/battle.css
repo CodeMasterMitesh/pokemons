@@ -1915,6 +1915,23 @@ a {
    display: inline-block;
    padding: 15px 0px;
 }
+.ar_pokeProfile_single_wrapper p{
+   color: #dbdbdb;
+   font-size: 16px;
+   font-weight: 400;
+   -webkit-box-flex: 0;
+       -ms-flex: 0 0 50%;
+           flex: 0 0 50%;
+   display: inline-block;
+   padding: 15px 0px;
+   margin: 0px;
+}
+.ar_pokeProfile_single_wrapper p span{
+   font-weight: 700;
+}
+.ar_pokeProfile_single_wrapper p img{
+   margin-right: 10px;
+}
 .ar_pokeProfile_single_wrapper a span{
    font-weight: 700;
 }
@@ -2498,13 +2515,30 @@ a {
        -ms-flex: 0 0 32%;
            flex: 0 0 32%;
 }
+.ar_myProfile_single_item2{
+   background: #efefefb0;
+   padding: 20px;
+   border-radius: 26px;
+   -webkit-box-flex: 0;
+       -ms-flex: 0 0 32%;
+           flex: 0 0 32%;
+}
 .ar_myProfile_sinle_title a{
+   color: #0a0a0a;
+   font-size: 22px;
+   font-weight: 700;
+}
+.ar_myProfile_sinle_title p{
    color: #0a0a0a;
    font-size: 22px;
    font-weight: 700;
 }
 
 .ar_myProfile_sinle_title a img{
+   width: 25px;
+   margin-right: 15px;
+}
+.ar_myProfile_sinle_title p img{
    width: 25px;
    margin-right: 15px;
 }

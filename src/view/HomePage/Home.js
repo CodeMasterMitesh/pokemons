@@ -298,7 +298,7 @@ const Home = () => {
                         <Offcanvas.Body>
                             <div className="side-menu">
                                 <ul className='p-0'>
-                                    <li onClick={() => { navigate('/profile') }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsPersonCircle />{userData.username}</a></li>
+                                    <li onClick={() => { navigate('/profile') }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsPersonCircle />{userData?.username}</a></li>
                                     <li onClick={() => { navigate('/notification') }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"> <BsBellFill />{t('Notification')} ({notification_count})</a></li>
                                     <li onClick={() => { navigate('/settings') }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#"><BsGearFill />   {t('Settings')}</a></li>
                                     <li onClick={() => { handleLogout() }}><a className='d-flex justify-content-start align-items-center w-100 p-2 text-decoration-none' href="#" ><BsXLg />{t('Logout')} </a></li>

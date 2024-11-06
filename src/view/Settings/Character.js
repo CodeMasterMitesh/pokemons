@@ -45,9 +45,10 @@ function Character() {
         setSelectedIndex(selectedIndex);
         let show = all_pokemons[selectedIndex];
         const { data } = await dispatch(getPokemonProfileById(show.id)).unwrap();
+        
         if (data.length && data[0]?.tip) {
             const totaltip = parseFloat(data[0]?.tip[0].Ataque) + parseFloat(data[0]?.tip[0].Defesa) + parseFloat(data[0]?.tip[0].HP) + parseFloat(data[0]?.tip[0]['Sp. Ataque']) + parseFloat(data[0]?.tip[0]['Sp. Defesa']) + parseFloat(data[0]?.tip[0]['Speed']);
-            setTotal({ tip: totaltip })
+            total.tip= totaltip; 
         }
         setStatusData(data)
 
@@ -66,7 +67,7 @@ function Character() {
 
         if (data.length && data[0]?.tip) {
             const totaltip = parseFloat(data[0]?.tip[0].Ataque) + parseFloat(data[0]?.tip[0].Defesa) + parseFloat(data[0]?.tip[0].HP) + parseFloat(data[0]?.tip[0]['Sp. Ataque']) + parseFloat(data[0]?.tip[0]['Sp. Defesa']) + parseFloat(data[0]?.tip[0]['Speed']);
-            setTotal({ tip: totaltip })
+            total.tip= totaltip; 
         }
         setStatusData(data)
     }
@@ -139,6 +140,7 @@ function Character() {
                 parseFloat(spc_atk.poke) +
                 parseFloat(spc_dfc.poke) +
                 parseFloat(speed.poke)
+                
             setTotal({...total,status:total_status})
             setStatus([
                 hp,

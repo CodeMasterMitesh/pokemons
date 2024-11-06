@@ -44,5 +44,9 @@ export const API_ENDPOINTS = {
     CHANGE_PERSONAL_DATA:'API/changePersonalData.php',
     UPDATE_PASSWORD:'api/changePassword.php',
     UPDATE_EMAIL:'api/changeEmail.php',
-    RANK_LIST:'api/getRankList.php'
+    RANK_LIST:'api/getRankList.php',
+    UPDATE_PRESENTATION:'api/updatePresentation.php',
+    UPDATE_HONORS:'api/Honars.php',
+    GET_HONORS:"api/getHonors.php",
+    ACCOUNT_SHARE:"api/shareAccount.php"
 };
