@@ -116,7 +116,7 @@ export const extrasSlice = createSlice({
             })
             .addCase(getUserBadge.fulfilled, (state, action) => {
                 state.user_badges_loading = false;
-                state.user_badges = action.payload.data ? action.payload.data : []
+                state.user_badges = action.payload?.regions ? action.payload.regions : []
             })
             .addCase(getUserBadge.rejected, (state, action) => {
                 state.user_badges_loading = false;
@@ -140,7 +140,7 @@ export const extrasSlice = createSlice({
             })
             .addCase(getBestFisherManOfYesterday.fulfilled, (state, action) => {
                 state.best_fisher_of_yesterday_loading = false;
-                state.best_fisher_of_yesterday = action.payload.data ? action.payload.data : []
+                state.best_fisher_of_yesterday = action.payload.bestFishrMan ? action.payload.bestFishrMan : []
             })
             .addCase(getBestFisherManOfYesterday.rejected, (state, action) => {
                 state.best_fisher_of_yesterday_loading = false;

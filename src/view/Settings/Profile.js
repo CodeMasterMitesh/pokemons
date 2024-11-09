@@ -15,6 +15,8 @@ import Gold from '../Component/Gold';
 import moment from 'moment';
 import Online from '../Component/Online';
 import Offline from '../Component/Offline';
+import { getUserBadge } from '../../store/extras';
+import { Tooltip } from 'react-tooltip';
 
 
 function Profile() {
@@ -27,6 +29,7 @@ function Profile() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const [presentationData, setPresentation] = useState('')
+    const user_badges = useSelector(state => state.extras.user_badges)
 
     if (queryParams.get('playername')) {
         name = queryParams.get('playername');
@@ -112,6 +115,7 @@ function Profile() {
         init()
         dispatch(getPlayerPokemons())
         dispatch(getHonors())
+        dispatch(getUserBadge())
     }, [])
     return (
         <div>
@@ -310,7 +314,7 @@ function Profile() {
                                                     <a href="playerProfile.html"><img src="/images/playerProfile/tab1.png" alt="" /></a>
                                                     <a href="playerProfile.html">
                                                         <div className="arPlyaderProfile_tab_text">
-                                                            <a href="playerProfile.html"><p>Results</p></a>
+                                                            <a><p>Results</p></a>
                                                         </div>
                                                     </a>
                                                 </div>
@@ -319,7 +323,7 @@ function Profile() {
                                                 <div className="ar_playerProfile_top_btn">
                                                     <a href="playerProfile-tab.html"><img src="/images/playerProfile/tab2.png" alt="" /></a>
                                                     <div className="arPlyaderProfile_tab_text last">
-                                                        <a href="playerProfile-tab.html"> <p>עדימ</p></a>
+                                                        <a > <p>עדימ</p></a>
                                                     </div>
                                                 </div>
                                             </a>
@@ -327,29 +331,23 @@ function Profile() {
 
                                         <div className="ar_playerProfile_tabArea_wrapper">
                                             <div className="ar_playerProfile_tab_area arPlay_tab_one">
-                                                <div className="ar_playerTab_title">
-                                                    <a href="#"><img src="/images/playerProfile/circle.png" alt="" />Kanto</a>
-                                                </div>
-                                                <div className="ar_Playyer_tab_item_wrapper">
-                                                    <a href="#"><img src="/images/playerProfile/item1.png" alt="" /></a>
-                                                    <a href="#"><img src="/images/playerProfile/item2.png" alt="" /></a>
-                                                    <a href="#"><img src="/images/playerProfile/item2.png" alt="" /></a>
-                                                    <a href="#"><img src="/images/playerProfile/item2.png" alt="" /></a>
-                                                    <a href="#"><img src="/images/playerProfile/item2.png" alt="" /></a>
-                                                    <a href="#"><img src="/images/playerProfile/item2.png" alt="" /></a>
-                                                </div>
-
-                                                <div className="ar_playerTab_title last">
-                                                    <a href="#"><img src="/images/playerProfile/circle.png" alt="" />Twinleaf Town</a>
-                                                </div>
-                                                <div className="ar_Playyer_tab_item_wrapper">
-                                                    <a href="#"><img src="/images/playerProfile/item2.png" alt="" /></a>
-                                                    <a href="#"><img src="/images/playerProfile/item2.png" alt="" /></a>
-                                                    <a href="#"><img src="/images/playerProfile/item2.png" alt="" /></a>
-                                                    <a href="#"><img src="/images/playerProfile/item2.png" alt="" /></a>
-                                                    <a href="#"><img src="/images/playerProfile/item2.png" alt="" /></a>
-                                                    <a href="#"><img src="/images/playerProfile/item2.png" alt="" /></a>
-                                                </div>
+                                                {user_badges.map((item) => {
+                                                    return <div>
+                                                        <div className="ar_playerTab_title last">
+                                                            <a href="#"><img src="/images/playerProfile/circle.png" alt="" />{item.region}</a>
+                                                        </div>
+                                                        <Row className="ar_Playyer_tab_item_wrapper overflow-x-hidden">
+                                                            {item.badges?.map((inner, index) => {
+                                                                return <Col md={4} >
+                                                                    <div className='position-relative m-3'>
+                                                                        <img  src="/images/playerProfile/item2.png" alt="" className='m-0'/>
+                                                                        <img  src={`/images/badges/${inner.imgSrc}`} alt="" className='m-0 badges-img'/>
+                                                                    </div>
+                                                                </Col>
+                                                            })}
+                                                        </Row>
+                                                    </div>
+                                                })}
                                             </div>
 
 
@@ -381,7 +379,7 @@ function Profile() {
                                         <p className='settings-anchor d-flex justify-content-between'> <span ><img src="/images/myAccount/shap.png" alt="" />Honors</span></p>
                                     </div>
                                     <h4>{profile_by_name?.username} has {honors?.honors_counts} honors, including:</h4>
-                                    {honors.honors_Name?.length>0 && <div className="ar_pokeprofile_table_area">
+                                    {honors.honors_Name?.length > 0 && <div className="ar_pokeprofile_table_area">
                                         {honors.honors_Name.map((item) => {
                                             return <div className="ar_pokeProfile_single_wrapper">
                                                 <p><img src="/images/pokeProfile/circle.png" alt="" />{item.username}</p>

@@ -8,104 +8,12 @@ import Accordion from 'react-bootstrap/Accordion';
 import GoldSiverHeader from '../../../view/HomePage/GoldSiverHeader';
 import { getUserBadge } from '../../../store/extras';
 import { useNavigate } from 'react-router-dom';
+import { Tooltip } from 'react-tooltip';
 function Badges() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const user_badges = useSelector(state => state.extras.user_badges)
-    // const search_players = useSelector(state => state.friend.search_players)
-    const arr = [
-        {
-            name: 'Kanto',
-            badges: [
-                'Boulder',
-                'Cascade',
-                'Thunder',
-                'Rainbow',
-                'Marsh',
-                'Soul',
-                'Volcano',
-                'Earth',
-            ]
-        },
-        {
-            name: 'Johto',
-            badges: [
-                'Zephyr',
-                'Hive',
-                'Plain',
-                'Fog',
-                'Storm',
-                'Mineral',
-                'Glacier',
-                'Rising',
-            ]
-        },
-        {
-            name: 'Hoenn',
-            badges: [
-                'Stone',
-                'Knuckle',
-                'Dynamo',
-                'Heat',
-                'Balance',
-                'Feather',
-                'Mind',
-                'Rain',
-            ]
-        },
-        {
-            name: 'Sinnoh',
-            badges: [
-                'Coal',
-                'Forest',
-                'Cobble',
-                'Fen',
-                'Relic',
-                'Mine',
-                'Icicle',
-                'Beacon',
-            ]
-        },
-        {
-            name: 'Unova',
-            badges: [
-                'Trio',
-                'Basic',
-                'Insect',
-                'Bolt',
-                'Quake',
-                'Jet',
-                'Freeze',
-                'Legend',
-            ]
-        },
-        {
-            name: 'Kalos',
-            badges: [
-                'Bug',
-                'Cliff',
-                'Rumble',
-                'Plant',
-                'Voltage',
-                'Fairy',
-                'Psychic',
-                'Iceberg',
-            ]
-        },
-        {
-            name: 'Alola',
-            badges: [
-                'Melemele Normal',
-                'Akala Water',
-                'Akala Fire',
-                'Akala Grass',
-                'Ulaula Electric',
-                'Ulaula Ghost',
-                'Poni Fairy',
-                'Poni Ground',
-            ]
-        },
-    ]
+
     const init = async () => {
         let badges = await dispatch(getUserBadge()).unwrap();
         if(badges.success == false){
@@ -130,14 +38,15 @@ function Badges() {
             <Card border='dark' text='white' className='bg-theme mt-2 accordion-badge'>
                 <Card.Header><h1 className='text-center '> Badges</h1></Card.Header>
                 <Accordion defaultActiveKey="0">
-                    {arr.map((item) => {
+                    {user_badges.map((item) => {
                         return <Accordion.Item eventKey="0" >
-                            <Accordion.Header className='bg-theme'><h5 className='text-center w-100'>{item.name}</h5></Accordion.Header>
+                            <Accordion.Header className='bg-theme'><h5 className='text-center w-100'>{item.region}</h5></Accordion.Header>
                             <Accordion.Body className='bg-theme'>
                                 <Row className='justify-content-center'>
-                                    {item.badges.map((inner) => {
-                                        return <Col md={1} sm={1} xs={1}>
-                                            <img src={`/images/badges/pixel/${inner}.png`} alt="" />
+                                    {item?.badges.map((inner,index) => {
+                                        return <Col md={1} sm={1} xs={1} key={index}>
+                                            <img data-tooltip-id={inner.imgSrc} data-tooltip-content={inner.title} src={`/images/badges/pixel/${inner.imgSrc}`} alt="" />
+                                            <Tooltip id={inner.imgSrc}/>
                                         </Col>
                                     })
                                     }

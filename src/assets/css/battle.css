@@ -3002,9 +3002,41 @@ a {
 .ar_playerTab_title.last{
    margin-top: 30px;
 }
+
+::-webkit-scrollbar {
+   width: 7px;
+   /* Change width as needed */
+   height: 7px;
+   /* Change width as needed */
+}
+
+/* Background of the entire scrollbar */
+::-webkit-scrollbar-track {
+   background: transparent;
+   /* Track color */
+   border-radius: 10px;
+   /* Rounded edges */
+}
+
+/* Color and style of the scroll thumb */
+::-webkit-scrollbar-thumb {
+   background: #888;
+   /* Thumb color */
+   border-radius: 10px;
+   /* Rounded edges */
+}
+
+/* Thumb hover effect */
+::-webkit-scrollbar-thumb:hover {
+   background: #555;
+   /* Darker color when hovering */
+}
+
+
 .ar_playerProfile_tab_area {
    height: 400px;
-   overflow-y: scroll;
+   overflow-y: auto;
+   overflow-x: hidden;
    scrollbar-width: thin;
    margin-right: -10px;
    /* padding-right: 30px; */

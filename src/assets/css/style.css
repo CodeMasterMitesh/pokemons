@@ -1512,7 +1512,12 @@ body {
     align-items: center;
     cursor: pointer;
 }
-
+.badges-img{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
 .register-item-inner5 label span {
     width: 40px;
     height: 40px;

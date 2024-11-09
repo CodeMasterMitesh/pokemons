@@ -105,21 +105,13 @@ function Fishery() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>NightSlash</td>
-                                            <td>71,312 Points</td>
+                                        {best_fisher_of_yesterday.map((item,index)=>{
+                                            return <tr>
+                                            <td>{index + 1}</td>
+                                            <td>{item.username}</td>
+                                            <td>{parseFloat(item.fishing)?.toLocaleString()} Points</td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Lost</td>
-                                            <td>0 Points</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>jkhan</td>
-                                            <td>0 Point</td>
-                                        </tr>
+                                        })}
                                     </tbody>
                                 </Table>
                             </Col>

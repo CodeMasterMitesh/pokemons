@@ -48,6 +48,7 @@ import PokemonProfile from '../view/Pages/PokemonProfile';
 import NPCs from '../view/Pages/NPCs';
 import TransferValue from '../view/Pages/TransferValue';
 import Conversation from '../view/Pages/conversation';
+import PokemonBox from '../view/Pages/pokemonbox/PokemonBox';
 
 
 const MainRoutes = {
@@ -87,8 +88,12 @@ const MainRoutes = {
                             element: <GoldMarket />
                         },
                         {
-                            path: '/Conversation', 
+                            path: '/conversation', 
                             element: <Conversation />
+                        },
+                        {
+                            path: '/pokemon-box', 
+                            element: <PokemonBox />
                         },
                         {
                             path: '/classification', 

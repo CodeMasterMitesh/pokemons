@@ -261,7 +261,7 @@ function Packages() {
                         <div className="ar_myProfile_sinle_title">
                             <p className='settings-anchor d-flex justify-content-between'> <span ><img src="/images/myAccount/shap.png" alt="" />Last 10 transactions</span></p>
                         </div>
-                        <Table >
+                        <Table className='table-theme'>
                             <thead>
                                 <tr>
                                     <td>#</td>
