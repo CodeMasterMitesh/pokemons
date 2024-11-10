@@ -23,7 +23,7 @@ function OnlineTrainers() {
   return (
     <div>
        <Card border='dark' text='white' className='bg-theme mt-2'>
-                <Card.Header><h1 className='text-center'> Online Trainers</h1></Card.Header>
+                <Card.Header><h3 className='text-center'> Online Trainers</h3></Card.Header>
                 <Card.Body className='text-center'>
                     <Row style={{gap:'8px'}} className='justify-content-center p-3'>
                         {online_users.map((item,index) => {

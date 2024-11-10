@@ -41,7 +41,7 @@ import PokemonSpecialist from '../view/Pages/others/PokemonSpecialist';
 import HouseSeller from '../view/Pages/others/HouseSeller';
 import GoldMarket from '../view/Pages/GoldMarket';
 import Classification from '../view/Pages/Classification';
-import City from '../view/Pages/City';
+import City from '../view/Pages/city/City';
 import Backpack from '../view/Pages/Backpack';
 import Map from '../view/Pages/Map';
 import PokemonProfile from '../view/Pages/PokemonProfile';
@@ -49,6 +49,8 @@ import NPCs from '../view/Pages/NPCs';
 import TransferValue from '../view/Pages/TransferValue';
 import Conversation from '../view/Pages/conversation';
 import PokemonBox from '../view/Pages/pokemonbox/PokemonBox';
+import ChallangeRequest from '../view/Pages/ChallangeRequest';
+import GYMs from '../view/Pages/city/GYMs';
 
 
 const MainRoutes = {
@@ -88,6 +90,10 @@ const MainRoutes = {
                             element: <GoldMarket />
                         },
                         {
+                            path: '/challange-request', 
+                            element: <ChallangeRequest />
+                        },
+                        {
                             path: '/conversation', 
                             element: <Conversation />
                         },
@@ -106,6 +112,10 @@ const MainRoutes = {
                         {
                             path: '/transfer-value', 
                             element: <TransferValue />
+                        },
+                        {
+                            path: '/gym', 
+                            element: <GYMs />
                         },
                         {
                             path: '/map', 

@@ -23,6 +23,19 @@
 }
 
 @media all and (max-width: 991px) {
+    .your-pokemon{
+        position: absolute;
+        bottom: 140px;
+        left: 9%;
+     }
+     .your-pokemon img,.opp-pokemon img {
+        height: 100px;
+     }
+     .opp-pokemon{
+        position: absolute;
+        bottom: 240px;
+        right: 16%;
+     }
     .menu_ul ul li a p {
         top: 13px;
         font-size: 16px;
@@ -33,6 +46,20 @@
 }
 
 @media all and (max-width: 767px) {
+
+    .your-pokemon{
+        position: absolute;
+        bottom: 140px;
+        left: 9%;
+     }
+     .your-pokemon img,.opp-pokemon img {
+        height: 100px;
+     }
+     .opp-pokemon{
+        position: absolute;
+        bottom: 240px;
+        right: 16%;
+     }
     .social_home {
         right: 33px;
     }
@@ -300,10 +327,10 @@
         margin-left: 15px;
     }
     .ar_battle_left_hp_area img {
-        width: 65%;
+        width: 100%;
     }
     .ar_battle_left_hp_text {
-        width: 200px;
+        /* width: 182px; */
     }
     .arBattle_left_cont p {
         font-size: 12px;
@@ -961,6 +988,8 @@
     }
     .ar_battle_left_hp_area {
         margin-left: 0px;
+        width: 150px !important;
+
     }
     .ar_mainPage_bottom_persion a img {
         width: 75px;
@@ -1137,6 +1166,20 @@
 
 
 @media all and (max-width:575px){
+    .your-pokemon{
+        position: absolute;
+        bottom: 146px;
+        left: 8%;
+     }
+     .your-pokemon img,.opp-pokemon img {
+        height: 80px;
+     }
+     .opp-pokemon{
+        position: absolute;
+        bottom: 235px;
+        right: 16%;
+     }
+
     .ar_singnle_iteam_area {
         -webkit-box-flex: 0;
             -ms-flex: 0 0 100%;
@@ -1459,6 +1502,38 @@
 
 
 @media all and (max-width:450px){
+    .ar_batte_area{
+        min-height: 350px;
+    }
+    .your-pokemon{
+        position: absolute;
+        bottom: 117px;
+        left: 9%;
+     }
+     .your-pokemon img,.opp-pokemon img {
+        height: 60px;
+     }
+     .opp-pokemon{
+        position: absolute;
+        bottom: 187px;
+        right: 16%;
+     }
+    .ar_battle_single_bottom p {
+        font-size: 9px;
+        top: 2px;
+    }
+    .ar_battle_single_bottom a img {
+        width: 70px;
+    }
+    .ar_battle_btom_single a img {
+        width: 60px;
+    }
+    .ar_battle_btom_single p {
+        font-size: 9px;
+        top: 8px;
+        cursor: pointer;
+    }
+
     .ar_heading_title_back h3 {
         font-size: 30px;
     }
@@ -1621,6 +1696,12 @@
     }
     .ar_playerPorfile_right_top {
         width: auto;
+    }
+    .ar_battle_left_hp_area,
+    .ar_battle_left_hp_area .ar_battle_right_hp_area{
+        width: 100px !important;
+    } .ar_battle_right_hp_area{
+        width: 100px !important;
     }
     .ar_playerProfile_tabArea_wrapper {
         width: auto;

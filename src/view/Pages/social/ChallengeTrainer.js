@@ -6,8 +6,10 @@ import { getUsers } from '../../../store/auth';
 import { getSearchPlayers } from '../../../store/friends';
 import OnlineTrainers from '../../../view/Component/OnlineTrainers';
 import GoldSiverHeader from '../../../view/HomePage/GoldSiverHeader';
+import { useNavigate } from 'react-router-dom';
 function ChallengeTrainer() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const online_users = useSelector(state => state.auth.online_users)
     const search_players = useSelector(state => state.friend.search_players)
 
@@ -15,6 +17,9 @@ function ChallengeTrainer() {
         // dispatch(getUsers()).unwrap()
         dispatch(getSearchPlayers(''))
 
+    }
+    const handleChallange=()=>{
+        navigate('/challange-request?challanged=true')
     }
     useEffect(() => {
         init()
@@ -54,7 +59,7 @@ function ChallengeTrainer() {
                         </Col>
                         <Col md={12}  >
                             <div className="register-item-inner6 ">
-                                <button type="submit" className='challenge-button'>Challenge</button>
+                                <button type="submit" className='challenge-button' onClick={handleChallange}>Challenge</button>
                             </div>
                         </Col>
                     </Row>

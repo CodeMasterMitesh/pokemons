@@ -1418,13 +1418,16 @@ body {
     color: #9E8F61 !important;
     text-align: left;
 }
-.lavel-radio input{
+
+.lavel-radio input {
     width: 20px;
     height: 20px;
 }
-.settings-anchor{
+
+.settings-anchor {
     text-decoration: none;
 }
+
 .change-password .validation-box img {
     left: 25px;
     max-width: 100%;
@@ -1512,12 +1515,14 @@ body {
     align-items: center;
     cursor: pointer;
 }
-.badges-img{
+
+.badges-img {
     position: absolute;
     top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
 }
+
 .register-item-inner5 label span {
     width: 40px;
     height: 40px;
@@ -2164,6 +2169,42 @@ body {
     background-color: #0a184f !important;
     --bs-table-bg-typ: #0a184f !important;
 
+}
+.gym-trainer{
+    height: 215px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.description{
+    text-align: start;
+    padding: 10px 20px;
+}
+.locked-trainer{
+    height: 100px;
+    position: absolute;
+}
+.locked{
+    filter: brightness(0%);
+}
+.description p{
+    font-size: 13px;
+}
+.gym-title{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    background-color: #1e295340;
+}
+.gym-trainer .trainer{
+    height: 150px;
+}
+
+.challange-pk {
+    background: url(../../../public/images/register-02.png);
+    width: 34px;
+    height: 34px;
+    background-size: cover;
 }
 
 .header-theme {

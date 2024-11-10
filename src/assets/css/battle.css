@@ -1592,9 +1592,27 @@ a {
 
 
 /*====================== Start Battle CSS ======================*/
+.your-pokemon{
+   position: absolute;
+   bottom: 140px;
+   left: 15%;
+}
+.your-pokemon img,.opp-pokemon img {
+   height: 100px;
+}
+.opp-pokemon{
+   position: absolute;
+   bottom: 229px;
+   right: 19%;
+}
 .ar_batte_area{
+   position: relative;
    background: url('../../../public/images/battle/battle.png') no-repeat scroll 0 0 / 100% 100%;
-   padding: 30px 30px 20px 30px;
+   padding: 10px 20px;
+   min-height: 473px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
 .ar_battle_area_top{
    display: -webkit-box;
@@ -1627,8 +1645,13 @@ a {
    margin-top: 30px;
    margin-left: 100px;
 }
+.ar_battle_left_hp_area{
+   margin-top: 30px !important;
+}
 .ar_battleTop_right.right .ar_battle_left_hp_area{
    margin-top: 10px;
+   width: 200px;
+
 }
 .ar_battle_left_hp_area img{
    display: block;

@@ -1,41 +1,61 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import GoldSiverHeader from './GoldSiverHeader'
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { getPlayerPokemons } from '../../store/pokemon'
 function Battle() {
+    const pokemons = useSelector(state => state.pokemon.player_pokemons)
+    const [yourPokemon, setYourPokemon] = useState({})
+    const [oppPokemon, setOppPokemon] = useState({})
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getPlayerPokemons())
+    }, [])
+    useEffect(() => {
+        setYourPokemon(pokemons[0])
+        setOppPokemon(pokemons[1])
+    }, [pokemons])
     return (
         <>
             <GoldSiverHeader previous='/home' title='Battle'>
                 <section className="ar_battle_area_section">
-                    <div className="container">
+                    <div className="p-3 container-md">
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="ar_batte_area">
+                                    <div className='your-pokemon'>
+                                        <img src={`/images/pokemon/back/${yourPokemon?.wild_id}.gif`} alt="" />
+                                    </div>
+                                    <div className='opp-pokemon'>
+                                        <img src={`/images/pokemon/${oppPokemon?.wild_id}.gif`} alt="" />
+                                    </div>
                                     <div className="ar_battle_area_top">
                                         <div className="ar_battleTop_left">
-                                            <div className="ar_battle_left_text">
+                                            {/* <div className="ar_battle_left_text">
                                                 <img src="/images/battle/text-content.png" alt="images" />
                                                 <div className="arBattle_left_cont">
                                                     <p>.Mewtwo used Physical Meteor</p>
                                                     <p>.Your turn to attack</p>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                             <div className="ar_battle_left_hp_area">
                                                 <div className="ar_battle_left_hp_text">
-                                                    <p>Pikacchu</p>
-                                                    <p>Lv <span>90</span></p>
+                                                    <p>{yourPokemon?.naam}</p>
+                                                    <p>Lv <span>{yourPokemon?.level}</span></p>
                                                 </div>
                                                 <img src="/images/battle/hpRead.png" alt="images" />
                                                 <img src="/images/battle/expEmpty.png" alt="images" />
                                             </div>
                                         </div>
-                                        <div className="ar_battleTop_middle">
+                                        {/* <div className="ar_battleTop_middle">
                                             <p>Time Left: </p>
                                             <p><span>2:39</span></p>
-                                        </div>
+                                        </div> */}
                                         <div className="ar_battleTop_right right">
                                             <div className="ar_battle_left_hp_area">
                                                 <div className="ar_battle_left_hp_text">
-                                                    <p>Mewtwo</p>
-                                                    <p>Lv <span>90</span></p>
+                                                    <p>{oppPokemon?.naam}</p>
+                                                    <p>Lv <span>{oppPokemon?.level}</span></p>
                                                 </div>
                                                 <img src="/images/battle/hpRead.png" alt="images" />
                                             </div>
@@ -47,7 +67,7 @@ function Battle() {
                                             <a href="#"> <img src="/images/battle/run.png" alt="images" /></a>
                                         </div>
                                         <div className="ar_battle_bottom_btnAct">
-                                            <div className="ar_battle_btom_single red">
+                                            <div className="ar_battle_btom_single">
                                                 <a href="#"><img src="/images/battle/redAt.png" alt="images" /></a>
                                                 <p>קבאמ</p>
                                             </div>

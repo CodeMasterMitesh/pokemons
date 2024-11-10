@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import GoldSiverHeader from '../HomePage/GoldSiverHeader'
 import { Card, Col, Row } from 'react-bootstrap'
-import './ImageWithTooltip.css'; // Custom CSS for styling
+import { useNavigate } from 'react-router-dom';
 
 function Map() {
     const [hoveredArea, setHoveredArea] = useState(null);
-
+    const navigate = useNavigate()
     const handleMouseEnter = (area) => {
         setHoveredArea(area);
     };
@@ -35,27 +35,11 @@ function Map() {
                                             <table width={590} border={0} cellSpacing={0} cellPadding={0}>
                                                 <tbody>
                                                     <tr>
-                                                        <td width={351} height={208}>
-                                                            <input type="image" src="/images/attackmap/hoenn/lavagrot.gif" alt="" />
+                                                        <td width={351} height={208} style={{background:'url(/images/attackmap/hoenn/lavagrot.gif)'}} className='cursor-pointer' onClick={()=>{navigate('/battle')}}>
+                                                            {/* <input type="image" src="/images/attackmap/hoenn/lavagrot.gif" alt="" /> */}
                                                         </td>
-                                                        <td width={239} height={208}>
-                                                            <input type="image" src="/images/attackmap/hoenn/spookhuis.gif" alt="" />
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <table width={590} border={0} cellSpacing={0} cellPadding={0}>
-                                                <tbody>
-                                                    <tr>
-                                                        <td width={267} height={129}>
-                                                            <input type="image" src="/images/attackmap/hoenn/area_01.gif" alt="" />
-                                                        </td>
-                                                        <td width={323} height={129}>
-                                                            <input type="image" src="/images/attackmap/hoenn/grasveld_01.gif" alt="" />
+                                                        <td width={239} height={208} style={{background:'url(/images/attackmap/hoenn/spookhuis.gif)'}} className='cursor-pointer' onClick={()=>{navigate('/battle')}}>
+                                                            {/* <input type="image" src="/images/attackmap/hoenn/spookhuis.gif" alt="" /> */}
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -67,8 +51,11 @@ function Map() {
                                             <table width={590} border={0} cellSpacing={0} cellPadding={0}>
                                                 <tbody>
                                                     <tr>
-                                                        <td width={590} height={137}>
-                                                            <input type="image" src="/images/attackmap/hoenn/area_02.gif" alt="" />
+                                                        <td width={267} height={129} style={{background:'url(/images/attackmap/hoenn/area_01.gif)'}} className='cursor-pointer' onClick={()=>{navigate('/battle')}}>
+                                                            {/* <input type="image" src="/images/attackmap/hoenn/area_01.gif" alt="" /> */}
+                                                        </td>
+                                                        <td width={323} height={129} style={{background:'url(/images/attackmap/hoenn/grasveld_01.gif)'}} className='cursor-pointer' onClick={()=>{navigate('/battle')}}>
+                                                            {/* <input type="image" src="/images/attackmap/hoenn/grasveld_01.gif" alt="" /> */}
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -80,12 +67,8 @@ function Map() {
                                             <table width={590} border={0} cellSpacing={0} cellPadding={0}>
                                                 <tbody>
                                                     <tr>
-
-                                                        <td width={255} height={154}>
-                                                            <input type="image" src="/images/attackmap/hoenn/vechtschool.gif" alt="" />
-                                                        </td>
-                                                        <td width={335} height={154}>
-                                                            <input type="image" src="/images/attackmap/hoenn/grasveld.gif" alt="" />
+                                                        <td width={590} height={137} style={{background:'url(/images/attackmap/hoenn/area_02.gif)'}} className='cursor-pointer' onClick={()=>{navigate('/battle')}}>
+                                                            {/* <input type="image" src="/images/attackmap/hoenn/area_02.gif" alt="" /> */}
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -98,14 +81,31 @@ function Map() {
                                                 <tbody>
                                                     <tr>
 
-                                                        <td width={127} height={172}>
-                                                            <input type="image" src="/images/attackmap/hoenn/grot.gif" alt="" />
+                                                        <td width={255} height={154} style={{background:'url(/images/attackmap/hoenn/vechtschool.gif)'}} className='cursor-pointer' onClick={()=>{navigate('/battle')}}>
+                                                            {/* <input type="image" src="/images/attackmap/hoenn/vechtschool.gif" alt="" /> */}
                                                         </td>
-                                                        <td width={297} height={172}>
-                                                            <input type="image" src="/images/attackmap/hoenn/strand.gif" alt="" />
+                                                        <td width={335} height={154} style={{background:'url(/images/attackmap/hoenn/grasveld.gif)'}} className='cursor-pointer' onClick={()=>{navigate('/battle')}}>
+                                                            {/* <input type="image" src="/images/attackmap/hoenn/grasveld.gif" alt="" /> */}
                                                         </td>
-                                                        <td width={166} height={172}>
-                                                            <input type="image" src="/images/attackmap/hoenn/water.gif" alt="" />
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table width={590} border={0} cellSpacing={0} cellPadding={0}>
+                                                <tbody>
+                                                    <tr>
+
+                                                        <td width={127} height={172} style={{background:'url(/images/attackmap/hoenn/grot.gif)'}} className='cursor-pointer' onClick={()=>{navigate('/battle')}}>
+                                                            {/* <input type="image" src="/images/attackmap/hoenn/grot.gif" alt="" /> */}
+                                                        </td>
+                                                        <td width={297} height={172} style={{background:'url(/images/attackmap/hoenn/strand.gif)'}} className='cursor-pointer' onClick={()=>{navigate('/battle')}}>
+                                                            {/* <input type="image" src="/images/attackmap/hoenn/strand.gif" alt="" /> */}
+                                                        </td>
+                                                        <td width={166} height={172} style={{background:'url(/images/attackmap/hoenn/water.gif)'}} className='cursor-pointer' onClick={()=>{navigate('/battle')}}>
+                                                            {/* <input type="image" src="/images/attackmap/hoenn/water.gif" alt="" /> */}
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -114,30 +114,6 @@ function Map() {
                                     </tr>
                                 </tbody>
                             </table>
-
-
-
-                            <div
-                                className="hover-area"
-                                style={{ top: '20%', left: '30%', width: '100px', height: '100px' }}
-                                onMouseEnter={() => handleMouseEnter('area1')}
-                                onMouseLeave={handleMouseLeave}
-                            >
-                                {hoveredArea === 'area1' && (
-                                    <div className="tooltip">Tooltip for Area 1</div>
-                                )}
-                            </div>
-
-                            <div
-                                className="hover-area"
-                                style={{ top: '50%', left: '50%', width: '100px', height: '100px' }}
-                                onMouseEnter={() => handleMouseEnter('area2')}
-                                onMouseLeave={handleMouseLeave}
-                            >
-                                {hoveredArea === 'area2' && (
-                                    <div className="tooltip">Tooltip for Area 2</div>
-                                )}
-                            </div>
                         </Card.Body>
                     </Card>
                 </div>
