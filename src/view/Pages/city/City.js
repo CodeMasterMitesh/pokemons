@@ -26,7 +26,7 @@ function City() {
                                 <img src="/images/town/town.png" alt="" />
                                 {citydata.map((item) => {
                                     return <div
-                                        className="hover-area"
+                                        className="hover-area cursor-pointer"
                                         style={{position:"absolute", top: item.top, left: item.left, width: item.width, height: item.height }}
                                         data-tooltip-id={item.id}
                                         data-tooltip-content={item.title}

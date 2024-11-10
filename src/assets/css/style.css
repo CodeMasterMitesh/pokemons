@@ -2170,6 +2170,12 @@ body {
     --bs-table-bg-typ: #0a184f !important;
 
 }
+.travel-title{
+    position: absolute;
+    z-index: 1;
+    font-size: 123px;
+    z-index: 1;
+}
 .gym-trainer{
     height: 215px;
     display: flex;

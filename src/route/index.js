@@ -51,6 +51,8 @@ import Conversation from '../view/Pages/conversation';
 import PokemonBox from '../view/Pages/pokemonbox/PokemonBox';
 import ChallangeRequest from '../view/Pages/ChallangeRequest';
 import GYMs from '../view/Pages/city/GYMs';
+import PockemonMarket from 'view/Pages/PockemonMarket';
+import Travel from 'view/Pages/city/Travel';
 
 
 const MainRoutes = {
@@ -88,6 +90,14 @@ const MainRoutes = {
                         {
                             path: '/gold-market', 
                             element: <GoldMarket />
+                        },
+                        {
+                            path: '/market', 
+                            element: <PockemonMarket />
+                        },
+                        {
+                            path: '/travel', 
+                            element: <Travel />
                         },
                         {
                             path: '/challange-request', 

@@ -13,7 +13,7 @@ export default[
     {
         id:'2',
         title:'How about packing your backpacks and going to meet new Trainers and Pokémon in other Regions?',
-        route:'/',
+        route:'/travel',
         top:'2%',
         left:'43%',
         width:'15%',
@@ -33,7 +33,7 @@ export default[
     {
         id:'4',
         title:'Buy and sell Pokémon at the best price with our selling methods here at Pokémon Market',
-        route:'/',
+        route:'/market',
         top:'38%',
         left:'16%',
         width:'17%',
