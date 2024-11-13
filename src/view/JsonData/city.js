@@ -43,7 +43,7 @@ export default[
     {
         id:'5',
         title:'Make your Pokémon go through the Fountain of Youth to Rejuvenate them!',
-        route:'/',
+        route:'/fountain',
         top:'40%',
         left:'46%',
         width:'17%',
@@ -53,7 +53,7 @@ export default[
     {
         id:'6',
         title:'Bet Tickets, play Minigames and earn rewards!',
-        route:'/',
+        route:'/casino',
         top:'51%',
         left:'46%',
         width:'17%',
@@ -63,7 +63,7 @@ export default[
     {
         id:'7',
         title:'Swap your Pokémon for another one here at the Merchants!',
-        route:'/',
+        route:'/traders',
         top:'69%',
         left:'51%',
         width:'9%',

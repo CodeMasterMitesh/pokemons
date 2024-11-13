@@ -188,7 +188,7 @@ function Calculator() {
                             </div>
                         </Col>
                         <Col md={6} className='d-flex justify-content-between flex-column'>
-                            <Card.Header><h3 className='text-center'> See simple IV's</h3></Card.Header>
+                            <Card.Header><h3 className='text-center'> See premium IV's</h3></Card.Header>
 
                             <Card.Body>
                                 <ul className='normal-li'>

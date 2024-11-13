@@ -53,6 +53,9 @@ import ChallangeRequest from '../view/Pages/ChallangeRequest';
 import GYMs from '../view/Pages/city/GYMs';
 import PockemonMarket from 'view/Pages/PockemonMarket';
 import Travel from 'view/Pages/city/Travel';
+import Fountain from 'view/Pages/city/Fountain';
+import Casino from 'view/Pages/city/Casino';
+import Traders from 'view/Pages/city/Traders';
 
 
 const MainRoutes = {
@@ -92,12 +95,24 @@ const MainRoutes = {
                             element: <GoldMarket />
                         },
                         {
+                            path: '/casino', 
+                            element: <Casino />
+                        },
+                        {
+                            path: '/traders', 
+                            element: <Traders />
+                        },
+                        {
                             path: '/market', 
                             element: <PockemonMarket />
                         },
                         {
                             path: '/travel', 
                             element: <Travel />
+                        },
+                        {
+                            path: '/fountain', 
+                            element: <Fountain />
                         },
                         {
                             path: '/challange-request', 
