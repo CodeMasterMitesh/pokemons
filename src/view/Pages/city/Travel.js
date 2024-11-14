@@ -22,7 +22,7 @@ function Travel() {
     };
     return (
         <div>
-            <GoldSiverHeader previous='/home' title='Travel'>
+            <GoldSiverHeader previous='/map' title='Travel'>
                 <div className='container'>
                     <Card border='dark' text='white' className='bg-theme'>
                         <Card.Header><h5 className='text-center'>Here you can travel to other regions</h5></Card.Header>

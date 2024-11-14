@@ -158,6 +158,7 @@ Small Screen - Tablate
 	.header-item-inner {
 	    width: 100px;
 	}
+	
 
 	.header-item-inner2 {
 	    width: calc(100% - 100px);

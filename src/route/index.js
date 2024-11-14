@@ -56,7 +56,8 @@ import Travel from 'view/Pages/city/Travel';
 import Fountain from 'view/Pages/city/Fountain';
 import Casino from 'view/Pages/city/Casino';
 import Traders from 'view/Pages/city/Traders';
-
+import Daycare from 'view/Pages/city/Daycare';
+import Moves from 'view/Pages/city/Moves';
 
 const MainRoutes = {
     path: '/',
@@ -97,6 +98,14 @@ const MainRoutes = {
                         {
                             path: '/casino', 
                             element: <Casino />
+                        },
+                        {
+                            path: '/moves', 
+                            element: <Moves />
+                        },
+                        {
+                            path: '/daycare', 
+                            element: <Daycare />
                         },
                         {
                             path: '/traders', 

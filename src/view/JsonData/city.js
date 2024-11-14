@@ -83,7 +83,7 @@ export default[
     {
         id:'9',
         title:"Are your Pokémon tired? You're in the right place, Nurse Joy will help you here at the Pokémon Center.",
-        route:'/',
+        route:'/hospital',
         top:'54%',
         left:'73%',
         width:'9%',
@@ -93,7 +93,7 @@ export default[
     {
         id:'10',
         title:"Teach or Remind your Pokémon's Attacks here!",
-        route:'/',
+        route:'/moves',
         top:'74%',
         left:'79%',
         width:'7%',
@@ -103,7 +103,7 @@ export default[
     {
         id:'11',
         title:'Place your Pokémon here at Kindergarten to level up and have a chance to win an EGG!',
-        route:'/',
+        route:'/daycare',
         top:'69%',
         left:'5%',
         width:'9%',

@@ -535,6 +535,9 @@
     .ar_hospital_item_single img {
         width: 60px;
     }
+    .pokemon-img{
+        height: 50px !important;
+    }
     .ar_hospital_item_single {
         bottom: 50px;
         left: 65px;
@@ -880,6 +883,10 @@
     }
     .ar_hospital_item_single img {
         width: 40px;
+    }
+    .ar_hospital_item_single .pokemon-img {
+        width: 35px;
+        height: 35px !important;
     }
     .ar_hospital_item_single {
         bottom: 40px;

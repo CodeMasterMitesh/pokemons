@@ -1,14 +1,16 @@
 html {
-    font-size: 62.5%;
+   font-size: 62.5%;
 }
 
 body {
-    font-size: 1.6rem;
-    font-weight: 400;
+   font-size: 1.6rem;
+   font-weight: 400;
 }
-.ar_battle_area_section{
+
+.ar_battle_area_section {
    padding-bottom: 100px;
 }
+
 h1,
 h2,
 h3,
@@ -16,150 +18,160 @@ h4,
 h5,
 h6,
 p {
-    margin: 0;
-    padding: 0;
+   margin: 0;
+   padding: 0;
 }
 
 ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+   margin: 0;
+   padding: 0;
+   list-style: none;
 }
 
 ul li a,
 a {
-    text-decoration: none;
+   text-decoration: none;
 }
 
 /*======================  Home area  ======================*/
 
 .home_main_area {
-    background: url(../../../public/images/home/bg.png) no-repeat scroll center center / 100% 100%;
-    position: relative;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+   background: url(../../../public/images/home/bg.png) no-repeat scroll center center / 100% 100%;
+   position: relative;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
 }
 
 .logo a img {
-    width: 250px;
+   width: 250px;
 }
 
 .home_content {
-    text-align: center;
+   text-align: center;
 }
 
 .home_shape img {
-    width: 100%;
+   width: 100%;
 }
 
 .social_home ul {
-    display: flex;
-    gap: 15px;
+   display: flex;
+   gap: 15px;
 }
 
 .social_home ul li a {
-    background: #FFC939;
-    padding: 14px 0 15px 0px;
-    border-radius: 0 0 14px 14px;
-    box-sizing: border-box;
-    display: inline-block;
-    color: #000;
-    font-size: 22px;
-    width: 45px;
-    text-align: center;
-    height: 62px;
+   background: #FFC939;
+   padding: 14px 0 15px 0px;
+   border-radius: 0 0 14px 14px;
+   box-sizing: border-box;
+   display: inline-block;
+   color: #000;
+   font-size: 22px;
+   width: 45px;
+   text-align: center;
+   height: 62px;
 }
 
 .social_home {
-    position: absolute;
-    top: 0;
-    right: 150px;
-    z-index: 9999;
+   position: absolute;
+   top: 0;
+   right: 150px;
+   z-index: 9999;
 }
 
 .home_shape {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 100%;
 }
 
 .btn_1 img {
-    width: 303px;
+   width: 303px;
 }
 
 .btn_1 {
-    position: relative;
+   position: relative;
 }
 
 .btn_1 span {
-    position: absolute;
-    top: 11px;
-    left: 0;
-    right: 0;
-    font-size: 30px;
-    color: #fff;
-    font-weight: 700;
+   position: absolute;
+   top: 11px;
+   left: 0;
+   right: 0;
+   font-size: 30px;
+   color: #fff;
+   font-weight: 700;
 }
 
 .home_btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    margin: 25px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 20px;
+   margin: 25px;
 }
 
 .btn_2 {
-    background: #343435;
-    border-radius: 35px;
-    width: 265px;
-    padding: 10px 15px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 30px;
-    color: #d7d7d7;
-    align-items: center;
+   background: #343435;
+   border-radius: 35px;
+   width: 265px;
+   padding: 10px 15px;
+   display: flex;
+   justify-content: space-between;
+   font-size: 30px;
+   color: #d7d7d7;
+   align-items: center;
 }
 
 .btn_2:hover {
-    color: #d7d7d7;
+   color: #d7d7d7;
 }
 
 .btn_2 img {
-    width: 28px;
+   width: 28px;
 }
 
 .home_arrow_btn a {
-    background: transparent;
-    border: none;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+   background: transparent;
+   border: none;
+   color: #fff;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
 .home_arrow_btn a span {
-    margin-top: 5px;
+   margin-top: 5px;
 }
 
 .home_arrow_btn {
-    margin-top: 80px;
+   margin-top: 80px;
 }
-.home_arrow_btn{
- position: relative;
- animation-name: example;
- animation-duration: 2s;
- animation-iteration-count: infinite;
+
+.home_arrow_btn {
+   position: relative;
+   animation-name: example;
+   animation-duration: 2s;
+   animation-iteration-count: infinite;
 }
+
 @keyframes example {
- 0%   {top:0px;}
- 75%  {top:30px;}
- 100% {top:0px;}
+   0% {
+      top: 0px;
+   }
+
+   75% {
+      top: 30px;
+   }
+
+   100% {
+      top: 0px;
+   }
 }
 
 
@@ -189,11 +201,11 @@ a {
    font-size: 22px;
 }
 
-.main_box{ 
+.main_box {
    height: 500px;
 }
 
-.menu_ul ul li a  img{ 
+.menu_ul ul li a img {
    width: 100%;
 }
 
@@ -206,23 +218,23 @@ a {
 .menu_ul ul {
    display: flex;
    gap: 29px;
-   justify-content: center; 
+   justify-content: center;
    flex-wrap: wrap;
 }
 
-.menu_ul ul li { 
-   flex: 0 0 31%; 
+.menu_ul ul li {
+   flex: 0 0 31%;
 }
 
 .menu_main h3 {
    font-size: 60px;
-   text-align: center; 
+   text-align: center;
    font-weight: 700;
    color: #fff;
    margin: 68px;
 }
 
-.menu_main{
+.menu_main {
    position: relative;
 }
 
@@ -234,11 +246,11 @@ a {
 
 /*======================  Modal area  ======================*/
 
-.modal_area{
+.modal_area {
    position: relative;
 }
 
-.modal_button{
+.modal_button {
    position: relative;
 }
 
@@ -284,58 +296,67 @@ a {
 
 /* Ar CSS styel here  */
 
-.ar_mainBody{
-   background: url('../../../public/images/game-ui/bg.png') no-repeat scroll 0 0 / cover; 
+.ar_mainBody {
+   background: url('../../../public/images/game-ui/bg.png') no-repeat scroll 0 0 / cover;
    min-height: 100vh;
 }
-.main_container_wrapper{
+
+.main_container_wrapper {
    padding: 50px 0px;
 
 }
-.arMobileBars2{
+
+.arMobileBars2 {
    display: none;
 }
-.arMobileBars1{
+
+.arMobileBars1 {
    display: block;
 }
+
 /*======================  Start Header area CSS ======================*/
 
-.ar_header_area_section{
+.ar_header_area_section {
    background: url('../../../public/images/game-ui/menu-bg.png') no-repeat scroll 0 0 / 100% 100%;
    padding: 20px 0px 35px 0px;
 }
-.ar_header_area{
+
+.ar_header_area {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between
+   -ms-flex-pack: justify;
+   justify-content: space-between
 }
-.ar_header_navbar{
+
+.ar_header_navbar {
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 80%;
-           flex: 0 0 80%;
+   -ms-flex: 0 0 80%;
+   flex: 0 0 80%;
 }
-.ar_header_navbar ul{
+
+.ar_header_navbar ul {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    margin-bottom: 0px;
 }
-.ar_header_navbar ul li{
+
+.ar_header_navbar ul li {
    list-style-type: none;
 }
-.ar_header_navbar ul li a{
+
+.ar_header_navbar ul li a {
    display: inline-block;
    color: #616f9e;
    font-size: 22px;
@@ -343,39 +364,47 @@ a {
    padding: 10px;
    text-decoration: none;
 }
-.ar_shop_area_section{
+
+.ar_shop_area_section {
    padding: 30px 0px;
 }
-.ar_header_navbar ul li a img{
+
+.ar_header_navbar ul li a img {
    width: 25px;
    margin-right: 15px;
 }
-.ar_shop_area_section p{
+
+.ar_shop_area_section p {
    margin-bottom: 0px;
 }
-.ar_header_bars{
+
+.ar_header_bars {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: end;
-       -ms-flex-pack: end;
-           justify-content: flex-end;
+   -ms-flex-pack: end;
+   justify-content: flex-end;
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 20%;
-           flex: 0 0 20%;
+   -ms-flex: 0 0 20%;
+   flex: 0 0 20%;
 }
-.ar_header_bars a{
+
+.ar_header_bars a {
    margin-left: 30px;
 }
-.ar_header_bars a img{
+
+.ar_header_bars a img {
    width: 25px;
-} 
-.ar_header_bars{
+}
+
+.ar_header_bars {
    position: relative;
 }
+
 .ar_header_bars:after {
    content: "";
    position: absolute;
@@ -385,68 +414,78 @@ a {
    width: 2px;
    height: 40px;
 }
+
 /*======================  end Header area CSS ======================*/
 
 
 
 /*======================  Start Fortune area CSS ======================*/
 
-.ar_main_content_area_wrapper{
+.ar_main_content_area_wrapper {
    padding: 50px 0px;
 }
-.ar_heading_area_top{
+
+.ar_heading_area_top {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
 }
-.ar_heading_title_back{
+
+.ar_heading_title_back {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
 }
-.arTitle_plus_area{
+
+.arTitle_plus_area {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
 }
-.ar_heading_title_back a.ar_back img{
+
+.ar_heading_title_back a.ar_back img {
    width: 60px;
    margin-right: 20px;
 }
-.ar_heading_title_back h3{
+
+.ar_heading_title_back h3 {
    color: #fbfbfb;
    font-size: 30px;
    font-weight: 600;
    margin-right: 15px;
 }
-.ar_heading_title_back a img{
+
+.ar_heading_title_back a img {
    width: 30px;
 }
+
 .arTitle_plus_img img {
    width: 140px;
 }
-.arTitle_plus_img{
+
+.arTitle_plus_img {
    position: relative;
    display: inline-block;
 }
+
 .arTitle_plus_img p {
    color: #ffffff;
    font-size: 14px;
@@ -456,70 +495,79 @@ a {
    left: 35px;
    margin-bottom: 0px;
 }
-.arTitle_plus_img p.one152{
+
+.arTitle_plus_img p.one152 {
    top: 15px;
 }
 
 
 
 /* item-area */
-.ar_item_area_section{
+.ar_item_area_section {
    margin-bottom: 50px;
 }
-.ar_item_area{
+
+.ar_item_area {
    padding: 40px;
    padding-bottom: 0px;
-   background: url('../../../public/images/game-ui/itemBG.png') no-repeat scroll 0 0 / 100% 100%; 
+   background: url('../../../public/images/game-ui/itemBG.png') no-repeat scroll 0 0 / 100% 100%;
 }
-.ar_item_area{
+
+.ar_item_area {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    -ms-flex-wrap: wrap;
-       flex-wrap: wrap;
+   flex-wrap: wrap;
    -webkit-column-gap: 30px;
-      -moz-column-gap: 30px;
-           column-gap: 30px;
-   
+   -moz-column-gap: 30px;
+   column-gap: 30px;
+
 }
-.ar_single_item_img img{
+
+.ar_single_item_img img {
    width: 100%;
 }
-.ar_singnle_iteam_area{
+
+.ar_singnle_iteam_area {
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 31%;
-           flex: 0 0 31%;
+   -ms-flex: 0 0 31%;
+   flex: 0 0 31%;
    position: relative;
    margin-bottom: 40px;
 
 }
+
 .ar_single_item_cont {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    position: absolute;
    width: 100%;
    top: 25px;
    left: 30px;
 }
-.ar_single_item_cont_img > img{
+
+.ar_single_item_cont_img>img {
    width: 100px;
    margin-right: 60px;
 }
-.ar_single_item_cont_title h5{
+
+.ar_single_item_cont_title h5 {
    color: #0f0f0f;
    font-size: 20px;
    font-weight: 600;
 }
+
 .ar_item_overly {
    background: url('../../../public/images/game-ui/itemHover.png') no-repeat scroll 0 0 / cover;
    width: 100%;
@@ -532,59 +580,66 @@ a {
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: center;
-       -ms-flex-pack: center;
-           justify-content: center;
+   -ms-flex-pack: center;
+   justify-content: center;
 }
 
-.ar_item_overly_cont h2{
+.ar_item_overly_cont h2 {
    color: #ffffff;
    font-size: 55px;
    font-weight: 600;
    text-align: center;
    margin-bottom: 0px;
 }
-.ar_item_overly_cont p{
+
+.ar_item_overly_cont p {
    color: #ffde7b;
    font-size: 18px;
    font-weight: 400;
    text-align: center;
 }
-.ar_item_overly_cont p b{
+
+.ar_item_overly_cont p b {
    color: #70ff59;
 }
-.ar_item_overly{
+
+.ar_item_overly {
    display: none;
 }
+
 .ar_singnle_iteam_area:hover .ar_item_overly,
-.ar_singnle_iteam_area .ar_item_overly.active{
-   
+.ar_singnle_iteam_area .ar_item_overly.active {
+
    display: block;
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: center;
-       -ms-flex-pack: center;
-           justify-content: center;
+   -ms-flex-pack: center;
+   justify-content: center;
 }
+
 /*======================  End Fortune area CSS ======================*/
 
 
 /*======================  Start Chat area CSS ======================*/
-.ar_message_messenger_box_wrapper{
-   background: url('../../../public/images/game-ui/messenger.png') no-repeat scroll 0 0 / 100% 100%; 
+.ar_message_messenger_box_wrapper {
+   background: url('../../../public/images/game-ui/messenger.png') no-repeat scroll 0 0 / 100% 100%;
    padding: 30px 20px 30px 40px;
- 
+
    display: inline-block;
 }
-.ar_messenger_scroll_box{
+
+.ar_messenger_scroll_box {
    position: relative;
 }
+
 .ar_message_scroll_cont h3 {
    color: #000000;
    font-size: 18px;
@@ -593,6 +648,7 @@ a {
    top: 9px;
    right: 95px;
 }
+
 .ar_message_scroll_cont p {
    color: #ffffff;
    font-size: 16px;
@@ -602,29 +658,34 @@ a {
    right: 95px;
    text-shadow: 1px 2px #000;
 }
+
 .ar_messenger_scroll_box,
-.ar_messenger_scroll_boxNotification{
+.ar_messenger_scroll_boxNotification {
    margin-bottom: 20px;
 }
+
 .ar_messenger_scroll_box img,
-.ar_messenger_scroll_boxNotification img{
+.ar_messenger_scroll_boxNotification img {
    width: 100%;
 }
-.ar_single_chatList img{
+
+.ar_single_chatList img {
    width: 100%;
 }
-.ar_message_notification_cont{
+
+.ar_message_notification_cont {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    position: relative;
 }
+
 .ar_message_notification_cont p {
    color: #fefefe;
    font-size: 16px;
@@ -633,30 +694,36 @@ a {
    top: -43px;
    left: 38px;
 }
-.ar_message_notification_cont p span{
-   color: #f4bc26;  
+
+.ar_message_notification_cont p span {
+   color: #f4bc26;
 }
-.ar_message_notification_cont p a.tagWhite{
+
+.ar_message_notification_cont p a.tagWhite {
    font-size: 17px;
    color: #fff;
    text-decoration: underline;
    font-weight: 700;
 }
-.ar_message_tag a{
+
+.ar_message_tag a {
    color: #f45226;
    font-weight: 600;
    font-size: 16px;
    margin-left: 15px;
 }
-.ar_message_tag a:last-child{
+
+.ar_message_tag a:last-child {
    color: #60f426;
 }
-.ar_message_tag{
+
+.ar_message_tag {
    position: absolute;
    top: -43px;
    right: 38px;
 }
-.ar_message_messenger_box{
+
+.ar_message_messenger_box {
    height: 400px;
    overflow-y: scroll;
    scrollbar-width: thin;
@@ -664,11 +731,13 @@ a {
    padding-right: 30px;
    padding-bottom: 100px;
 }
-.ar_message_messenger_box_wrapper{
+
+.ar_message_messenger_box_wrapper {
    padding-bottom: 100px;
    position: relative;
 }
-.ar_message_messenger_box_wrapper > p {
+
+.ar_message_messenger_box_wrapper>p {
    color: #fdfeff;
    font-size: 18px;
    font-weight: 600;
@@ -677,33 +746,38 @@ a {
    right: 65px;
 }
 
-.ar_message_chatList{
-   background: url('../../../public/images/game-ui/chatWrap.png') no-repeat scroll 0 0 / 100% 100%; 
+.ar_message_chatList {
+   background: url('../../../public/images/game-ui/chatWrap.png') no-repeat scroll 0 0 / 100% 100%;
    padding: 30px 30px 30px 30px;
 }
-.ar_chatList_title_name{
+
+.ar_chatList_title_name {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    padding: 0px 30px;
 }
-.ar_chatList_title_name h4{
+
+.ar_chatList_title_name h4 {
    color: #0d0d0d;
    font-size: 20px;
    font-weight: 600;
 }
-.ar_chatList_title_name h4 span{
+
+.ar_chatList_title_name h4 span {
    color: #58be14;
 }
-.ar_chatList_title_name h4.h4First{
+
+.ar_chatList_title_name h4.h4First {
    position: relative;
 }
+
 .ar_chatList_title_name h4.h4First:after {
    content: "";
    position: absolute;
@@ -713,23 +787,26 @@ a {
    width: 1px;
    height: 30px;
 }
-.ar_chatlist_btn_area{
+
+.ar_chatlist_btn_area {
    margin-top: 30px;
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: center;
-       -ms-flex-pack: center;
-           justify-content: center;
+   -ms-flex-pack: center;
+   justify-content: center;
 }
-.ar_chatlist_btn{
+
+.ar_chatlist_btn {
    position: relative;
    display: inline;
 }
-.ar_chatlist_btn p{
+
+.ar_chatlist_btn p {
    color: #ffffff;
    font-size: 16px;
    font-weight: 400;
@@ -739,52 +816,61 @@ a {
    text-shadow: 1px 2px #000;
    cursor: pointer;
 }
-.ar_chatlist_btn:first-child p{
+
+.ar_chatlist_btn:first-child p {
    color: #0d0d0d;
    text-shadow: none;
    right: 95px;
 }
-.ar_chat_friendList_wrapper{
+
+.ar_chat_friendList_wrapper {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-orient: vertical;
    -webkit-box-direction: normal;
-       -ms-flex-direction: column;
-           flex-direction: column;
+   -ms-flex-direction: column;
+   flex-direction: column;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: center;
-       -ms-flex-pack: center;
-           justify-content: center;
+   -ms-flex-pack: center;
+   justify-content: center;
    margin-top: 20px;
 }
-.ar_single_chatList{
+
+.ar_single_chatList {
    margin-bottom: 20px;
    position: relative;
 }
-.ar_singleChatList_name p{
+
+.ar_singleChatList_name p {
    color: #fffbfb;
    font-size: 16px;
    font-weight: 400;
 }
-.ar_singleChatList_name p span{
+
+.ar_singleChatList_name p span {
    color: #70ff59;
 }
-.ar_singleChatList_name p.arHours{
+
+.ar_singleChatList_name p.arHours {
    color: #9b9b9b;
 }
+
 .ar_singleChatList_name p:first-child {
    position: absolute;
    top: 10px;
    left: 55px;
 }
+
 .ar_singleChatList_name p:last-child {
    position: absolute;
    top: 10px;
    right: 30px;
 }
+
 .ar_chat_friendList_wrapper {
    height: 345px;
    overflow-y: scroll;
@@ -793,43 +879,48 @@ a {
    /* padding-right: 30px; */
    /* padding-bottom: 100px; */
 }
-.chatingMeassFLex{
+
+.chatingMeassFLex {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    -webkit-column-gap: 30px;
-      -moz-column-gap: 30px;
-           column-gap: 30px;
-}
-.ar_message_messenger_box_wrapper{
-   -webkit-box-flex: 0;
-       -ms-flex: 0 0 60%;
-           flex: 0 0 60%;
-}
-.ar_message_chatList{
-   -webkit-box-flex: 0;
-       -ms-flex: 0 0 35%;
-           flex: 0 0 35%;
+   -moz-column-gap: 30px;
+   column-gap: 30px;
 }
 
-.ar_chat_friendList_wrapper{
+.ar_message_messenger_box_wrapper {
+   -webkit-box-flex: 0;
+   -ms-flex: 0 0 60%;
+   flex: 0 0 60%;
+}
+
+.ar_message_chatList {
+   -webkit-box-flex: 0;
+   -ms-flex: 0 0 35%;
+   flex: 0 0 35%;
+}
+
+.ar_chat_friendList_wrapper {
    display: none;
 }
-.ar_chat_tab{
+
+.ar_chat_tab {
    position: relative;
 }
 
-.oneone{
+.oneone {
    position: absolute;
    top: 0;
    left: 0;
    right: 0;
    display: block;
 }
-.twotwo{
+
+.twotwo {
    position: absolute;
    top: 0;
    left: 0;
@@ -848,76 +939,88 @@ a {
 
 /*======================  Start Footer area CSS ======================*/
 
-.ar_footer_area_section{
+.ar_footer_area_section {
    padding: 80px 0px;
-   background: url('../../../public/images/game-ui/footer.png') no-repeat scroll 0 0 / 100% 100%; 
+   background: url('../../../public/images/game-ui/footer.png') no-repeat scroll 0 0 / 100% 100%;
    position: relative;
    z-index: 9999;
    margin-top: 50px;
 }
-.ar_ooter_logo a img{
+
+.ar_ooter_logo a img {
    width: 200px;
 }
-.ar_footer_area_logo{
+
+.ar_footer_area_logo {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: start;
-       -ms-flex-align: start;
-           align-items: flex-start;
+   -ms-flex-align: start;
+   align-items: flex-start;
 }
-.ar_ooter_logo{
+
+.ar_ooter_logo {
    margin-right: 50px;
 }
-.ar_footer_social_icon{
+
+.ar_footer_social_icon {
    padding-top: 10px;
 }
-.ar_footer_social_icon h2{
+
+.ar_footer_social_icon h2 {
    color: #fff;
    font-size: 26px;
    font-weight: 600;
 }
-.ar_footer_icon{
+
+.ar_footer_icon {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    margin-top: 20px;
 }
-.ar_footer_icon a{
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #FDC939;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-decoration: none;
-  margin-right: 20px;
+
+.ar_footer_icon a {
+   width: 60px;
+   height: 60px;
+   border-radius: 50%;
+   background-color: #FDC939;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+   -webkit-box-pack: center;
+   -ms-flex-pack: center;
+   justify-content: center;
+   text-decoration: none;
+   margin-right: 20px;
 }
-.ar_footer_icon a i{
+
+.ar_footer_icon a i {
    color: #000;
    font-size: 26px;
 }
-.ar_footer_area_cont h2{
+
+.ar_footer_area_cont h2 {
    color: #fff;
    font-size: 26px;
    font-weight: 600;
 }
+
 .ar_footer_area_cont p {
    color: #37426F;
    font-size: 18px;
    font-weight: 500;
    margin-top: 20px;
 }
-.ar_footer_area_cont{
+
+.ar_footer_area_cont {
    position: relative;
 }
+
 .ar_footer_area_cont:after {
    content: "";
    position: absolute;
@@ -927,6 +1030,7 @@ a {
    top: 10px;
    left: -90px;
 }
+
 /*======================  End Footer area CSS ======================*/
 
 
@@ -934,194 +1038,227 @@ a {
 
 
 /*====================== Start Select area CSS ======================*/
-.ar_heading_area_nav{
+.ar_heading_area_nav {
    padding-top: 50px;
 }
 
-.ar_selectImg img{
+.ar_selectImg img {
    width: 150px;
 }
 
-.ar_selectImg:first-child img{
+.ar_selectImg:first-child img {
    width: 65px;
 }
-.ar_select_area{
+
+.ar_select_area {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    -ms-flex-wrap: wrap;
-       flex-wrap: wrap;
+   flex-wrap: wrap;
    -webkit-column-gap: 20px;
-      -moz-column-gap: 20px;
-           column-gap: 20px;
+   -moz-column-gap: 20px;
+   column-gap: 20px;
    margin-top: 50px;
 }
-.ar_single_select_item{
+
+.ar_single_select_item {
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 15%;
-           flex: 0 0 15%;
+   -ms-flex: 0 0 15%;
+   flex: 0 0 15%;
    margin-bottom: 30px;
    position: relative;
 }
-.ar_single_select_item img{
+
+.ar_single_select_item img {
    width: 100%;
 }
+
 .ar_select_img_cont {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    position: absolute;
    bottom: 14px;
    padding: 0px 20px;
    width: 90%;
 }
-.ar_select_img_cont p{
+
+.ar_select_img_cont p {
    color: #ffffff;
    font-size: 12px;
    font-weight: 400;
 }
-.ar_select_img_cont p span{
+
+.ar_select_img_cont p span {
    color: #58ff31;
 }
+
 /*======================  End Select area CSS ======================*/
 
 
 
 /*======================  Start Hospital area CSS ======================*/
-.ar_hospital_area_section{
+.ar_hospital_area_section {
    margin-bottom: 50px;
 }
-.ar_hospital_area{
+
+.ar_hospital_area {
    position: relative;
 }
-.ar_hospital_area img{
+
+.ar_hospital_area img {
    width: 100%;
 }
-.ar_hospital_recovery img{
+
+.ar_hospital_recovery img {
    width: 130px;
 }
+
 .ar_hospital_recovery {
    position: absolute;
    top: 93px;
    left: 35%;
 }
+
 .ar_hotpita_btnCoin {
    position: absolute;
    top: 30%;
    right: 23%;
 }
+
 .ar_hotpita_btnCoin a img {
    width: 170px;
    display: block;
 }
+
 .ar_hotpita_btnCoin a img:last-child {
    margin-top: -50px;
 }
-.ar_hospital_item_single{
+
+.ar_hospital_item_single {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
+   
 }
+
 .ar_hospital_item_single {
    position: absolute;
    bottom: 85px;
    left: 100px;
 }
+
 .ar_hospital_item_single img {
    width: 130px;
    margin-right: 15px;
 }
+
 /*======================  End Hospital area CSS ======================*/
 
 
 
 /*======================  Start Race Invite area CSS ======================*/
 
-.ar_raceInvite_area{
+.ar_raceInvite_area {
    position: relative;
 }
-.ar_raceinvite_mainBody_in{
+
+.ar_raceinvite_mainBody_in {
    position: absolute;
    top: 0;
    left: 0;
    right: 0;
 }
-.ar_raceInvite_area img{
+
+.ar_raceInvite_area img {
    width: 100%;
 }
-.ar_raceInvite_banner_area img{
+
+.ar_raceInvite_banner_area img {
    width: 95%;
 }
-.ar_raceInvite_banner_cont{
+
+.ar_raceInvite_banner_cont {
    color: #f2f4f8;
    font-size: 16px;
    font-weight: 400;
 }
+
 .ar_raceInvite_banner_area {
    position: relative;
    text-align: center;
 }
+
 .ar_raceInvite_banner_cont {
    position: absolute;
    top: 105px;
    left: 170px;
 }
-.ar_raceInvite_banner_cont h5{
+
+.ar_raceInvite_banner_cont h5 {
    color: #f2f4f8;
    font-size: 18px;
    font-weight: 500;
 }
-.ar_raceInvite_banner_cont h5 span{
+
+.ar_raceInvite_banner_cont h5 span {
    color: #ffb11b;
 }
-.ar_raceInvite_btn_area img.bgArea{
+
+.ar_raceInvite_btn_area img.bgArea {
    width: 95%;
-  
+
 }
-.ar_raceInvite_btn_area{
+
+.ar_raceInvite_btn_area {
    text-align: center;
    margin-top: 20px;
    position: relative;
 }
-.ar_raceinvoice_single_item a img{
+
+.ar_raceinvoice_single_item a img {
    width: 100%;
 }
-.ar_raceInvoice_btn_single{
+
+.ar_raceInvoice_btn_single {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    width: 90%;
    margin: auto;
 }
-.ar_raceinvoice_radio{
+
+.ar_raceinvoice_radio {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
 }
+
 .ar_raceInvoice_btn_single {
    position: absolute;
    top: 18px;
@@ -1129,9 +1266,11 @@ a {
    right: 0;
    text-align: center;
 }
-.ar_raceinvoice_single_item{
+
+.ar_raceinvoice_single_item {
    position: relative;
 }
+
 .ar_raceinvoice_single_item p {
    color: #fefdfd;
    font-size: 16px;
@@ -1140,44 +1279,54 @@ a {
    top: 23px;
    left: 35px;
 }
-.ar_raceinvoice_single_item.last p{
+
+.ar_raceinvoice_single_item.last p {
    left: 0;
    right: 0;
    text-align: center;
    cursor: pointer;
 }
+
 .ar_raceinvoice_radio .form-check-input:checked[type="radio"] {
    background-image: url('../../../public/images/raceInvite/selected-icon.png');
 }
+
 .ar_raceinvoice_radio .form-check-input[type="radio"] {
    background-image: url('../../../public/images/raceInvite/no-selected-icon.png');
 }
+
 .ar_raceinvoice_radio .form-check-input:checked {
    background-color: transparent;
    border-color: transparent;
 }
+
 .ar_raceinvoice_radio .form-check-input:focus {
    border-color: transparent;
    outline: 0;
    box-shadow: none;
 }
-.ar_raceinvoice_radio .form-check label{
+
+.ar_raceinvoice_radio .form-check label {
    color: #0a2762;
    font-size: 16px;
    font-weight: 400;
 }
-.ar_raceinvoice_radio .form-check{
+
+.ar_raceinvoice_radio .form-check {
    margin-right: 15px;
    margin-top: 5px;
 }
-.ar_raceinvoice_single_item h3{
+
+.ar_raceinvoice_single_item h3 {
    color: #000000;
    font-size: 18px;
    font-weight: 700;
 }
-.ar_raceinvoice_single_item.last{
+
+.ar_raceinvoice_single_item.last {
    position: relative;
 }
+
 .ar_raceinvoice_single_item.last:after {
    content: "";
    position: absolute;
@@ -1189,37 +1338,43 @@ a {
 }
 
 /* steal css */
-.ar_stealCont{
-   text-align:left;
+.ar_stealCont {
+   text-align: left;
 }
-.ar_stealCont p{
+
+.ar_stealCont p {
    max-width: 450px;
    width: 100%;
    padding-bottom: 10px;
 }
-.ar_steal_btn_single_item{
+
+.ar_steal_btn_single_item {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
 }
-.ar_steal_btn_single_item > img{
+
+.ar_steal_btn_single_item>img {
    width: 100%;
 }
-.ar_steal_btn_single_item p{
+
+.ar_steal_btn_single_item p {
    color: #000000;
    font-size: 18px;
    font-weight: 500;
    cursor: pointer;
 }
-.ar_steal_btn_single_item.after{
+
+.ar_steal_btn_single_item.after {
    position: relative;
 }
+
 .ar_steal_btn_single_item.after:after {
    content: "";
    position: absolute;
@@ -1229,16 +1384,19 @@ a {
    top: -10px;
    right: -65px;
 }
-.ar_steal_btn_single_item h5{
+
+.ar_steal_btn_single_item h5 {
    color: #000000;
    font-size: 18px;
    font-weight: 500;
    margin-right: 15px;
    width: 150px;
 }
-.ar_steal_btn_single_item.last{
+
+.ar_steal_btn_single_item.last {
    position: relative;
 }
+
 .ar_steal_btn_single_item.last p {
    color: #fefdfd;
    font-size: 16px;
@@ -1248,12 +1406,14 @@ a {
    right: 0;
    left: 0;
 }
+
 .ar_stealCont {
    position: absolute;
    top: 90px;
    left: 170px;
 }
-.arStealSingle input{
+
+.arStealSingle input {
    width: 300px;
    background: #0C1945;
    outline: none;
@@ -1269,99 +1429,117 @@ a {
 
 
 /*======================  Start Town area CSS ======================*/
-.ar_town_area{
-   background:url('../../../public/images/town/bg-content.png') no-repeat scroll 0 0 / 100% 100%;
+.ar_town_area {
+   background: url('../../../public/images/town/bg-content.png') no-repeat scroll 0 0 / 100% 100%;
    padding: 30px;
 }
-.ar_town_carousel_wrapper{
+
+.ar_town_carousel_wrapper {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
 }
-.ar_singe_town_itwm img{
+
+.ar_singe_town_itwm img {
    width: 100%;
 }
-.ar_town_carousel_wrapper.owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
+
+.ar_town_carousel_wrapper.owl-carousel .owl-dots.disabled,
+.owl-carousel .owl-nav.disabled {
    display: block;
 }
+
 .ar_town_carousel_wrapper.owl-theme .owl-nav [class*="owl-"]:hover {
    background: transparent;
    color: #FFF;
    text-decoration: none;
 }
+
 .ar_town_carousel_wrapper button:focus {
    outline: none;
 }
-.ar_town_carousel_wrapper button img{
+
+.ar_town_carousel_wrapper button img {
    width: 40px;
 }
+
 .ar_town_carousel_wrapper .owl-next {
    position: absolute;
    right: -60px;
    top: 37%;
 }
+
 .ar_town_carousel_wrapper .owl-prev {
    position: absolute;
    left: -60px;
    top: 37%;
 }
+
 /*======================  End Town area CSS ======================*/
 
 
 
 /*======================  Start Create area CSS ======================*/
-.ar_create_carousel_wrapper{
+.ar_create_carousel_wrapper {
    margin: 50px 0px;
 }
-.ar_create_carousel_wrapper{
+
+.ar_create_carousel_wrapper {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
 }
-.ar_create_carosel_single{
+
+.ar_create_carosel_single {
    width: 100%;
 }
-.ar_create_btn_area{
+
+.ar_create_btn_area {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: center;
-       -ms-flex-pack: center;
-           justify-content: center;
+   -ms-flex-pack: center;
+   justify-content: center;
 }
-.ar_creat_btn_cont p{
+
+.ar_creat_btn_cont p {
    font-size: 18px;
    font-weight: 600;
    color: #000000;
    cursor: pointer;
 }
-.ar_create_single_btn{
+
+.ar_create_single_btn {
    position: relative;
 }
+
 .ar_creat_btn_cont {
    position: absolute;
    top: 18px;
    left: 40px;
 }
-.ar_creat_btn_cont{
+
+.ar_creat_btn_cont {
    width: 100%;
 }
-.ar_creat_btn_cont select{
+
+.ar_creat_btn_cont select {
    background-color: transparent;
    border: none;
    width: 70%;
@@ -1376,17 +1554,21 @@ a {
    color: #FFF;
    text-decoration: none;
 }
+
 .ar_create_carousel_wrapper button:focus {
    outline: none;
 }
-.ar_create_carousel_wrapper button img{
+
+.ar_create_carousel_wrapper button img {
    width: 40px;
 }
+
 .ar_create_carousel_wrapper .owl-next {
    position: absolute;
    top: 130px;
    left: 58%;
 }
+
 .ar_create_carousel_wrapper .owl-prev {
    position: absolute;
    top: 130px;
@@ -1399,141 +1581,163 @@ a {
 
 
 /*======================  Start Pokedex CSS ======================*/
-.ar_pokedex_area{
+.ar_pokedex_area {
    background: url('../../../public/images/pokedex/bg-content.png') no-repeat scroll 0 0 / 100% 100%;
 
 }
-.ar_pokedex_area_left{
+
+.ar_pokedex_area_left {
    padding: 30px 20px 50px 50px;
 }
-.ar_pokedex_area_left h4:first-child{
+
+.ar_pokedex_area_left h4:first-child {
    color: #555b60;
    padding-bottom: 5px;
 }
-.ar_pokedex_area_left h4{
+
+.ar_pokedex_area_left h4 {
    color: #ba0000;
    font-size: 22px;
    font-weight: 600;
 }
-.ar_pokedexLeft_parcent{
+
+.ar_pokedexLeft_parcent {
    margin: 30px 0px;
 }
-.ar_pokedexLeft_parcent img{
+
+.ar_pokedexLeft_parcent img {
    width: 100px;
 }
-.ar_pokedex_prcent_btn{
+
+.ar_pokedex_prcent_btn {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-orient: vertical;
    -webkit-box-direction: normal;
-       -ms-flex-direction: column;
-           flex-direction: column;
+   -ms-flex-direction: column;
+   flex-direction: column;
 }
-.ar_pokedex_prcent_btn a img{
+
+.ar_pokedex_prcent_btn a img {
    width: 120px;
    margin-bottom: 15px;
 }
-.ar_pokedex_area{
+
+.ar_pokedex_area {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
 }
-.ar_pokedex_area_left{
+
+.ar_pokedex_area_left {
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 18%;
-           flex: 0 0 18%;
+   -ms-flex: 0 0 18%;
+   flex: 0 0 18%;
    border-right: 1px solid #939393;
 }
-.ar_pokedex_area_right{
+
+.ar_pokedex_area_right {
    padding: 30px 20px 50px 50px;
 }
-.ar_pokedex_item_wrapper_area a img{
+
+.ar_pokedex_item_wrapper_area a img {
    width: 25px;
    margin-right: 15px;
 }
-.ar_pokedex_item_wrapper_area a{
+
+.ar_pokedex_item_wrapper_area a {
    color: #0a0a0a;
    font-size: 22px;
    font-weight: 700;
 }
-.arPokedex_wrapper_itam{
+
+.arPokedex_wrapper_itam {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -ms-flex-wrap: wrap;
-       flex-wrap: wrap;
+   flex-wrap: wrap;
    margin-top: 20px;
 }
+
 .arPokedex_wrapper_itam a img {
    width: 139px;
    margin-right: 14px;
    margin-bottom: 15px;
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 15%;
-           flex: 0 0 15%;
+   -ms-flex: 0 0 15%;
+   flex: 0 0 15%;
 }
-.arPinkicon{
+
+.arPinkicon {
    margin-top: 30px;
 }
-.arPokedex_areaScrool{
+
+.arPokedex_areaScrool {
    overflow-y: scroll;
    height: 520px;
    scrollbar-width: thin;
    margin-right: 35px;
    padding-right: 30px;
 }
+
 /*======================  End Pokedex CSS ======================*/
 
 
 
 
 /*====================== Start Pokebag CSS ======================*/
-.ar_pokebag_left_area{
+.ar_pokebag_left_area {
    background: url('../../../public/images/pokedex/bg-content.png') no-repeat scroll 0 0 / 100% 100%;
    padding: 40px;
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    -ms-flex-wrap: wrap;
-       flex-wrap: wrap;
+   flex-wrap: wrap;
 }
-.ar_pokebag_left_area img{
+
+.ar_pokebag_left_area img {
    width: 140px;
    margin-bottom: 20px;
 }
 
-.ar_pokebag_rightWrapper{
+.ar_pokebag_rightWrapper {
    background: url('../../../public/images/pokebag/bgContentRight.png') no-repeat scroll 0 0 / 100% 100%;
    padding: 30px 40px;
    padding-right: 10px;
-   
+
 }
-.ar_pokebag_right_area img{
+
+.ar_pokebag_right_area img {
    width: 140px;
    margin-bottom: 20px;
    margin-right: 20px;
 }
-.arPokebag_twoColum{
+
+.arPokebag_twoColum {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
 }
-.ar_pokebag_left_area{
+
+.ar_pokebag_left_area {
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 30%;
-           flex: 0 0 30%;
+   -ms-flex: 0 0 30%;
+   flex: 0 0 30%;
    margin-right: 30px;
 }
+
 .ar_pokebag_right_area {
    overflow-y: scroll;
    height: 545px;
@@ -1543,32 +1747,36 @@ a {
    display: -ms-flexbox;
    display: flex;
    -ms-flex-wrap: wrap;
-       flex-wrap: wrap;
+   flex-wrap: wrap;
 }
+
 /*======================  End Pokebag CSS ======================*/
 
 
 
 
 /*====================== Start PVP CSS ======================*/
-.ar_pvp_area{
+.ar_pvp_area {
    background: url('../../../public/images/pvp/pvpbgc.png') no-repeat scroll 0 0 / 100% 100%;
-   padding:100px 50px;
+   padding: 100px 50px;
 }
-.ar_pvp_title h3{
+
+.ar_pvp_title h3 {
    color: #fefefe;
    font-size: 35px;
    font-weight: 600;
    font-style: italic;
 }
-.arPVP_area_wrapper_area{
+
+.arPVP_area_wrapper_area {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
 }
+
 .ar_pvp_character_area {
    display: -webkit-box;
    display: -ms-flexbox;
@@ -1577,35 +1785,42 @@ a {
    max-width: 290px;
    width: 100%;
    -ms-flex-wrap: wrap;
-       flex-wrap: wrap;
+   flex-wrap: wrap;
 }
-.ar_pvp_character_area img{
+
+.ar_pvp_character_area img {
    width: 80px;
    margin-right: 15px;
    margin-bottom: 15px;
 }
-.ar_pvp_title.right h3{
+
+.ar_pvp_title.right h3 {
    text-align: right;
 }
+
 /*====================== End PVP CSS ======================*/
 
 
 
 /*====================== Start Battle CSS ======================*/
-.your-pokemon{
+.your-pokemon {
    position: absolute;
    bottom: 140px;
    left: 15%;
 }
-.your-pokemon img,.opp-pokemon img {
+
+.your-pokemon img,
+.opp-pokemon img {
    height: 100px;
 }
-.opp-pokemon{
+
+.opp-pokemon {
    position: absolute;
    bottom: 229px;
    right: 19%;
 }
-.ar_batte_area{
+
+.ar_batte_area {
    position: relative;
    background: url('../../../public/images/battle/battle.png') no-repeat scroll 0 0 / 100% 100%;
    padding: 10px 20px;
@@ -1614,124 +1829,148 @@ a {
    flex-direction: column;
    justify-content: space-between;
 }
-.ar_battle_area_top{
+
+.ar_battle_area_top {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    -webkit-box-align: start;
-       -ms-flex-align: start;
-           align-items: flex-start;
+   -ms-flex-align: start;
+   align-items: flex-start;
 }
-.arBattle_left_cont p{
+
+.arBattle_left_cont p {
    color: #eaebec;
    font-size: 14px;
    font-weight: 500;
 }
-.ar_battle_left_text img{
+
+.ar_battle_left_text img {
    width: 350px;
 }
-.ar_battle_left_text{
+
+.ar_battle_left_text {
    position: relative;
 }
+
 .arBattle_left_cont {
    position: absolute;
    left: 70px;
    top: 7px;
 }
-.ar_battle_left_hp_area{
+
+.ar_battle_left_hp_area {
    margin-top: 30px;
    margin-left: 100px;
 }
-.ar_battle_left_hp_area{
+
+.ar_battle_left_hp_area {
    margin-top: 30px !important;
 }
-.ar_battleTop_right.right .ar_battle_left_hp_area{
+
+.ar_battleTop_right.right .ar_battle_left_hp_area {
    margin-top: 10px;
    width: 200px;
 
 }
-.ar_battle_left_hp_area img{
+
+.ar_battle_left_hp_area img {
    display: block;
    width: 100%;
    margin-bottom: 10px;
 }
-.ar_battle_left_hp_text{
+
+.ar_battle_left_hp_text {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    margin-bottom: 15px;
 }
-.ar_battle_left_hp_text p{
+
+.ar_battle_left_hp_text p {
    color: #eaebec;
    font-size: 14px;
    font-weight: 500;
 }
-.ar_battle_left_hp_text p span{
+
+.ar_battle_left_hp_text p span {
    color: #58ff31;
 }
-.ar_battleTop_middle p{
+
+.ar_battleTop_middle p {
    color: #f9f9f9;
    font-weight: 500;
    font-size: 16px;
    padding-right: 10px;
 }
-.ar_battleTop_middle p span{
+
+.ar_battleTop_middle p span {
    color: #ffc323;
    font-size: 35px;
    font-weight: 700;
 }
-.ar_battleTop_middle{
+
+.ar_battleTop_middle {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-pack: center;
-       -ms-flex-pack: center;
-           justify-content: center;
+   -ms-flex-pack: center;
+   justify-content: center;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
 }
-.ar_battle_bottom_run a img{
+
+.ar_battle_bottom_run a img {
    width: 50px;
 }
-.ar_battle_area_bottom{
+
+.ar_battle_area_bottom {
    text-align: right;
 }
-.ar_battle_bottom_btnAct{
+
+.ar_battle_bottom_btnAct {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-pack: end;
-       -ms-flex-pack: end;
-           justify-content: flex-end;
+   -ms-flex-pack: end;
+   justify-content: flex-end;
    margin-top: 20px;
 }
-.ar_battle_btom_single{
+
+.ar_battle_btom_single {
    margin-left: 5px;
 }
-.ar_battle_btom_single a img{
+
+.ar_battle_btom_single a img {
    width: 100%;
 }
-.ar_battle_btom_single p{
+
+.ar_battle_btom_single p {
    font-size: 18px;
    font-weight: 600;
 }
-.ar_battle_btom_single.red p{
+
+.ar_battle_btom_single.red p {
    color: #eaebec;
 }
-.ar_battle_btom_single{
+
+.ar_battle_btom_single {
    position: relative;
 }
-.ar_battle_btom_single p{
+
+.ar_battle_btom_single p {
    position: absolute;
    left: 0;
    right: 0;
@@ -1739,26 +1978,31 @@ a {
    text-align: center;
    cursor: pointer;
 }
-.ar_battle_bottom_bottm{
+
+.ar_battle_bottom_bottm {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-pack: end;
-       -ms-flex-pack: end;
-           justify-content: flex-end;
+   -ms-flex-pack: end;
+   justify-content: flex-end;
    margin-top: 20px;
    margin-right: 20px;
 }
-.ar_battle_single_bottom a img{
+
+.ar_battle_single_bottom a img {
    width: 100%;
 }
-.ar_battle_single_bottom{
+
+.ar_battle_single_bottom {
    position: relative;
 }
-.ar_myProfile_area_section{
-   padding-bottom:50px;
+
+.ar_myProfile_area_section {
+   padding-bottom: 50px;
 }
-.ar_battle_single_bottom p{
+
+.ar_battle_single_bottom p {
    color: #000000;
    font-size: 20px;
    font-weight: 700;
@@ -1770,48 +2014,55 @@ a {
    text-align: center;
    cursor: pointer;
 }
+
 /*====================== End Battle CSS ======================*/
 
 
 
 
 /*====================== Start Poke Profile CSS ======================*/
-.ar_pokeprofile_area{
+.ar_pokeprofile_area {
    background: url('../../../public/images/pokeProfile/pokeProfileBG.png') no-repeat scroll 0 0 / 100% 100%;
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    height: 650px;
 }
-.ar_pokeProfile_left_area{
-   padding: 20px 50px ;
+
+.ar_pokeProfile_left_area {
+   padding: 20px 50px;
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 50%;
-           flex: 0 0 50%;
+   -ms-flex: 0 0 50%;
+   flex: 0 0 50%;
 }
-.ar_pokeProfile_carousel .navigation-image{
+
+.ar_pokeProfile_carousel .navigation-image {
    height: 40px !important;
    width: auto;
 }
-.arPokeprofile_left_top{
+
+.arPokeprofile_left_top {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    padding-top: 10px;
 }
-.arPokeprofile_right_top_btn img{
+
+.arPokeprofile_right_top_btn img {
    width: 100%;
 }
-.arPokeprofile_right_top_btn{
+
+.arPokeprofile_right_top_btn {
    position: relative;
 }
-.arPokeprofile_right_top_btn p{
+
+.arPokeprofile_right_top_btn p {
    color: #e6e6e6;
    font-size: 14px;
    font-weight: 500;
@@ -1821,70 +2072,82 @@ a {
    right: 0;
    text-align: center;
 }
-.arPokeprofile_right_top_btn.single p{
+
+.arPokeprofile_right_top_btn.single p {
    top: 18px;
 }
-.arPokeprofile_right_top_btn span{
+
+.arPokeprofile_right_top_btn span {
    display: block;
    color: #ffc601;
    margin-top: -3px;
 }
-.arPokeprofile_arrow_area{
+
+.arPokeprofile_arrow_area {
    margin: 50px 0px;
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
 }
-.arPokeprofile_arrow_area img{
+
+.arPokeprofile_arrow_area img {
    width: 40px;
 }
-.arPokeProfile_skils_status{
+
+.arPokeProfile_skils_status {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: center;
-       -ms-flex-pack: center;
-           justify-content: center;
+   -ms-flex-pack: center;
+   justify-content: center;
    /* padding-top: 120px; */
    padding-bottom: 13px;
 }
-.arPokeProfile_skils_status img{
+
+.arPokeProfile_skils_status img {
    width: 120px;
 }
-.arPokeProfile_hpArea{
+
+.arPokeProfile_hpArea {
    /* padding: 30px 0px; */
 }
-.arPokeProfile_hpArea{
+
+.arPokeProfile_hpArea {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-pack: center;
-       -ms-flex-pack: center;
-           justify-content: center;
+   -ms-flex-pack: center;
+   justify-content: center;
    padding: 10px 0px;
 }
-.ar_pokeprofile_level{
+
+.ar_pokeprofile_level {
    margin-right: 30px;
    position: relative;
 }
-.ar_pokeprofile_level img{
+
+.ar_pokeprofile_level img {
    width: 100%;
 }
-.ar_pokeprofile_level_HP img{
+
+.ar_pokeprofile_level_HP img {
    width: 230px;
 }
-.ar_pokeprofile_level p{
+
+.ar_pokeprofile_level p {
    font-size: 18px;
-   color: #e6e6e6 ;
+   color: #e6e6e6;
    font-weight: 500;
    position: absolute;
    top: 10px;
@@ -1892,79 +2155,93 @@ a {
    right: 0;
    text-align: center;
 }
-.ar_pokeprofile_level p span{
+
+.ar_pokeprofile_level p span {
    color: #58ff31;
 }
 
-.ar_pokeProfile_right_area{
+.ar_pokeProfile_right_area {
    padding: 30px 0px;
 }
-.ar_pokeProfile_right_top a{
+
+.ar_pokeProfile_right_top a {
    color: #212121;
    font-size: 22px;
    font-weight: 600;
 }
-.ar_pokeProfile_right_top a img{
+
+.ar_pokeProfile_right_top a img {
    width: 25px;
    margin-right: 20px;
 }
-.ar_pokeprofile_table_area{
-   background:url('../../../public/images/pokeProfile/blackBG.png') no-repeat scroll 0 0 / 100% 100%;
+
+.ar_pokeprofile_table_area {
+   background: url('../../../public/images/pokeProfile/blackBG.png') no-repeat scroll 0 0 / 100% 100%;
    padding: 2px 30px;
    margin-top: 20px;
 }
-.ar_pokeProfile_right_area{
+
+.ar_pokeProfile_right_area {
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 50%;
-           flex: 0 0 50%;
+   -ms-flex: 0 0 50%;
+   flex: 0 0 50%;
    padding-right: 25px;
 }
-.ar_pokeProfile_single_wrapper{
+
+.ar_pokeProfile_single_wrapper {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
 
 }
-.ar_pokeProfile_single_wrapper a{
+
+.ar_pokeProfile_single_wrapper a {
    color: #dbdbdb;
    font-size: 16px;
    font-weight: 400;
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 50%;
-           flex: 0 0 50%;
+   -ms-flex: 0 0 50%;
+   flex: 0 0 50%;
    display: inline-block;
    padding: 15px 0px;
 }
-.ar_pokeProfile_single_wrapper p{
+
+.ar_pokeProfile_single_wrapper p {
    color: #dbdbdb;
    font-size: 16px;
    font-weight: 400;
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 50%;
-           flex: 0 0 50%;
+   -ms-flex: 0 0 50%;
+   flex: 0 0 50%;
    display: inline-block;
    padding: 15px 0px;
    margin: 0px;
 }
-.ar_pokeProfile_single_wrapper p span{
+
+.ar_pokeProfile_single_wrapper p span {
    font-weight: 700;
 }
-.ar_pokeProfile_single_wrapper p img{
+
+.ar_pokeProfile_single_wrapper p img {
    margin-right: 10px;
 }
-.ar_pokeProfile_single_wrapper a span{
+
+.ar_pokeProfile_single_wrapper a span {
    font-weight: 700;
 }
-.ar_pokeProfile_single_wrapper a img{
+
+.ar_pokeProfile_single_wrapper a img {
    margin-right: 10px;
 }
-.ar_pokeProfile_right_top.top{
+
+.ar_pokeProfile_right_top.top {
    margin-top: 30px;
 }
-.ar_pokeProfile_right_single_cont{
+
+.ar_pokeProfile_right_single_cont {
    max-height: 600px;
    overflow-y: auto;
    scrollbar-width: thin;
@@ -1972,19 +2249,23 @@ a {
    padding-right: 30px;
    padding-bottom: 100px;
 }
-.ar_pokeProfile_carousel a img{
+
+.ar_pokeProfile_carousel a img {
    width: 200px;
-   margin:20px auto;
+   margin: 20px auto;
 }
-.ar_pokeProfile_left_area{
+
+.ar_pokeProfile_left_area {
    position: relative;
 }
+
 .ar_pokeProfile_carousel {
    /* position: absolute;
    left: 0;
    right: 0; */
    text-align: center;
 }
+
 .ar_pokeProfile_carousel.owl-carousel .owl-item img {
    display: block;
    width: 150px;
@@ -1996,22 +2277,27 @@ a {
    color: #FFF;
    text-decoration: none;
 }
+
 .ar_pokeProfile_carousel button:focus {
    outline: none;
 }
-.ar_pokeProfile_carousel button img{
+
+.ar_pokeProfile_carousel button img {
    width: 40px;
 }
+
 .ar_pokeProfile_carousel .owl-next {
    position: absolute;
    right: 70px;
    top: 37%;
 }
+
 .ar_pokeProfile_carousel .owl-prev {
    position: absolute;
    left: 70px;
    top: 37%;
 }
+
 /*====================== End Poke Profile CSS ======================*/
 
 
@@ -2023,66 +2309,79 @@ a {
    background-size: 34%;
    background-position: 54% center;
 }
-.ar_mainTop_text p{
+
+.ar_mainTop_text p {
    color: #f6f6f6;
    font-size: 14px;
    font-weight: 700;
    text-shadow: 2px 2px #0d0d0d;
 }
-.ar_mainTop_text p span{
+
+.ar_mainTop_text p span {
    color: #fec222;
 }
-.ar_mainTop_text{
+
+.ar_mainTop_text {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    width: 200px;
 }
-.ar_mainTop_text p > img{
+
+.ar_mainTop_text p>img {
    width: 12px;
    margin-right: 5px;
 }
-.ar_mainPage_topHeader > img{
+
+.ar_mainPage_topHeader>img {
    width: 200px;
    margin-top: 10px;
 }
-.ar_mainPageLeft_parchent_top{
+
+.ar_mainPageLeft_parchent_top {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
 }
-.ar_mainPage_wrapper .second{
+
+.ar_mainPage_wrapper .second {
    margin-top: 50px;
 }
-.ar_mainPageLeft_parchent_top_img img{
+
+.ar_mainPageLeft_parchent_top_img img {
    width: 150px;
 }
-.ar_mainPageLeft_parchent_top_img{
+
+.ar_mainPageLeft_parchent_top_img {
    margin-right: 10px;
 }
-.ar_mainPageLeft_parchent_top_text h4{
+
+.ar_mainPageLeft_parchent_top_text h4 {
    color: #292929;
    font-size: 14px;
    font-weight: 700;
 }
-.ar_mainPageLeft_parchent_top_text span{
+
+.ar_mainPageLeft_parchent_top_text span {
    color: #d71e1e;
    font-size: 14px;
    font-weight: 700;
    margin-top: -5px;
 }
-.ar_mainPageLeft_parchent_top_img{
+
+.ar_mainPageLeft_parchent_top_img {
    position: relative;
 }
+
 .ar_mainPageLeft_parchent_top_text {
    position: absolute;
    top: 11px;
@@ -2090,24 +2389,29 @@ a {
    right: 0;
    text-align: center;
 }
-.ar_mainPage_textBtn_img{
+
+.ar_mainPage_textBtn_img {
    margin-top: 30px;
    position: relative;
    display: inline-block;
 }
-.ar_mainPage_textBtn_img img{
+
+.ar_mainPage_textBtn_img img {
    width: 250px;
 }
-.ar_mainPage_textBtn_img_cont p{
+
+.ar_mainPage_textBtn_img_cont p {
    color: #f6f6f6;
    font-size: 14px;
    font-weight: 700;
    text-shadow: 2px 2px #0d0d0d;
    text-align: left;
 }
-.ar_mainPage_textBtn_img_cont p span{
+
+.ar_mainPage_textBtn_img_cont p span {
    color: #ffc851;
 }
+
 .ar_mainPage_textBtn_img_cont {
    position: absolute;
    top: 9px;
@@ -2115,80 +2419,96 @@ a {
    right: 0;
    text-align: center;
 }
-.ar_mainPage_textBtn_img_text{
+
+.ar_mainPage_textBtn_img_text {
    position: relative;
    display: inline-block;
 }
-.ar_mainPage_textBtn_img_text p{
+
+.ar_mainPage_textBtn_img_text p {
    position: absolute;
    top: 8px;
    left: 0;
    right: 0;
    text-align: center;
 }
-.ar_mainPage_blok{
-   display:block;
+
+.ar_mainPage_blok {
+   display: block;
    margin-top: 15px;
 }
-.ar_mainPage_textBtn_img_text img{
+
+.ar_mainPage_textBtn_img_text img {
    width: 300px;
 }
-.ar_mainPage_textBtn_img_text p{
+
+.ar_mainPage_textBtn_img_text p {
    color: #fbfaf7;
    font-size: 14px;
    font-weight: 700;
    text-shadow: 2px 2px #0d0d0d;
 }
-.ar_mainPage_textBtn_img_text p a{
+
+.ar_mainPage_textBtn_img_text p a {
    text-decoration: underline;
    color: #fbfaf7;
 }
-.ar_mainPage_textBtn_img_text p span{
+
+.ar_mainPage_textBtn_img_text p span {
    color: #ffc851;
 }
-.ar_mainpage_area{
+
+.ar_mainpage_area {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
 }
+
 .ar_right_mainpage_social_icon_area a img {
    width: 55px;
    height: 55px;
 }
+
 .ar_mainpage_right_lavel {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-pack: end;
-       -ms-flex-pack: end;
-           justify-content: flex-end;
+   -ms-flex-pack: end;
+   justify-content: flex-end;
    margin-right: 20px;
 }
-.ar_mainpage_right_lavel p{
+
+.ar_mainpage_right_lavel p {
    color: #fbfaf7;
    font-size: 14px;
    font-weight: 700;
    text-shadow: 2px 2px #0d0d0d;
    margin: 0px 15px;
 }
-.ar_mainpage_right_lavel p img{
+
+.ar_mainpage_right_lavel p img {
    width: 15px;
    margin-right: 5px;
 }
-.ar_mianpage_right_lavel_btn_area{
+
+.ar_mianpage_right_lavel_btn_area {
    margin-top: 100px;
 }
-.ar_mainpage_right_lavel_btnBig a img{
+
+.ar_mainpage_right_lavel_btnBig a img {
    width: 170px;
    margin-top: 10px;
 }
-.ar_mainpage_right_lavel_btnBig{
+
+.ar_mainpage_right_lavel_btnBig {
    position: relative;
    text-align: right;
 }
+
 .ar_mainpage_right_lavel_btnBig p {
    color: #fbfaf7;
    font-size: 14px;
@@ -2201,25 +2521,28 @@ a {
    text-align: center;
    cursor: pointer;
 }
-.ar_mainPage_bottom_area h3{
+
+.ar_mainPage_bottom_area h3 {
    color: #fbfaf7;
    font-size: 18px;
    font-weight: 700;
    text-shadow: 2px 2px #0d0d0d;
 }
-.ar_mainPage_bottom_persion{
+
+.ar_mainPage_bottom_persion {
    margin-top: 20px;
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
 }
-.ar_mainPage_bottom_persion a img{
+
+.ar_mainPage_bottom_persion a img {
    width: 200px;
 }
 
@@ -2229,36 +2552,42 @@ a {
 
 
 /*====================== Start Shop CSS ======================*/
-.ar_shop_area_left{
+.ar_shop_area_left {
    background: url('../../../public/images/shop/shopbg.png') no-repeat scroll 0 0 / 100% 100%;
    padding: 30px 20px;
 }
-.ar_shop_area{
+
+.ar_shop_area {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    -webkit-column-gap: 20px;
-      -moz-column-gap: 20px;
-           column-gap: 20px;
+   -moz-column-gap: 20px;
+   column-gap: 20px;
 }
-.ar_shop_area_left{
+
+.ar_shop_area_left {
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 15%;
-           flex: 0 0 15%;
+   -ms-flex: 0 0 15%;
+   flex: 0 0 15%;
 }
-.ar_shop_nav_single a img{
+
+.ar_shop_nav_single a img {
    width: 190px;
 }
-.ar_shop_nav_single{
+
+.ar_shop_nav_single {
    margin-bottom: 10px;
 }
-.ar_shop_nav_single{
+
+.ar_shop_nav_single {
    position: relative;
    z-index: 9999;
 }
+
 .ar_shop_nav_single a p {
    width: 100%;
    transform: translate(-50%, -50%);
@@ -2273,7 +2602,8 @@ a {
    cursor: pointer;
    z-index: 1;
 }
-.button-group{
+
+.button-group {
    background: #101010;
    width: 96px;
    border-radius: 20px 20px 20px 20px;
@@ -2287,30 +2617,33 @@ a {
    left: 38px;
    font-size: 21px;
 }
-.button-group .qty{
+
+.button-group .qty {
    color: white !important;
    font-size: 14px;
 }
-.ar_shop_nav_single.topup a p{
+
+.ar_shop_nav_single.topup a p {
    color: #000000;
    text-shadow: 2px 2px transparent;
    display: inline;
 }
-.ar_shop_item_wrapper{
+
+.ar_shop_item_wrapper {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    -webkit-column-gap: 20px;
-      -moz-column-gap: 20px;
-           column-gap: 20px;
+   -moz-column-gap: 20px;
+   column-gap: 20px;
    -ms-flex-wrap: wrap;
-       flex-wrap: wrap;
+   flex-wrap: wrap;
 
    height: 455px;
    overflow-y: scroll;
@@ -2320,17 +2653,20 @@ a {
    padding-bottom: 100px;
 }
 
-.ar_shop_single_item{
+.ar_shop_single_item {
    position: relative;
    margin-bottom: 20px;
 }
-.ar_shop_single_item img{
+
+.ar_shop_single_item img {
    width: 170px;
 }
-.ar_shop_in_cont img{
+
+.ar_shop_in_cont img {
    width: 75px;
 }
-.ar_shop_in_cont img{
+
+.ar_shop_in_cont img {
    position: absolute;
    top: 25px;
    left: 0;
@@ -2338,6 +2674,7 @@ a {
    text-align: center;
    margin: auto;
 }
+
 .ar_shop_in_cont p {
    color: #0f0f0f;
    font-size: 12px;
@@ -2348,6 +2685,7 @@ a {
    text-align: center;
    position: absolute;
 }
+
 .ar_shop_bottom_cont span {
    color: #ffffff;
    font-weight: 700;
@@ -2359,6 +2697,7 @@ a {
    right: 0;
    text-align: center;
 }
+
 .ar_shop_bottom_cont p {
    color: #ffffff;
    font-weight: 700;
@@ -2369,13 +2708,14 @@ a {
    right: 0;
 }
 
-.packages .silver img{
+.packages .silver img {
    position: absolute;
    height: 23px;
    width: 23px;
    bottom: 17px;
-   left: 14px; 
+   left: 14px;
 }
+
 /*====================== End  Shop Page CSS ======================*/
 
 
@@ -2388,91 +2728,110 @@ a {
    padding: 15px 30px;
    padding-right: 50px;
 }
-.ar_single_item_table_work{
+
+.ar_single_item_table_work {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
-   
+   -ms-flex-pack: justify;
+   justify-content: space-between;
+
 }
-.ar_work_single_text.heading{
+
+.ar_work_single_text.heading {
    color: #3c3c3c;
    font-size: 18px;
    font-weight: 500;
 }
-.ar_work_single_text{
+
+.ar_work_single_text {
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 20%;
-           flex: 0 0 20%;
+   -ms-flex: 0 0 20%;
+   flex: 0 0 20%;
 }
-.ar_work_single_text.text{
+
+.ar_work_single_text.text {
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 35%;
-           flex: 0 0 35%;
+   -ms-flex: 0 0 35%;
+   flex: 0 0 35%;
 }
-.ar_work_single_text.gold{
+
+.ar_work_single_text.gold {
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 15%;
-           flex: 0 0 15%;
+   -ms-flex: 0 0 15%;
+   flex: 0 0 15%;
 }
-.ar_work_single_text.check{
+
+.ar_work_single_text.check {
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 10%;
-           flex: 0 0 10%;
+   -ms-flex: 0 0 10%;
+   flex: 0 0 10%;
    text-align: right;
 }
-.ar_work_single_text{
+
+.ar_work_single_text {
    padding: 30px 35px;
 }
+
 .ar_single_item_table_work.hard {
    background: url('../../../public/images/work/hard-work.png') no-repeat scroll 0 0 / 100% 100%;
    /* background-size: 100%; */
-   
+
 }
-.ar_single_item_table_work.easy{
+
+.ar_single_item_table_work.easy {
    background: url('../../../public/images/work/easy-work.png') no-repeat scroll 0 0 / 100% 100%;
 }
-.ar_single_item_table_work.normal{
+
+.ar_single_item_table_work.normal {
    background: url('../../../public/images/work/normal-work.png') no-repeat scroll 0 0 / 100% 100%;
 }
-.ar_single_item_table_work{
+
+.ar_single_item_table_work {
    margin-bottom: 20px;
 }
-.ar_work_single_text img{
+
+.ar_work_single_text img {
    width: 25px;
 }
-.ar_work_single_text p{
+
+.ar_work_single_text p {
    color: #271200;
    font-size: 16px;
    font-weight: 700;
 }
-.ar_single_item_table_work.hard .ar_work_single_text p span{
+
+.ar_single_item_table_work.hard .ar_work_single_text p span {
    color: #f51010;
    font-weight: 500;
 }
-.ar_single_item_table_work.easy .ar_work_single_text p span{
+
+.ar_single_item_table_work.easy .ar_work_single_text p span {
    color: #2b67ff;
    font-weight: 500;
 }
-.ar_single_item_table_work.normal .ar_work_single_text p span{
+
+.ar_single_item_table_work.normal .ar_work_single_text p span {
    color: #7d7d7d;
    font-weight: 500;
 }
-.ar_work_single_text.gold img{
+
+.ar_work_single_text.gold img {
    width: 15px;
    margin-right: 5px;
 }
-.ar_work_single_text.heading p{
+
+.ar_work_single_text.heading p {
    color: #3c3c3c;
    font-size: 18px;
    font-weight: 500;
 }
-.ar_workFlex_wrapper{
+
+.ar_workFlex_wrapper {
    height: 400px;
    overflow-y: scroll;
    scrollbar-width: thin;
@@ -2480,28 +2839,33 @@ a {
    padding-right: 30px;
    padding-bottom: 100px;
 }
-.ar_work_single_text.heading{
+
+.ar_work_single_text.heading {
    padding: 10px 35px;
 }
-.ar_work_btn{
+
+.ar_work_btn {
    padding: 20px 0px 10px 0px;
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: center;
-       -ms-flex-pack: center;
-           justify-content: center;
+   -ms-flex-pack: center;
+   justify-content: center;
 }
-.ar_work_single_btn img{
+
+.ar_work_single_btn img {
    width: 70%;
 }
-.ar_work_single_btn{
+
+.ar_work_single_btn {
    position: relative;
    display: inline;
 }
+
 .ar_work_btn_xont p {
    color: #d9d9d9;
    font-size: 16px;
@@ -2513,6 +2877,7 @@ a {
    text-align: center;
    cursor: pointer;
 }
+
 /*====================== End  Work CSS ======================*/
 
 
@@ -2520,61 +2885,67 @@ a {
 /*====================== Start My Profile CSS ======================*/
 
 
-.ar_myProfile_itam_wrapper{
+.ar_myProfile_itam_wrapper {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
    -webkit-column-gap: 20px;
-      -moz-column-gap: 20px;
-           column-gap: 20px;
+   -moz-column-gap: 20px;
+   column-gap: 20px;
 }
-.ar_myProfile_single_item{
+
+.ar_myProfile_single_item {
    background: url('../../../public/images/myAccount/optionsBg.png') no-repeat scroll 0 0 / 100% 100%;
    padding: 20px;
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 32%;
-           flex: 0 0 32%;
+   -ms-flex: 0 0 32%;
+   flex: 0 0 32%;
 }
-.ar_myProfile_single_item2{
+
+.ar_myProfile_single_item2 {
    background: #efefefb0;
    padding: 20px;
    border-radius: 26px;
    -webkit-box-flex: 0;
-       -ms-flex: 0 0 32%;
-           flex: 0 0 32%;
+   -ms-flex: 0 0 32%;
+   flex: 0 0 32%;
 }
-.ar_myProfile_sinle_title a{
-   color: #0a0a0a;
-   font-size: 22px;
-   font-weight: 700;
-}
-.ar_myProfile_sinle_title p{
+
+.ar_myProfile_sinle_title a {
    color: #0a0a0a;
    font-size: 22px;
    font-weight: 700;
 }
 
-.ar_myProfile_sinle_title a img{
+.ar_myProfile_sinle_title p {
+   color: #0a0a0a;
+   font-size: 22px;
+   font-weight: 700;
+}
+
+.ar_myProfile_sinle_title a img {
    width: 25px;
    margin-right: 15px;
 }
-.ar_myProfile_sinle_title p img{
+
+.ar_myProfile_sinle_title p img {
    width: 25px;
    margin-right: 15px;
 }
-.ar_myProfile_sinlge_switch_area{
+
+.ar_myProfile_sinlge_switch_area {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
 }
 
 /* codepenn start*/
@@ -2588,35 +2959,40 @@ a {
    margin: 10px auto;
    border-radius: 28px;
 }
- .toggle-label input[type=checkbox] { 
-   opacity: 0; 
+
+.toggle-label input[type=checkbox] {
+   opacity: 0;
    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
    position: absolute;
    width: 100%;
    height: 100%;
- }
- .toggle-label input[type=checkbox]+.back {
+}
+
+.toggle-label input[type=checkbox]+.back {
    position: absolute;
    width: 100%;
    height: 100%;
    background: #fff;
    -webkit-transition: background 150ms linear;
-   transition: background 150ms linear; 
-   border-radius: 28px; 
- }
- .toggle-label input[type=checkbox]:checked+.back .toggle{
+   transition: background 150ms linear;
+   border-radius: 28px;
+}
+
+.toggle-label input[type=checkbox]:checked+.back .toggle {
    border-radius: 0px 28px 28px 0px;
- }
- .toggle-label input[type=checkbox]:checked+.back {
-   background: #fff; /*green*/
- }
- 
- .toggle-label input[type=checkbox]+.back .toggle {
+}
+
+.toggle-label input[type=checkbox]:checked+.back {
+   background: #fff;
+   /*green*/
+}
+
+.toggle-label input[type=checkbox]+.back .toggle {
    display: block;
    position: absolute;
    content: ' ';
    background: #FFD12F;
-   width: 50%; 
+   width: 50%;
    height: 100%;
    -webkit-transition: margin 150ms linear;
    transition: margin 150ms linear;
@@ -2624,11 +3000,13 @@ a {
    border-radius: 0;
    border-radius: 28px 0px 0px 28px;
    /* background: url('../../../public/images/myAccount/switch.png') no-repeat scroll 0 0 / 100% 100%; */
- }
- .toggle-label input[type="checkbox"]:checked + .back .toggle {
+}
+
+.toggle-label input[type="checkbox"]:checked+.back .toggle {
    margin-left: 42px;
 }
- .toggle-label .label {
+
+.toggle-label .label {
    display: block;
    position: absolute;
    width: 50%;
@@ -2636,82 +3014,95 @@ a {
    line-height: 80px;
    text-align: center;
    font-size: 2em;
- }
- .toggle-label .label.on {
+}
+
+.toggle-label .label.on {
    left: 0px;
    top: -19px;
    font-size: 14px;
    color: #000000;
    font-weight: 700;
 }
- .toggle-label .label.off {
+
+.toggle-label .label.off {
    right: 0px;
    top: -19px;
    font-size: 14px;
    color: #000000;
    font-weight: 700;
 }
- 
- .toggle-label input[type=checkbox]:checked+.back .label.on {
+
+.toggle-label input[type=checkbox]:checked+.back .label.on {
    color: #000;
    font-weight: 700;
- }
- .toggle-label input[type=checkbox]+.back .label.off {
+}
+
+.toggle-label input[type=checkbox]+.back .label.off {
    color: #000;
    font-weight: 700;
- }
- .toggle-label input[type=checkbox]:checked+.back .label.off {
+}
+
+.toggle-label input[type=checkbox]:checked+.back .label.off {
    color: #000;
    font-weight: 700;
- }
+}
 
 
 
 
- .toggle-label.big_toggle_label {
+.toggle-label.big_toggle_label {
    width: 300px;
    height: 50px;
 }
-.toggle-label input[type="checkbox"]:checked + .back .toggle.ar_toggle {
+
+.toggle-label input[type="checkbox"]:checked+.back .toggle.ar_toggle {
    margin-left: 148px;
 }
+
 .toggle-label .label.on.ar_on {
    top: -15px;
 }
+
 .toggle-label .label.off.ar_off {
    top: -15px;
 }
+
 /* codepenn   */
 
 
 
-.ar_myProfile_sinlge_text p{
+.ar_myProfile_sinlge_text p {
    font-size: 16px;
    font-weight: 700;
    color: #000;
 }
-.ar_myProfile_swithc_area{
+
+.ar_myProfile_swithc_area {
    padding: 20px 0px;
 }
-.ar_myProfile_range_area{
+
+.ar_myProfile_range_area {
    padding: 20px 0px;
 }
-.ar_myProfile_range_text{
+
+.ar_myProfile_range_text {
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
    -webkit-box-align: center;
-       -ms-flex-align: center;
-           align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
    -webkit-box-pack: justify;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
 }
-.ar_myProfile_range_text p{
+
+.ar_myProfile_range_text p {
    color: #000000;
    font-size: 16px;
    font-weight: 700;
 }
+
 .form-range::-moz-range-thumb {
    width: 8px;
    width: .8rem;
@@ -2719,6 +3110,7 @@ a {
    height: 1.5rem;
    background-color: #FFD12F;
 }
+
 .form-range::-moz-range-track {
    width: 100%;
    height: 5px;
@@ -2727,18 +3119,22 @@ a {
    cursor: pointer;
    background-color: #0a0a0a;
 }
+
 .form-range:focus::-moz-range-thumb {
    box-shadow: 0 0 0 1px #fff, 0 0 0 .2rem #FFD12F;
 }
-.ar_myProfile_btn{
+
+.ar_myProfile_btn {
    margin-bottom: 20px;
    text-align: center;
    position: relative;
 }
-.ar_myProfile_btn a img{
-   width: 125px; 
+
+.ar_myProfile_btn a img {
+   width: 125px;
 }
-.ar_myProfile_btn_text p{
+
+.ar_myProfile_btn_text p {
    color: #d9d9d9;
    font-size: 16px;
    font-weight: 700;
@@ -2749,16 +3145,19 @@ a {
    text-align: center;
    cursor: pointer;
 }
-.ar_myProfile_btnCont_single a img{
+
+.ar_myProfile_btnCont_single a img {
    width: 90%;
    text-align: center;
 }
+
 .ar_myProfile_btnCont_single {
    text-align: center;
    position: relative;
    margin: 20px;
 }
-.ar_myProfile_btnCont_text p{
+
+.ar_myProfile_btnCont_text p {
    color: #d9d9d9;
    font-size: 16px;
    font-weight: 700;
@@ -2770,27 +3169,30 @@ a {
    cursor: pointer;
 }
 
-.modal-form-username input{
+.modal-form-username input {
    background-color: #0C1945 !important;
 
 }
-.characters{
+
+.characters {
    height: 400px;
    overflow-y: auto;
    overflow-x: hidden;
    padding: 10px;
 }
-.character-active{
+
+.character-active {
    border: 2px solid white;
    border-radius: 10px;
    /* border-radius: 10px;
     box-shadow: 1px 1px 24px -2px #bdb9b9; */
 }
+
 /* .model-submit{
    height: 30px !important;
 } */
 
-.pokemon img{
+.pokemon img {
    height: 150px;
 }
 
@@ -2807,23 +3209,29 @@ a {
    height: 55px;
 
 }
+
 .ar_myProfile_select_area .form-select:focus {
-   border-color:transparent;
+   border-color: transparent;
    outline: 0;
    box-shadow: 0 0 0 .2rem transparent;
 }
-.ar_myProfile_sinle_title{
+
+.ar_myProfile_sinle_title {
    margin-bottom: 30px;
 }
+
 .ar_myProfile_swithc_area {
    padding-top: 0px;
 }
-.ar_myProfile_btn{
+
+.ar_myProfile_btn {
    margin-top: 30px;
 }
+
 .ar_myProfile_range_area {
    padding-bottom: 0px;
 }
+
 /*====================== End My Profile CSS ======================*/
 
 
@@ -2834,41 +3242,46 @@ a {
 
 
 /*====================== Start Player Profile CSS ======================*/
-.ar_playerProfile_area_section{
+.ar_playerProfile_area_section {
    margin: 100px 0px;
 }
-.ar_playerProfile_area{
+
+.ar_playerProfile_area {
    background: url('../../../public/images/playerProfile/bg2.png') no-repeat scroll 0 0 / 100% 100%;
    background-position: top;
-   background-size:cover;
+   background-size: cover;
    /* padding: 30px; */
 }
-.ar_playerProfile_area{
+
+.ar_playerProfile_area {
    display: flex;
    justify-content: space-between;
 }
+
 /* .ar_playerProfile_area_item{
    display: flex;
    flex-wrap: wrap;
   
 } */
-.arPlayer_left{
+.arPlayer_left {
    flex: 0 0 25%;
 }
 
-.arPlayerProfle_chacter_item a img{
+.arPlayerProfle_chacter_item a img {
    width: 140px;
 }
 
-.ar_playerProfile_cha_text p span{
+.ar_playerProfile_cha_text p span {
    color: #67dd39;
 }
-.arPlayerProfle_chacter_item{
+
+.arPlayerProfle_chacter_item {
    position: relative;
    /* margin-right: 15px; */
    margin-bottom: 15px;
 }
-.ar_playerProfile_cha_text p{
+
+.ar_playerProfile_cha_text p {
    color: #f6f6f6;
    font-size: 14px;
    font-weight: 700;
@@ -2878,23 +3291,28 @@ a {
    right: 0;
    text-align: center;
 }
-.arPlayerProfile_left_area{
+
+.arPlayerProfile_left_area {
    display: flex;
    flex-wrap: wrap;
 }
-.ar_playerProfile_middle_top{
+
+.ar_playerProfile_middle_top {
    display: flex;
    align-items: center;
    justify-content: flex-end;
 }
-.ar_play_middle_top_tag a img{
+
+.ar_play_middle_top_tag a img {
    width: 100%;
 }
-.ar_play_middle_top_tag{
+
+.ar_play_middle_top_tag {
    margin-left: 10px;
    position: relative;
 }
-.ar_play_middle_top_tagText p{
+
+.ar_play_middle_top_tagText p {
    color: #050505;
    font-size: 16px;
    font-weight: 700;
@@ -2905,46 +3323,56 @@ a {
    text-align: center;
    cursor: pointer;
 }
-.ar_playProfile_middle_area{
+
+.ar_playProfile_middle_area {
    position: relative;
    height: 100%;
    padding-right: 50px;
 }
-.ar_playerMiddle_bottom_area{
+
+.ar_playerMiddle_bottom_area {
    position: absolute;
    bottom: 0;
    left: 0;
    right: 0;
    text-align: center;
 }
-.arPlayer_middle{
+
+.arPlayer_middle {
    flex: 0 0 35%;
 }
-.ar_playerMiddle_bottom_single_item{
+
+.ar_playerMiddle_bottom_single_item {
    margin-bottom: 15px;
    position: relative;
    display: inline-block;
 }
+
 .ar_playerMiddle_bottom_single_item a img {
    width: 300px;
 }
-.ar_playerMiddle_bottom_single_itemTexy p{
+
+.ar_playerMiddle_bottom_single_itemTexy p {
    color: #ffffff;
    font-size: 16px;
    font-weight: 700;
    text-align: center;
    cursor: pointer;
 }
-.ar_playerMiddle_bottom_single_itemTexy p:first-child span{
+
+.ar_playerMiddle_bottom_single_itemTexy p:first-child span {
    color: #fa2c2c;
 }
-.ar_playerMiddle_bottom_single_itemTexy p:last-child span{
+
+.ar_playerMiddle_bottom_single_itemTexy p:last-child span {
    color: #60cd35;
 }
-.ar_playerMiddle_bottom_single_itemTexy p:last-child{
+
+.ar_playerMiddle_bottom_single_itemTexy p:last-child {
    font-weight: 400;
 }
-.ar_playerMiddle_bottom_single_itemTexy{
+
+.ar_playerMiddle_bottom_single_itemTexy {
    display: flex;
    align-items: center;
    justify-content: space-between;
@@ -2955,7 +3383,8 @@ a {
    text-align: center;
    padding: 0px 15px;
 }
-.ar_playerMiddle_bottom_single_itemTexy.last p{
+
+.ar_playerMiddle_bottom_single_itemTexy.last p {
    text-align: center;
    position: absolute;
    text-align: center;
@@ -2966,16 +3395,18 @@ a {
    font-weight: 700;
 }
 
-.ar_playerPorfile_right_top{
+.ar_playerPorfile_right_top {
    display: flex;
    justify-content: center;
    width: 340px;
    margin: auto;
 }
-.ar_playerProfile_top_btn{
+
+.ar_playerProfile_top_btn {
    position: relative;
 }
-.arPlyaderProfile_tab_text p{
+
+.arPlyaderProfile_tab_text p {
    color: #ffffff;
    font-size: 18px;
    font-weight: 700;
@@ -2987,42 +3418,51 @@ a {
    text-align: center;
    cursor: pointer;
 }
-.arPlyaderProfile_tab_text.last p{
+
+.arPlyaderProfile_tab_text.last p {
    color: #575757;
 }
-.ar_playerProfile_top_btn.last{
+
+.ar_playerProfile_top_btn.last {
    margin-right: -2px;
 }
-.ar_playerProfile_tabArea_wrapper{
+
+.ar_playerProfile_tabArea_wrapper {
    /* background: url('../../../public/images/game-ui/btnBG.png') no-repeat scroll 0 0 / 100% 100%; */
    padding: 30px;
    width: 340px;
    margin: auto;
 }
-.ar_playerTab_title a{
+
+.ar_playerTab_title a {
    color: #050505;
    font-size: 26px;
    font-weight: 700;
 }
-.ar_playerTab_title a img{
+
+.ar_playerTab_title a img {
    width: 30px;
    margin-right: 10px;
 }
-.ar_Playyer_tab_item_wrapper{
+
+.ar_Playyer_tab_item_wrapper {
    display: flex;
    flex-wrap: wrap;
    margin-top: 20px;
-   
+
 }
-.ar_player_right{
+
+.ar_player_right {
    flex: 0 0 31%;
 }
+
 .ar_Playyer_tab_item_wrapper a img {
    width: 75px;
    margin-right: 15px;
    margin-bottom: 15px;
 }
-.ar_playerTab_title.last{
+
+.ar_playerTab_title.last {
    margin-top: 30px;
 }
 
@@ -3065,32 +3505,40 @@ a {
    /* padding-right: 30px; */
    padding-bottom: 100px;
 }
-.ar_player_right{
+
+.ar_player_right {
    position: relative;
 }
-.ar_right_minus a img{
+
+.ar_right_minus a img {
    width: 30px;
 }
+
 .ar_right_minus {
    position: absolute;
    top: -10px;
    right: -10px;
 }
-.arPlayer_middle{
+
+.arPlayer_middle {
    padding: 30px 30px 0px 30px;
 }
-.arPlayer_left{
+
+.arPlayer_left {
    padding: 30px 0px 30px 30px;
 }
-.ar_player_right{
+
+.ar_player_right {
    background: url('../../../public/images/playerProfile/btnBG.png') no-repeat scroll 0 0 / 100% 100%;
    padding: 20px;
 }
-.ar_pokeProfile_area_section a{
+
+.ar_pokeProfile_area_section a {
    text-decoration: none;
 }
-p{
+
+p {
    margin: 0px !important;
 }
-/*====================== End Player Profile CSS ======================*/
 
+/*====================== End Player Profile CSS ======================*/
