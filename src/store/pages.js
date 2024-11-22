@@ -34,6 +34,36 @@ export const goldMarket = createAsyncThunk('pages/goldMarket', async (data, { re
 
     }
 });
+
+export const boxUpdate = createAsyncThunk('pages/boxUpdate', async (data, { rejectWithValue }) => {
+    try {
+
+        const response = await toast.promise(
+            axios({
+                url: API_ENDPOINTS.BOX_UPDATE,
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                data: data,
+            }),
+            {
+                pending: i18n.t('Loading...'),
+                success: i18n.t('successful!'),
+                error: {
+                    render({ data }) {
+                        return (data?.response?.data?.message || data?.response?.data?.error) || i18n.t('failed!');
+                    }
+                }
+            }
+        )
+        return response.data
+
+    } catch (error) {
+        // toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+    }
+});
 export const getRankList = createAsyncThunk('pages/getRankList', async (data, { rejectWithValue }) => {
     try {
 

@@ -14,7 +14,7 @@ function Hospital() {
     }, []);
     return (
         <div>
-            <GoldSiverHeader previous={'/map'} title='Hospital'>
+            <GoldSiverHeader previous={'/city'} title='Hospital'>
                 <section class="ar_hospital_area_section">
                     <div class="container">
                         <div class="row">

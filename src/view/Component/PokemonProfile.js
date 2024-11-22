@@ -6,7 +6,7 @@ import Stack from 'react-bootstrap/Stack';
 import Table from 'react-bootstrap/Table';
 import { useNavigate } from 'react-router-dom';
 
-function PokemonProfile({ data }) {
+function PokemonProfile({ data,className }) {
   const navigate = useNavigate()
   const sanitizeHtml = (html) => DOMPurify.sanitize(html);
   return (

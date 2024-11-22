@@ -1579,7 +1579,12 @@ body {
     margin: 0 auto;
 }
 
-
+.header-main li{
+    display: flex;
+    gap: 7px;
+    cursor: pointer;
+    color: #cfcfcf;
+}
 .register-item-inner6 .register-button {
     font-size: 36px;
     font-weight: 700;
@@ -2651,4 +2656,13 @@ body {
     background: #8C888C;
     font-family: verdana, sans-serif;
     font-size: 10px;
+}
+
+.pokemar-card{
+    background-color: #1e2953;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
 }

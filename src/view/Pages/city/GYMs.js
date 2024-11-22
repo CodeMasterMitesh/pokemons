@@ -13,7 +13,7 @@ function GYMs() {
     };
     return (
         <div>
-            <GoldSiverHeader>
+            <GoldSiverHeader previous='/city' title='GYM'>
                 <div className='container'>
                     <Card border='dark' text='white' className='bg-theme'>
                         <Card.Header><h3 className='text-center'> Gyms</h3></Card.Header>

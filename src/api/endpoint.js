@@ -48,5 +48,6 @@ export const API_ENDPOINTS = {
     UPDATE_PRESENTATION:'api/updatePresentation.php',
     UPDATE_HONORS:'api/Honars.php',
     GET_HONORS:"api/getHonors.php",
-    ACCOUNT_SHARE:"api/shareAccount.php"
+    ACCOUNT_SHARE:"api/shareAccount.php",
+    BOX_UPDATE:'api/boxUpdate'
 };

@@ -1,4 +1,4 @@
-export default[
+export default [
     {
         id:'1',
         title:'Take on GYM leaders to earn badges and unlock new regions',
@@ -73,7 +73,7 @@ export default[
     {
         id:'8',
         title:'Poké Bowls, Items, Stones, Pokémon and other items can be found here at PokéMart!',
-        route:'/',
+        route:'/pokemart',
         top:'40%',
         left:'73%',
         width:'8%',

@@ -24,36 +24,32 @@ function PokemonGuide() {
                         <Nav variant="pills" activeKey={key} className='d-flex gap-3'
                             onSelect={handleSelect}
                         >
-
                             <Nav.Item>
-                                <Nav.Link eventKey="faq" href="#/home" className='bg-light-theme text-white'>
+                                <Nav.Link eventKey="faq"  className='bg-light-theme text-white'>
                                     FAQs
                                 </Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link eventKey="attcaks" href="#/home" className='bg-light-theme text-white'>
+                                <Nav.Link eventKey="attcaks"  className='bg-light-theme text-white'>
                                     Info Attacks
                                 </Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link eventKey="moods" href="#/home" className='bg-light-theme text-white'>
+                                <Nav.Link eventKey="moods"  className='bg-light-theme text-white'>
                                     Info Moods
                                 </Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link eventKey="skill" href="#/home" className='bg-light-theme text-white'>
+                                <Nav.Link eventKey="skill"  className='bg-light-theme text-white'>
                                     Skill Info
                                 </Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link eventKey="item" href="#/home" className='bg-light-theme text-white'>
+                                <Nav.Link eventKey="item"  className='bg-light-theme text-white'>
                                     Item Info
                                 </Nav.Link>
                             </Nav.Item>
                         </Nav>
-                        {
-
-                        }
                         <div className='mt-5'>
                             {
                                 key == 'faq' && <Faq />

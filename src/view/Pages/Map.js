@@ -15,7 +15,7 @@ function Map() {
     };
     return (
         <div>
-            <GoldSiverHeader previous={'/home'} title='City'>
+            <GoldSiverHeader previous={'/home'} title='Map'>
                 <div className='p-5'>
                     <Card border='dark' text='white' className='bg-theme'>
                         <Card.Header><h3 className='text-center'> Hoenn Map</h3></Card.Header>

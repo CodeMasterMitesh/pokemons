@@ -9,6 +9,9 @@ import { getPlayerPokemons } from '../../../store/pokemon';
 import boxes from './boxes'
 import { toast } from 'react-toastify';
 import { FaCircleChevronRight, FaCircleChevronLeft } from "react-icons/fa6";
+import Info from './Info';
+import Modal from 'react-bootstrap/Modal';
+import { boxUpdate } from 'store/pages';
 
 function PokemonBox() {
     const user_data = useSelector(state => state.auth.user_data)
@@ -17,13 +20,25 @@ function PokemonBox() {
     const [pokemonBox, setPokemonBox] = useState([]);
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [boxes_data, setBoxes] = useState(boxes);
+    const [config, setConfig] = useState(false);
 
     const [selected, setSelected] = useState(boxes[0])
     const [box_pokemons, setBoxPokemons] = useState(boxes[0].pokemons)
+
+    const [configBox, setConfigBox] = useState({})
+    const [configBoxIndex, setConfigIndex] = useState(0)
     useEffect(() => {
         setPokemonBox(player_pokemons);
     }, [player_pokemons])
     // Function to handle drag events
+    const backs = [
+        'Seabed2',
+        'River',
+        'River2',
+        'Sky',
+        'Volcano2',
+        'Volcano'
+    ]
     const onDragEnd = (result) => {
 
         const { destination, source } = result;
@@ -46,7 +61,6 @@ function PokemonBox() {
 
         // Moving within the same list
         if (source.droppableId === destination.droppableId) {
-            console.log(source, destination);
 
             const reorderedList = Array.from(sourceList);
             const [movedItem] = reorderedList.splice(source.index, 1);
@@ -96,25 +110,73 @@ function PokemonBox() {
         setSelectedIndex(e.target.value);
         setBoxPokemons(boxes[e.target.value].pokemons)
     }
-    const hanldePrevious=()=>{
-        if(selectedIndex>0){
-            setBoxPokemons(boxes_data[selectedIndex-1].pokemons)
-            setSelected(boxes_data[selectedIndex-1])
-            setSelectedIndex(selectedIndex-1)
+    const hanldePrevious = () => {
+        if (selectedIndex > 0) {
+            setBoxPokemons(boxes_data[selectedIndex - 1].pokemons)
+            setSelected(boxes_data[selectedIndex - 1])
+            setSelectedIndex(selectedIndex - 1)
         }
     }
-    const hanldeNext=()=>{
-        if(selectedIndex < boxes_data.length - 1 ){
-            setBoxPokemons(boxes_data[selectedIndex+1].pokemons)
-            setSelected(boxes_data[selectedIndex+1])
-            setSelectedIndex(selectedIndex+1)
+    const hanldeNext = () => {
+        if (selectedIndex < boxes_data.length - 1) {
+            setBoxPokemons(boxes_data[selectedIndex + 1].pokemons)
+            setSelected(boxes_data[selectedIndex + 1])
+            setSelectedIndex(selectedIndex + 1)
         }
+    }
+    const handleSave = () => {
+        dispatch(boxUpdate(configBox))
     }
     useEffect(() => {
         dispatch(getPlayerPokemons())
     }, [])
+
+    const handleConfigOpen = () => {
+        setConfigBox({ name: selected.name, img: selected.img.split('.')[0] })
+        setConfig(true)
+        setConfigIndex(backs.indexOf(selected.img.split('.')[0]))
+    }
+    const hanldePreviousConfig = () => {
+        if (configBoxIndex > 0) {
+            setConfigBox({ ...configBox, img: backs[configBoxIndex - 1] })
+            setConfigIndex(configBoxIndex - 1)
+        }
+    }
+    const hanldeNextConfig = () => {
+        if (configBoxIndex < backs.length - 1) {
+            setConfigBox({ ...configBox, img: backs[configBoxIndex + 1] })
+            setConfigIndex(configBoxIndex + 1)
+        }
+    }
+    
     return (
         <div>
+            <Modal show={config} onHide={() => setConfig(false)}>
+                <Modal.Header closeButton className='bg-theme text-white'>
+                    <Modal.Title>Configuration</Modal.Title>
+                </Modal.Header>
+                <Modal.Body className='bg-theme d-flex justify-content-center'>
+                    <div className='text-white d-flex align-items-center gap-3'>
+                        <FaCircleChevronLeft size={20} className='cursor-pointer' onClick={hanldePreviousConfig} />
+                        <div>
+                            <div className='mb-3'>
+                                <Form.Control className='bg-theme text-white' value={configBox.name} onChange={(e) => setConfigBox({ ...configBox, name: e.target.value })} />
+                                <b>Background:{configBox.img} </b>
+                            </div>
+                            <img src={`/images/box/${configBox.img}.png`} alt="" width={300} height={200} />
+                        </div>
+                        <FaCircleChevronRight size={20} className='cursor-pointer' onClick={hanldeNextConfig} />
+                    </div>
+                </Modal.Body>
+                <Modal.Footer className='bg-theme text-white'>
+                    <Button variant="secondary" onClick={() => setConfig(false)}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={handleSave}>
+                        Save Changes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
             <GoldSiverHeader previous={'/home'} title='Pokemon Box'>
                 <div className='container p-2 challenge'>
                     <Card border='dark' text='white' className='bg-theme'>
@@ -166,7 +228,9 @@ function PokemonBox() {
 
                                                                         >
                                                                             <img
-                                                                                src={`/images/pokemon/icon/${pokemon.wild_id}.gif`} alt="" style={{ ...styles.img }} />
+                                                                                src={`/images/pokemon/icon/${pokemon.id}.gif`} alt="" style={{ ...styles.img }} />
+                                                                            {pokemon.id && <Info pokemon={pokemon} selected={selected} />}
+
                                                                         </div>
                                                                     )}
                                                                 </Draggable>
@@ -179,7 +243,7 @@ function PokemonBox() {
                                             </div>
                                             <div className='mt-3 mb-3 d-flex justify-content-around w-100'>
                                                 <div className='d-flex gap-3 align-items-center'>
-                                                    <FaCircleChevronLeft size={20} className='cursor-pointer' onClick={hanldePrevious}/>
+                                                    <FaCircleChevronLeft size={20} className='cursor-pointer' onClick={hanldePrevious} />
                                                     <Form.Select value={selectedIndex} onChange={(e) => { setPokemonData(e) }} className='bg-theme text-white' style={{ width: '100px' }}>
                                                         {
                                                             boxes_data.map((item, index) => {
@@ -187,9 +251,9 @@ function PokemonBox() {
                                                             })
                                                         }
                                                     </Form.Select>
-                                                    <FaCircleChevronRight size={20} className='cursor-pointer' onClick={hanldeNext}/>
+                                                    <FaCircleChevronRight size={20} className='cursor-pointer' onClick={hanldeNext} />
                                                 </div>
-                                                <Button color='secondary' >Configuration</Button>
+                                                <Button color='secondary' onClick={handleConfigOpen}>Configuration</Button>
                                             </div>
                                             <Droppable droppableId="lower-box" direction="horizontal">
                                                 {(provided) => (
@@ -209,7 +273,9 @@ function PokemonBox() {
 
                                                                     >
                                                                         <img
-                                                                            src={`/images/pokemon/icon/${pokemon.wild_id}.gif`} alt="" style={{ ...styles.img }} />
+                                                                            src={`/images/pokemon/icon/${pokemon.id}.gif`} alt="" style={{ ...styles.img }} />
+                                                                        {pokemon.wild_id && <Info pokemon={pokemon} selected={selected} />}
+
                                                                     </div>
                                                                 )}
                                                             </Draggable>
@@ -302,7 +368,7 @@ const styles = {
         textAlign: 'center',
         cursor: 'grab',
         height: "100%",
-        width: "32px"
+        width: "32px",
     },
     bxpokemon: {
         textAlign: 'center',

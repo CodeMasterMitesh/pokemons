@@ -60,7 +60,7 @@ function Moves() {
         dispatch(getPlayerPokemons())
     }, []);
     return (
-        <GoldSiverHeader previous='map' title='Attack Specialist'>
+        <GoldSiverHeader previous='/city' title='Attack Specialist'>
             <div className='container p-2 challenge'>
                 <Card border='dark' text='white' className='bg-theme'>
                     <Card.Header><h3 className='text-center'> Attack Specialist</h3></Card.Header>

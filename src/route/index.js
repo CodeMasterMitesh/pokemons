@@ -58,6 +58,7 @@ import Casino from 'view/Pages/city/Casino';
 import Traders from 'view/Pages/city/Traders';
 import Daycare from 'view/Pages/city/Daycare';
 import Moves from 'view/Pages/city/Moves';
+import Pockemart from 'view/Pages/city/Pockemart';
 
 const MainRoutes = {
     path: '/',
@@ -102,6 +103,10 @@ const MainRoutes = {
                         {
                             path: '/moves', 
                             element: <Moves />
+                        },
+                        {
+                            path: '/pokemart', 
+                            element: <Pockemart />
                         },
                         {
                             path: '/daycare', 
