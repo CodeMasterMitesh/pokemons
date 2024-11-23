@@ -48,6 +48,8 @@ function Info({ pokemon, selected }) {
     const navigate = useNavigate()
     const [showDropdown, setShowDropdown] = useState(false);
     const [show, setShow] = useState(false);
+    const [showSell, setShowSell] = useState(false);
+    const [showRelease, setShowRelease] = useState(false);
     const [infoShow, setInfoShow] = useState(false);
     const handleSave = () => {
 
@@ -102,6 +104,36 @@ function Info({ pokemon, selected }) {
                     </Button>
                 </Modal.Footer>
             </Modal>
+            <Modal variant='dark' show={showSell} onHide={() => setShowSell(false)}>
+                <Modal.Header closeButton className='bg-theme text-white'>
+                    <Modal.Title>Sell pokemon</Modal.Title>
+                </Modal.Header>
+                <Modal.Body className='bg-theme'>
+                </Modal.Body>
+                <Modal.Footer className='bg-theme text-white'>
+                    <Button variant="secondary" onClick={() => setShowSell(false)}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={() => setShowSell(false)}>
+                        Save Changes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            <Modal variant='dark' show={showRelease} onHide={() => setShowRelease(false)}>
+                <Modal.Header closeButton className='bg-theme text-white'>
+                    <Modal.Title>Release pokemon</Modal.Title>
+                </Modal.Header>
+                <Modal.Body className='bg-theme'>
+                </Modal.Body>
+                <Modal.Footer className='bg-theme text-white'>
+                    <Button variant="secondary" onClick={() => setShowRelease(false)}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={() => setShowRelease(false)}>
+                        Save Changes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
             <Modal show={infoShow} onHide={() => setInfoShow(false)} >
                 <Modal.Body className='bg-dark'>
                     <PokemonProfile data={pokemon}/>
@@ -127,11 +159,10 @@ function Info({ pokemon, selected }) {
                             onClick={toggleDropdown}
                         />
                     </Dropdown.Toggle>
-
                     <Dropdown.Menu as={CustomMenu}>
                         <Dropdown.Item as="button" onClick={() => navigate(`/character?id=${pokemon.id}`)}>Profile</Dropdown.Item>
-                        <Dropdown.Item as="button" onClick={() => navigate('/character')}>Sell</Dropdown.Item>
-                        <Dropdown.Item as="button" onClick={() => navigate('/character')}>Release</Dropdown.Item>
+                        <Dropdown.Item as="button" onClick={() => setShowSell(true)}>Sell</Dropdown.Item>
+                        <Dropdown.Item as="button" onClick={() => setShowRelease(true)}>Release</Dropdown.Item>
                         <Dropdown.Item as="button" onClick={() => setShow(true)}>Transfer</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>

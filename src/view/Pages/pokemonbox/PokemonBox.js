@@ -228,7 +228,7 @@ function PokemonBox() {
 
                                                                         >
                                                                             <img
-                                                                                src={`/images/pokemon/icon/${pokemon.id}.gif`} alt="" style={{ ...styles.img }} />
+                                                                                src={`/images/pokemon/icon/${pokemon.wild_id}.gif`} alt="" style={{ ...styles.img }} />
                                                                             {pokemon.id && <Info pokemon={pokemon} selected={selected} />}
 
                                                                         </div>
@@ -273,7 +273,7 @@ function PokemonBox() {
 
                                                                     >
                                                                         <img
-                                                                            src={`/images/pokemon/icon/${pokemon.id}.gif`} alt="" style={{ ...styles.img }} />
+                                                                            src={`/images/pokemon/icon/${pokemon.wild_id}.gif`} alt="" style={{ ...styles.img }} />
                                                                         {pokemon.wild_id && <Info pokemon={pokemon} selected={selected} />}
 
                                                                     </div>

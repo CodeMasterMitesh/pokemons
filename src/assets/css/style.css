@@ -1604,7 +1604,12 @@ body {
     padding: 10px 10px;
     position: relative;
 }
-
+.mochila-items{
+    background-color: #000827;
+    border: 2px solid rgba(255, 255, 255, 0.563);
+    border-radius: 5px;
+    padding: 5px;
+}
 .register-button img {
     position: absolute;
     right: 20px;
@@ -2665,4 +2670,73 @@ body {
     justify-content: center;
     align-items: center;
     padding: 5px;
+}
+.attack-damage{
+    position: absolute;
+    top: 30%;
+    right: 25%;
+    animation: attck 1s ;
+}
+
+.win-class{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+.win-class div{
+   padding: 20px;
+    border: 5px solid green;
+    height: 83px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 47px;
+    font-weight: 800;
+    border-radius: 20px;
+}
+.lose-class{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+.lose-class div{
+    padding: 20px;
+    border: 5px solid red;
+    height: 83px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 47px;
+    font-weight: 800;
+    border-radius: 20px;
+}
+
+.opp-attacking{
+    position: absolute;
+    right: 50%;
+    transform: translate(0px,-50%);
+    top: 0px;
+}
+
+@keyframes attck {
+    from{
+        top:30%;
+    }
+    to{
+        top:-30%
+    }
 }
