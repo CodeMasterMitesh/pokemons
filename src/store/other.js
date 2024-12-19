@@ -205,6 +205,23 @@ export const getHonors = createAsyncThunk('other/getHonors', async (_, { rejectW
 
     }
 });
+export const getTravels = createAsyncThunk('other/getTravels', async (_, { rejectWithValue }) => {
+    try {
+
+        const response = await axios({
+                url: `${API_ENDPOINTS.GET_TRAVEL}`,
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+        return response.data
+
+    } catch (error) {
+        toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+    }
+});
 
 
 
@@ -270,6 +287,10 @@ export const otherSlice = createSlice({
             .addCase(getHonors.fulfilled, (state, action) => {
                 state.honors_loading = false;
                 state.honors = action.payload ? action.payload : {}
+            })
+            .addCase(getTravels.fulfilled, (state, action) => {
+                state.travelLoading = false;
+                state.lravel_data = action.payload ? action.payload?.data : []
             })
     }
 })

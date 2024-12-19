@@ -2,11 +2,21 @@ import React, { useEffect, useState } from 'react'
 import GoldSiverHeader from './GoldSiverHeader'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { getPlayerPokemons } from '../../store/pokemon'
+import { getPlayerPokemons, getPokemonsByPlayer } from '../../store/pokemon'
 import { Tooltip } from 'react-tooltip'
-import { Badge } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
+import { Badge, Button } from 'react-bootstrap'
+import { useNavigate, useSearchParams } from 'react-router-dom'
+import axios from 'axios'
+import { dualExpire, getDualByTrainerId } from 'store/friends'
 function Battle() {
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    const duel = searchParams.get('duel')
+    const challanged = searchParams.get('challanged')
+
+
+
+
     const pokemons = useSelector(state => state.pokemon.player_pokemons)
     const [yourPokemon, setYourPokemon] = useState({})
     const [oppPokemon, setOppPokemon] = useState({})
@@ -16,7 +26,56 @@ function Battle() {
     const [type, selectedType] = useState('Attack')
     const [winLose, setWinLose] = useState('')
     const dispatch = useDispatch()
-    const navigate=useNavigate()
+    const navigate = useNavigate()
+    const [name, setName] = useState('')
+    const [oppName, setOppName] = useState('')
+    const [ws, setWs] = useState(null);
+
+    const [user, setUser] = useState({ name: '', pokemons: [] });
+    const [opponent, setOpponent] = useState({ name: '', pokemons: [] });
+    const [duel_data, setDuelData] = useState({});
+
+
+
+    const getDualData = async () => {
+        let user = localStorage.getItem('userData')
+        user = user ? JSON.parse(user) : {}
+        let payload = {
+            trainer_id: user.playerId,
+        }
+        let data = await dispatch(getDualByTrainerId(payload)).unwrap();
+        if (!data?.duel_data?.id) {
+            navigate('/home');
+        }
+        let user_pokemon = [];
+        let opponent_pokemon = [];
+
+
+        const payload2 = {
+            status: "expire",
+            duel_id: data?.duel_data?.id
+        }
+        let result = await dispatch(dualExpire(payload2)).unwrap();
+
+        if (challanged == 'true' && data?.duel_data?.id) {
+            user_pokemon = await dispatch(getPokemonsByPlayer(data?.duel_data?.uitdager)).unwrap()
+            opponent_pokemon = await dispatch(getPokemonsByPlayer(data?.duel_data?.tegenstander)).unwrap()
+            setUser({ name: data?.duel_data?.uitdager, pokemons: user_pokemon?.data })
+            setOpponent({ name: data?.duel_data?.tegenstander, pokemons: opponent_pokemon?.data })
+            setYourPokemon(user_pokemon?.data[0] || {})
+            setOppPokemon(opponent_pokemon?.data[0] || {})
+
+        } else if (data) {
+            user_pokemon = await dispatch(getPokemonsByPlayer(data?.duel_data?.tegenstander)).unwrap()
+            opponent_pokemon = await dispatch(getPokemonsByPlayer(data?.duel_data?.uitdager)).unwrap()
+
+            setUser({ name: data?.duel_data?.tegenstander, pokemons: user_pokemon?.data })
+            setOpponent({ name: data?.duel_data?.uitdager, pokemons: opponent_pokemon?.data })
+            setYourPokemon(user_pokemon?.data[0] || {})
+            setOppPokemon(opponent_pokemon?.data[0] || {})
+        }
+        setDuelData(data || {})
+    }
 
     const [attackList, setAttackList] = useState([
         {
@@ -35,35 +94,38 @@ function Battle() {
             type: "Electric"
         },
     ])
-    const attack = (item) => {
+    const attack = async (item) => {
         if (!oppAttacking) {
             setAttacking(true);
             setCurrentAttack(item);
             let new_hp = oppPokemon.leven - item.damage;
             setOppPokemon({ ...oppPokemon, leven: new_hp });
-            setTimeout(() => {
+
+            const response = await axios.post('http://localhost:3000/attack', {
+                attacker: name,
+                target: oppName,
+                damage: parseInt(item.damage),
+            }).then(() => {
                 setAttacking(false);
                 setCurrentAttack({});
-                if(new_hp>0){
-                    opp_attack()
-                }
-            }, 2000);
+            })
+            // setTimeout(() => {
+            //     if (new_hp > 0) {
+            //         opp_attack()
+            //     }
+            // }, 2000);
             if (new_hp <= 0) {
                 setWinLose('win');
             }
         }
     }
-    const opp_attack = () => {
+    const opp_attack = (data) => {
         if (!attacking) {
-            setOppAttacking(true);
-            const damage = Math.floor(Math.random() * 100);
-            setCurrentAttack({ damage })
-            let new_hp = yourPokemon.leven - damage;
+            setCurrentAttack({ damage: data.damage });
+            setCurrentAttack({ damage: data.damage })
+            let new_hp = yourPokemon.leven - data.damage;
             setYourPokemon({ ...yourPokemon, leven: new_hp });
-            setTimeout(() => {
-                setOppAttacking(false);
-                setCurrentAttack({});
-            }, 2000);
+            setOppAttacking(false);
             if (new_hp <= 0) {
                 setWinLose('lose');
             }
@@ -71,18 +133,55 @@ function Battle() {
     };
     useEffect(() => {
         dispatch(getPlayerPokemons())
-    }, [])
+    }, [name])
     useEffect(() => {
+        getDualData();
         setTimeout(() => {
-            if(winLose == 'win' || winLose == 'lose'){
+            if (winLose == 'win' || winLose == 'lose') {
                 navigate('/home')
             }
         }, 2000);
     }, [winLose])
     useEffect(() => {
-        setYourPokemon(pokemons[0])
-        setOppPokemon(pokemons[1])
+        // if (name == 1) {
+        //     setYourPokemon(pokemons[0])
+        //     setOppPokemon(pokemons[1])
+        // } else {
+        //     setYourPokemon(pokemons[1])
+        //     setOppPokemon(pokemons[0])
+        // }
+        // const websocket = new WebSocket('ws://localhost:3000');
+
+        // websocket.onopen = () => {
+        //     console.log('open');
+        // }
+
+        // websocket.onmessage = (event) => {
+        //     setOppAttacking(true);
+        //     const data = JSON.parse(event.data);
+        //     if (data.type === 'attack') {
+        //         opp_attack(data.damage)
+        //     }
+        // }
+        // websocket.onclose = () => {
+        //     console.log('WebSocket closed');
+        // };
+        // setWs(websocket);
+        // return () => {
+        //     websocket.close();
+        // };
+
     }, [pokemons])
+    // const selectName = (name) => {
+    //     setName(name)
+    //     setOppName(name == 1 ? 2 : 1)
+
+    //     const registrationMessage = JSON.stringify({
+    //         type: 'register',
+    //         name: name,
+    //     });
+    //     ws.send(registrationMessage);
+    // }
     return (
         <>
             <GoldSiverHeader previous='/home' title='Battle'>
@@ -139,7 +238,7 @@ function Battle() {
 
                                     <div className="ar_battle_area_bottom">
                                         <div className="ar_battle_bottom_run">
-                                            <a onClick={()=>{setWinLose('lose')}}> <img src={"/images/battle/run.png"} alt="images" /></a>
+                                            <a onClick={() => { setWinLose('lose') }}> <img src={"/images/battle/run.png"} alt="images" /></a>
                                         </div>
                                         <div className="ar_battle_bottom_btnAct">
                                             <div className="ar_battle_btom_single" onClick={() => { selectedType('Attack') }}>

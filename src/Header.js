@@ -1,19 +1,113 @@
 // src/Header.js
-import React from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-
+import { Col, Modal, Row } from 'react-bootstrap';
+import menu, { home_menu } from 'view/JsonData/menu';
 
 const Header = () => {
     const { t } = useTranslation();
     const navigate = useNavigate()
+    const [popUp, setPopUp] = useState(false)
+    const handleRoute =(item)=>{
+        setPopUp(false)
+        navigate(`${item.route}`)
+    }
     return (
         <header className='header-main'>
-            <Navbar expand="lg" className="text-light bg-body-header" variant='dark'>
+            <ul className='p-3 d-flex justify-content-between'>
+                <li className='responsive-menu-li' onClick={() => { navigate('/gold-market') }}>
+                    <img src="/images/register-02.png" alt="" height={15} />
+                    <span>
+                        Gold Market
+                    </span>
+                </li>
+                <li className='responsive-menu-li' onClick={() => { navigate('/city') }}>
+                    <img src="/images/register-02.png" alt="" height={15} />
+                    <span>
+                        City
+                    </span>
+                </li>
+                <li className='responsive-menu-li' onClick={() => { navigate('/classification') }}>
+                    <img src="/images/register-02.png" alt="" height={15} />
+                    <span>
+                        Classification
+                    </span>
+                </li>
+                <li className='responsive-menu-li' onClick={() => { navigate('/pokemon-box') }}>
+                    <img src="/images/register-02.png" alt="" height={15} />
+                    <span>
+                        Pokemon Box
+                    </span>
+                </li>
+                <li className='responsive-menu-li' onClick={() => { navigate('/backpack') }}>
+                    <img src="/images/register-02.png" alt="" height={15} />
+                    <span>
+                        Backpack
+                    </span>
+                </li>
+                <li className='responsive-menu-li' onClick={() => { navigate('/map') }}>
+                    <img src="/images/register-02.png" alt="" height={15} />
+                    <span>
+                        Map
+                    </span>
+                </li>
+                <li className='responsive-menu-li' onClick={() => { navigate('/npcs') }}>
+                    <img src="/images/register-02.png" alt="" height={15} />
+                    <span>
+                        NPCs
+                    </span>
+                </li>
+                <li onClick={() => { setPopUp(true) }} style={{ width: "30px" }}>
+                    <img src="/images/hamburger.png" alt="" />
+                </li>
+            </ul>
+
+            <Modal show={popUp} onHide={() => { setPopUp(false) }} size='lg' contentClassName='pokemon-modal'>
+                <Modal.Body style={{ minHeight: '400px' }} className='d-flex align-items-center  menu-container'>
+                    <Row className='w-100 justify-content-center'>
+                        <Col xs={12} sm={6} md={4} className='flex-column align-items-center responsive-menu'>
+                            <div className='text-white d-flex align-items-center' style={{ width: '170px' }}>
+                                <img src="/images/register-02.png" alt="" height={15} />
+                                <span className='border-bottom-theme' style={{ marginLeft: "15px" }}><h3>Home</h3></span>
+                            </div>
+                            <div className='mt-2' style={{ width: '170px' }}>
+                                {home_menu.map((item, index) => {
+                                    return <h4 className='text-white cursor-pointer my-4' onClick={() => { handleRoute(item) }}>
+                                        <img src="/images/register-02.png" alt="" height={15} />
+
+                                        <span style={{ marginLeft: "15px" }}>{item.name}</span>
+                                    </h4>
+                                })}
+                            </div>
+                        </Col>
+                        {menu.map((item, index) => {
+                            return <Col key={index} xs={12} sm={6} md={4} className='d-flex flex-column align-items-center'>
+                                <div className='text-white d-flex align-items-center' style={{ width: '170px' }}>
+                                    <img src="/images/register-02.png" alt="" height={15} />
+                                    <span className='border-bottom-theme' style={{ marginLeft: "15px" }}><h3>{item.title}</h3></span>
+                                </div>
+                                <div className='mt-2' style={{ width: '170px' }}>
+                                    {item.child.map((item) => {
+                                        return <h4 className='text-white cursor-pointer my-4' onClick={() => { navigate(`${item.route}`) }}>
+
+                                            <img src="/images/register-02.png" alt="" height={15} />
+
+                                            <span style={{ marginLeft: "15px" }}>{item.name}</span>
+                                        </h4>
+                                    })}
+                                </div>
+                            </Col>
+                        })}
+                    </Row>
+
+                </Modal.Body>
+            </Modal>
+            {/* <Navbar expand="lg" className="text-light bg-body-header" variant='dark'>
                 <Container>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -50,8 +144,8 @@ const Header = () => {
                             </NavDropdown>
                             <NavDropdown title="Pages" id="basic-nav-dropdown">
                                 <NavDropdown.Item onClick={()=>{navigate('/create')}}>Create</NavDropdown.Item>
-                                <NavDropdown.Item onClick={()=>{navigate('/pokemon-box')}}>Pokemon Box</NavDropdown.Item>
                                 <NavDropdown.Item onClick={()=>{navigate('/gold-market')}}>Gold Market</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>{navigate('/pokemon-box')}}>Pokemon Box</NavDropdown.Item>
                                 <NavDropdown.Item onClick={()=>{navigate('/classification')}}>Classification</NavDropdown.Item>
                                 <NavDropdown.Item onClick={()=>{navigate('/city')}}>City</NavDropdown.Item>
                                 <NavDropdown.Item onClick={()=>{navigate('/backpack')}}>Backpack</NavDropdown.Item>
@@ -72,7 +166,7 @@ const Header = () => {
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
-            </Navbar>
+            </Navbar> */}
         </header>
     );
 };

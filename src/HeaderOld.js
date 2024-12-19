@@ -6,7 +6,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Col, Row } from 'react-bootstrap';
 
 
 const Header = () => {
@@ -14,53 +13,7 @@ const Header = () => {
     const navigate = useNavigate()
     return (
         <header className='header-main'>
-            <ul className='p-3 d-flex justify-content-between'>
-                <li onClick={() => { navigate('/gold-market') }}>
-                    <img src="/images/register-02.png" alt="" height={15} />
-                    <span>
-                        Gold Market
-                    </span>
-                    </li>
-                <li onClick={() => { navigate('/city') }}>
-                    <img src="/images/register-02.png" alt="" height={15} />
-                    <span>
-                        City
-                    </span>
-                </li>
-                <li onClick={() => { navigate('/classification') }}>
-                    <img src="/images/register-02.png" alt="" height={15} />
-                    <span>
-                        Classification
-                    </span>
-                </li>
-                <li onClick={() => { navigate('/pokemon-box') }}>
-                    <img src="/images/register-02.png" alt="" height={15} />
-                    <span>
-                        Pokemon Box
-                    </span>
-                </li>
-                <li onClick={() => { navigate('/backpack') }}>
-                    <img src="/images/register-02.png" alt="" height={15} />
-                    <span>
-                        Backpack
-                    </span>
-                </li>
-                <li onClick={() => { navigate('/map') }}>
-                    <img src="/images/register-02.png" alt="" height={15} />
-                    <span>
-                        Map
-                    </span>
-                </li>
-                <li onClick={() => { navigate('/npcs') }}>
-                    <img src="/images/register-02.png" alt="" height={15} />
-                    <span>
-                        NPCs
-                    </span>
-                </li>
-                <li onClick={() => { navigate('/npcs') }}>
-                </li>
-            </ul>
-            {/* <Navbar expand="lg" className="text-light bg-body-header" variant='dark'>
+            <Navbar expand="lg" className="text-light bg-body-header" variant='dark'>
                 <Container>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -119,7 +72,7 @@ const Header = () => {
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
-            </Navbar> */}
+            </Navbar>
         </header>
     );
 };

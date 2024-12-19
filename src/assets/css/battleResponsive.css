@@ -1173,6 +1173,13 @@
 
 
 @media all and (max-width:575px){
+
+    .responsive-menu-li{
+        display: none !important;
+    }
+    .responsive-menu{
+        display: flex !important;
+    }
     .your-pokemon{
         position: absolute;
         bottom: 146px;

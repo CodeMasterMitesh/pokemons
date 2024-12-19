@@ -1,25 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import { Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsers } from '../../../store/auth';
-import { getSearchPlayers } from '../../../store/friends';
+import { duelInvite, getSearchPlayers } from '../../../store/friends';
 import OnlineTrainers from '../../../view/Component/OnlineTrainers';
 import GoldSiverHeader from '../../../view/HomePage/GoldSiverHeader';
 import { useNavigate } from 'react-router-dom';
+
+
+
+
+
 function ChallengeTrainer() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const online_users = useSelector(state => state.auth.online_users)
-    const search_players = useSelector(state => state.friend.search_players)
+    const duel_data =useSelector(state=>state.friend.duel_data)
+    const [duel,setDuel] = useState({naam:"",bedrag:""});
 
     const init = () => {
-        // dispatch(getUsers()).unwrap()
         dispatch(getSearchPlayers(''))
-
     }
-    const handleChallange=()=>{
-        navigate('/challange-request?challanged=true')
+    const handleChallange=async ()=>{
+        let data=await dispatch(duelInvite(duel)).unwrap()
+        if(data?.duel_id){
+            let params = new URLSearchParams('/challange-request');
+            params.set('challanged',true)
+            params.set('duel',data.duel_id)
+            navigate(`/challange-request?${params.toString()}`); //
+        }
     }
     useEffect(() => {
         init()
@@ -44,6 +52,8 @@ function ChallengeTrainer() {
                                 <input type="text"
                                     className="form-control"
                                     id="name"
+                                    value={duel.naam}
+                                    onChange={(e)=>setDuel({...duel,naam:e.target.value})}
                                 />
                                 <img src="/images/register-02.png" alt="" />
                             </div>
@@ -53,7 +63,10 @@ function ChallengeTrainer() {
                             <div className="register-item-inner4 m-0">
                                 <input type="text"
                                     className="form-control bg-theme"
-                                    id="name" />
+                                    id="name" 
+                                    value={duel.bedrag}
+                                    onChange={(e)=>setDuel({...duel,bedrag:e.target.value})}
+                                    />
                                 <img src="/images/register-02.png" alt="" />
                             </div>
                         </Col>

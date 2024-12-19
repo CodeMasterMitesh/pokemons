@@ -49,5 +49,12 @@ export const API_ENDPOINTS = {
     UPDATE_HONORS:'api/Honars.php',
     GET_HONORS:"api/getHonors.php",
     ACCOUNT_SHARE:"api/shareAccount.php",
-    BOX_UPDATE:'api/boxUpdate'
+    BOX_UPDATE:'api/boxUpdate',
+    GET_TRAVEL:"api/getTravels.php",
+    DUEL_INVITE:"api/duelInvite.php",
+    DUEL_ACCEPT:"api/duelAccept.php",
+    DUEL_DECLINE:"api/duelCancel.php",
+    DUEL_EXPIRE:"api/duelExpire.php",
+    DUEL_BY_TRAINER:"api/getDualByTrainerId.php",
+    PLAYER_POKEMONS_BY_PLAYER:"api/getPokemonByPlayerName.php"
 };

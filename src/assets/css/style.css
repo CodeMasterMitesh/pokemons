@@ -2724,7 +2724,23 @@ body {
     font-weight: 800;
     border-radius: 20px;
 }
-
+.border-bottom-theme{
+    padding: 10px;
+    border-bottom: 2px solid #ababac;
+}
+.border-bottom-theme span{
+    color: #ababac;
+}
+.menu-container{
+    backdrop-filter: blur(2px);
+    padding: 30px !important;
+}
+.responsive-menu-li{
+    display: block;
+}
+.responsive-menu{
+    display: none !important;
+}
 .opp-attacking{
     position: absolute;
     right: 50%;

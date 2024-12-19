@@ -9,7 +9,8 @@ const initialState = {
     pokemons: [],
     characters: [],
     player_pokemons: [],
-    pokemon: {}
+    pokemon: {},
+    pokemons_by_player: []
 };
 
 export const getPokemons = createAsyncThunk('auth/getPokemons', async (_, { rejectWithValue }) => {
@@ -44,6 +45,31 @@ export const getPlayerPokemons = createAsyncThunk('auth/getPlayerPokemons', asyn
 
                 // return rejectWithValue(error.response.data);
             });
+    }
+
+    catch (error) {
+
+    }
+});
+export const getPokemonsByPlayer = createAsyncThunk('auth/getPokemonsByPlayer', async (data, { rejectWithValue }) => {
+    try {
+        if (data) {
+
+            return axios({
+                url: `${API_ENDPOINTS.PLAYER_POKEMONS_BY_PLAYER}`,
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                data: {
+                    playerName: data
+                }
+            })
+                .then(response => response.data)
+                .catch(error => {
+                    toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+                });
+        }
     }
 
     catch (error) {
@@ -186,6 +212,9 @@ export const pokemonSlice = createSlice({
             .addCase(addPlayerPokemon.rejected, (state, action) => {
                 state.add_player_pokemons_loading = false;
                 state.add_player_pokemons_error = action.payload;
+            })
+            .addCase(getPokemonsByPlayer.fulfilled, (state, action) => {
+                state.pokemons_by_player = action.payload;
             })
     }
 });

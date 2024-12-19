@@ -203,7 +203,9 @@ export const getBlockList = createAsyncThunk('auth/getBlockList', async (data, {
         headers: {
             'Content-Type': 'application/json',
         },
-        data: data
+        data: {
+            playerName: data
+        }
     })
         .then(response => response.data)
         .catch(error => {
@@ -240,13 +242,143 @@ export const createMessage = createAsyncThunk('auth/createMessage', async (data,
 
 
 
+export const getDualByTrainerId = createAsyncThunk('auth/getDualByTrainerId', async (data, { rejectWithValue }) => {
+
+    // return await 
+    return axios({
+        url: API_ENDPOINTS.DUEL_BY_TRAINER,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data
+    })
+        .then(response => response.data)
+        .catch(error => {
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+        });
+});
+
+export const duelInvite = createAsyncThunk('auth/duelInvite', async (data, { rejectWithValue }) => {
+
+    // return await 
+    try {
+
+        return toast.promise(axios({
+            url: API_ENDPOINTS.DUEL_INVITE,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data
+        }), {
+            pending: i18n.t('Sending...'),
+            success: i18n.t('Success!'),
+            error: {
+                render({ data }) {
+                    return data?.response?.data?.message || i18n.t('Failed!');
+                }
+            }
+        }
+        )
+            .then(response => response.data)
+            .catch(error => {
+                toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+            });
+
+    } catch (error) {
+
+    }
+});
+
+export const duelAccept = createAsyncThunk('auth/duelAccept', async (id, { rejectWithValue }) => {
+
+    // return await 
+    return toast.promise(axios({
+        url: API_ENDPOINTS.DUEL_ACCEPT,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data: {
+            status: "accept",
+            duel_id: id
+        }
+    }), {
+        pending: i18n.t('Sending...'),
+        success: i18n.t('Success!'),
+        error: {
+            render({ data }) {
+                return data?.response?.data?.message || i18n.t('Failed!');
+            }
+        }
+    }
+    )
+        .then(response => response.data)
+        .catch(error => {
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+        });
+});
+
+export const duelDecline = createAsyncThunk('auth/duelDecline', async (id, { rejectWithValue }) => {
+
+    // return await 
+    return toast.promise(axios({
+        url: API_ENDPOINTS.DUEL_DECLINE,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data:{
+            "status": "cancel",
+            duel_id: id
+          }
+    }), {
+        pending: i18n.t('Sending...'),
+        success: i18n.t('Success!'),
+        error: {
+            render({ data }) {
+                return data?.response?.data?.message || i18n.t('Failed!');
+            }
+        }
+    }
+    )
+        .then(response => response.data)
+        .catch(error => {
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+
+        });
+});
+
+export const dualExpire = createAsyncThunk('auth/dualExpire', async (data, { rejectWithValue }) => {
+
+    // return await 
+    await axios({
+        url: API_ENDPOINTS.DUEL_EXPIRE,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data
+    })
+        .then(response => response.data)
+        .catch(error => {
+            toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
+        });
+})
+
+
 const initialState = {
     friends: [],
     friend_requests: [],
     block_friends: [],
     online_friend_count: 0,
     search_players: [],
-    block_friend_list: []
+    block_friend_list: [],
+    duel_data: []
 };
 export const friendSlicer = createSlice({
     name: 'friend',
@@ -257,6 +389,14 @@ export const friendSlicer = createSlice({
         bulider
             .addCase(getFriends.pending, (state) => {
                 state.friends_loading = true;
+                state.error = null;
+            })
+            .addCase(duelInvite.fulfilled, (state, action) => {
+                state.duel_data = action.payload ? action.payload : [];
+                state.error = null;
+            })
+            .addCase(getDualByTrainerId.fulfilled, (state, action) => {
+                state.duel_data = action.payload ? action.payload?.dual_data : {};
                 state.error = null;
             })
             .addCase(getFriends.fulfilled, (state, action) => {

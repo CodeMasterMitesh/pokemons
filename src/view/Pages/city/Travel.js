@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Card, Carousel, Col, Form, Row, Table } from 'react-bootstrap'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { getTravels } from 'store/other';
 import { getPlayerPokemons } from 'store/pokemon';
 import OnlineTrainers from 'view/Component/OnlineTrainers';
 import Silver from 'view/Component/Silver';
@@ -11,10 +12,12 @@ import travel from 'view/JsonData/travel'
 function Travel() {
     const [selectedIndex, setSelectedIndex] = useState(0)
     const player_pokemons = useSelector(state => state.pokemon.player_pokemons);
+    const lravel_data = useSelector(state => state.other.lravel_data);
 
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getPlayerPokemons())
+        dispatch(getTravels())
     }, [])
 
     const handleSelect = async (selectedIndex) => {
@@ -35,15 +38,15 @@ function Travel() {
                                 prevIcon={<img src="/images/pokeProfile/leftarrow.png" alt="images" className='navigation-image' style={{ width: '30px' }} />}
                                 nextIcon={<img src="/images/pokeProfile/rightarrow.png" alt="images" className='navigation-image' style={{ width: '30px' }} />}
                             >
-                                {travel.map((item, index) => {
+                                {lravel_data.map((item, index) => {
                                     return <Carousel.Item key={index}>
                                         <div className='d-flex flex-column position-relative'>
                                             <div className='gym-trainer'>
-                                                <img className='trainer' src={`/images/regioes/${item.title}.png`} alt="" />
+                                                <img className='trainer' src={`/images/regioes/${item.wereld}.png`} alt="" />
                                                 {item.lock && <img className='locked-trainer' src="/images/icons/avatar/lock.png" alt="" style={{ zIndex: 2 }} />}
                                                 <div className='travel-title p-2'>
-                                                    <p><h4 style={{ fontSize: '46px' }}>{item.title}</h4></p>
-                                                    <p><h5 style={{ fontSize: '26px' }}>Cost : <Silver />{item.silver}</h5></p>
+                                                    <p><h4 style={{ fontSize: '46px' }}>{item.region_name}</h4></p>
+                                                    <p><h5 style={{ fontSize: '26px' }}>Cost : <Silver />{item.cost}</h5></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -53,15 +56,15 @@ function Travel() {
                             <div className='card-header'></div>
                             <div className='p-3'>
                                 <p style={{ fontSize: '13px' }}><b>Duration:</b></p>
-                                <p style={{ fontSize: '13px' }}>{travel[selectedIndex].duration}</p>
+                                <p style={{ fontSize: '13px' }}>{lravel_data[selectedIndex].time}</p>
 
                                 <p style={{ fontSize: '13px' }} className='mt-4'><b>Description:</b></p>
-                                <div style={{ fontSize: '13px' }} dangerouslySetInnerHTML={{ __html: travel[selectedIndex].description }}></div>
+                                <div style={{ fontSize: '13px' }} dangerouslySetInnerHTML={{ __html: lravel_data[selectedIndex].region_text }}></div>
 
                             </div>
                             <div>
                                 <div className="register-item-inner6 w-100">
-                                    <button style={{ width: "200px", height: "40px", fontSize: '12px' }}>You haven't unlock this</button>
+                                    <button style={{ width: "200px", height: "40px", fontSize: '12px' }}>{lravel_data[selectedIndex].button_text}</button>
                                 </div>
                             </div>
                         </Card.Body>
