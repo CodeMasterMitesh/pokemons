@@ -51,11 +51,11 @@ function Battle() {
         let opponent_pokemon = [];
 
 
-        const payload2 = {
-            status: "expire",
-            duel_id: data?.duel_data?.id
-        }
-        let result = await dispatch(dualExpire(payload2)).unwrap();
+        // const payload2 = {
+        //     status: "expire",
+        //     duel_id: data?.duel_data?.id
+        // }
+        // let result = await dispatch(dualExpire(payload2)).unwrap();
 
         if (challanged == 'true' && data?.duel_data?.id) {
             user_pokemon = await dispatch(getPokemonsByPlayer(data?.duel_data?.uitdager)).unwrap()
