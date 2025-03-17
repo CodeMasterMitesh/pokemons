@@ -6,12 +6,13 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../contexts/AuthContext';
+import { useSelector } from 'react-redux';
 const Login = () => {
     const { t } = useTranslation()
     const { register, handleSubmit, formState: { errors } } = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    const login_loading = useSelector(state=>state.auth.login_loading)
     const {login} = useAuth()
     const onSubmit = async (data) => {
         try {
@@ -63,7 +64,7 @@ const Login = () => {
                                 <Link to='/forgot-password'>{t('Forgot Password')}?</Link>
                             </div>
                             <div className="register-item-inner6">
-                                <button type="submit">{t('Submit')}</button>
+                                <button type="submit" disabled={login_loading}>{t('Submit')}</button>
                             </div>
                             <div className="register-item-inner6 mt-3">
                                 <button onClick={()=>{navigate('/register')}} className='register-button'>

@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import auth from './auth'
+import battle from './battle'
 import chat from './chat'
 import friend from './friends'
 import packages from './packages'
@@ -20,6 +21,7 @@ export const store = configureStore({
         pokemon,
         other,
         pages,
-        settings
+        settings,
+        battle
     }
 })

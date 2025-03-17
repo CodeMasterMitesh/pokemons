@@ -24,8 +24,6 @@ export const getPokemons = createAsyncThunk('auth/getPokemons', async (_, { reje
         .then(response => response.data)
         .catch(error => {
             toast.error((error?.response?.data?.message || error?.response?.data?.error) || 'failed!')
-
-
         });
 });
 export const getPlayerPokemons = createAsyncThunk('auth/getPlayerPokemons', async (_, { rejectWithValue }) => {

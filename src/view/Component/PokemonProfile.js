@@ -88,12 +88,12 @@ function PokemonProfile({ data,className }) {
               <tr>
                 <th colSpan={2}>
                   <div className='d-flex justify-content-center gap-3'>
-                    <a href="" className='text-decoration-none text-white'>Natural Gift</a> |
-                    <a href="" className='text-decoration-none text-white'>Punishment</a>
+                    <a href="#" className='text-decoration-none text-white'>Natural Gift</a> |
+                    <a href="#" className='text-decoration-none text-white'>Punishment</a>
                   </div>
                   <div className='d-flex justify-content-center gap-3'>
-                    <a href="" className='text-decoration-none text-white'>Future Sight </a> |
-                    <a href="" className='text-decoration-none text-white'>Sky Attack</a>
+                    <a href="#" className='text-decoration-none text-white'>Future Sight </a> |
+                    <a href="#" className='text-decoration-none text-white'>Sky Attack</a>
                   </div>
                 </th>
                 <td>{data.has_calc}</td>

@@ -90,6 +90,7 @@ function PokemonBox() {
                     if (!item.wild_id) {
                         i = index;
                     }
+                    return true
                 })
                 newDestinationList.splice(i, 1);
             }
@@ -129,7 +130,7 @@ function PokemonBox() {
     }
     useEffect(() => {
         dispatch(getPlayerPokemons())
-    }, [])
+    }, [dispatch])
 
     const handleConfigOpen = () => {
         setConfigBox({ name: selected.name, img: selected.img.split('.')[0] })
@@ -373,7 +374,6 @@ const styles = {
     bxpokemon: {
         textAlign: 'center',
         cursor: 'grab',
-        height: "100%",
         width: "10%",
         height: "38px",
         // background:'white'

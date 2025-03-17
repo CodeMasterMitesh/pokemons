@@ -8,6 +8,7 @@ import { Badge, Button } from 'react-bootstrap'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
 import { dualExpire, getDualByTrainerId } from 'store/friends'
+import { doAttck, getAttckLogs } from 'store/battle'
 function Battle() {
 
     const [searchParams, setSearchParams] = useSearchParams();
@@ -60,6 +61,15 @@ function Battle() {
         if (challanged == 'true' && data?.duel_data?.id) {
             user_pokemon = await dispatch(getPokemonsByPlayer(data?.duel_data?.uitdager)).unwrap()
             opponent_pokemon = await dispatch(getPokemonsByPlayer(data?.duel_data?.tegenstander)).unwrap()
+            opponent_pokemon?.data.map((item)=>{
+                item.origina_level = JSON.parse(JSON.stringify(item.leven))
+                return 
+            })
+            user_pokemon?.data.map((item)=>{
+                item.origina_level = JSON.parse(JSON.stringify(item.leven))
+                return
+            })
+
             setUser({ name: data?.duel_data?.uitdager, pokemons: user_pokemon?.data })
             setOpponent({ name: data?.duel_data?.tegenstander, pokemons: opponent_pokemon?.data })
             setYourPokemon(user_pokemon?.data[0] || {})
@@ -69,6 +79,15 @@ function Battle() {
             user_pokemon = await dispatch(getPokemonsByPlayer(data?.duel_data?.tegenstander)).unwrap()
             opponent_pokemon = await dispatch(getPokemonsByPlayer(data?.duel_data?.uitdager)).unwrap()
 
+
+            opponent_pokemon?.data.map((item)=>{
+                item.origina_level = JSON.parse(JSON.stringify(item.leven))
+                return
+            })
+            user_pokemon?.data.map((item)=>{
+                item.origina_level = JSON.parse(JSON.stringify(item.leven))
+                return
+            })
             setUser({ name: data?.duel_data?.tegenstander, pokemons: user_pokemon?.data })
             setOpponent({ name: data?.duel_data?.uitdager, pokemons: opponent_pokemon?.data })
             setYourPokemon(user_pokemon?.data[0] || {})
@@ -95,28 +114,21 @@ function Battle() {
         },
     ])
     const attack = async (item) => {
-        if (!oppAttacking) {
-            setAttacking(true);
-            setCurrentAttack(item);
-            let new_hp = oppPokemon.leven - item.damage;
-            setOppPokemon({ ...oppPokemon, leven: new_hp });
+        setAttacking(true);
+        setCurrentAttack(item);
+        let new_hp = oppPokemon.leven - item.damage;
+        setOppPokemon({ ...oppPokemon, leven: new_hp });
 
-            const response = await axios.post('http://localhost:3000/attack', {
-                attacker: name,
-                target: oppName,
-                damage: parseInt(item.damage),
-            }).then(() => {
-                setAttacking(false);
-                setCurrentAttack({});
-            })
-            // setTimeout(() => {
-            //     if (new_hp > 0) {
-            //         opp_attack()
-            //     }
-            // }, 2000);
-            if (new_hp <= 0) {
-                setWinLose('win');
-            }
+        const attack = dispatch(doAttck(item)).unwrap()
+        setAttacking(false);
+        setCurrentAttack({});
+        // setTimeout(() => {
+        //     if (new_hp > 0) {
+        //         opp_attack()
+        //     }
+        // }, 2000);
+        if (new_hp <= 0) {
+            setWinLose('win');
         }
     }
     const opp_attack = (data) => {
@@ -131,17 +143,20 @@ function Battle() {
             }
         }
     };
-    useEffect(() => {
-        dispatch(getPlayerPokemons())
-    }, [name])
+    const attckLog=()=>{
+        const logs = dispatch(getAttckLogs(duel_data?.id));
+        let your_decrease_hp = logs.filter(item=> item.to == yourPokemon?.id).reduce((item,sum)=>item.damage+sum,0);
+        let opp_decrease_hp = logs.filter(item=> item.to == oppPokemon?.id).reduce((item,sum)=>item.damage+sum,0);
+        setOppPokemon({ ...oppPokemon, leven: oppPokemon.origina_level - opp_decrease_hp });
+        setYourPokemon({ ...yourPokemon, leven: yourPokemon.origina_level - your_decrease_hp });
+    }
+
     useEffect(() => {
         getDualData();
-        setTimeout(() => {
-            if (winLose == 'win' || winLose == 'lose') {
-                navigate('/home')
-            }
-        }, 2000);
-    }, [winLose])
+        setInterval(()=>{
+            attckLog()
+        },3000)
+    }, [])
     useEffect(() => {
         // if (name == 1) {
         //     setYourPokemon(pokemons[0])

@@ -56,5 +56,8 @@ export const API_ENDPOINTS = {
     DUEL_DECLINE:"api/duelCancel.php",
     DUEL_EXPIRE:"api/duelExpire.php",
     DUEL_BY_TRAINER:"api/getDualByTrainerId.php",
-    PLAYER_POKEMONS_BY_PLAYER:"api/getPokemonByPlayerName.php"
+    PLAYER_POKEMONS_BY_PLAYER:"api/getPokemonByPlayerName.php",
+    GET_ATTACK_LIST:"api/getAttcklist.php",
+    DO_ATTACK:"api/doAttack.php",
+    GET_ATTACK_LOGS:"api/getAttackLogs.php",
 };

@@ -309,7 +309,7 @@ function Character() {
                                                                 <Tooltip id={`star-${index}`} />
                                                                 
                                                                 <div className='d-flex'>
-                                                                    <div>{item.poke} (+{item.up}<img src={`/images/items/${item.img}.png`} />)</div>
+                                                                    <div>{item.poke} (+{item.up}<img src={`/images/items/${item.img}.png`} alt=''/>)</div>
                                                                 </div>
 
                                                             </div></a>

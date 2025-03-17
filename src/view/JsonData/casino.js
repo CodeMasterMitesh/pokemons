@@ -1,4 +1,4 @@
-export default[
+const arr =[
     {
         button:"Visit Slot",
         img:"/slots.png"
@@ -21,3 +21,4 @@ export default[
     },
 
 ]
+export default  arr

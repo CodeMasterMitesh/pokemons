@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Col, Form, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProfile } from '../../store/auth';
 import { accountSharing, changePersonalData, updateEmail, updatePassword } from '../../store/settings';
 import { getFriends } from '../../store/friends';
 import { toast } from 'react-toastify';
@@ -12,7 +11,7 @@ import { toast } from 'react-toastify';
 function Settings() {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const { register: registerForm2, handleSubmit: handleSubmitForm2, formState: { errors: errorsForm2 } } = useForm();
+    const { register: registerForm2, handleSubmit: handleSubmitForm2 } = useForm();
     const onSubmitForm2 = (data) => {
         dispatch(updateEmail(data))
     };
@@ -63,7 +62,7 @@ function Settings() {
     }, [profile_data])
     useEffect(()=>{
         dispatch(getFriends())
-    },[])
+    },[dispatch])
     return (
         <div>
             <GoldSiverHeader previous={'/home'} title='Settings'>

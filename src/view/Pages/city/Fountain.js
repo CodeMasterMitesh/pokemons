@@ -104,7 +104,7 @@ function Fountain() {
     };
     useEffect(() => {
         dispatch(getPlayerPokemons())
-    }, []);
+    }, [dispatch]);
     return (
         <div>
             <GoldSiverHeader previous='/city' title='Fountain'>

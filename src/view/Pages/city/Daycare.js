@@ -31,7 +31,7 @@ function Daycare() {
     };
     useEffect(() => {
         dispatch(getPlayerPokemons())
-    }, []);
+    }, [dispatch]);
     return (
         <GoldSiverHeader previous='map' title='Daycare'>
 

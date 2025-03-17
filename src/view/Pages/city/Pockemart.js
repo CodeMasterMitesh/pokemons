@@ -125,7 +125,7 @@ function Pockemart() {
 
     return (
         <div>
-            <GoldSiverHeader previous='/map' title='PokéMart'>
+            <GoldSiverHeader previous='/city' title='PokéMart'>
                 <div className='container'>
                     <Card border='dark' text='white' className='bg-theme'>
                         <Card.Header><h3 className='text-center'> PokéMart</h3></Card.Header>

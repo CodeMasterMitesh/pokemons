@@ -1,4 +1,4 @@
-export default[
+const arr=[
     {
         title:"Kanto",
         silver:100,
@@ -52,3 +52,4 @@ export default[
     },
 
 ]
+export default arr

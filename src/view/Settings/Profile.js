@@ -22,7 +22,7 @@ import { Tooltip } from 'react-tooltip';
 function Profile() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const params = useParams();
+    // const params = useParams();
     const [disableFlag, setDisableFlag] = useState(true)
     let current_name = JSON.parse(localStorage.getItem('userData'))?.playerName
     let name = JSON.parse(localStorage.getItem('userData'))?.playerName
@@ -116,7 +116,7 @@ function Profile() {
         dispatch(getPlayerPokemons())
         dispatch(getHonors())
         dispatch(getUserBadge())
-    }, [])
+    }, [dispatch,init])
     return (
         <div>
             <GoldSiverHeader title='Profile' previous='/home'>

@@ -1,5 +1,5 @@
 
-export default [
+const arr= [
     {
         title: "Social",
         child: [
@@ -101,3 +101,4 @@ export const home_menu=[
         route:"/npcs",
     },
 ]
+export default arr

@@ -12,10 +12,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-tooltip/dist/react-tooltip.css'
 import { ToastContainer } from 'react-toastify';
-// import Home from './view/HomePage/Home';
-
-// import ProtectedRoute from './ProtectedRoute.js';
-// import Battle from './view/HomePage/Battle';
 
 import { AuthProvider } from './contexts/AuthContext'; 
 import Route from './route/index.js';

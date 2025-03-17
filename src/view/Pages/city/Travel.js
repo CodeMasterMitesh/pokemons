@@ -12,7 +12,7 @@ import travel from 'view/JsonData/travel'
 function Travel() {
     const [selectedIndex, setSelectedIndex] = useState(0)
     const player_pokemons = useSelector(state => state.pokemon.player_pokemons);
-    const lravel_data = useSelector(state => state.other.lravel_data);
+    const lravel_data = useSelector(state => state.other.lravel_data||[] );
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -25,7 +25,7 @@ function Travel() {
     };
     return (
         <div>
-            <GoldSiverHeader previous='/map' title='Travel'>
+            <GoldSiverHeader previous='/city' title='Travel'>
                 <div className='container'>
                     <Card border='dark' text='white' className='bg-theme'>
                         <Card.Header><h5 className='text-center'>Here you can travel to other regions</h5></Card.Header>
@@ -38,7 +38,7 @@ function Travel() {
                                 prevIcon={<img src="/images/pokeProfile/leftarrow.png" alt="images" className='navigation-image' style={{ width: '30px' }} />}
                                 nextIcon={<img src="/images/pokeProfile/rightarrow.png" alt="images" className='navigation-image' style={{ width: '30px' }} />}
                             >
-                                {lravel_data.map((item, index) => {
+                                {lravel_data?.map((item, index) => {
                                     return <Carousel.Item key={index}>
                                         <div className='d-flex flex-column position-relative'>
                                             <div className='gym-trainer'>
@@ -56,15 +56,15 @@ function Travel() {
                             <div className='card-header'></div>
                             <div className='p-3'>
                                 <p style={{ fontSize: '13px' }}><b>Duration:</b></p>
-                                <p style={{ fontSize: '13px' }}>{lravel_data[selectedIndex].time}</p>
+                                <p style={{ fontSize: '13px' }}>{lravel_data[selectedIndex]?.time}</p>
 
                                 <p style={{ fontSize: '13px' }} className='mt-4'><b>Description:</b></p>
-                                <div style={{ fontSize: '13px' }} dangerouslySetInnerHTML={{ __html: lravel_data[selectedIndex].region_text }}></div>
+                                <div style={{ fontSize: '13px' }} dangerouslySetInnerHTML={{ __html: lravel_data[selectedIndex]?.region_text }}></div>
 
                             </div>
                             <div>
                                 <div className="register-item-inner6 w-100">
-                                    <button style={{ width: "200px", height: "40px", fontSize: '12px' }}>{lravel_data[selectedIndex].button_text}</button>
+                                    <button style={{ width: "200px", height: "40px", fontSize: '12px' }}>{lravel_data[selectedIndex]?.button_text}</button>
                                 </div>
                             </div>
                         </Card.Body>
@@ -99,7 +99,7 @@ function Travel() {
                                                 <td>Pokemon:</td>
                                                 <td>
                                                     <Form.Select className='bg-theme text-white'>
-                                                        {player_pokemons.map((item) => {
+                                                        {player_pokemons?.map((item) => {
                                                             return <option>{item.naam}</option>
                                                         })}
                                                     </Form.Select>

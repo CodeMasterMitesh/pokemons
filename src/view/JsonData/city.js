@@ -1,4 +1,4 @@
-export default [
+const arr = [
     {
         id:'1',
         title:'Take on GYM leaders to earn badges and unlock new regions',
@@ -121,3 +121,5 @@ export default [
         background:'#ff00007a'
     },
 ]
+
+export default arr

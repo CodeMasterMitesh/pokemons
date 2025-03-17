@@ -1,4 +1,4 @@
-export default[
+const arr=[
     {
         title:"Roxanne",
         subtitle:"Stone Badge",
@@ -25,3 +25,4 @@ export default[
     },
 
 ]
+export default arr

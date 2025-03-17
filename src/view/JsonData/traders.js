@@ -1,4 +1,4 @@
-export default[
+const arr = [
     {
         description:`"Sorry, but I already have all the Pokémon I want!"`,
         img:"/Kayl.png"
@@ -12,3 +12,4 @@ export default[
         img:"/Remy.png"
     },
 ]
+export default arr

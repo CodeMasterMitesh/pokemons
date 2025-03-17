@@ -25,7 +25,7 @@ function Casino() {
     return (
 
         <div>
-            <GoldSiverHeader previous='/map' title='Casino'>
+            <GoldSiverHeader previous='/city' title='Casino'>
                 <div className='container'>
                     <Card border='dark' text='white' className='bg-theme'>
                         <Card.Header><h3 className='text-center'> Pokemon Casino</h3></Card.Header>
